@@ -41,10 +41,10 @@ export default function Header() {
               <span>Germany</span>
             </div>
             <span style={{ color: '#ddd' }}>|</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', cursor: 'pointer' }}>
+            <Link href="/search" style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', cursor: 'pointer', textDecoration: 'none', color: '#333' }}>
               <Search size={14} color="#555" />
               <span>Search</span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

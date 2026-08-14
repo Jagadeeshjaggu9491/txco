@@ -1,19 +1,64 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function Footer() {
   const currentYear = 2026;
+  const footerRef = useRef(null);
+  const columnsRef = useRef([]);
+
+  columnsRef.current = [];
+
+  const addToColumnRefs = (el) => {
+    if (el && !columnsRef.current.includes(el)) {
+      columnsRef.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    if (!footerRef.current) return;
+
+    const ctx = gsap.context(() => {
+      if (columnsRef.current.length > 0) {
+        gsap.fromTo(
+          columnsRef.current,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: footerRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <footer
+      ref={footerRef}
       style={{
         width: '100%',
-        backgroundColor: '#111625', // Exact dark charcoal/navy background matching reference screenshot
+        backgroundColor: '#111625',
         color: '#ffffff',
         padding: '4.5rem 2rem 2.2rem 2rem',
         borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        overflow: 'hidden',
       }}
     >
       <div
@@ -28,7 +73,7 @@ export default function Footer() {
         className="footer-grid-container"
       >
         {/* Left Column: Brand Logo */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <div ref={addToColumnRefs} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
           <Link href="/" style={{ display: 'inline-block' }}>
             <img
               src="/images/logo/logo.png"
@@ -37,14 +82,14 @@ export default function Footer() {
                 height: '56px',
                 width: 'auto',
                 objectFit: 'contain',
-                filter: 'brightness(0) invert(1)', // Pure crisp white logo rendering on dark background
+                filter: 'brightness(0) invert(1)',
               }}
             />
           </Link>
         </div>
 
         {/* Column 1: PRODUCTS */}
-        <div>
+        <div ref={addToColumnRefs}>
           <h4
             style={{
               fontSize: '0.82rem',
@@ -67,7 +112,7 @@ export default function Footer() {
         </div>
 
         {/* Column 2: INDUSTRIES */}
-        <div>
+        <div ref={addToColumnRefs}>
           <h4
             style={{
               fontSize: '0.82rem',
@@ -90,7 +135,7 @@ export default function Footer() {
         </div>
 
         {/* Column 3: SERVICES */}
-        <div>
+        <div ref={addToColumnRefs}>
           <h4
             style={{
               fontSize: '0.82rem',
@@ -113,7 +158,7 @@ export default function Footer() {
         </div>
 
         {/* Column 4: RESOURCES */}
-        <div>
+        <div ref={addToColumnRefs}>
           <h4
             style={{
               fontSize: '0.82rem',
@@ -136,7 +181,7 @@ export default function Footer() {
         </div>
 
         {/* Column 5: ABOUT US */}
-        <div>
+        <div ref={addToColumnRefs}>
           <h4
             style={{
               fontSize: '0.82rem',
