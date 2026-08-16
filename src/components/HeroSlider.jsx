@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function HeroSlider() {
   const realSlides = [
@@ -19,11 +20,11 @@ export default function HeroSlider() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Steady 4.5s auto slide interval
+  // Steady 5s auto slide interval
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext();
-    }, 4500);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -53,7 +54,7 @@ export default function HeroSlider() {
     }
   };
 
-  // Safety timer fallback to guarantee infinite continuous loop even if browser delays onTransitionEnd
+  // Safety timer fallback to guarantee infinite continuous loop
   useEffect(() => {
     if (!withTransition) {
       const raf = requestAnimationFrame(() => {
@@ -86,18 +87,14 @@ export default function HeroSlider() {
     }
   };
 
-  const getActiveDotIndex = () => {
-    if (currentIndex === 0) return realSlides.length - 1;
-    if (currentIndex >= slides.length - 1) return 0;
-    return currentIndex - 1;
-  };
-
   return (
     <section
       className="hero-slider-section"
       style={{
         width: '100%',
-        height: 'calc(100vh - 100px)',
+        height: '70vh',
+        maxHeight: '700px',
+        minHeight: '380px',
         position: 'relative',
         overflow: 'hidden',
         backgroundColor: '#0a0d14',
@@ -143,57 +140,81 @@ export default function HeroSlider() {
         ))}
       </div>
 
-      {/* Pagination Dots */}
-      <div
+      {/* Left Navigation Arrow */}
+      <button
+        onClick={goToPrev}
+        aria-label="Previous Slide"
         style={{
           position: 'absolute',
-          bottom: '24px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 10,
+          top: '50%',
+          left: '20px',
+          transform: 'translateY(-50%)',
+          zIndex: 20,
+          width: '44px',
+          height: '44px',
+          borderRadius: '50%',
+          backgroundColor: 'rgba(255, 255, 255, 0.85)',
+          color: '#333333',
+          border: 'none',
+          cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
-          gap: '8px',
-          padding: '0.45rem 1rem',
-          background: 'rgba(0, 0, 0, 0.4)',
-          backdropFilter: 'blur(8px)',
-          borderRadius: '999px',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
+          justifyContent: 'center',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+          transition: 'background-color 0.2s ease, transform 0.2s ease',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = '#ffffff';
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1.08)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
         }}
       >
-        {realSlides.map((_, idx) => {
-          const isActive = getActiveDotIndex() === idx;
-          return (
-            <button
-              key={idx}
-              onClick={() => {
-                if (isTransitioningRef.current) return;
-                isTransitioningRef.current = true;
-                setWithTransition(true);
-                setCurrentIndex(idx + 1);
-              }}
-              aria-label={`Go to slide ${idx + 1}`}
-              style={{
-                width: isActive ? '24px' : '8px',
-                height: '8px',
-                borderRadius: '999px',
-                background: isActive ? '#ffffff' : 'rgba(255, 255, 255, 0.45)',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-              }}
-            />
-          );
-        })}
-      </div>
+        <ChevronLeft size={24} />
+      </button>
+
+      {/* Right Navigation Arrow */}
+      <button
+        onClick={goToNext}
+        aria-label="Next Slide"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          right: '20px',
+          transform: 'translateY(-50%)',
+          zIndex: 20,
+          width: '44px',
+          height: '44px',
+          borderRadius: '50%',
+          backgroundColor: 'rgba(255, 255, 255, 0.85)',
+          color: '#333333',
+          border: 'none',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+          transition: 'background-color 0.2s ease, transform 0.2s ease',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = '#ffffff';
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1.08)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+        }}
+      >
+        <ChevronRight size={24} />
+      </button>
 
       <style jsx>{`
-        .hero-slider-section {
-          height: calc(100vh - 100px);
-        }
-        @supports (height: 100dvh) {
+        @media (max-width: 768px) {
           .hero-slider-section {
-            height: calc(100dvh - 100px) !important;
+            height: 52vh !important;
+            min-height: 300px !important;
           }
         }
       `}</style>

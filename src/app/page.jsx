@@ -3,8 +3,10 @@ import HeroSlider from '@/components/HeroSlider';
 import BannerSection from '@/components/BannerSection';
 import EngineeredSolutions from '@/components/EngineeredSolutions';
 import IndustriesWeServe from '@/components/IndustriesWeServe';
+import SustainabilitySection from '@/components/SustainabilitySection';
 import IndustrySolutions from '@/components/IndustrySolutions';
-import CustomManufacturer from '@/components/CustomManufacturer';
+import OfferingsGlanceSection from '@/components/OfferingsGlanceSection';
+import CustomerTestimonials from '@/components/CustomerTestimonials';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
@@ -17,8 +19,10 @@ export default function Home() {
         <BannerSection />
         <EngineeredSolutions />
         <IndustriesWeServe />
+        <SustainabilitySection />
         <IndustrySolutions />
-        <CustomManufacturer />
+        <OfferingsGlanceSection />
+        <CustomerTestimonials />
         <ContactSection />
       </main>
       <Footer />

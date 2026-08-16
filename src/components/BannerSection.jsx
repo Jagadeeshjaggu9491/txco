@@ -31,7 +31,7 @@ export default function BannerSection() {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 85%', // Triggers when top of section hits 85% of viewport
+            start: 'top 85%',
             toggleActions: 'play none none reverse',
           },
         }
@@ -46,13 +46,12 @@ export default function BannerSection() {
       ref={sectionRef}
       style={{
         width: '100%',
-        backgroundColor: '#1d2744',
-        padding: '3.2rem 1.5rem',
+        backgroundColor: '#343b46', // Dark slate charcoal matching reference screenshot
+        padding: '5.2rem 1.5rem', // Increased height of the banner
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
         overflow: 'hidden',
       }}
     >
@@ -60,10 +59,10 @@ export default function BannerSection() {
         ref={textRef}
         style={{
           fontFamily: "'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-          fontSize: 'clamp(1.4rem, 2.6vw, 2.3rem)',
+          fontSize: 'clamp(1.5rem, 2.8vw, 2.4rem)',
           fontWeight: '300',
           color: '#ffffff',
-          letterSpacing: '0.015em',
+          letterSpacing: '0.02em',
           margin: 0,
           lineHeight: '1.35',
         }}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -30,7 +31,7 @@ export default function EngineeredSolutions() {
       title: 'SEALING PRODUCTS',
       iconSrc: '/images/icons/sealing-products.png',
       items: [
-        'Gaskets, Kits & Seals Gaskets',
+        'Gaskets, Kits & Seals',
         'Hoses & Expansion Joints',
         'Fasteners & Bolting',
         'Flange Isolation Gaskets',
@@ -138,27 +139,26 @@ export default function EngineeredSolutions() {
       style={{
         width: '100%',
         backgroundColor: '#ffffff',
-        padding: '5.5rem 2rem',
+        padding: '5rem 2rem 5.5rem 2rem',
         color: '#253258',
         overflow: 'hidden',
       }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-        {/* Main Section Header */}
+        {/* Title Case Section Header matching reference screenshot */}
         <h2
           ref={headingRef}
           style={{
             fontFamily: "'Open Sans', -apple-system, sans-serif",
-            fontSize: 'clamp(1.4rem, 2.5vw, 2.1rem)',
-            fontWeight: '700',
-            textAlign: 'center',
-            color: '#253258',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            marginBottom: '4.5rem',
+            fontSize: 'clamp(1.5rem, 2.5vw, 2.2rem)',
+            fontWeight: '400',
+            textAlign: 'left',
+            color: '#3b4a76',
+            letterSpacing: '0.01em',
+            marginBottom: '4.2rem',
           }}
         >
-          ENGINEERED SOLUTIONS. BUILT TO PERFORM.
+          Engineered Solutions. Built to Perform.
         </h2>
 
         {/* 3 Columns Grid */}
@@ -176,20 +176,21 @@ export default function EngineeredSolutions() {
               ref={addToColumnRefs}
               style={{
                 display: 'flex',
-                alignItems: 'center',
+                alignItems: 'flex-start', // Display icons starting from top of card
                 gap: '1.2rem',
               }}
             >
-              {/* Icon Wrapper with Attached Border Line */}
+              {/* Icon Wrapper with Attached Border Line starting from top */}
               <div
                 style={{
                   flexShrink: 0,
                   position: 'relative',
                   paddingLeft: '2px',
                   display: 'flex',
-                  alignItems: 'center',
+                  alignItems: 'flex-start',
                   justifyContent: 'center',
                   overflow: 'hidden',
+                  marginTop: '2px',
                 }}
               >
                 {/* Attached Left Border Line */}
@@ -222,15 +223,18 @@ export default function EngineeredSolutions() {
 
               {/* Right Content */}
               <div>
+                {/* Prominent Column Title */}
                 <h3
                   style={{
                     fontFamily: "'Open Sans', -apple-system, sans-serif",
-                    fontSize: '1.02rem',
+                    fontSize: '1.28rem', // Increased title font size
                     fontWeight: '700',
-                    color: '#253258',
+                    color: '#3b4a76',
                     letterSpacing: '0.05em',
                     textTransform: 'uppercase',
-                    marginBottom: '1.1rem',
+                    marginBottom: '1.2rem',
+                    lineHeight: '1.25',
+                    marginTop: '2px',
                   }}
                 >
                   {col.title}
@@ -243,28 +247,48 @@ export default function EngineeredSolutions() {
                     margin: 0,
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '0.8rem',
+                    gap: '0.85rem',
                   }}
                 >
                   {col.items.map((item, itemIdx) => (
-                    <li
-                      key={itemIdx}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.65rem',
-                        fontSize: '0.91rem',
-                        fontWeight: '500',
-                        color: '#475569',
-                      }}
-                    >
-                      {/* Circle Arrow Icon */}
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 8 16 12 12 16" />
-                        <line x1="8" y1="12" x2="16" y2="12" />
-                      </svg>
-                      <span>{item}</span>
+                    <li key={itemIdx}>
+                      <Link
+                        href="#"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.45rem',
+                          fontSize: '0.94rem',
+                          fontWeight: '400',
+                          color: '#475569',
+                          textDecoration: 'none',
+                          transition: 'color 0.2s ease, transform 0.2s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.color = '#0b2b48';
+                          e.currentTarget.style.transform = 'translateX(4px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.color = '#475569';
+                          e.currentTarget.style.transform = 'translateX(0)';
+                        }}
+                      >
+                        <span>{item}</span>
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <line x1="4" y1="12" x2="20" y2="12" />
+                          <polyline points="13 5 20 12 13 19" />
+                        </svg>
+                      </Link>
                     </li>
                   ))}
                 </ul>

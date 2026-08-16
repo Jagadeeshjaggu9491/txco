@@ -45,7 +45,7 @@ export default function IndustriesWeServe() {
       iconSrc: '/images/icons/industries/Chemical.png',
     },
     {
-      title: 'Manufacture',
+      title: 'Manufacturing',
       iconSrc: '/images/icons/industries/Manufacture.png',
     },
     {
@@ -65,7 +65,7 @@ export default function IndustriesWeServe() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%', // Triggers smoothly when top of section hits 80% of screen
+          start: 'top 80%',
           toggleActions: 'play none none reverse',
         },
       });
@@ -115,7 +115,7 @@ export default function IndustriesWeServe() {
       ref={sectionRef}
       style={{
         width: '100%',
-        backgroundColor: '#f3f5f9', // Cool light grey background
+        backgroundColor: '#f2f6fc', // Light cool blue tint background matching reference screenshot
         padding: '5.5rem 2rem',
         color: '#253258',
         overflow: 'hidden',
@@ -127,27 +127,26 @@ export default function IndustriesWeServe() {
           <h2
             style={{
               fontFamily: "'Open Sans', -apple-system, sans-serif",
-              fontSize: 'clamp(1.5rem, 2.6vw, 2.2rem)',
-              fontWeight: '700',
-              color: '#253258',
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
+              fontSize: 'clamp(1.6rem, 2.8vw, 2.3rem)',
+              fontWeight: '600',
+              color: '#1e293b',
+              letterSpacing: '0.01em',
               marginBottom: '1rem',
             }}
           >
-            INDUSTRIES WE SERVE
+            Industries We Serve
           </h2>
           <p
             style={{
               fontFamily: "'Open Sans', -apple-system, sans-serif",
               fontSize: '0.96rem',
               color: '#475569',
-              maxWidth: '680px',
+              maxWidth: '720px',
               margin: '0 auto',
-              lineHeight: '1.55',
+              lineHeight: '1.6',
             }}
           >
-            We solve urgent operating needs while helping teams scale for tomorrow with technical expertise built for demanding environments.
+            TXCO can help you solve the urgent needs you face today while helping you scale for tomorrow. Learn how we customize our solutions and technical expertise around your industry's unique challenges.
           </p>
         </div>
 
@@ -173,14 +172,14 @@ export default function IndustriesWeServe() {
                 textAlign: 'center',
               }}
             >
-              {/* Perfect 1:1 Square Card Box */}
+              {/* Perfect 1:1 Square Card Box with Dark Navy Border */}
               <div
                 style={{
                   width: '100%',
                   aspectRatio: '1 / 1',
                   backgroundColor: '#ffffff',
                   borderRadius: '20px',
-                  border: '1px solid #cbd5e1',
+                  border: '1.5px solid #2a3860', // Dark navy border line matching screenshot
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -192,12 +191,12 @@ export default function IndustriesWeServe() {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-5px)';
-                  e.currentTarget.style.borderColor = '#253258';
+                  e.currentTarget.style.borderColor = '#0b2b48';
                   e.currentTarget.style.boxShadow = '0 12px 28px rgba(37, 50, 88, 0.14)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#cbd5e1';
+                  e.currentTarget.style.borderColor = '#2a3860';
                   e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.03)';
                 }}
               >
@@ -218,7 +217,7 @@ export default function IndustriesWeServe() {
               {/* Title under Card */}
               <span
                 style={{
-                  fontSize: '0.9rem',
+                  fontSize: '0.94rem',
                   fontWeight: '600',
                   color: '#1e293b',
                   lineHeight: '1.3',
@@ -234,46 +233,58 @@ export default function IndustriesWeServe() {
         <div ref={buttonRef} style={{ textAlign: 'center' }}>
           <button
             style={{
-              padding: '0.9rem 2.2rem',
-              backgroundColor: '#344473',
+              padding: '0.85rem 2rem',
+              backgroundColor: '#3b4674',
               color: '#ffffff',
-              fontSize: '0.85rem',
+              fontSize: '0.9rem',
               fontWeight: '700',
-              letterSpacing: '0.08em',
+              letterSpacing: '0.06em',
               textTransform: 'uppercase',
               border: 'none',
               borderRadius: '0px',
               cursor: 'pointer',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.65rem',
+              gap: '0.85rem',
               transition: 'background-color 0.2s ease, transform 0.2s ease',
-              boxShadow: '0 4px 15px rgba(52, 68, 115, 0.3)',
+              boxShadow: '0 4px 15px rgba(59, 70, 116, 0.25)',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#253258';
+              e.currentTarget.style.backgroundColor = '#2a3356';
               e.currentTarget.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#344473';
+              e.currentTarget.style.backgroundColor = '#3b4674';
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
             <span>VIEW INDUSTRIES</span>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{ flexShrink: 0 }}
+            <div
+              style={{
+                width: '24px',
+                height: '24px',
+                borderRadius: '50%',
+                backgroundColor: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
             >
-              <line x1="4" y1="12" x2="20" y2="12" />
-              <polyline points="13 5 20 12 13 19" />
-            </svg>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#3b4674"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <polyline points="13 5 20 12 13 19" />
+              </svg>
+            </div>
           </button>
         </div>
       </div>

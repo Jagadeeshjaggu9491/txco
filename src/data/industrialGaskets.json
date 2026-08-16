@@ -1,0 +1,51 @@
+[
+  {
+    "id": "rtj",
+    "title": "RING TYPE JOINT (RTJ)",
+    "subtitle": "R • RX • BX",
+    "image": "/images/products/industrial-gaskets/ring-type-joint.png",
+    "href": "/products/gaskets-kits-seals/rtj"
+  },
+  {
+    "id": "spiral-wound",
+    "title": "SPIRAL WOUND GASKETS",
+    "subtitle": "Style R • RIR • CG • CGI",
+    "image": "/images/products/industrial-gaskets/sprial-wound-gaskets.png",
+    "href": "/products/gaskets-kits-seals/spiral-wound"
+  },
+  {
+    "id": "kammprofile",
+    "title": "KAMMPROFILE GASKETS",
+    "subtitle": "High compressibility",
+    "image": "/images/products/industrial-gaskets/kammprofile-gaskets.png",
+    "href": "/products/gaskets-kits-seals/kammprofile"
+  },
+  {
+    "id": "non-metallic",
+    "title": "NON-METALLIC GASKETS & GASKET SHEETS",
+    "subtitle": "PTFE, Graphite, EPDM/Rubber, CNAF, etc.",
+    "image": "/images/products/industrial-gaskets/non-metallic-gaskets.png",
+    "href": "/products/gaskets-kits-seals/non-metallic"
+  },
+  {
+    "id": "flange-insulation",
+    "title": "FLANGE INSULATION KITS",
+    "subtitle": "Type E • F • D",
+    "image": "/images/products/industrial-gaskets/flange-insulation-kits.png",
+    "href": "/products/gaskets-kits-seals/flange-insulation"
+  },
+  {
+    "id": "special-custom",
+    "title": "SPECIAL & CUSTOM",
+    "subtitle": "Lens • Delta • IX • Bridgeman",
+    "image": "/images/products/industrial-gaskets/special-custom.png",
+    "href": "/products/gaskets-kits-seals/special-custom"
+  },
+  {
+    "id": "also-offering",
+    "title": "ALSO OFFERING",
+    "subtitle": "Protective Coating (Xylan, Zinc / Nickel / Silver plating, PTFE)",
+    "image": "/images/products/industrial-gaskets/also-offerinf.png",
+    "href": "/products/gaskets-kits-seals/also-offering"
+  }
+]

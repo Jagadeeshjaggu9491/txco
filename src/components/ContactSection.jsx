@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { Phone, Mail } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -37,13 +36,13 @@ export default function ContactSection() {
         );
       }
 
-      // Right image slide from right
+      // Right image slide from right & top
       if (rightColRef.current) {
         gsap.fromTo(
           rightColRef.current,
-          { x: 50, opacity: 0, scale: 0.96 },
+          { y: 40, opacity: 0, scale: 0.95 },
           {
-            x: 0,
+            y: 0,
             opacity: 1,
             scale: 1,
             duration: 1,
@@ -66,112 +65,120 @@ export default function ContactSection() {
       ref={sectionRef}
       style={{
         width: '100%',
-        backgroundColor: '#ffffff',
-        padding: '5.5rem 2rem',
-        color: '#253258',
-        overflow: 'hidden',
+        backgroundColor: '#f2f6fc', // Light cool blue-tint background matching reference screenshot
+        padding: '5rem 2rem 4rem 2rem',
+        color: '#1d2744',
+        position: 'relative',
+        overflow: 'visible', // Allows image to overflow upwards into section above
+        zIndex: 20,
       }}
     >
       <div
         style={{
-          maxWidth: '1200px',
+          maxWidth: '1280px',
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: '1fr 1.1fr',
+          gridTemplateColumns: '1fr 1.15fr',
           alignItems: 'center',
-          gap: '4rem',
+          gap: '3rem',
+          position: 'relative',
+          overflow: 'visible',
         }}
         className="contact-section-grid"
       >
         {/* Left Column: Description & Direct Contact Details */}
-        <div ref={leftColRef}>
+        <div ref={leftColRef} style={{ zIndex: 12 }}>
           <p
             style={{
               fontFamily: "'Open Sans', -apple-system, sans-serif",
-              fontSize: '1.02rem',
-              color: '#475569',
-              lineHeight: '1.7',
-              marginBottom: '2.5rem',
-              maxWidth: '460px',
+              fontSize: '1.1rem',
+              fontWeight: '400',
+              color: '#334155',
+              lineHeight: '1.65',
+              marginBottom: '1.8rem',
+              maxWidth: '520px',
             }}
           >
-            From high-performance gaskets, hoses and fasteners to custom-engineered sealing solutions, our team helps customers solve demanding applications with reliable products and responsive support.
+            From high-performance gaskets, hoses and fasteners to custom-engineered sealing solutions, TXCO helps customers solve demanding applications with reliable products, technical expertise and responsive support.
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {/* Phone Row */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#344473',
-                }}
-              >
-                <Phone size={28} strokeWidth={1.8} />
-              </div>
-              <span
-                style={{
-                  fontFamily: "'Open Sans', -apple-system, sans-serif",
-                  fontSize: 'clamp(1.1rem, 1.8vw, 1.35rem)',
-                  fontWeight: '600',
-                  color: '#344473',
-                }}
-              >
-                Just call us on +91 6302 152 938
-              </span>
-            </div>
+          {/* Subtle horizontal divider */}
+          <div
+            style={{
+              width: '100%',
+              maxWidth: '500px',
+              height: '1px',
+              backgroundColor: '#cbd5e1',
+              margin: '1.8rem 0',
+            }}
+          />
 
-            {/* Email Row */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#344473',
-                }}
-              >
-                <Mail size={28} strokeWidth={1.8} />
-              </div>
-              <a
-                href="mailto:Info@txco.co"
-                style={{
-                  fontFamily: "'Open Sans', -apple-system, sans-serif",
-                  fontSize: 'clamp(1.1rem, 1.8vw, 1.35rem)',
-                  fontWeight: '600',
-                  color: '#344473',
-                  textDecoration: 'none',
-                  transition: 'color 0.2s ease',
-                }}
-              >
-                Info@txco.co
-              </a>
-            </div>
+          {/* Contact Details matching screenshot */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+            <p
+              style={{
+                fontSize: '1.25rem',
+                fontWeight: '400',
+                color: '#334155',
+                margin: 0,
+              }}
+            >
+              Just call us on{' '}
+              <span style={{ fontWeight: '700', color: '#1d2744', fontSize: '1.35rem' }}>
+                +91 6302 152 938
+              </span>
+            </p>
+
+            <a
+              href="mailto:info@txco.co"
+              style={{
+                fontSize: '1.15rem',
+                fontWeight: '500',
+                color: '#1d2744',
+                textDecoration: 'none',
+                transition: 'color 0.2s ease',
+              }}
+            >
+              info@txco.co
+            </a>
           </div>
         </div>
 
-        {/* Right Column: Product Image */}
-        <div ref={rightColRef} style={{ display: 'flex', justifyContent: 'center' }}>
+        {/* Right Column: Upward Overflowing Product Image into Section Above */}
+        <div
+          ref={rightColRef}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'relative',
+            marginTop: '-140px', // Prominent upward overflow extending into section above
+            zIndex: 25,
+          }}
+          className="contact-img-wrapper"
+        >
           <img
-            src="/images/home-products.png"
-            alt="TXCO Sealing Products Display"
+            src="/images/contact-img.png"
+            alt="TXCO Sealing Products Assortment"
             style={{
               width: '100%',
-              maxWidth: '580px',
+              maxWidth: '680px',
               height: 'auto',
               objectFit: 'contain',
+              filter: 'drop-shadow(0 18px 36px rgba(0, 0, 0, 0.14))',
             }}
           />
         </div>
       </div>
 
       <style jsx>{`
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
           .contact-section-grid {
             grid-template-columns: 1fr !important;
-            gap: 3rem !important;
+            gap: 2.5rem !important;
+          }
+          .contact-img-wrapper {
+            margin-top: 0 !important;
           }
         }
       `}</style>
