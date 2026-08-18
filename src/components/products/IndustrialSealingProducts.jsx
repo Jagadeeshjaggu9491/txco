@@ -89,7 +89,7 @@ export default function IndustrialSealingProducts() {
               fontFamily: "'Open Sans', -apple-system, sans-serif",
               fontSize: 'clamp(1.6rem, 2.6vw, 2.3rem)',
               fontWeight: '600',
-              color: '#3b4674',
+              color: '#052C58',
               letterSpacing: '0.04em',
               textTransform: 'uppercase',
               marginBottom: '1.4rem',
@@ -123,7 +123,7 @@ export default function IndustrialSealingProducts() {
                 backgroundColor: '#f4f3fe', // Lavender background tint matching screenshot 3
                 borderRadius: '20px',
                 padding: '2.5rem 3rem',
-                border: '1px solid rgba(59, 70, 116, 0.12)',
+                border: '1px solid rgba(17, 70, 128, 0.15)',
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.02)',
               }}
               className="info-card-box"
@@ -133,7 +133,7 @@ export default function IndustrialSealingProducts() {
                   fontFamily: "'Open Sans', -apple-system, sans-serif",
                   fontSize: '1.45rem',
                   fontWeight: '600',
-                  color: '#3b4674',
+                  color: '#052C58',
                   letterSpacing: '0.04em',
                   textTransform: 'uppercase',
                   marginBottom: '1rem',
@@ -162,7 +162,7 @@ export default function IndustrialSealingProducts() {
               >
                 <strong
                   style={{
-                    color: '#1d2744',
+                    color: '#052C58',
                     letterSpacing: '0.06em',
                     fontSize: '0.88rem',
                   }}

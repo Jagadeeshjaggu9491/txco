@@ -137,7 +137,7 @@ function DetailsContent() {
                 fontFamily: "'Open Sans', -apple-system, sans-serif",
                 fontSize: 'clamp(1.8rem, 2.8vw, 2.5rem)',
                 fontWeight: '600',
-                color: '#3b4674',
+                color: '#052C58',
                 letterSpacing: '0.01em',
                 marginBottom: '3.5rem',
               }}
@@ -192,7 +192,7 @@ function DetailsContent() {
                           fontFamily: "'Open Sans', -apple-system, sans-serif",
                           fontSize: '0.92rem',
                           fontWeight: isActive ? '800' : '600',
-                          color: isActive ? '#1d2744' : '#64748b',
+                          color: isActive ? '#052C58' : '#64748b',
                           letterSpacing: '0.04em',
                           textTransform: 'uppercase',
                           lineHeight: '1.4',
@@ -203,8 +203,8 @@ function DetailsContent() {
                         {isActive && (
                           <Play
                             size={12}
-                            fill="#1d2744"
-                            color="#1d2744"
+                            fill="#052C58"
+                            color="#052C58"
                             style={{ flexShrink: 0 }}
                           />
                         )}
@@ -213,54 +213,58 @@ function DetailsContent() {
                   })}
                 </div>
 
-                {/* Contact Our Experts Button matching screenshot */}
-                <div>
+                {/* Contact Our Experts Button matching user figure (rectangular sharp style, positioned lower) */}
+                <div style={{ marginTop: '5.5rem' }}>
                   <Link
                     href="/contact"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.75rem',
-                      backgroundColor: '#3b4674',
+                      justifyContent: 'space-between',
+                      gap: '1rem',
+                      backgroundColor: '#114680',
                       color: '#ffffff',
-                      padding: '0.85rem 1.6rem',
-                      borderRadius: '6px',
+                      padding: '0.9rem 1.2rem',
+                      borderRadius: '0px', // Sharp rectangular style
                       fontSize: '0.82rem',
                       fontWeight: '700',
-                      letterSpacing: '0.08em',
+                      letterSpacing: '0.05em',
                       textTransform: 'uppercase',
                       textDecoration: 'none',
-                      boxShadow: '0 4px 12px rgba(59, 70, 116, 0.25)',
+                      whiteSpace: 'nowrap', // Ensures text stays strictly on a single line!
+                      boxShadow: '0 4px 12px rgba(17, 70, 128, 0.2)',
                       transition: 'background-color 0.2s ease, transform 0.2s ease',
+                      width: '100%',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#2c3558';
+                      e.currentTarget.style.backgroundColor = '#052C58';
                       e.currentTarget.style.transform = 'translateY(-2px)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = '#3b4674';
+                      e.currentTarget.style.backgroundColor = '#114680';
                       e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
-                    <span>CONTACT OUR EXPERTS</span>
+                    <span style={{ whiteSpace: 'nowrap' }}>CONTACT OUR EXPERTS</span>
                     <div
                       style={{
-                        width: '20px',
-                        height: '20px',
+                        width: '24px',
+                        height: '24px',
                         borderRadius: '50%',
-                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                        backgroundColor: '#ffffff',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        flexShrink: 0,
                       }}
                     >
                       <svg
-                        width="11"
-                        height="11"
+                        width="13"
+                        height="13"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#ffffff"
-                        strokeWidth="3"
+                        stroke="#114680"
+                        strokeWidth="2.8"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       >
@@ -296,7 +300,7 @@ function DetailsContent() {
                       style={{
                         backgroundColor: '#f4f3fe',
                         padding: '0.9rem 1.4rem',
-                        borderBottom: '1px solid rgba(59, 70, 116, 0.08)',
+                        borderBottom: '1px solid rgba(17, 70, 128, 0.12)',
                       }}
                     >
                       <h3
@@ -304,7 +308,7 @@ function DetailsContent() {
                           fontFamily: "'Open Sans', -apple-system, sans-serif",
                           fontSize: '0.94rem',
                           fontWeight: '800',
-                          color: '#3b4674',
+                          color: '#052C58',
                           letterSpacing: '0.05em',
                           textTransform: 'uppercase',
                           margin: 0,

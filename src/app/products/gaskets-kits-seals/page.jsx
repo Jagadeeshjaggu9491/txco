@@ -50,7 +50,7 @@ export default function IndustrialGasketsPage() {
               fontFamily: "'Open Sans', -apple-system, sans-serif",
               fontSize: 'clamp(1.8rem, 2.8vw, 2.5rem)',
               fontWeight: '600',
-              color: '#3b4674',
+              color: '#052C58',
               letterSpacing: '0.01em',
               marginBottom: '3.5rem',
             }}
@@ -90,8 +90,8 @@ export default function IndustrialGasketsPage() {
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-6px)';
-                    e.currentTarget.style.borderColor = '#3b4674';
-                    e.currentTarget.style.boxShadow = '0 14px 30px rgba(37, 50, 88, 0.12)';
+                    e.currentTarget.style.borderColor = '#114680';
+                    e.currentTarget.style.boxShadow = '0 14px 30px rgba(5, 44, 88, 0.12)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
@@ -144,7 +144,7 @@ export default function IndustrialGasketsPage() {
                           fontFamily: "'Open Sans', -apple-system, sans-serif",
                           fontSize: '0.98rem',
                           fontWeight: '700',
-                          color: '#1d2744',
+                          color: '#052C58',
                           letterSpacing: '0.04em',
                           textTransform: 'uppercase',
                           marginBottom: '0.4rem',
@@ -173,13 +173,13 @@ export default function IndustrialGasketsPage() {
                         width: '32px',
                         height: '32px',
                         borderRadius: '50%',
-                        backgroundColor: '#3b4674',
+                        backgroundColor: '#114680',
                         color: '#ffffff',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexShrink: 0,
-                        boxShadow: '0 2px 8px rgba(59, 70, 116, 0.25)',
+                        boxShadow: '0 2px 8px rgba(17, 70, 128, 0.25)',
                       }}
                     >
                       <svg
@@ -220,7 +220,7 @@ export default function IndustrialGasketsPage() {
                 fontFamily: "'Open Sans', -apple-system, sans-serif",
                 fontSize: 'clamp(1.6rem, 2.6vw, 2.3rem)',
                 fontWeight: '600',
-                color: '#3b4674',
+                color: '#052C58',
                 letterSpacing: '0.04em',
                 textTransform: 'uppercase',
                 marginBottom: '1.4rem',
@@ -250,7 +250,7 @@ export default function IndustrialGasketsPage() {
                 backgroundColor: '#f4f3fe',
                 borderRadius: '20px',
                 padding: '2.5rem 3rem',
-                border: '1px solid rgba(59, 70, 116, 0.12)',
+                border: '1px solid rgba(17, 70, 128, 0.15)',
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.02)',
               }}
               className="info-card-box"
@@ -260,7 +260,7 @@ export default function IndustrialGasketsPage() {
                   fontFamily: "'Open Sans', -apple-system, sans-serif",
                   fontSize: '1.45rem',
                   fontWeight: '600',
-                  color: '#3b4674',
+                  color: '#052C58',
                   letterSpacing: '0.04em',
                   textTransform: 'uppercase',
                   marginBottom: '1rem',
@@ -279,7 +279,7 @@ export default function IndustrialGasketsPage() {
                 Precision-engineered sealing solutions for demanding industrial applications. Our gasket range includes Ring Type Joints, Spiral Wound Gaskets, Kammprofile Gaskets, Non-Metallic Gaskets, Gasket Sheets and Flange Insulation Kits. Designed for reliable sealing performance across high-pressure, high-temperature and critical service environments.
               </p>
               <div style={{ fontSize: '0.94rem', color: '#475569', lineHeight: '1.6' }}>
-                <strong style={{ color: '#1d2744', letterSpacing: '0.06em' }}>PRODUCTS:</strong><br />
+                <strong style={{ color: '#052C58', letterSpacing: '0.06em' }}>PRODUCTS:</strong><br />
                 Ring Type Joints (R, RX, BX) • Spiral Wound (R, RIR, CG, CGI) • Kammprofile • Non-Metallic Gaskets • Gasket Sheets • Flange Insulation Kits
               </div>
             </div>
@@ -290,7 +290,7 @@ export default function IndustrialGasketsPage() {
                 backgroundColor: '#f4f3fe',
                 borderRadius: '20px',
                 padding: '2.5rem 3rem',
-                border: '1px solid rgba(59, 70, 116, 0.12)',
+                border: '1px solid rgba(17, 70, 128, 0.15)',
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.02)',
               }}
               className="info-card-box"
@@ -300,7 +300,7 @@ export default function IndustrialGasketsPage() {
                   fontFamily: "'Open Sans', -apple-system, sans-serif",
                   fontSize: '1.45rem',
                   fontWeight: '600',
-                  color: '#3b4674',
+                  color: '#052C58',
                   letterSpacing: '0.04em',
                   textTransform: 'uppercase',
                   marginBottom: '1rem',
@@ -319,7 +319,7 @@ export default function IndustrialGasketsPage() {
                 Reliable sealing solutions designed for demanding temperature, pressure and process conditions. Our Metal Jacketed Gaskets combine metallic construction with suitable filler materials to provide dependable sealing performance. Available in corrugated and flat jacket configurations for a range of industrial applications.
               </p>
               <div style={{ fontSize: '0.94rem', color: '#475569', lineHeight: '1.6' }}>
-                <strong style={{ color: '#1d2744', letterSpacing: '0.06em' }}>PRODUCTS:</strong><br />
+                <strong style={{ color: '#052C58', letterSpacing: '0.06em' }}>PRODUCTS:</strong><br />
                 Metal Jacketed Gaskets • Corrugated Jacketed Gaskets • Flat Jacketed Gaskets
               </div>
             </div>
@@ -330,7 +330,7 @@ export default function IndustrialGasketsPage() {
                 backgroundColor: '#f4f3fe',
                 borderRadius: '20px',
                 padding: '2.5rem 3rem',
-                border: '1px solid rgba(59, 70, 116, 0.12)',
+                border: '1px solid rgba(17, 70, 128, 0.15)',
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.02)',
               }}
               className="info-card-box"
@@ -340,7 +340,7 @@ export default function IndustrialGasketsPage() {
                   fontFamily: "'Open Sans', -apple-system, sans-serif",
                   fontSize: '1.45rem',
                   fontWeight: '600',
-                  color: '#3b4674',
+                  color: '#052C58',
                   letterSpacing: '0.04em',
                   textTransform: 'uppercase',
                   marginBottom: '1rem',
@@ -359,7 +359,7 @@ export default function IndustrialGasketsPage() {
                 Engineered sealing and protection solutions for applications where standard products are not enough. TXCO provides specialty gaskets and customized configurations, including Lens, Delta, IX and Bridgeman designs, along with protective coatings, pipeline insulation solutions and custom groove configurations.
               </p>
               <div style={{ fontSize: '0.94rem', color: '#475569', lineHeight: '1.6' }}>
-                <strong style={{ color: '#1d2744', letterSpacing: '0.06em' }}>SOLUTIONS:</strong><br />
+                <strong style={{ color: '#052C58', letterSpacing: '0.06em' }}>SOLUTIONS:</strong><br />
                 Special & Custom Gaskets • Protective Coatings • Pipeline Insulation Kits • Custom Groove Configurations • Specialty Gaskets
               </div>
             </div>
@@ -381,7 +381,7 @@ export default function IndustrialGasketsPage() {
               fontFamily: "'Open Sans', -apple-system, sans-serif",
               fontSize: 'clamp(1.6rem, 2.6vw, 2.3rem)',
               fontWeight: '600',
-              color: '#3b4674',
+              color: '#052C58',
               letterSpacing: '0.04em',
               textTransform: 'uppercase',
               textAlign: 'center',
@@ -421,7 +421,7 @@ export default function IndustrialGasketsPage() {
                     aspectRatio: '1 / 1',
                     backgroundColor: '#ffffff',
                     borderRadius: '20px',
-                    border: '1.5px solid #2a3860',
+                    border: '1.5px solid #114680',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -433,12 +433,12 @@ export default function IndustrialGasketsPage() {
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-5px)';
-                    e.currentTarget.style.borderColor = '#0b2b48';
-                    e.currentTarget.style.boxShadow = '0 12px 28px rgba(37, 50, 88, 0.14)';
+                    e.currentTarget.style.borderColor = '#052C58';
+                    e.currentTarget.style.boxShadow = '0 12px 28px rgba(5, 44, 88, 0.14)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.borderColor = '#2a3860';
+                    e.currentTarget.style.borderColor = '#114680';
                     e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.03)';
                   }}
                 >

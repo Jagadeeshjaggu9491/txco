@@ -149,7 +149,7 @@ export default function RingTypeJointPage() {
                 fontFamily: "'Open Sans', -apple-system, sans-serif",
                 fontSize: 'clamp(1.8rem, 2.8vw, 2.6rem)',
                 fontWeight: '600',
-                color: '#3b4674',
+                color: '#052C58',
                 letterSpacing: '0.01em',
                 marginBottom: '3.5rem',
               }}
@@ -192,9 +192,9 @@ export default function RingTypeJointPage() {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'translateY(-6px)';
-                      e.currentTarget.style.borderColor = '#3b4674';
+                      e.currentTarget.style.borderColor = '#114680';
                       e.currentTarget.style.boxShadow =
-                        '0 14px 30px rgba(37, 50, 88, 0.12)';
+                        '0 14px 30px rgba(5, 44, 88, 0.12)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0)';
@@ -249,7 +249,7 @@ export default function RingTypeJointPage() {
                               "'Open Sans', -apple-system, sans-serif",
                             fontSize: '0.96rem',
                             fontWeight: '700',
-                            color: '#1d2744',
+                            color: '#052C58',
                             letterSpacing: '0.04em',
                             textTransform: 'uppercase',
                             marginBottom: '0.4rem',
@@ -278,13 +278,13 @@ export default function RingTypeJointPage() {
                           width: '34px',
                           height: '34px',
                           borderRadius: '50%',
-                          backgroundColor: '#3b4674',
+                          backgroundColor: '#114680',
                           color: '#ffffff',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                           flexShrink: 0,
-                          boxShadow: '0 3px 8px rgba(59, 70, 116, 0.25)',
+                          boxShadow: '0 3px 8px rgba(17, 70, 128, 0.25)',
                         }}
                       >
                         <svg
@@ -332,7 +332,7 @@ export default function RingTypeJointPage() {
               <a
                 href="/industries"
                 style={{
-                  color: '#3b4674',
+                  color: '#114680',
                   textDecoration: 'underline',
                   fontWeight: '600',
                 }}
@@ -342,7 +342,7 @@ export default function RingTypeJointPage() {
               application. To ensure your order is ready for immediate shipment, we stock an extensive range of{' '}
               <span
                 style={{
-                  color: '#3b4674',
+                  color: '#114680',
                   textDecoration: 'underline',
                   fontWeight: '500',
                 }}
@@ -370,10 +370,10 @@ export default function RingTypeJointPage() {
                   fontSize: '0.92rem',
                   fontWeight: '800',
                   letterSpacing: '0.08em',
-                  color: activeTab === 'applications' ? '#3b4674' : '#94a3b8',
+                  color: activeTab === 'applications' ? '#052C58' : '#94a3b8',
                   borderBottom:
                     activeTab === 'applications'
-                      ? '3px solid #3b4674'
+                      ? '3px solid #114680'
                       : '3px solid transparent',
                   cursor: 'pointer',
                   transition: 'color 0.2s ease, border-color 0.2s ease',
@@ -392,10 +392,10 @@ export default function RingTypeJointPage() {
                   fontSize: '0.92rem',
                   fontWeight: '800',
                   letterSpacing: '0.08em',
-                  color: activeTab === 'benefits' ? '#3b4674' : '#94a3b8',
+                  color: activeTab === 'benefits' ? '#052C58' : '#94a3b8',
                   borderBottom:
                     activeTab === 'benefits'
-                      ? '3px solid #3b4674'
+                      ? '3px solid #114680'
                       : '3px solid transparent',
                   cursor: 'pointer',
                   transition: 'color 0.2s ease, border-color 0.2s ease',

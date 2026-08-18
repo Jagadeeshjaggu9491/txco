@@ -124,7 +124,7 @@ export default function DiscoverEngineeredSolutions() {
             fontFamily: "'Open Sans', -apple-system, sans-serif",
             fontSize: 'clamp(1.6rem, 2.6vw, 2.3rem)',
             fontWeight: '600',
-            color: '#3b4674',
+            color: '#052C58',
             letterSpacing: '0.04em',
             textTransform: 'uppercase',
             textAlign: 'center',
@@ -161,7 +161,7 @@ export default function DiscoverEngineeredSolutions() {
                   aspectRatio: '1 / 1',
                   backgroundColor: '#ffffff',
                   borderRadius: '20px',
-                  border: '1.5px solid #2a3860',
+                  border: '1.5px solid #114680',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -174,13 +174,13 @@ export default function DiscoverEngineeredSolutions() {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-5px)';
-                  e.currentTarget.style.borderColor = '#0b2b48';
+                  e.currentTarget.style.borderColor = '#052C58';
                   e.currentTarget.style.boxShadow =
-                    '0 12px 28px rgba(37, 50, 88, 0.14)';
+                    '0 12px 28px rgba(5, 44, 88, 0.14)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#2a3860';
+                  e.currentTarget.style.borderColor = '#114680';
                   e.currentTarget.style.boxShadow =
                     '0 4px 12px rgba(0, 0, 0, 0.03)';
                 }}

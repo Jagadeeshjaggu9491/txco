@@ -120,7 +120,7 @@ export default function OurProductsOverview() {
             fontFamily: "'Open Sans', -apple-system, sans-serif",
             fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
             fontWeight: '600',
-            color: '#1d2744',
+            color: '#052C58',
             textAlign: 'center',
             maxWidth: '920px',
             margin: '0 auto 3.5rem auto',
@@ -166,9 +166,9 @@ export default function OurProductsOverview() {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-6px)';
-                  e.currentTarget.style.borderColor = '#3b4674';
+                  e.currentTarget.style.borderColor = '#114680';
                   e.currentTarget.style.boxShadow =
-                    '0 16px 32px rgba(37, 50, 88, 0.12)';
+                    '0 16px 32px rgba(5, 44, 88, 0.12)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -230,7 +230,7 @@ export default function OurProductsOverview() {
                         fontFamily: "'Open Sans', -apple-system, sans-serif",
                         fontSize: '0.98rem',
                         fontWeight: '700',
-                        color: '#1d2744',
+                        color: '#052C58',
                         letterSpacing: '0.04em',
                         textTransform: 'uppercase',
                         marginBottom: '0.4rem',
@@ -259,13 +259,13 @@ export default function OurProductsOverview() {
                       width: '34px',
                       height: '34px',
                       borderRadius: '50%',
-                      backgroundColor: '#3b4674',
+                      backgroundColor: '#114680',
                       color: '#ffffff',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       flexShrink: 0,
-                      boxShadow: '0 3px 8px rgba(59, 70, 116, 0.25)',
+                      boxShadow: '0 3px 8px rgba(17, 70, 128, 0.25)',
                     }}
                   >
                     <svg
@@ -297,24 +297,24 @@ export default function OurProductsOverview() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.75rem',
-              backgroundColor: '#3b4674',
+              backgroundColor: '#114680',
               color: '#ffffff',
               padding: '0.95rem 2.2rem',
-              borderRadius: '6px',
+              borderRadius: '0px',
               fontSize: '0.88rem',
               fontWeight: '700',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               textDecoration: 'none',
-              boxShadow: '0 4px 14px rgba(59, 70, 116, 0.3)',
+              boxShadow: '0 4px 14px rgba(17, 70, 128, 0.3)',
               transition: 'background-color 0.2s ease, transform 0.2s ease',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#2c3558';
+              e.currentTarget.style.backgroundColor = '#052C58';
               e.currentTarget.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#3b4674';
+              e.currentTarget.style.backgroundColor = '#114680';
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
