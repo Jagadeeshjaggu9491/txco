@@ -31,30 +31,30 @@ export default function EngineeredSolutions() {
       title: 'SEALING PRODUCTS',
       iconSrc: '/images/icons/sealing-products.png',
       items: [
-        'Gaskets, Kits & Seals',
-        'Hoses & Expansion Joints',
-        'Fasteners & Bolting',
-        'Flange Isolation Gaskets',
+        { name: 'Gaskets, Kits & Seals', href: '/products/gaskets-kits-seals' },
+        { name: 'Hoses & Expansion Joints', href: '/products/jacketed-solutions' },
+        { name: 'Fasteners & Bolting', href: '/products/specialized-solutions' },
+        { name: 'Flange Isolation Gaskets', href: '/products/gaskets-kits-seals/ring-type-joint' },
       ],
     },
     {
       title: 'ENGINEERED SOLUTIONS',
       iconSrc: '/images/icons/engine-sloutions.png',
       items: [
-        'Reverse Engineering',
-        'Custom Gasket Engineering',
-        'Specialty Machined Parts',
-        'Prototyping',
+        { name: 'Reverse Engineering', href: '/services/reverse' },
+        { name: 'Custom Gasket Engineering', href: '/services/engineering' },
+        { name: 'Specialty Machined Parts', href: '/products/specialized-solutions' },
+        { name: 'Prototyping', href: '/services' },
       ],
     },
     {
       title: 'TECHNICAL SERVICES',
       iconSrc: '/images/icons/tech-solutions.png',
       items: [
-        'Field Measurement',
-        'Gasket Recommendations',
-        'Bolt-Up Protocol Calculations',
-        'Training & Technical Support',
+        { name: 'Field Measurement', href: '/services/field-support' },
+        { name: 'Gasket Recommendations', href: '/products/gaskets-kits-seals' },
+        { name: 'Bolt-Up Protocol Calculations', href: '/resources' },
+        { name: 'Training & Technical Support', href: '/services/training' },
       ],
     },
   ];
@@ -253,7 +253,7 @@ export default function EngineeredSolutions() {
                   {col.items.map((item, itemIdx) => (
                     <li key={itemIdx}>
                       <Link
-                        href="#"
+                        href={item.href}
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
@@ -273,7 +273,7 @@ export default function EngineeredSolutions() {
                           e.currentTarget.style.transform = 'translateX(0)';
                         }}
                       >
-                        <span>{item}</span>
+                        <span>{item.name}</span>
                         <svg
                           width="15"
                           height="15"
