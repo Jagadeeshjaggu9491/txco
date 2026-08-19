@@ -101,7 +101,7 @@
   text-transform: uppercase;
   text-decoration: none;
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: 0px !important;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
