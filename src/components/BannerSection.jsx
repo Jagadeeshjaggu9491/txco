@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { bannerSectionData } from '@/data/homeData';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -42,32 +43,9 @@ export default function BannerSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: '100%',
-        backgroundColor: '#343b46', // Dark slate charcoal matching reference screenshot
-        padding: '5.2rem 1.5rem', // Increased height of the banner
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        overflow: 'hidden',
-      }}
-    >
-      <h2
-        ref={textRef}
-        style={{
-          fontFamily: "'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-          fontSize: 'clamp(1.5rem, 2.8vw, 2.4rem)',
-          fontWeight: '300',
-          color: '#ffffff',
-          letterSpacing: '0.02em',
-          margin: 0,
-          lineHeight: '1.35',
-        }}
-      >
-        Custom Gasket, Bolt & Seal Manufacturer
+    <section ref={sectionRef} className="banner-section">
+      <h2 ref={textRef} className="banner-heading">
+        {bannerSectionData.title}
       </h2>
     </section>
   );

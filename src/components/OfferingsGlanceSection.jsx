@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { offeringsGlanceData } from '@/data/homeData';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -59,126 +60,31 @@ export default function OfferingsGlanceSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: '100%',
-        backgroundColor: '#f2f6fc', // Light cool blue-tint background matching reference screenshot
-        padding: '5.5rem 2rem',
-        overflow: 'hidden',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '4rem 5rem',
-          alignItems: 'center',
-        }}
-        className="offerings-grid"
-      >
+    <section ref={sectionRef} className="offerings-section">
+      <div className="offerings-grid">
         {/* Left Column: Brochure Image */}
-        <div
-          ref={imageRef}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <div ref={imageRef} className="offerings-image-col">
           <img
-            src="/images/home-offering.png"
+            src={offeringsGlanceData.image}
             alt="TXCO Safety Sealing and Attachment Solutions Brochure"
-            style={{
-              maxWidth: '360px',
-              width: '100%',
-              height: 'auto',
-              maxHeight: '450px',
-              objectFit: 'contain',
-              borderRadius: '4px',
-              boxShadow: '0 12px 32px rgba(0, 0, 0, 0.12)',
-            }}
+            className="offerings-img"
           />
         </div>
 
         {/* Right Column: Title, Paragraph & CTA Button */}
-        <div
-          ref={contentRef}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-          }}
-        >
-          <h2
-            style={{
-              fontFamily: "'Open Sans', -apple-system, sans-serif",
-              fontSize: 'clamp(1.8rem, 2.8vw, 2.4rem)',
-              fontWeight: '600',
-              color: '#3b4674',
-              lineHeight: '1.25',
-              marginBottom: '1.4rem',
-            }}
-          >
-            Our Offerings at a Glance
+        <div ref={contentRef} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+          <h2 className="section-title" style={{ color: '#3b4674' }}>
+            {offeringsGlanceData.heading}
           </h2>
 
-          <p
-            style={{
-              fontSize: '1.02rem',
-              fontWeight: '400',
-              color: '#475569',
-              lineHeight: '1.65',
-              marginBottom: '2.4rem',
-              maxWidth: '480px',
-            }}
-          >
-            Get to know our signature products, customer-centric solutions, and certifications through this brief overview of our company.
+          <p className="section-subtitle" style={{ marginBottom: '2.4rem', maxWidth: '480px' }}>
+            {offeringsGlanceData.description}
           </p>
 
-          <Link href="/downloads" style={{ textDecoration: 'none' }}>
-            <button
-              style={{
-                padding: '0.85rem 2rem',
-                backgroundColor: '#3b4674',
-                color: '#ffffff',
-                fontSize: '0.88rem',
-                fontWeight: '700',
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                border: 'none',
-                borderRadius: '0px',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.85rem',
-                transition: 'background-color 0.2s ease, transform 0.2s ease',
-                boxShadow: '0 4px 15px rgba(59, 70, 116, 0.25)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#2a3356';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#3b4674';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <span>READ BROCHURE</span>
-              <div
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  borderRadius: '50%',
-                  backgroundColor: '#ffffff',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
+          <Link href={offeringsGlanceData.href} style={{ textDecoration: 'none' }}>
+            <button className="txco-btn txco-btn-steel">
+              <span>{offeringsGlanceData.buttonText}</span>
+              <div className="txco-btn-icon-circle">
                 <svg
                   width="14"
                   height="14"
@@ -197,19 +103,6 @@ export default function OfferingsGlanceSection() {
           </Link>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 960px) {
-          .offerings-grid {
-            grid-template-columns: 1fr !important;
-            gap: 3rem !important;
-            text-align: center !important;
-          }
-          .offerings-grid > div {
-            align-items: center !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

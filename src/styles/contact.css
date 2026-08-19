@@ -1,0 +1,366 @@
+/* =========================================================================
+   CONTACT PAGE STYLESHEET
+========================================================================= */
+
+/* Hero Banner */
+.contact-hero-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--primary-navy);
+  background-image: var(--brand-gradient);
+  color: var(--text-white);
+  padding: 4.5rem 2rem 5.5rem 2rem;
+  overflow: hidden;
+}
+
+.contact-hero-bg-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -45px;
+  width: 100%;
+  height: 75%;
+  background-image: url('/images/products/products-bg.png');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  fontSize: 0.82rem;
+  font-weight: 700;
+  color: #93c5fd;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-breadcrumb a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-breadcrumb a:hover {
+  color: var(--text-white);
+}
+
+.contact-hero-title {
+  font-family: var(--font-family-heading);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.contact-hero-subtitle {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 580px;
+  margin-bottom: 2rem;
+}
+
+.contact-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.45rem 1rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* 3-Column Direct Connect Cards */
+.contact-direct-section {
+  width: 100%;
+  background-color: var(--bg-pure-white);
+  padding: 4rem 2rem 4.5rem 2rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.contact-channel-card {
+  background-color: var(--bg-lavender);
+  border-radius: var(--radius-2xl);
+  padding: 2.4rem 2rem;
+  border: 1.5px solid var(--border-lavender);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+}
+
+.contact-channel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--slate-blue);
+}
+
+.contact-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+}
+
+.contact-card-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.contact-card-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.4rem;
+}
+
+.contact-action-link {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  text-decoration: none;
+  margin-bottom: 0.4rem;
+}
+
+.contact-action-link:hover {
+  color: var(--slate-blue);
+}
+
+/* RFQ & Technical Inquiry Form */
+.contact-form-section {
+  width: 100%;
+  background-color: var(--bg-cool-grey);
+  padding: 5rem 2rem 5.5rem 2rem;
+}
+
+.rfq-form-card {
+  background-color: var(--bg-pure-white);
+  border-radius: var(--radius-3xl);
+  padding: 3rem;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 12px 36px rgba(5, 44, 88, 0.07);
+}
+
+.inquiry-pill-btn {
+  padding: 0.55rem 1.1rem;
+  border-radius: 30px;
+  border: 1.5px solid var(--border-medium);
+  background-color: var(--bg-pure-white);
+  color: var(--text-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.inquiry-pill-btn.selected {
+  border-color: var(--primary-navy);
+  background-color: var(--primary-navy);
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.contact-form-input,
+.contact-form-select,
+.contact-form-textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-medium);
+  outline: none;
+  font-size: 0.95rem;
+  color: #1e293b;
+  background-color: var(--bg-light-surface);
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+}
+
+.contact-form-input:focus,
+.contact-form-select:focus,
+.contact-form-textarea:focus {
+  border-color: var(--primary-navy);
+}
+
+.contact-file-upload-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.2rem;
+  border: 2px dashed var(--border-medium);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-light-surface);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.contact-file-upload-box:hover {
+  border-color: var(--primary-navy);
+  background-color: #f1f5f9;
+}
+
+/* Reassurance & Advantage Card */
+.advantage-card {
+  background-color: var(--bg-pure-white);
+  border-radius: var(--radius-2xl);
+  padding: 2.5rem;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 8px 24px rgba(5, 44, 88, 0.05);
+}
+
+.advantage-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--bg-lavender);
+  color: var(--slate-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Global Hubs Section */
+.global-hub-card {
+  background-color: var(--bg-pure-white);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.6rem;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.global-hub-card.primary-hq {
+  background-color: var(--bg-light-surface);
+  border: 1.5px solid var(--slate-blue);
+  box-shadow: 0 4px 14px rgba(5, 44, 88, 0.06);
+}
+
+.global-hq-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--slate-blue);
+  color: var(--text-white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+/* FAQ Accordion */
+.faq-accordion-item {
+  background-color: var(--bg-pure-white);
+  border-radius: 14px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.faq-accordion-item.active {
+  border: 1.5px solid var(--slate-blue);
+  box-shadow: 0 8px 20px rgba(5, 44, 88, 0.06);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 1.3rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.faq-answer-content {
+  padding: 0 1.6rem 1.4rem 1.6rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+}
+
+/* Map Section */
+.facility-map-box {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+  align-items: center;
+  background-color: var(--bg-lavender);
+  border-radius: var(--radius-3xl);
+  padding: 3rem;
+  border: 1.5px solid rgba(17, 70, 128, 0.15);
+}
+
+.facility-map-iframe-wrapper {
+  width: 100%;
+  height: 340px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border-medium);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contact-channel-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .contact-form-layout-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .facility-map-box {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+  .contact-channel-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .rfq-form-card {
+    padding: 1.8rem !important;
+  }
+}

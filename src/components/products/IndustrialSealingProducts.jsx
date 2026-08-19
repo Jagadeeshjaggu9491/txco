@@ -71,102 +71,39 @@ export default function IndustrialSealingProducts() {
 
     return () => ctx.revert();
   }, []);
+
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: '100%',
-        backgroundColor: '#ffffff', // Pure white background matching screenshot 3
-        padding: '5rem 2rem 5rem 2rem',
-      }}
-    >
+    <section ref={sectionRef} className="industrial-sealing-section">
       <div style={{ maxWidth: '960px', margin: '0 auto' }}>
         {/* Header Title & Paragraph */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-          <h2
-            ref={headingRef}
-            style={{
-              fontFamily: "'Open Sans', -apple-system, sans-serif",
-              fontSize: 'clamp(1.6rem, 2.6vw, 2.3rem)',
-              fontWeight: '600',
-              color: '#052C58',
-              letterSpacing: '0.04em',
-              textTransform: 'uppercase',
-              marginBottom: '1.4rem',
-            }}
-          >
+          <h2 ref={headingRef} className="section-title section-title-center">
             {industrialSealingProducts.heading}
           </h2>
 
-          <p
-            ref={textRef}
-            style={{
-              fontSize: '0.98rem',
-              fontWeight: '400',
-              color: '#475569',
-              maxWidth: '920px',
-              margin: '0 auto',
-              lineHeight: '1.68',
-            }}
-          >
+          <p ref={textRef} className="section-subtitle section-subtitle-center" style={{ maxWidth: '920px' }}>
             {industrialSealingProducts.mainDescription}
           </p>
         </div>
 
-        {/* 3 Lavender Tinted Cards matching screenshot 3 */}
+        {/* 3 Lavender Tinted Cards */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2.2rem' }}>
           {industrialSealingProducts.cards.map((card) => (
             <div
               key={card.id}
               ref={addToCardsRef}
-              style={{
-                backgroundColor: '#f4f3fe', // Lavender background tint matching screenshot 3
-                borderRadius: '20px',
-                padding: '2.5rem 3rem',
-                border: '1px solid rgba(17, 70, 128, 0.15)',
-                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.02)',
-              }}
               className="info-card-box"
             >
-              <h3
-                style={{
-                  fontFamily: "'Open Sans', -apple-system, sans-serif",
-                  fontSize: '1.45rem',
-                  fontWeight: '600',
-                  color: '#052C58',
-                  letterSpacing: '0.04em',
-                  textTransform: 'uppercase',
-                  marginBottom: '1rem',
-                }}
-              >
+              <h3 className="info-card-title">
                 {card.title}
               </h3>
 
-              <p
-                style={{
-                  fontSize: '0.96rem',
-                  color: '#475569',
-                  lineHeight: '1.65',
-                  marginBottom: '1.5rem',
-                }}
-              >
+              <p className="info-card-desc">
                 {card.description}
               </p>
 
-              <div
-                style={{
-                  fontSize: '0.92rem',
-                  color: '#475569',
-                  lineHeight: '1.6',
-                }}
-              >
-                <strong
-                  style={{
-                    color: '#052C58',
-                    letterSpacing: '0.06em',
-                    fontSize: '0.88rem',
-                  }}
-                >
+              <div style={{ fontSize: '0.92rem', color: '#475569', lineHeight: '1.6' }}>
+                <strong className="info-card-label">
                   {card.label}
                 </strong>
                 <br />
@@ -176,14 +113,6 @@ export default function IndustrialSealingProducts() {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 600px) {
-          .info-card-box {
-            padding: 1.8rem 1.4rem !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

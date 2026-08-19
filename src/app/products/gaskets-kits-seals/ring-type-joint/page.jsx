@@ -8,45 +8,11 @@ import ContactSection from '@/components/ContactSection';
 import { ChevronLeft } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { rtjSubProducts, rtjTabContent } from '@/data/productsData';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
-
-const subProducts = [
-  {
-    id: 'ring-joint-gaskets',
-    title: 'RING JOINT GASKETS',
-    subtitle: 'R • RX • BX',
-    image: '/images/products/industrial-gaskets/ring-type-joint.png',
-    href: '/products/gaskets-kits-seals/ring-type-joint/details?tab=ring-joint-gaskets',
-  },
-  {
-    id: 'kammprofile-rtj',
-    title: 'KAMMPROFILE RING TYPE JOINT (RTJ)',
-    subtitle: 'Style R • RIR • CG • CGI',
-    image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
-    href: '/products/gaskets-kits-seals/ring-type-joint/details?tab=kammprofile-rtj',
-  },
-];
-
-const tabContent = {
-  applications: [
-    'Higher Pressure Connections (up to 20,000 psi)',
-    'High Temperature Services',
-    'Metal to Metal Sealing',
-    'Petroleum Upstream, Midstream and Downstream',
-    'Alternative Fuels',
-    'Subsea',
-  ],
-  benefits: [
-    'Exceptional sealability under extreme pressure and temperature cycles',
-    'High blowout resistance for critical safety compliance',
-    'Extensive material selection (Soft Iron, Low Carbon Steel, SS304/316, Inconel 625, Monel, Hastelloy)',
-    'Full compliance with API 6A, API 17D, and ASME B16.20 specifications',
-    'Precision machined tolerances preventing flange face damage',
-  ],
-};
 
 export default function RingTypeJointPage() {
   const [activeTab, setActiveTab] = useState('applications');
@@ -62,6 +28,9 @@ export default function RingTypeJointPage() {
       cardsRef.current.push(el);
     }
   };
+
+  const subProducts = rtjSubProducts;
+  const tabContent = rtjTabContent;
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -110,17 +79,14 @@ export default function RingTypeJointPage() {
     <>
       <Header />
       <main>
-        {/* Top Product Cards Section with Light Lavender / Cool Blue Background matching screenshot */}
+        {/* Top Product Cards Section */}
         <section
           ref={sectionRef}
-          style={{
-            width: '100%',
-            backgroundColor: '#f4f3fe', // Lavender cool tint matching screenshot
-            padding: '3.5rem 2rem 4.5rem 2rem',
-          }}
+          className="txco-section txco-section-lavender"
+          style={{ padding: '3.5rem 2rem 4.5rem 2rem' }}
         >
           <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
-            {/* Breadcrumb Navigation matching screenshot */}
+            {/* Breadcrumb Navigation */}
             <div style={{ marginBottom: '1.5rem' }}>
               <Link
                 href="/products/gaskets-kits-seals"
@@ -130,11 +96,11 @@ export default function RingTypeJointPage() {
                   gap: '0.4rem',
                   fontSize: '0.8rem',
                   fontWeight: '700',
-                  color: '#3b4674',
+                  color: 'var(--steel-blue)',
                   textDecoration: 'none',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
-                  transition: 'color 0.2s ease',
+                  transition: 'color var(--transition-fast)',
                 }}
               >
                 <ChevronLeft size={16} strokeWidth={2.8} />
@@ -142,28 +108,23 @@ export default function RingTypeJointPage() {
               </Link>
             </div>
 
-            {/* Page Title matching screenshot */}
+            {/* Page Title */}
             <h1
               ref={titleRef}
-              style={{
-                fontFamily: "'Open Sans', -apple-system, sans-serif",
-                fontSize: 'clamp(1.8rem, 2.8vw, 2.6rem)',
-                fontWeight: '600',
-                color: '#052C58',
-                letterSpacing: '0.01em',
-                marginBottom: '3.5rem',
-              }}
+              className="section-title"
+              style={{ fontSize: 'clamp(1.8rem, 2.8vw, 2.6rem)', marginBottom: '3.5rem' }}
             >
-              Ring Type Joint (RTJ)
+              Ring Type Joint
             </h1>
 
-            {/* 2 Sub-Product Cards Grid matching screenshot */}
+            {/* 2-Column Product Cards Grid */}
             <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '2.2rem',
-                maxWidth: '820px',
+                gap: '2.5rem',
+                maxWidth: '880px',
+                margin: '0 auto',
               }}
               className="rtj-cards-grid"
             >
@@ -175,49 +136,11 @@ export default function RingTypeJointPage() {
                 >
                   <div
                     ref={addToCardsRef}
-                    style={{
-                      backgroundColor: '#ffffff',
-                      borderRadius: '16px',
-                      padding: '1.2rem',
-                      border: '1px solid #e2e8f0',
-                      boxShadow: '0 4px 14px rgba(0, 0, 0, 0.03)',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      height: '100%',
-                      minHeight: '320px',
-                      transition:
-                        'transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
-                      cursor: 'pointer',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-6px)';
-                      e.currentTarget.style.borderColor = '#114680';
-                      e.currentTarget.style.boxShadow =
-                        '0 14px 30px rgba(5, 44, 88, 0.12)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.borderColor = '#e2e8f0';
-                      e.currentTarget.style.boxShadow =
-                        '0 4px 14px rgba(0, 0, 0, 0.03)';
-                    }}
+                    className="product-overview-card"
+                    style={{ minHeight: '340px' }}
                   >
-                    {/* Image Preview Container */}
-                    <div
-                      style={{
-                        width: '100%',
-                        height: '180px',
-                        backgroundColor: '#f8fafc',
-                        borderRadius: '12px',
-                        overflow: 'hidden',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '1.2rem',
-                        border: '1px solid #f1f5f9',
-                      }}
-                    >
+                    {/* Top Image Preview Box */}
+                    <div className="product-img-box" style={{ height: '190px' }}>
                       <img
                         src={item.image}
                         alt={item.title}
@@ -228,65 +151,25 @@ export default function RingTypeJointPage() {
                           padding: '0.8rem',
                         }}
                         onError={(e) => {
-                          e.currentTarget.src = '/images/home-products.png';
+                          e.currentTarget.src = '/images/products/industrial-gaskets/ring-type-joint.png';
                         }}
                       />
                     </div>
 
-                    {/* Card Content & Arrow Icon */}
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'flex-end',
-                        justifyContent: 'space-between',
-                        gap: '1rem',
-                      }}
-                    >
-                      <div>
-                        <h3
-                          style={{
-                            fontFamily:
-                              "'Open Sans', -apple-system, sans-serif",
-                            fontSize: '0.96rem',
-                            fontWeight: '700',
-                            color: '#052C58',
-                            letterSpacing: '0.04em',
-                            textTransform: 'uppercase',
-                            marginBottom: '0.4rem',
-                            lineHeight: '1.35',
-                          }}
-                        >
+                    {/* Bottom Details with Arrow Badge */}
+                    <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
+                      <div style={{ flexGrow: 1 }}>
+                        <h3 className="product-card-title">
                           {item.title}
                         </h3>
 
-                        <p
-                          style={{
-                            fontSize: '0.86rem',
-                            fontWeight: '400',
-                            color: '#64748b',
-                            margin: 0,
-                            lineHeight: '1.45',
-                          }}
-                        >
+                        <p className="product-card-desc">
                           {item.subtitle}
                         </p>
                       </div>
 
-                      {/* Dark Navy Circular Arrow Badge */}
-                      <div
-                        style={{
-                          width: '34px',
-                          height: '34px',
-                          borderRadius: '50%',
-                          backgroundColor: '#114680',
-                          color: '#ffffff',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0,
-                          boxShadow: '0 3px 8px rgba(17, 70, 128, 0.25)',
-                        }}
-                      >
+                      {/* Circular Dark Navy Arrow Badge */}
+                      <div className="product-arrow-badge" style={{ width: '32px', height: '32px' }}>
                         <svg
                           width="15"
                           height="15"
@@ -309,56 +192,19 @@ export default function RingTypeJointPage() {
           </div>
         </section>
 
-        {/* Overview & Applications/Benefits Section on Pure White Background */}
-        <section
-          style={{
-            width: '100%',
-            backgroundColor: '#ffffff',
-            padding: '4.5rem 2rem 5rem 2rem',
-          }}
-        >
-          <div style={{ maxWidth: '920px', margin: '0 auto' }}>
-            {/* Description Paragraph matching screenshot */}
-            <p
-              style={{
-                fontSize: '0.98rem',
-                fontWeight: '400',
-                color: '#475569',
-                lineHeight: '1.7',
-                marginBottom: '3rem',
-              }}
-            >
-              TXCO Sealing Products takes pride in helping our customers find the right metallic gasket for any{' '}
-              <a
-                href="/industries"
-                style={{
-                  color: '#114680',
-                  textDecoration: 'underline',
-                  fontWeight: '600',
-                }}
-              >
-                industry
-              </a>{' '}
-              application. To ensure your order is ready for immediate shipment, we stock an extensive range of{' '}
-              <span
-                style={{
-                  color: '#114680',
-                  textDecoration: 'underline',
-                  fontWeight: '500',
-                }}
-              >
-                ring type joint (RTJ) gasket
-              </span>{' '}
-              sizes and materials in our facilities all over the world. You can also rely on us for best-in-class delivery of special gasket sizes and shapes that are manufactured in accordance with API 6A, API 17D and ASME B16.20 specifications.
-            </p>
-
-            {/* Applications / Benefits Tabs Header */}
+        {/* Bottom Tabbed Content Section on Pure White Background */}
+        <section className="txco-section txco-section-light" style={{ padding: '4.5rem 2rem 5.5rem 2rem' }}>
+          <div style={{ maxWidth: '880px', margin: '0 auto' }}>
+            {/* 2 Filter Tabs matching screenshot */}
             <div
               style={{
                 display: 'flex',
-                gap: '2.5rem',
-                borderBottom: '1.5px solid #e2e8f0',
-                marginBottom: '2rem',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '1.2rem',
+                marginBottom: '3rem',
+                borderBottom: '1px solid #e2e8f0',
+                paddingBottom: '1rem',
               }}
             >
               <button
@@ -366,21 +212,19 @@ export default function RingTypeJointPage() {
                 style={{
                   background: 'none',
                   border: 'none',
-                  padding: '0.6rem 0.2rem 0.8rem 0.2rem',
-                  fontSize: '0.92rem',
-                  fontWeight: '800',
-                  letterSpacing: '0.08em',
-                  color: activeTab === 'applications' ? '#052C58' : '#94a3b8',
-                  borderBottom:
-                    activeTab === 'applications'
-                      ? '3px solid #114680'
-                      : '3px solid transparent',
                   cursor: 'pointer',
-                  transition: 'color 0.2s ease, border-color 0.2s ease',
+                  fontSize: '1.05rem',
+                  fontWeight: activeTab === 'applications' ? '700' : '500',
+                  color: activeTab === 'applications' ? 'var(--primary-navy)' : 'var(--text-muted)',
+                  borderBottom: activeTab === 'applications' ? '2.5px solid var(--primary-navy)' : '2.5px solid transparent',
+                  paddingBottom: '0.8rem',
+                  marginBottom: '-1.1rem',
                   textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
+                  transition: 'all var(--transition-fast)',
                 }}
               >
-                APPLICATIONS
+                Applications
               </button>
 
               <button
@@ -388,55 +232,76 @@ export default function RingTypeJointPage() {
                 style={{
                   background: 'none',
                   border: 'none',
-                  padding: '0.6rem 0.2rem 0.8rem 0.2rem',
-                  fontSize: '0.92rem',
-                  fontWeight: '800',
-                  letterSpacing: '0.08em',
-                  color: activeTab === 'benefits' ? '#052C58' : '#94a3b8',
-                  borderBottom:
-                    activeTab === 'benefits'
-                      ? '3px solid #114680'
-                      : '3px solid transparent',
                   cursor: 'pointer',
-                  transition: 'color 0.2s ease, border-color 0.2s ease',
+                  fontSize: '1.05rem',
+                  fontWeight: activeTab === 'benefits' ? '700' : '500',
+                  color: activeTab === 'benefits' ? 'var(--primary-navy)' : 'var(--text-muted)',
+                  borderBottom: activeTab === 'benefits' ? '2.5px solid var(--primary-navy)' : '2.5px solid transparent',
+                  paddingBottom: '0.8rem',
+                  marginBottom: '-1.1rem',
                   textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
+                  transition: 'all var(--transition-fast)',
                 }}
               >
-                BENEFITS
+                Features & Benefits
               </button>
             </div>
 
-            {/* Bullet List Content */}
-            <ul
-              ref={listRef}
+            {/* Tab Body List Content with Bullet Points */}
+            <div
               style={{
-                listStyleType: 'disc',
-                paddingLeft: '1.4rem',
-                margin: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.9rem',
+                backgroundColor: 'var(--bg-light-surface)',
+                borderRadius: 'var(--radius-xl)',
+                padding: '2.5rem',
+                border: '1px solid var(--border-light)',
               }}
             >
-              {tabContent[activeTab].map((bullet, idx) => (
-                <li
-                  key={idx}
-                  style={{
-                    fontSize: '0.95rem',
-                    color: '#334155',
-                    lineHeight: '1.6',
-                  }}
-                >
-                  {bullet}
-                </li>
-              ))}
-            </ul>
+              <ul
+                ref={listRef}
+                style={{
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: 0,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1.2rem',
+                }}
+              >
+                {tabContent[activeTab].map((text, idx) => (
+                  <li
+                    key={idx}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '0.9rem',
+                      fontSize: '0.96rem',
+                      color: 'var(--text-body)',
+                      lineHeight: '1.6',
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: '8px',
+                        height: '8px',
+                        borderRadius: '50%',
+                        backgroundColor: 'var(--slate-blue)',
+                        marginTop: '0.5rem',
+                        flexShrink: 0,
+                      }}
+                    />
+                    <span>{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
-        {/* Global Contact CTA Section */}
+        {/* Global Contact Section */}
         <ContactSection />
       </main>
+      <Footer />
 
       <style jsx>{`
         @media (max-width: 768px) {
@@ -445,7 +310,6 @@ export default function RingTypeJointPage() {
           }
         }
       `}</style>
-      <Footer />
     </>
   );
 }

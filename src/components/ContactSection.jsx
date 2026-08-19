@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { contactSectionData } from '@/data/homeData';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -61,127 +62,43 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: '100%',
-        backgroundColor: '#f2f6fc', // Light cool blue-tint background matching reference screenshot
-        padding: '5rem 2rem 4rem 2rem',
-        color: '#1d2744',
-        position: 'relative',
-        overflow: 'visible', // Allows image to overflow upwards into section above
-        zIndex: 20,
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1280px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1.15fr',
-          alignItems: 'center',
-          gap: '3rem',
-          position: 'relative',
-          overflow: 'visible',
-        }}
-        className="contact-section-grid"
-      >
+    <section ref={sectionRef} className="home-contact-section">
+      <div className="home-contact-grid">
         {/* Left Column: Description & Direct Contact Details */}
         <div ref={leftColRef} style={{ zIndex: 12 }}>
-          <p
-            style={{
-              fontFamily: "'Open Sans', -apple-system, sans-serif",
-              fontSize: '1.1rem',
-              fontWeight: '400',
-              color: '#334155',
-              lineHeight: '1.65',
-              marginBottom: '1.8rem',
-              maxWidth: '520px',
-            }}
-          >
-            From high-performance gaskets, hoses and fasteners to custom-engineered sealing solutions, TXCO helps customers solve demanding applications with reliable products, technical expertise and responsive support.
+          <p className="home-contact-desc">
+            {contactSectionData.description}
           </p>
 
-          {/* Subtle horizontal divider */}
-          <div
-            style={{
-              width: '100%',
-              maxWidth: '500px',
-              height: '1px',
-              backgroundColor: '#cbd5e1',
-              margin: '1.8rem 0',
-            }}
-          />
+          <div className="home-contact-divider" />
 
-          {/* Contact Details matching screenshot */}
+          {/* Contact Details */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <p
-              style={{
-                fontSize: '1.25rem',
-                fontWeight: '400',
-                color: '#334155',
-                margin: 0,
-              }}
-            >
+            <p className="home-contact-phone-label">
               Just call us on{' '}
-              <span style={{ fontWeight: '700', color: '#1d2744', fontSize: '1.35rem' }}>
-                +91 6302 152 938
+              <span className="home-contact-phone-val">
+                {contactSectionData.phone}
               </span>
             </p>
 
             <a
-              href="mailto:info@txco.co"
-              style={{
-                fontSize: '1.15rem',
-                fontWeight: '500',
-                color: '#1d2744',
-                textDecoration: 'none',
-                transition: 'color 0.2s ease',
-              }}
+              href={`mailto:${contactSectionData.email}`}
+              className="home-contact-email-val"
             >
-              info@txco.co
+              {contactSectionData.email}
             </a>
           </div>
         </div>
 
-        {/* Right Column: Upward Overflowing Product Image into Section Above */}
-        <div
-          ref={rightColRef}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'relative',
-            marginTop: '-140px', // Prominent upward overflow extending into section above
-            zIndex: 25,
-          }}
-          className="contact-img-wrapper"
-        >
+        {/* Right Column: Upward Overflowing Product Image */}
+        <div ref={rightColRef} className="home-contact-img-col">
           <img
-            src="/images/contact-img.png"
+            src={contactSectionData.image}
             alt="TXCO Sealing Products Assortment"
-            style={{
-              width: '100%',
-              maxWidth: '680px',
-              height: 'auto',
-              objectFit: 'contain',
-              filter: 'drop-shadow(0 18px 36px rgba(0, 0, 0, 0.14))',
-            }}
+            className="home-contact-img"
           />
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 960px) {
-          .contact-section-grid {
-            grid-template-columns: 1fr !important;
-            gap: 2.5rem !important;
-          }
-          .contact-img-wrapper {
-            margin-top: 0 !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

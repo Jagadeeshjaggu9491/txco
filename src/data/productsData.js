@@ -122,3 +122,38 @@ export const engineeredSolutionsData = {
     image: '/images/contact-img.png',
   },
 };
+
+export const rtjSubProducts = [
+  {
+    id: 'ring-joint-gaskets',
+    title: 'RING JOINT GASKETS',
+    subtitle: 'R • RX • BX',
+    image: '/images/products/industrial-gaskets/ring-type-joint.png',
+    href: '/products/gaskets-kits-seals/ring-type-joint/details?tab=ring-joint-gaskets',
+  },
+  {
+    id: 'kammprofile-rtj',
+    title: 'KAMMPROFILE RING TYPE JOINT (RTJ)',
+    subtitle: 'Style R • RIR • CG • CGI',
+    image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
+    href: '/products/gaskets-kits-seals/ring-type-joint/details?tab=kammprofile-rtj',
+  },
+];
+
+export const rtjTabContent = {
+  applications: [
+    'Higher Pressure Connections (up to 20,000 psi)',
+    'High Temperature Services',
+    'Metal to Metal Sealing',
+    'Petroleum Upstream, Midstream and Downstream',
+    'Alternative Fuels',
+    'Subsea',
+  ],
+  benefits: [
+    'Exceptional sealability under extreme pressure and temperature cycles',
+    'High blowout resistance for critical safety compliance',
+    'Extensive material selection (Soft Iron, Low Carbon Steel, SS304/316, Inconel 625, Monel, Hastelloy)',
+    'Full compliance with API 6A, API 17D, and ASME B16.20 specifications',
+    'Precision machined tolerances preventing flange face damage',
+  ],
+};

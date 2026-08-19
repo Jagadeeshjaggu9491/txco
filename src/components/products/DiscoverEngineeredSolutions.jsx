@@ -9,7 +9,7 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// Custom SVG Icons matching screenshot 4 (Lightbulb, Chimney, Rig, Helmet)
+// Custom SVG Icons
 function CardIcon({ type }) {
   switch (type) {
     case 'lightbulb':
@@ -59,7 +59,6 @@ export default function DiscoverEngineeredSolutions() {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const cardsRef = useRef([]);
-  const bannerRef = useRef(null);
 
   cardsRef.current = [];
 
@@ -108,42 +107,20 @@ export default function DiscoverEngineeredSolutions() {
 
     return () => ctx.revert();
   }, []);
+
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: '100%',
-        backgroundColor: '#ffffff',
-        padding: '4.5rem 0 0 0',
-      }}
-    >
+    <section ref={sectionRef} className="discover-solutions-section">
       <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 2rem' }}>
         <h2
           ref={headingRef}
-          style={{
-            fontFamily: "'Open Sans', -apple-system, sans-serif",
-            fontSize: 'clamp(1.6rem, 2.6vw, 2.3rem)',
-            fontWeight: '600',
-            color: '#052C58',
-            letterSpacing: '0.04em',
-            textTransform: 'uppercase',
-            textAlign: 'center',
-            marginBottom: '3.5rem',
-          }}
+          className="section-title section-title-center"
+          style={{ marginBottom: '3.5rem' }}
         >
           {engineeredSolutionsData.heading}
         </h2>
 
-        {/* 4 Square Icon Cards Grid matching screenshot 4 */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '2rem 1.5rem',
-            marginBottom: '5rem',
-          }}
-          className="engineered-cards-grid"
-        >
+        {/* 4 Square Icon Cards Grid */}
+        <div className="grid-4-col" style={{ marginBottom: '5rem' }}>
           {engineeredSolutionsData.items.map((card) => (
             <div
               key={card.id}
@@ -155,37 +132,7 @@ export default function DiscoverEngineeredSolutions() {
                 textAlign: 'center',
               }}
             >
-              <div
-                style={{
-                  width: '100%',
-                  aspectRatio: '1 / 1',
-                  backgroundColor: '#ffffff',
-                  borderRadius: '20px',
-                  border: '1.5px solid #114680',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '1.2rem',
-                  marginBottom: '1rem',
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.03)',
-                  transition:
-                    'transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-5px)';
-                  e.currentTarget.style.borderColor = '#052C58';
-                  e.currentTarget.style.boxShadow =
-                    '0 12px 28px rgba(5, 44, 88, 0.14)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#114680';
-                  e.currentTarget.style.boxShadow =
-                    '0 4px 12px rgba(0, 0, 0, 0.03)';
-                }}
-              >
-                {/* Fallback to Image icon if available, otherwise SVG */}
+              <div className="solution-square-box">
                 {card.iconSrc ? (
                   <img
                     src={card.iconSrc}
@@ -209,36 +156,13 @@ export default function DiscoverEngineeredSolutions() {
                   <CardIcon type={card.svgType} />
                 </div>
               </div>
-              <span
-                style={{
-                  fontSize: '0.88rem',
-                  fontWeight: '700',
-                  color: '#1e293b',
-                  letterSpacing: '0.04em',
-                  textTransform: 'uppercase',
-                  lineHeight: '1.3',
-                }}
-              >
+              <span className="solution-square-title">
                 {card.title}
               </span>
             </div>
           ))}
         </div>
       </div>
-
-
-
-      <style jsx>{`
-        @media (max-width: 900px) {
-          .engineered-cards-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-          .bottom-banner-grid {
-            grid-template-columns: 1fr !important;
-            text-align: center;
-          }
-        }
-      `}</style>
     </section>
   );
 }

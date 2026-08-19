@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { engineeredSolutionsData } from '@/data/homeData';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -26,38 +27,7 @@ export default function EngineeredSolutions() {
     }
   };
 
-  const columns = [
-    {
-      title: 'SEALING PRODUCTS',
-      iconSrc: '/images/icons/sealing-products.png',
-      items: [
-        { name: 'Gaskets, Kits & Seals', href: '/products/gaskets-kits-seals' },
-        { name: 'Hoses & Expansion Joints', href: '/products/jacketed-solutions' },
-        { name: 'Fasteners & Bolting', href: '/products/specialized-solutions' },
-        { name: 'Flange Isolation Gaskets', href: '/products/gaskets-kits-seals/ring-type-joint' },
-      ],
-    },
-    {
-      title: 'ENGINEERED SOLUTIONS',
-      iconSrc: '/images/icons/engine-sloutions.png',
-      items: [
-        { name: 'Reverse Engineering', href: '/services/reverse' },
-        { name: 'Custom Gasket Engineering', href: '/services/engineering' },
-        { name: 'Specialty Machined Parts', href: '/products/specialized-solutions' },
-        { name: 'Prototyping', href: '/services' },
-      ],
-    },
-    {
-      title: 'TECHNICAL SERVICES',
-      iconSrc: '/images/icons/tech-solutions.png',
-      items: [
-        { name: 'Field Measurement', href: '/services/field-support' },
-        { name: 'Gasket Recommendations', href: '/products/gaskets-kits-seals' },
-        { name: 'Bolt-Up Protocol Calculations', href: '/resources' },
-        { name: 'Training & Technical Support', href: '/services/training' },
-      ],
-    },
-  ];
+  const columns = engineeredSolutionsData;
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -71,7 +41,6 @@ export default function EngineeredSolutions() {
         },
       });
 
-      // 1. Heading rises up from bottom
       if (headingRef.current) {
         tl.fromTo(
           headingRef.current,
@@ -80,7 +49,6 @@ export default function EngineeredSolutions() {
         );
       }
 
-      // 2. Column items come up from bottom one by one starting from the left
       if (columnsRef.current.length > 0) {
         tl.fromTo(
           columnsRef.current,
@@ -96,7 +64,6 @@ export default function EngineeredSolutions() {
         );
       }
 
-      // 3. Vertical border lines attached to each icon draw into place
       if (borderRefs.current.length > 0) {
         tl.fromTo(
           borderRefs.current,
@@ -112,7 +79,6 @@ export default function EngineeredSolutions() {
         );
       }
 
-      // 4. Icons display and glide out from behind their attached border
       if (iconRefs.current.length > 0) {
         tl.fromTo(
           iconRefs.current,
@@ -134,145 +100,34 @@ export default function EngineeredSolutions() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: '100%',
-        backgroundColor: '#ffffff',
-        padding: '5rem 2rem 5.5rem 2rem',
-        color: '#253258',
-        overflow: 'hidden',
-      }}
-    >
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-        {/* Title Case Section Header matching reference screenshot */}
-        <h2
-          ref={headingRef}
-          style={{
-            fontFamily: "'Open Sans', -apple-system, sans-serif",
-            fontSize: 'clamp(1.5rem, 2.5vw, 2.2rem)',
-            fontWeight: '400',
-            textAlign: 'left',
-            color: '#3b4a76',
-            letterSpacing: '0.01em',
-            marginBottom: '4.2rem',
-          }}
-        >
+    <section ref={sectionRef} className="engineered-solutions-section">
+      <div className="txco-container">
+        <h2 ref={headingRef} className="engineered-solutions-heading">
           Engineered Solutions. Built to Perform.
         </h2>
 
-        {/* 3 Columns Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '2.8rem',
-          }}
-          className="engineered-solutions-grid"
-        >
+        <div className="engineered-solutions-grid">
           {columns.map((col, idx) => (
-            <div
-              key={idx}
-              ref={addToColumnRefs}
-              style={{
-                display: 'flex',
-                alignItems: 'flex-start', // Display icons starting from top of card
-                gap: '1.2rem',
-              }}
-            >
-              {/* Icon Wrapper with Attached Border Line starting from top */}
-              <div
-                style={{
-                  flexShrink: 0,
-                  position: 'relative',
-                  paddingLeft: '2px',
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
-                  marginTop: '2px',
-                }}
-              >
-                {/* Attached Left Border Line */}
+            <div key={idx} ref={addToColumnRefs} className="engineered-col-card">
+              <div className="engineered-icon-wrapper">
                 <div
                   ref={(el) => (borderRefs.current[idx] = el)}
-                  style={{
-                    position: 'absolute',
-                    left: 0,
-                    top: 0,
-                    bottom: 0,
-                    width: '3px',
-                    backgroundColor: '#253258',
-                    borderRadius: '2px',
-                    transformOrigin: 'top',
-                  }}
+                  className="engineered-vertical-line"
                 />
-
-                {/* PNG Icon Image displaying from behind the border */}
                 <img
                   ref={(el) => (iconRefs.current[idx] = el)}
                   src={col.iconSrc}
                   alt={col.title}
-                  style={{
-                    height: '115px',
-                    width: 'auto',
-                    objectFit: 'contain',
-                  }}
+                  className="engineered-icon-img"
                 />
               </div>
 
-              {/* Right Content */}
               <div>
-                {/* Prominent Column Title */}
-                <h3
-                  style={{
-                    fontFamily: "'Open Sans', -apple-system, sans-serif",
-                    fontSize: '1.28rem', // Increased title font size
-                    fontWeight: '700',
-                    color: '#3b4a76',
-                    letterSpacing: '0.05em',
-                    textTransform: 'uppercase',
-                    marginBottom: '1.2rem',
-                    lineHeight: '1.25',
-                    marginTop: '2px',
-                  }}
-                >
-                  {col.title}
-                </h3>
-
-                <ul
-                  style={{
-                    listStyle: 'none',
-                    padding: 0,
-                    margin: 0,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.85rem',
-                  }}
-                >
+                <h3 className="engineered-col-title">{col.title}</h3>
+                <ul className="engineered-items-list">
                   {col.items.map((item, itemIdx) => (
                     <li key={itemIdx}>
-                      <Link
-                        href={item.href}
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '0.45rem',
-                          fontSize: '0.94rem',
-                          fontWeight: '400',
-                          color: '#475569',
-                          textDecoration: 'none',
-                          transition: 'color 0.2s ease, transform 0.2s ease',
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.color = '#0b2b48';
-                          e.currentTarget.style.transform = 'translateX(4px)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.color = '#475569';
-                          e.currentTarget.style.transform = 'translateX(0)';
-                        }}
-                      >
+                      <Link href={item.href} className="engineered-item-link">
                         <span>{item.name}</span>
                         <svg
                           width="15"
@@ -297,15 +152,6 @@ export default function EngineeredSolutions() {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 960px) {
-          .engineered-solutions-grid {
-            grid-template-columns: 1fr !important;
-            gap: 3rem !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

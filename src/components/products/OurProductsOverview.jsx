@@ -81,125 +81,37 @@ export default function OurProductsOverview() {
 
     return () => ctx.revert();
   }, []);
+
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: '100%',
-        backgroundColor: '#f2f6fc', // Light cool grey/blue background matching screenshot 2
-        padding: '4.5rem 2rem 5rem 2rem',
-      }}
-    >
+    <section ref={sectionRef} className="products-overview-section">
       <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
-        {/* Top Badge matching Screenshot 2 */}
+        {/* Top Badge */}
         <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
-          <span
-            ref={badgeRef}
-            style={{
-              display: 'inline-block',
-              padding: '0.4rem 1.4rem',
-              backgroundColor: '#ffffff',
-              border: '1px solid #d1d5db',
-              borderRadius: '9999px',
-              fontSize: '0.75rem',
-              fontWeight: '700',
-              color: '#64748b',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              boxShadow: '0 2px 6px rgba(0, 0, 0, 0.02)',
-            }}
-          >
+          <span ref={badgeRef} className="section-badge">
             OUR PRODUCTS
           </span>
         </div>
 
-        {/* Heading Title matching Screenshot 2 */}
+        {/* Heading Title */}
         <h2
           ref={headingRef}
-          style={{
-            fontFamily: "'Open Sans', -apple-system, sans-serif",
-            fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-            fontWeight: '600',
-            color: '#052C58',
-            textAlign: 'center',
-            maxWidth: '920px',
-            margin: '0 auto 3.5rem auto',
-            lineHeight: '1.25',
-            letterSpacing: '-0.01em',
-          }}
+          className="section-title section-title-center"
+          style={{ maxWidth: '920px', margin: '0 auto 3.5rem auto' }}
         >
           Don’t let demanding sealing requirements become an engineering challenge.
         </h2>
 
-        {/* 3 Product Cards Grid matching Screenshot 2 */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '2rem',
-            marginBottom: '3.5rem',
-          }}
-          className="our-products-grid"
-        >
+        {/* 3 Product Cards Grid */}
+        <div className="grid-3-col" style={{ marginBottom: '3.5rem' }}>
           {mainProductCategories.map((item) => (
             <Link
               key={item.id}
               href={item.href}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              <div
-                ref={addToCardsRef}
-                style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: '16px',
-                  padding: '1.2rem',
-                  border: '1px solid #e2e8f0',
-                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.04)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  height: '100%',
-                  minHeight: '350px',
-                  transition:
-                    'transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px)';
-                  e.currentTarget.style.borderColor = '#114680';
-                  e.currentTarget.style.boxShadow =
-                    '0 16px 32px rgba(5, 44, 88, 0.12)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#e2e8f0';
-                  e.currentTarget.style.boxShadow =
-                    '0 4px 14px rgba(0, 0, 0, 0.04)';
-                }}
-              >
+              <div ref={addToCardsRef} className="product-overview-card">
                 {/* Product Image Preview Box */}
-                <div
-                  style={{
-                    width: '100%',
-                    height: '185px',
-                    backgroundColor: '#f8fafc',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '1.2rem',
-                    border: '1px solid #f1f5f9',
-                    backgroundImage: `
-                      linear-gradient(45deg, #f1f5f9 25%, transparent 25%),
-                      linear-gradient(-45deg, #f1f5f9 25%, transparent 25%),
-                      linear-gradient(45deg, transparent 75%, #f1f5f9 75%),
-                      linear-gradient(-45deg, transparent 75%, #f1f5f9 75%)
-                    `,
-                    backgroundSize: '20px 20px',
-                    backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px',
-                  }}
-                >
+                <div className="product-img-box">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -216,58 +128,17 @@ export default function OurProductsOverview() {
                 </div>
 
                 {/* Card Content & Arrow Button */}
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    justifyContent: 'space-between',
-                    gap: '1rem',
-                  }}
-                >
+                <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
                   <div style={{ flexGrow: 1 }}>
-                    <h3
-                      style={{
-                        fontFamily: "'Open Sans', -apple-system, sans-serif",
-                        fontSize: '0.98rem',
-                        fontWeight: '700',
-                        color: '#052C58',
-                        letterSpacing: '0.04em',
-                        textTransform: 'uppercase',
-                        marginBottom: '0.4rem',
-                        lineHeight: '1.35',
-                      }}
-                    >
+                    <h3 className="product-card-title">
                       {item.title}
                     </h3>
-
-                    <p
-                      style={{
-                        fontSize: '0.86rem',
-                        fontWeight: '400',
-                        color: '#64748b',
-                        margin: 0,
-                        lineHeight: '1.45',
-                      }}
-                    >
+                    <p className="product-card-desc">
                       {item.description}
                     </p>
                   </div>
 
-                  {/* Dark Navy Arrow Button matching screenshot */}
-                  <div
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      backgroundColor: '#114680',
-                      color: '#ffffff',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      boxShadow: '0 3px 8px rgba(17, 70, 128, 0.25)',
-                    }}
-                  >
+                  <div className="product-arrow-badge">
                     <svg
                       width="16"
                       height="16"
@@ -288,35 +159,13 @@ export default function OurProductsOverview() {
           ))}
         </div>
 
-        {/* Contact Our Experts Button matching Screenshot 2 */}
+        {/* Contact Our Experts Button */}
         <div style={{ textAlign: 'center' }}>
           <Link
             ref={btnRef}
             href="/contact"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.75rem',
-              backgroundColor: '#114680',
-              color: '#ffffff',
-              padding: '0.95rem 2.2rem',
-              borderRadius: '0px',
-              fontSize: '0.88rem',
-              fontWeight: '700',
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              textDecoration: 'none',
-              boxShadow: '0 4px 14px rgba(17, 70, 128, 0.3)',
-              transition: 'background-color 0.2s ease, transform 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#052C58';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#114680';
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
+            className="txco-btn txco-btn-primary"
+            style={{ backgroundColor: '#114680' }}
           >
             <span>CONTACT OUR EXPERTS</span>
             <div
@@ -347,19 +196,6 @@ export default function OurProductsOverview() {
           </Link>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 960px) {
-          .our-products-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .our-products-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

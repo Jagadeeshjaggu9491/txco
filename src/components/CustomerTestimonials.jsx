@@ -1,46 +1,10 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { customerTestimonialsData } from '@/data/homeData';
 
 export default function CustomerTestimonials() {
-  const realSlides = [
-    {
-      quote:
-        'TXCO has proved that they go beyond expectations in quality, speed and support. During our turnaround, they exceeded expectations, but most importantly, they had “boots on the ground” which helped tremendously.',
-      role: 'Buyer',
-      company: 'Exxon Inc',
-    },
-    {
-      quote:
-        'The custom gaskets and specialty bolting solutions provided by TXCO have performed flawlessly under extreme high-pressure operations. Their engineering team is unmatched in responsiveness.',
-      role: 'Plant Maintenance Director',
-      company: 'Shell Operations',
-    },
-    {
-      quote:
-        'Fast delivery times, flawless reverse engineering, and outstanding technical support. TXCO is our trusted long-term sealing partner across all our manufacturing facilities.',
-      role: 'Senior Supply Chain Manager',
-      company: 'Chevron Energy',
-    },
-    {
-      quote:
-        'Outstanding quality control and precision flange isolation kits. TXCO consistently helps us prevent costly downtime and maintain strict environmental compliance.',
-      role: 'Chief Operations Officer',
-      company: 'PetroChina Refining',
-    },
-    {
-      quote:
-        "TXCO's customer service and field support staff respond instantly to urgent turnaround orders. Highly recommended for heavy industrial sealing applications.",
-      role: 'Procurement Specialist',
-      company: 'BASF Chemical',
-    },
-    {
-      quote:
-        'Engineering excellence and reliable high-temperature sealing products. TXCO has been an invaluable vendor for our power generation facilities worldwide.',
-      role: 'Technical Services Director',
-      company: 'General Electric Power',
-    },
-  ];
+  const realSlides = customerTestimonialsData;
 
   // Extended slides array for seamless infinite looping: [CloneLast, ...realSlides, CloneFirst]
   const slides = [realSlides[realSlides.length - 1], ...realSlides, realSlides[0]];
@@ -127,42 +91,15 @@ export default function CustomerTestimonials() {
 
   return (
     <section
-      style={{
-        width: '100%',
-        backgroundColor: '#ffffff',
-        padding: '5.5rem 2rem',
-        overflow: 'hidden',
-      }}
+      className="testimonials-section"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <div style={{ maxWidth: '880px', margin: '0 auto', position: 'relative' }}>
-        {/* Testimonial Outer Rounded Navy Card Box matching reference screenshot */}
-        <div
-          style={{
-            position: 'relative',
-            border: '1.5px solid #3b4674',
-            borderRadius: '24px',
-            padding: '3.5rem 3rem 2.8rem 3rem',
-            backgroundColor: '#ffffff',
-            textAlign: 'center',
-          }}
-          className="testimonial-card-box"
-        >
-          {/* Quote Badge icon breaking top border centered */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '-26px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              backgroundColor: '#ffffff',
-              padding: '0 1.2rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
+      <div className="testimonials-container">
+        {/* Testimonial Outer Rounded Navy Card Box */}
+        <div className="testimonial-card-box">
+          {/* Quote Badge icon */}
+          <div className="testimonial-quote-badge">
             <svg
               width="44"
               height="34"
@@ -177,18 +114,7 @@ export default function CustomerTestimonials() {
             </svg>
           </div>
 
-          {/* Title inside card */}
-          <h2
-            style={{
-              fontFamily: "'Open Sans', -apple-system, sans-serif",
-              fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)',
-              fontWeight: '600',
-              color: '#3b4674',
-              letterSpacing: '0.01em',
-              marginBottom: '2rem',
-              lineHeight: '1.3',
-            }}
-          >
+          <h2 className="section-title section-title-center" style={{ color: '#3b4674', marginBottom: '2rem' }}>
             What Our Customers Are Saying
           </h2>
 
@@ -214,39 +140,15 @@ export default function CustomerTestimonials() {
                     boxSizing: 'border-box',
                   }}
                 >
-                  {/* Quote Paragraph */}
-                  <p
-                    style={{
-                      fontFamily: "'Open Sans', -apple-system, sans-serif",
-                      fontSize: '1.02rem',
-                      fontWeight: '400',
-                      color: '#475569',
-                      lineHeight: '1.7',
-                      maxWidth: '680px',
-                      margin: '0 auto 2.2rem auto',
-                    }}
-                  >
+                  <p className="testimonial-quote-text">
                     {item.quote}
                   </p>
 
-                  {/* Author Role & Company */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', alignItems: 'center' }}>
-                    <span
-                      style={{
-                        fontSize: '1.08rem',
-                        fontWeight: '600',
-                        color: '#3b4674',
-                      }}
-                    >
+                    <span className="testimonial-author-role">
                       {item.role}
                     </span>
-                    <span
-                      style={{
-                        fontSize: '1.02rem',
-                        fontWeight: '400',
-                        color: '#1e293b',
-                      }}
-                    >
+                    <span className="testimonial-author-company">
                       {item.company}
                     </span>
                   </div>
@@ -257,15 +159,7 @@ export default function CustomerTestimonials() {
         </div>
 
         {/* Pagination Dots below Card */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '10px',
-            marginTop: '2.2rem',
-          }}
-        >
+        <div className="testimonial-dots-wrapper">
           {realSlides.map((_, idx) => {
             const isActive = getActiveDotIndex() === idx;
             return (
@@ -278,29 +172,17 @@ export default function CustomerTestimonials() {
                   setCurrentIndex(idx + 1);
                 }}
                 aria-label={`Go to slide ${idx + 1}`}
+                className="testimonial-dot-btn"
                 style={{
                   width: isActive ? '12px' : '9px',
                   height: isActive ? '12px' : '9px',
-                  borderRadius: '50%',
                   backgroundColor: isActive ? '#3b4674' : '#cbd5e1',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  padding: 0,
                 }}
               />
             );
           })}
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 640px) {
-          .testimonial-card-box {
-            padding: 3rem 1.5rem 2rem 1.5rem !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

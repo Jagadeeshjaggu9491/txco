@@ -2,16 +2,13 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { heroSlidesData } from '@/data/homeData';
 
 export default function HeroSlider() {
-  const realSlides = [
-    { id: 1, image: '/images/hero/hero-1.png' },
-    { id: 2, image: '/images/hero/hero-2.png' },
-    { id: 3, image: '/images/hero/hero-3.png' },
-  ];
+  const realSlides = heroSlidesData;
 
   // Extended slides array for seamless infinite looping: [CloneLast, Slide1, Slide2, Slide3, CloneFirst]
-  const slides = [realSlides[2], ...realSlides, realSlides[0]];
+  const slides = [realSlides[realSlides.length - 1], ...realSlides, realSlides[0]];
 
   const [currentIndex, setCurrentIndex] = useState(1);
   const [withTransition, setWithTransition] = useState(true);
@@ -90,51 +87,24 @@ export default function HeroSlider() {
   return (
     <section
       className="hero-slider-section"
-      style={{
-        width: '100%',
-        height: '70vh',
-        maxHeight: '700px',
-        minHeight: '380px',
-        position: 'relative',
-        overflow: 'hidden',
-        backgroundColor: '#0a0d14',
-      }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
       {/* Slides Track */}
       <div
         onTransitionEnd={handleTransitionEnd}
+        className="hero-slides-track"
         style={{
-          display: 'flex',
-          width: '100%',
-          height: '100%',
           transform: `translateX(-${currentIndex * 100}%)`,
           transition: withTransition ? 'transform 0.9s cubic-bezier(0.25, 1, 0.4, 1)' : 'none',
         }}
       >
         {slides.map((slide, idx) => (
-          <div
-            key={`${slide.id}-${idx}`}
-            style={{
-              minWidth: '100%',
-              width: '100%',
-              height: '100%',
-              flexShrink: 0,
-              position: 'relative',
-              overflow: 'hidden',
-            }}
-          >
+          <div key={`${slide.id}-${idx}`} className="hero-slide-item">
             <img
               src={slide.image}
               alt={`TXCO Hero Slide ${slide.id}`}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center',
-                display: 'block',
-              }}
+              className="hero-slide-img"
             />
           </div>
         ))}
@@ -144,33 +114,7 @@ export default function HeroSlider() {
       <button
         onClick={goToPrev}
         aria-label="Previous Slide"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '20px',
-          transform: 'translateY(-50%)',
-          zIndex: 20,
-          width: '44px',
-          height: '44px',
-          borderRadius: '50%',
-          backgroundColor: 'rgba(255, 255, 255, 0.85)',
-          color: '#333333',
-          border: 'none',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-          transition: 'background-color 0.2s ease, transform 0.2s ease',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = '#ffffff';
-          e.currentTarget.style.transform = 'translateY(-50%) scale(1.08)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
-          e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-        }}
+        className="hero-arrow-btn hero-arrow-left"
       >
         <ChevronLeft size={24} />
       </button>
@@ -179,45 +123,10 @@ export default function HeroSlider() {
       <button
         onClick={goToNext}
         aria-label="Next Slide"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: '20px',
-          transform: 'translateY(-50%)',
-          zIndex: 20,
-          width: '44px',
-          height: '44px',
-          borderRadius: '50%',
-          backgroundColor: 'rgba(255, 255, 255, 0.85)',
-          color: '#333333',
-          border: 'none',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-          transition: 'background-color 0.2s ease, transform 0.2s ease',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = '#ffffff';
-          e.currentTarget.style.transform = 'translateY(-50%) scale(1.08)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
-          e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-        }}
+        className="hero-arrow-btn hero-arrow-right"
       >
         <ChevronRight size={24} />
       </button>
-
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .hero-slider-section {
-            height: 52vh !important;
-            min-height: 300px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
