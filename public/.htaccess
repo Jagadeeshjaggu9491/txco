@@ -8,16 +8,28 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
-  # 1. If requested file or directory exists, serve directly
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  # 1. If requested path is a directory and has index.html, serve it directly
   RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
   RewriteRule ^ - [L]
 
-  # 2. If path + .html exists (for static export without trailing slash)
+  # 2. If requested path is an existing file (like .css, .js, .png, etc.), serve it
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # 3. If path + .html exists, rewrite to it
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.*)$ $1.html [L]
 
-  # 3. If path/index.html exists (for static export with trailing slash)
+  # 4. If path/index.html exists, rewrite to it
   RewriteCond %{REQUEST_FILENAME}/index.html -f
   RewriteRule ^(.*)$ $1/index.html [L]
+
+  # 5. Handle cases where a directory is requested with a trailing slash and matching .html exists at parent level
+  RewriteCond %{REQUEST_URI} ^/(.+)/$
+  RewriteCond %{DOCUMENT_ROOT}/%1.html -f
+  RewriteRule ^/(.+)/$ /$1.html [L]
 </IfModule>
+
+# Custom Error Page
+ErrorDocument 404 /404.html
