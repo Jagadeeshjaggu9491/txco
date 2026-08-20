@@ -1,5 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import Preloader from '@/components/Preloader';
+import BootstrapClient from '@/components/BootstrapClient';
 
 export const metadata = {
   title: 'TXCO - Advanced Gaskets & Sealing Technology',
@@ -11,9 +13,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Preloader />
+        <BootstrapClient />
         {children}
       </body>
     </html>
   );
 }
-

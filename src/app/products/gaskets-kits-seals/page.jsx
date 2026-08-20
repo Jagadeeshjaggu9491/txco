@@ -12,7 +12,7 @@ export default function IndustrialGasketsPage() {
   return (
     <>
       <Header />
-      
+
       {/* 1. TOP PRODUCTS SECTION */}
       <section className="txco-section txco-section-cool-grey" style={{ padding: '3.5rem 2rem 5.5rem 2rem' }}>
         <div className="txco-container">
@@ -61,7 +61,7 @@ export default function IndustrialGasketsPage() {
                         width: '100%',
                         height: '100%',
                         objectFit: 'contain',
-                        padding: '0.8rem',
+                        padding: '0',
                       }}
                       onError={(e) => {
                         e.currentTarget.src = '/images/home-products.png';
