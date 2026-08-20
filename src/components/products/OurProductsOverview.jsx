@@ -96,7 +96,7 @@ export default function OurProductsOverview() {
         <h2
           ref={headingRef}
           className="section-title section-title-center"
-          style={{ maxWidth: '920px', margin: '0 auto 3.5rem auto' }}
+          style={{ maxWidth: '1080px', margin: '0 auto 3.5rem auto' }}
         >
           Don’t let demanding sealing requirements become an engineering challenge.
         </h2>
@@ -119,7 +119,7 @@ export default function OurProductsOverview() {
                       width: '100%',
                       height: '100%',
                       objectFit: 'contain',
-                      padding: '0.8rem',
+                      padding: '0',
                     }}
                     onError={(e) => {
                       e.currentTarget.src = item.fallbackImage;
