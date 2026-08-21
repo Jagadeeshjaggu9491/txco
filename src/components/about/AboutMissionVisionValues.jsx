@@ -243,7 +243,7 @@ export default function AboutMissionVisionValues() {
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '1.8rem',
           }}
-          className="values-grid"
+          className="values-grid container"
         >
           {valuesData.map((val) => {
             const isDark = val.type === 'dark';
