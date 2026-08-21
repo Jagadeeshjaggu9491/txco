@@ -59,7 +59,7 @@
 }
 
 .resources-grid-container {
-  max-width: 1180px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -205,7 +205,7 @@
   font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #1d2744;
+  color: #262846;
   line-height: 1.35;
   letter-spacing: 0.01em;
   max-width: 220px;
@@ -266,6 +266,7 @@
   .resources-cards-grid {
     grid-template-columns: 1fr;
   }
+
   .resources-filter-bar {
     flex-direction: column;
     align-items: flex-start;

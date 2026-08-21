@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
 import AboutHero from '@/components/about/AboutHero';
 import AboutMissionVisionValues from '@/components/about/AboutMissionVisionValues';
+import IndustrySolutions from '@/components/IndustrySolutions';
 import AboutBrochure from '@/components/about/AboutBrochure';
 
 export default function AboutPage() {
@@ -19,7 +20,10 @@ export default function AboutPage() {
         {/* Section 2: Mission, Vision & 3x3 Values Grid (Image 2) */}
         <AboutMissionVisionValues />
 
-        {/* Section 3: Company Overview Brochure (Image 3) */}
+        {/* Section 3: Industry Solutions */}
+        <IndustrySolutions />
+
+        {/* Section 4: Company Overview Brochure (Image 3) */}
         <AboutBrochure />
 
         {/* Global Contact Section */}
