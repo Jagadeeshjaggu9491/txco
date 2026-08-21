@@ -102,121 +102,122 @@ export default function AboutMissionVisionValues() {
   return (
     <section
       ref={sectionRef}
+      className='container-fluid'
       style={{
         width: '100%',
         backgroundColor: '#ffffff',
         padding: '5rem 2rem 6rem 2rem',
       }}
     >
-      <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+      <div>
         {/* Mission & Vision 2-Card Row matching Image 2 */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '2.2rem',
-            marginBottom: '5rem',
-          }}
-          className="mission-vision-grid"
-        >
-          {/* Card 1: Our Mission Statement */}
-          <div
-            ref={addToMvRef}
-            style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '20px',
-              padding: '3rem 2.5rem',
-              border: '1px solid #edf2f7',
-              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              textAlign: 'center',
-              minHeight: '220px',
-              transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-4px)';
-              e.currentTarget.style.boxShadow = '0 12px 28px rgba(0, 0, 0, 0.06)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.03)';
-            }}
-          >
-            <h2
-              style={{
-                fontFamily: "'Open Sans', -apple-system, sans-serif",
-                fontSize: '1.8rem',
-                fontWeight: '500',
-                color: '#1e293b',
-                marginBottom: '1.2rem',
-              }}
-            >
-              {missionVisionData.mission.title}
-            </h2>
-            <p
-              style={{
-                fontSize: '0.9rem',
-                color: '#475569',
-                lineHeight: '1.6',
-                margin: 0,
-                maxWidth: '400px',
-              }}
-            >
-              {missionVisionData.mission.description}
-            </p>
-          </div>
+        <div className="container px-0 mb-5">
+          <div className="row g-4">
+            {/* Card 1: Our Mission Statement */}
+            <div className="col-12 col-md-6 d-flex">
+              <div
+                ref={addToMvRef}
+                className="w-100"
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '20px',
+                  padding: '3rem 2.5rem',
+                  border: '1px solid #edf2f7',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  minHeight: '220px',
+                  transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 28px rgba(0, 0, 0, 0.06)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.03)';
+                }}
+              >
+                <h2
+                  style={{
+                    fontFamily: "'Inter', -apple-system, sans-serif",
+                    fontSize: '1.8rem',
+                    fontWeight: '500',
+                    color: '#1e293b',
+                    marginBottom: '1.2rem',
+                  }}
+                >
+                  {missionVisionData.mission.title}
+                </h2>
+                <p
+                  style={{
+                    fontSize: '0.9rem',
+                    color: '#475569',
+                    lineHeight: '1.6',
+                    margin: 0,
+                    maxWidth: '400px',
+                  }}
+                >
+                  {missionVisionData.mission.description}
+                </p>
+              </div>
+            </div>
 
-          {/* Card 2: Our Vision */}
-          <div
-            ref={addToMvRef}
-            style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '20px',
-              padding: '3rem 2.5rem',
-              border: '1px solid #edf2f7',
-              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              textAlign: 'center',
-              minHeight: '220px',
-              transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-4px)';
-              e.currentTarget.style.boxShadow = '0 12px 28px rgba(0, 0, 0, 0.06)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.03)';
-            }}
-          >
-            <h2
-              style={{
-                fontFamily: "'Open Sans', -apple-system, sans-serif",
-                fontSize: '1.8rem',
-                fontWeight: '500',
-                color: '#1e293b',
-                marginBottom: '1.2rem',
-              }}
-            >
-              {missionVisionData.vision.title}
-            </h2>
-            <p
-              style={{
-                fontSize: '0.9rem',
-                color: '#475569',
-                lineHeight: '1.6',
-                margin: 0,
-                maxWidth: '400px',
-              }}
-            >
-              {missionVisionData.vision.description}
-            </p>
+            {/* Card 2: Our Vision */}
+            <div className="col-12 col-md-6 d-flex">
+              <div
+                ref={addToMvRef}
+                className="w-100"
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '20px',
+                  padding: '3rem 2.5rem',
+                  border: '1px solid #edf2f7',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  minHeight: '220px',
+                  transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 28px rgba(0, 0, 0, 0.06)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.03)';
+                }}
+              >
+                <h2
+                  style={{
+                    fontFamily: "'Inter', -apple-system, sans-serif",
+                    fontSize: '1.8rem',
+                    fontWeight: '500',
+                    color: '#1e293b',
+                    marginBottom: '1.2rem',
+                  }}
+                >
+                  {missionVisionData.vision.title}
+                </h2>
+                <p
+                  style={{
+                    fontSize: '0.9rem',
+                    color: '#475569',
+                    lineHeight: '1.6',
+                    margin: 0,
+                    maxWidth: '400px',
+                  }}
+                >
+                  {missionVisionData.vision.description}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -224,7 +225,7 @@ export default function AboutMissionVisionValues() {
         <h2
           ref={valuesHeadingRef}
           style={{
-            fontFamily: "'Open Sans', -apple-system, sans-serif",
+            fontFamily: "'Inter', -apple-system, sans-serif",
             fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
             fontWeight: '500',
             color: '#1e293b',
@@ -294,7 +295,7 @@ export default function AboutMissionVisionValues() {
               >
                 <h3
                   style={{
-                    fontFamily: "'Open Sans', -apple-system, sans-serif",
+                    fontFamily: "'Inter', -apple-system, sans-serif",
                     fontSize: '1.2rem',
                     fontWeight: '600',
                     color: isDark ? '#ffffff' : '#1e293b',

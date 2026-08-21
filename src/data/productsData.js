@@ -13,7 +13,7 @@ export const mainProductCategories = [
     title: 'GASKETS, KITS, AND SEALS',
     description:
       'Reliable sealing solutions engineered for critical applications, high pressure, and demanding operating environments.',
-    image: '/images/products/industrial-gaskets/ring-type-joint.png',
+    image: '/images/products/Gaskets-img.avif',
     fallbackImage: '/images/home-products.png',
     href: '/products/gaskets-kits-seals',
   },
@@ -22,7 +22,7 @@ export const mainProductCategories = [
     title: 'JACKETED SOLUTIONS',
     description:
       'High-performance metal jacketed and insulated sealing solutions designed for demanding temperature, pressure, and chemical applications.',
-    image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
+    image: '/images/products/JACKETED-img.avif',
     fallbackImage: '/images/home-offering.png',
     href: '/products/jacketed-solutions',
   },
@@ -31,7 +31,7 @@ export const mainProductCategories = [
     title: 'SPECIALIZED SOLUTIONS',
     description:
       'Engineered protection and customized sealing solutions tailored to enhance equipment performance, reliability, and service life.',
-    image: '/images/products/industrial-gaskets/special-custom.png',
+    image: '/images/products/SPECIALIZED-img.avif',
     fallbackImage: '/images/home-services.png',
     href: '/products/specialized-solutions',
   },

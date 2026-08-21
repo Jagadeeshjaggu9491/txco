@@ -106,7 +106,7 @@ export default function AboutBrochure() {
         <div ref={rightColRef}>
           <h2
             style={{
-              fontFamily: "'Open Sans', -apple-system, sans-serif",
+              fontFamily: "'Inter', -apple-system, sans-serif",
               fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
               fontWeight: '600',
               color: '#3f4770',

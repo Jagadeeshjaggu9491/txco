@@ -115,7 +115,7 @@ export default function RingTypeJointPage() {
             <h1
               ref={titleRef}
               style={{
-                fontFamily: "'Open Sans', -apple-system, sans-serif",
+                fontFamily: "'Inter', -apple-system, sans-serif",
                 fontSize: 'clamp(1.8rem, 2.8vw, 2.6rem)',
                 fontWeight: '600',
                 color: '#3b4674',
@@ -215,7 +215,7 @@ export default function RingTypeJointPage() {
                         <h3
                           style={{
                             fontFamily:
-                              "'Open Sans', -apple-system, sans-serif",
+                              "'Inter', -apple-system, sans-serif",
                             fontSize: '0.96rem',
                             fontWeight: '700',
                             color: '#052C58',

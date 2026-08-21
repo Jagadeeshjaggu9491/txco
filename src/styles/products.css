@@ -36,7 +36,7 @@
 .products-hero-title {
   font-family: var(--font-family-heading);
   font-size: clamp(2.4rem, 4vw, 3.4rem);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.04em;
   color: var(--text-white);
   margin-bottom: 1.2rem;
@@ -107,7 +107,7 @@
   font-family: var(--font-family-base);
   font-size: 0.98rem;
   font-weight: 700;
-  color: var(--primary-navy);
+  color: #262846;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 0.4rem;
@@ -126,7 +126,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background-color: var(--slate-blue);
+  background-color: var(--primary-navy);
   color: var(--text-white);
   display: flex;
   align-items: center;
@@ -154,7 +154,7 @@
 
 .info-card-title {
   font-family: var(--font-family-base);
-  font-size: 1.45rem;
+  font-size: 1.8rem;
   fontWeight: 600;
   color: var(--primary-navy);
   letter-spacing: 0.04em;
@@ -170,7 +170,7 @@
 }
 
 .info-card-label {
-  color: var(--primary-navy);
+  color: var(--secondary-navy);
   letter-spacing: 0.06em;
   font-size: 0.88rem;
 }
@@ -181,7 +181,8 @@
 .discover-solutions-section {
   width: 100%;
   background-color: var(--bg-pure-white);
-  padding: 4.5rem 0 0 0;
+  padding-bottom: 8rem;
+  padding-top: 5rem;
 }
 
 .solution-square-box {

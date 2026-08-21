@@ -63,11 +63,10 @@
 
 .section-title {
   font-family: var(--font-family-heading);
-  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
-  font-weight: 600;
+  font-size: clamp(1.7rem, 2.8vw, 2.2rem);
+  font-weight: 500;
   color: var(--primary-navy);
   letter-spacing: 0.02em;
-  text-transform: uppercase;
   line-height: 1.25;
   margin-bottom: 1.2rem;
 }
@@ -96,7 +95,7 @@
   gap: 0.75rem;
   padding: 0.85rem 1.8rem;
   font-size: 0.88rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
@@ -146,7 +145,7 @@
   color: var(--steel-blue);
   display: flex;
   align-items: center;
-  justifyContent: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -202,17 +201,20 @@
   .grid-3-col {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .grid-4-col {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
+
   .grid-2-col,
   .grid-3-col,
   .grid-4-col {
     grid-template-columns: 1fr;
   }
+
   .txco-section {
     padding: 3.5rem 1.5rem;
   }

@@ -49,13 +49,13 @@ export default function CertificationsHero() {
         width: '100%',
         backgroundColor: '#052C58',
         backgroundImage: `url('/images/banner/txco-page-banner.avif')`,
-        backgroundPosition: 'center',
+        backgroundPosition: 'center bottom',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         overflow: 'hidden',
         color: '#ffffff',
         padding: '5.5rem 2rem 5rem 2rem',
-        minHeight: '420px',
+        minHeight: '450px',
         display: 'flex',
         alignItems: 'center',
       }}
@@ -73,7 +73,7 @@ export default function CertificationsHero() {
           <h1
             ref={titleRef}
             style={{
-              fontFamily: "'Open Sans', -apple-system, sans-serif",
+              fontFamily: "'Inter', -apple-system, sans-serif",
               fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)',
               fontWeight: '600',
               letterSpacing: '0.04em',

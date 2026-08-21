@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { engineeredSolutionsData } from '@/data/productsData';
+import { engineeredSolutionsData as defaultData } from '@/data/productsData';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -55,7 +55,7 @@ function CardIcon({ type }) {
   }
 }
 
-export default function DiscoverEngineeredSolutions() {
+export default function DiscoverEngineeredSolutions({ data = defaultData, className = '' }) {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const cardsRef = useRef([]);
@@ -109,19 +109,19 @@ export default function DiscoverEngineeredSolutions() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="discover-solutions-section">
+    <section ref={sectionRef} className={`discover-solutions-section ${className}`.trim()}>
       <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 2rem' }}>
         <h2
           ref={headingRef}
           className="section-title section-title-center"
           style={{ marginBottom: '3.5rem' }}
         >
-          {engineeredSolutionsData.heading}
+          {data.heading}
         </h2>
 
         {/* 4 Square Icon Cards Grid */}
         <div className="grid-4-col" style={{ marginBottom: '5rem' }}>
-          {engineeredSolutionsData.items.map((card) => (
+          {data.items.map((card) => (
             <div
               key={card.id}
               ref={addToCardsRef}
@@ -132,7 +132,7 @@ export default function DiscoverEngineeredSolutions() {
                 textAlign: 'center',
               }}
             >
-              <div className="solution-square-box">
+              <div className="industry-card-box">
                 {card.iconSrc ? (
                   <img
                     src={card.iconSrc}

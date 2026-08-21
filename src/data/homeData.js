@@ -10,7 +10,7 @@ export const bannerSectionData = {
 
 export const engineeredSolutionsData = [
   {
-    title: 'SEALING PRODUCTS',
+    title: 'SEALING <br /> PRODUCTS',
     iconSrc: '/images/icons/sealing-products.png',
     items: [
       { name: 'Gaskets, Kits & Seals', href: '/products/gaskets-kits-seals' },
@@ -20,7 +20,7 @@ export const engineeredSolutionsData = [
     ],
   },
   {
-    title: 'ENGINEERED SOLUTIONS',
+    title: 'ENGINEERED <br /> SOLUTIONS',
     iconSrc: '/images/icons/engine-sloutions.png',
     items: [
       { name: 'Reverse Engineering', href: '/services/reverse' },
@@ -30,7 +30,7 @@ export const engineeredSolutionsData = [
     ],
   },
   {
-    title: 'TECHNICAL SERVICES',
+    title: 'TECHNICAL <br /> SERVICES',
     iconSrc: '/images/icons/tech-solutions.png',
     items: [
       { name: 'Field Measurement', href: '/services/field-support' },
@@ -96,7 +96,7 @@ export const sustainabilityData = {
 export const industrySolutionsData = [
   {
     title: 'Services',
-    image: '/images/home-services.png',
+    image: '/images/service-1.avif',
     imageLeft: true,
     description:
       "Whether you need a hard-to-find component to keep your operations running or ongoing training to fine-tune your team's skill set, services like our proprietary reverse engineering and training gives your equipment and team a leading edge.",
@@ -105,7 +105,7 @@ export const industrySolutionsData = [
   },
   {
     title: 'Products',
-    image: '/images/home-products.png',
+    image: '/images/service-1.avif',
     imageLeft: false,
     description:
       'As a manufacturer of industrial fasteners, gaskets, and custom-made hoses, we build each of our product lines on the same foundation: steadfast commitment to industry-leading expertise and stringent testing for durability and longevity.',
@@ -114,7 +114,7 @@ export const industrySolutionsData = [
   },
   {
     title: 'Innovations',
-    image: '/images/home-innovations.png',
+    image: '/images/service-1.avif',
     imageLeft: true,
     description:
       'New industries require new solutions. Learn how our team of experts are partnering with our customers to pioneer innovative solutions for some of the greatest challenges our industries face.',

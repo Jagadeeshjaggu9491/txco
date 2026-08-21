@@ -2,10 +2,12 @@
 
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Globe, Search, Menu, X, ChevronRight } from 'lucide-react';
 import { utilityNavLinks, mainNavigationMenu } from '@/data/navigationData';
 
 export default function Header() {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeSubitemIndex, setActiveSubitemIndex] = useState(1);
@@ -34,11 +36,21 @@ export default function Header() {
       <div className="header-top-bar">
         <div className="header-top-content">
           <div className="header-top-links">
-            {utilityNavLinks.map((item, idx) => (
-              <Link key={idx} href={item.href} className="header-top-link">
-                {item.name}
-              </Link>
-            ))}
+            {utilityNavLinks.map((item, idx) => {
+              const isPageActive =
+                pathname === item.href ||
+                (item.href !== '/' && pathname.startsWith(item.href));
+
+              return (
+                <Link
+                  key={idx}
+                  href={item.href}
+                  className={`header-top-link ${isPageActive ? 'active' : ''}`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="header-top-right">

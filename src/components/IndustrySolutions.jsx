@@ -105,7 +105,7 @@ export default function IndustrySolutions() {
       {/* Section Header Intro Banner */}
       <div className="industry-solutions-intro">
         <div ref={headerRef} className="txco-container">
-          <h2 className="section-title">
+          <h2 className="industries-heading">
             Industry Solutions
           </h2>
           <p className="section-subtitle">

@@ -134,7 +134,7 @@ function DetailsContent() {
             {/* Page Title */}
             <h1
               style={{
-                fontFamily: "'Open Sans', -apple-system, sans-serif",
+                fontFamily: "'Inter', -apple-system, sans-serif",
                 fontSize: 'clamp(1.8rem, 2.8vw, 2.5rem)',
                 fontWeight: '600',
                 color: '#052C58',
@@ -189,7 +189,7 @@ function DetailsContent() {
                           justifyContent: 'space-between',
                           gap: '1rem',
                           cursor: 'pointer',
-                          fontFamily: "'Open Sans', -apple-system, sans-serif",
+                          fontFamily: "'Inter', -apple-system, sans-serif",
                           fontSize: '0.92rem',
                           fontWeight: isActive ? '800' : '600',
                           color: isActive ? '#052C58' : '#64748b',
@@ -305,7 +305,7 @@ function DetailsContent() {
                     >
                       <h3
                         style={{
-                          fontFamily: "'Open Sans', -apple-system, sans-serif",
+                          fontFamily: "'Inter', -apple-system, sans-serif",
                           fontSize: '0.94rem',
                           fontWeight: '800',
                           color: '#052C58',

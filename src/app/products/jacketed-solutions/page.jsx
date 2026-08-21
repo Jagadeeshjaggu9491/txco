@@ -68,7 +68,7 @@ export default function JacketedSolutionsPage() {
 
             <h1
               style={{
-                fontFamily: "'Open Sans', -apple-system, sans-serif",
+                fontFamily: "'Inter', -apple-system, sans-serif",
                 fontSize: 'clamp(1.8rem, 2.8vw, 2.5rem)',
                 fontWeight: '600',
                 color: '#3b4674',
@@ -164,7 +164,7 @@ export default function JacketedSolutionsPage() {
                         <h3
                           style={{
                             fontFamily:
-                              "'Open Sans', -apple-system, sans-serif",
+                              "'Inter', -apple-system, sans-serif",
                             fontSize: '0.98rem',
                             fontWeight: '700',
                             color: '#1d2744',

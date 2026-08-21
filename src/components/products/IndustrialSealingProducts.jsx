@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { industrialSealingProducts } from '@/data/productsData';
+import { industrialSealingProducts as defaultData } from '@/data/productsData';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -9,7 +9,7 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function IndustrialSealingProducts() {
+export default function IndustrialSealingProducts({ data = defaultData, className = '' }) {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const textRef = useRef(null);
@@ -73,22 +73,22 @@ export default function IndustrialSealingProducts() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="industrial-sealing-section">
+    <section ref={sectionRef} className={`industrial-sealing-section pb-0 ${className}`.trim()}>
       <div style={{ maxWidth: '960px', margin: '0 auto' }}>
         {/* Header Title & Paragraph */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <h2 ref={headingRef} className="section-title section-title-center">
-            {industrialSealingProducts.heading}
+            {data.heading}
           </h2>
 
           <p ref={textRef} className="section-subtitle section-subtitle-center" style={{ maxWidth: '920px' }}>
-            {industrialSealingProducts.mainDescription}
+            {data.mainDescription}
           </p>
         </div>
 
         {/* 3 Lavender Tinted Cards */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2.2rem' }}>
-          {industrialSealingProducts.cards.map((card) => (
+          {data.cards.map((card) => (
             <div
               key={card.id}
               ref={addToCardsRef}
@@ -102,12 +102,12 @@ export default function IndustrialSealingProducts() {
                 {card.description}
               </p>
 
-              <div style={{ fontSize: '0.92rem', color: '#475569', lineHeight: '1.6' }}>
+              <div style={{ fontSize: '0.94rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                 <strong className="info-card-label">
                   {card.label}
                 </strong>
                 <br />
-                {card.productsList.join(' · ')}
+                {Array.isArray(card.productsList) ? card.productsList.join(' • ') : card.productsList}
               </div>
             </div>
           ))}

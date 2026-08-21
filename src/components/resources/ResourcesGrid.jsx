@@ -120,7 +120,7 @@ export default function ResourcesGrid() {
         <h2
           ref={headingRef}
           style={{
-            fontFamily: "'Open Sans', -apple-system, sans-serif",
+            fontFamily: "'Inter', -apple-system, sans-serif",
             fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
             fontWeight: '500',
             color: '#1e293b',
@@ -345,7 +345,7 @@ export default function ResourcesGrid() {
                 >
                   <h3
                     style={{
-                      fontFamily: "'Open Sans', -apple-system, sans-serif",
+                      fontFamily: "'Inter', -apple-system, sans-serif",
                       fontSize: '0.95rem',
                       fontWeight: '700',
                       color: '#1d2744',

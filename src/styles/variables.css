@@ -1,11 +1,11 @@
 :root {
   /* Brand Navy & Blue Color Tokens */
-  --primary-navy: #052C58;
-  --secondary-navy: #0b2b48;
+  --primary-navy: #404377;
+  --secondary-navy: #262846;
   --slate-blue: #114680;
   --dark-navy: #1d2744;
   --accent-blue: #344473;
-  --steel-blue: #3b4674;
+  --steel-blue: #404377;
   --brand-gradient: linear-gradient(135deg, #114680 0%, #052C58 100%);
   --brand-gradient-hover: linear-gradient(135deg, #052C58 0%, #081d38 100%);
 
@@ -15,7 +15,7 @@
   --bg-cool-grey: #f2f6fc;
   --bg-lavender: #f4f3fe;
   --bg-light-tint: #eef2f9;
-  --bg-dark-slate: #343b46;
+  --bg-dark-slate: #32363e;
   --bg-footer: #16161e;
   --bg-mega-menu: #e6e3da;
   --bg-mega-submenu: #e8e5dc;
@@ -37,9 +37,9 @@
   --border-white-translucent: rgba(255, 255, 255, 0.15);
 
   /* Typography */
-  --font-family-base: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-family-heading: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-family-accent: 'Montserrat', sans-serif;
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-accent: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Shadows */
   --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.03);

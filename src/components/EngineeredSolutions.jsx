@@ -117,13 +117,16 @@ export default function EngineeredSolutions() {
                 <img
                   ref={(el) => (iconRefs.current[idx] = el)}
                   src={col.iconSrc}
-                  alt={col.title}
+                  alt={col.title ? col.title.replace(/<[^>]*>?/gm, '') : ''}
                   className="engineered-icon-img"
                 />
               </div>
 
               <div>
-                <h3 className="engineered-col-title">{col.title}</h3>
+                <h3
+                  className="engineered-col-title"
+                  dangerouslySetInnerHTML={{ __html: col.title }}
+                />
                 <ul className="engineered-items-list">
                   {col.items.map((item, itemIdx) => (
                     <li key={itemIdx}>

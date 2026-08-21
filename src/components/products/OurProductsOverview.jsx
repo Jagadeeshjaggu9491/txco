@@ -159,40 +159,28 @@ export default function OurProductsOverview() {
           ))}
         </div>
 
-        {/* Contact Our Experts Button */}
+
+        {/* Bottom CTA Button */}
         <div style={{ textAlign: 'center' }}>
-          <Link
-            ref={btnRef}
-            href="/contact"
-            className="txco-btn txco-btn-primary"
-            style={{ backgroundColor: '#114680' }}
-          >
-            <span>CONTACT OUR EXPERTS</span>
-            <div
-              style={{
-                width: '22px',
-                height: '22px',
-                borderRadius: '50%',
-                backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#ffffff"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="4" y1="12" x2="20" y2="12" />
-                <polyline points="13 5 20 12 13 19" />
-              </svg>
-            </div>
+          <Link href="/industries" style={{ textDecoration: 'none' }}>
+            <button className="txco-btn txco-btn-steel">
+              <span>CONTACT OUR EXPERTS</span>
+              <div className="txco-btn-icon-circle">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#3b4674"
+                  strokeWidth="2.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="4" y1="12" x2="20" y2="12" />
+                  <polyline points="13 5 20 12 13 19" />
+                </svg>
+              </div>
+            </button>
           </Link>
         </div>
       </div>

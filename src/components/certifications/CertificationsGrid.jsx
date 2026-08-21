@@ -123,7 +123,7 @@ export default function CertificationsGrid() {
               {/* Certificate Title Label */}
               <h3
                 style={{
-                  fontFamily: "'Open Sans', -apple-system, sans-serif",
+                  fontFamily: "'Inter', -apple-system, sans-serif",
                   fontSize: '0.96rem',
                   fontWeight: '600',
                   color: '#1d2744',

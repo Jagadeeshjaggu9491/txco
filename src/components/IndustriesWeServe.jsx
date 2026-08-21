@@ -85,7 +85,7 @@ export default function IndustriesWeServe() {
             Industries We Serve
           </h2>
           <p className="industries-description">
-            TXCO can help you solve the urgent needs you face today while helping you scale for tomorrow. Learn how we customize our solutions and technical expertise around your industry's unique challenges.
+            Lamons can help you solve the urgent needs you face today while helping you scale for tomorrow. Learn how we customize our solutions and technical expertise around your industry’s unique challenges.
           </p>
         </div>
 
