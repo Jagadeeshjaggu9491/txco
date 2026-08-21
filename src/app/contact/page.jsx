@@ -43,6 +43,8 @@ if (typeof window !== 'undefined') {
 
 export default function ContactPage() {
   const heroRef = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
   const cardsRef = useRef(null);
   const formSectionRef = useRef(null);
 
@@ -71,12 +73,24 @@ export default function ContactPage() {
     if (!heroRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Hero animation
-      gsap.fromTo(
-        '.contact-hero-anim',
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: 'power3.out' }
-      );
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      if (titleRef.current) {
+        tl.fromTo(
+          titleRef.current,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.9 }
+        );
+      }
+
+      if (subtitleRef.current) {
+        tl.fromTo(
+          subtitleRef.current,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8 },
+          '-=0.5'
+        );
+      }
 
       // Info Cards animation
       if (cardsRef.current) {
@@ -137,70 +151,18 @@ export default function ContactPage() {
 
       <main style={{ width: '100%', backgroundColor: 'var(--bg-light-surface)', color: 'var(--dark-navy)', overflow: 'hidden' }}>
         {/* =========================================================================
-            1. HERO SECTION
+            1. HERO SECTION (Matching About Us Hero)
         ========================================================================= */}
         <section ref={heroRef} className="contact-hero-section">
-          {/* Background Vector Art Pattern Overlay */}
-          <div className="contact-hero-bg-overlay" />
+          <div className="contact-hero-container">
+            <div className="contact-hero-content">
+              <h1 ref={titleRef} className="contact-hero-title">
+                {contactHeroData.title}
+              </h1>
 
-          <div className="txco-container" style={{ position: 'relative', zIndex: 2 }}>
-            {/* Breadcrumb Navigation */}
-            <div className="contact-hero-anim" style={{ marginBottom: '1.2rem' }}>
-              <div className="contact-breadcrumb">
-                <Link href="/">
-                  HOME
-                </Link>
-                <ChevronRight size={14} />
-                <span style={{ color: '#ffffff' }}>CONTACT US</span>
-              </div>
-            </div>
-
-            <div className="contact-hero-grid">
-              <div>
-                <h1 className="contact-hero-anim contact-hero-title">
-                  {contactHeroData.title}
-                </h1>
-
-                <p className="contact-hero-anim contact-hero-subtitle">
-                  {contactHeroData.subtitle}
-                </p>
-
-                {/* Hero Quick Highlights Badges */}
-                <div
-                  className="contact-hero-anim"
-                  style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}
-                >
-                  <div className="contact-badge-pill">
-                    <Clock size={16} color="#60a5fa" />
-                    <span>Fast RFQ Turnaround</span>
-                  </div>
-
-                  <div className="contact-badge-pill">
-                    <ShieldCheck size={16} color="#60a5fa" />
-                    <span>100% Certified Traceability</span>
-                  </div>
-
-                  <div className="contact-badge-pill">
-                    <Globe2 size={16} color="#60a5fa" />
-                    <span>Worldwide Logistics</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Graphic Preview */}
-              <div className="contact-hero-anim" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img
-                  src={contactHeroData.image}
-                  alt="TXCO Precision Industrial Sealing Products"
-                  style={{
-                    width: '100%',
-                    maxWidth: '460px',
-                    height: 'auto',
-                    objectFit: 'contain',
-                    filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4))',
-                  }}
-                />
-              </div>
+              <p ref={subtitleRef} className="contact-hero-subtitle">
+                {contactHeroData.subtitle}
+              </p>
             </div>
           </div>
         </section>

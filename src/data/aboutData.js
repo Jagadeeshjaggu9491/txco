@@ -79,6 +79,6 @@ export const companyOverviewData = {
   description:
     'Get to know our signature products, customer-centric solutions, and certifications through this brief overview of our company.',
   buttonText: 'READ BROCHURE',
-  image: '/images/home-offering.png',
+  image: '/images/Our-Offerings.avif',
   brochurePdf: '/downloads/txco-company-overview.pdf',
 };

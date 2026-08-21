@@ -23,7 +23,7 @@ export const mainProductCategories = [
     description:
       'High-performance metal jacketed and insulated sealing solutions designed for demanding temperature, pressure, and chemical applications.',
     image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
-    fallbackImage: '/images/home-offering.png',
+    fallbackImage: '/images/Our-Offerings.avif',
     href: '/products/jacketed-solutions',
   },
   {

@@ -11,6 +11,9 @@
 @import '../styles/about.css';
 @import '../styles/resources.css';
 @import '../styles/certifications.css';
+@import '../styles/blog.css';
+@import '../styles/faqs.css';
+@import '../styles/news.css';
 
 * {
   box-sizing: border-box;

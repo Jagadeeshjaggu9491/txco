@@ -88,6 +88,60 @@ export default function Header() {
                 >
                   {menu.title}
                 </Link>
+
+                {/* Desktop Mega Menu Dropdown Panel aligned exactly to this nav link's left */}
+                {isActive && (
+                  <div
+                    onMouseEnter={() => {
+                      if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
+                    }}
+                    onMouseLeave={handleMouseLeaveMenu}
+                    className="mega-menu-dropdown"
+                  >
+                    {/* Primary Column */}
+                    <div className="mega-menu-primary-col">
+                      {menu.items.map((item, idx) => {
+                        const isSelected = activeSubitemIndex === idx;
+
+                        return (
+                          <div
+                            key={idx}
+                            onMouseEnter={() => setActiveSubitemIndex(idx)}
+                            className={`mega-menu-item ${isSelected ? 'active' : ''}`}
+                          >
+                            <Link
+                              href={item.href}
+                              onClick={() => setActiveMenu(null)}
+                              className="mega-menu-item-link"
+                            >
+                              {item.name}
+                            </Link>
+
+                            {item.children && item.children.length > 0 && (
+                              <ChevronRight size={16} color={isSelected ? '#ffffff' : '#555555'} />
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Secondary Submenu Column */}
+                    {hasSubChildren && (
+                      <div className="mega-menu-secondary-col">
+                        {currentSubitem.children.map((child, cIdx) => (
+                          <Link
+                            key={cIdx}
+                            href={child.href}
+                            onClick={() => setActiveMenu(null)}
+                            className="mega-submenu-link"
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             );
           })}
@@ -115,72 +169,6 @@ export default function Header() {
           />
         </Link>
       </div>
-
-      {/* Desktop Mega Menu Dropdown Panel */}
-      {currentMenu && (
-        <div
-          onMouseEnter={() => {
-            if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
-          }}
-          onMouseLeave={handleMouseLeaveMenu}
-          className="mega-menu-dropdown"
-          style={{
-            left:
-              activeMenu === 'products'
-                ? '120px'
-                : activeMenu === 'industries'
-                ? '20px'
-                : activeMenu === 'services'
-                ? '240px'
-                : activeMenu === 'resources'
-                ? '340px'
-                : '420px',
-          }}
-        >
-          {/* Primary Column */}
-          <div className="mega-menu-primary-col">
-            {currentMenu.items.map((item, idx) => {
-              const isSelected = activeSubitemIndex === idx;
-
-              return (
-                <div
-                  key={idx}
-                  onMouseEnter={() => setActiveSubitemIndex(idx)}
-                  className={`mega-menu-item ${isSelected ? 'active' : ''}`}
-                >
-                  <Link
-                    href={item.href}
-                    onClick={() => setActiveMenu(null)}
-                    className="mega-menu-item-link"
-                  >
-                    {item.name}
-                  </Link>
-
-                  {item.children && item.children.length > 0 && (
-                    <ChevronRight size={16} color={isSelected ? '#ffffff' : '#555555'} />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Secondary Submenu Column */}
-          {hasSubChildren && (
-            <div className="mega-menu-secondary-col">
-              {currentSubitem.children.map((child, cIdx) => (
-                <Link
-                  key={cIdx}
-                  href={child.href}
-                  onClick={() => setActiveMenu(null)}
-                  className="mega-submenu-link"
-                >
-                  {child.name}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (

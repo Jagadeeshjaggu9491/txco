@@ -86,7 +86,7 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="hero-slider-section"
+      className="hero-slider-section mb-4"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >

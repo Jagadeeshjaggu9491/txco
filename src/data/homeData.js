@@ -127,7 +127,7 @@ export const offeringsGlanceData = {
   heading: 'Our Offerings at a Glance',
   description:
     'Get to know our signature products, customer-centric solutions, and certifications through this brief overview of our company.',
-  image: '/images/home-offering.png',
+  image: '/images/Our-Offerings.avif',
   buttonText: 'READ BROCHURE',
   href: '/downloads',
 };
