@@ -74,7 +74,7 @@ export default function IndustrialSealingProducts({ data = defaultData, classNam
 
   return (
     <section ref={sectionRef} className={`industrial-sealing-section pb-0 ${className}`.trim()}>
-      <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+      <div className='container'>
         {/* Header Title & Paragraph */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <h2 ref={headingRef} className="section-title section-title-center">
