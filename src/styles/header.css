@@ -147,7 +147,7 @@
   background-color: var(--bg-mega-menu);
   box-shadow: var(--shadow-dropdown);
   z-index: 200;
-  border: 1px solid #dcd8cd;
+  border: 1px solid var(--border-light);
   animation: fadeInDown 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -188,7 +188,7 @@
 .mega-menu-secondary-col {
   width: 320px;
   background-color: var(--bg-mega-submenu);
-  border-left: 1px solid #d8d4c8;
+  border-left: 1px solid var(--border-light);
   display: flex;
   flex-direction: column;
   padding: 0.5rem 0;
