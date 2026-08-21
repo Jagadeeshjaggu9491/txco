@@ -62,40 +62,14 @@ export default function AboutBrochure() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: '100%',
-        backgroundColor: '#f4f6fb', // Cool light blue background tint matching Image 3
-        padding: '5.5rem 2rem',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1000px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1.3fr',
-          gap: '4rem',
-          alignItems: 'center',
-        }}
-        className="about-brochure-grid"
-      >
+    <section ref={sectionRef} className="about-brochure-section">
+      <div className="about-brochure-grid">
         {/* Left Column: Brochure Preview Cover Image */}
-        <div
-          ref={leftColRef}
-          style={{ display: 'flex', justifyContent: 'center' }}
-        >
+        <div ref={leftColRef} className="about-brochure-img-col">
           <img
             src={companyOverviewData.image}
             alt="TXCO Company Overview Brochure"
-            style={{
-              maxWidth: '340px',
-              width: '100%',
-              height: 'auto',
-              objectFit: 'contain',
-              boxShadow: '0 14px 36px rgba(0, 0, 0, 0.12)',
-            }}
+            className="about-brochure-img"
             onError={(e) => {
               e.currentTarget.src = '/images/home-products.png';
             }}
@@ -104,73 +78,18 @@ export default function AboutBrochure() {
 
         {/* Right Column: Company Overview Title, Description & CTA Button */}
         <div ref={rightColRef}>
-          <h2
-            style={{
-              fontFamily: "'Inter', -apple-system, sans-serif",
-              fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
-              fontWeight: '600',
-              color: '#3f4770',
-              marginBottom: '1.2rem',
-              lineHeight: '1.2',
-            }}
-          >
+          <h2 className="about-brochure-title">
             {companyOverviewData.title}
           </h2>
 
-          <p
-            style={{
-              fontSize: '1rem',
-              fontWeight: '400',
-              color: '#475569',
-              lineHeight: '1.65',
-              marginBottom: '2.2rem',
-              maxWidth: '480px',
-            }}
-          >
+          <p className="about-brochure-desc">
             {companyOverviewData.description}
           </p>
 
           <Link href="/downloads" style={{ textDecoration: 'none' }}>
-            <button
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.85rem',
-                backgroundColor: '#3f4770',
-                color: '#ffffff',
-                padding: '0.9rem 2.2rem',
-                borderRadius: '0px', // Sharp rectangular style (no radius)
-                fontSize: '0.88rem',
-                fontWeight: '700',
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                border: 'none',
-                cursor: 'pointer',
-                boxShadow: '0 4px 15px rgba(63, 71, 112, 0.25)',
-                transition: 'background-color 0.2s ease, transform 0.2s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#2d3454';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#3f4770';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
+            <button className="about-brochure-btn">
               <span>{companyOverviewData.buttonText}</span>
-              <div
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  borderRadius: '50%',
-                  backgroundColor: '#ffffff',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
+              <div className="about-brochure-btn-circle">
                 <svg
                   width="13"
                   height="13"
@@ -189,19 +108,6 @@ export default function AboutBrochure() {
           </Link>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 900px) {
-          .about-brochure-grid {
-            grid-template-columns: 1fr !important;
-            text-align: center;
-            gap: 2.5rem !important;
-          }
-          .about-brochure-grid > div {
-            margin: 0 auto;
-          }
-        }
-      `}</style>
     </section>
   );
 }

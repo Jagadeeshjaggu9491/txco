@@ -8,6 +8,9 @@
 @import '../styles/products.css';
 @import '../styles/contact.css';
 @import '../styles/search.css';
+@import '../styles/about.css';
+@import '../styles/resources.css';
+@import '../styles/certifications.css';
 
 * {
   box-sizing: border-box;

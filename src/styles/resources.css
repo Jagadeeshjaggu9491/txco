@@ -1,0 +1,273 @@
+/* =========================================================================
+   RESOURCES PAGE STYLESHEET
+========================================================================= */
+
+/* 1. Resources Hero Section */
+.resources-hero-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--primary-navy, #052C58);
+  background-image: url('/images/banner/txco-page-banner.avif');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  color: var(--text-white, #ffffff);
+  padding: 5.5rem 2rem 5rem 2rem;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+}
+
+.resources-hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.resources-hero-content {
+  max-width: 720px;
+}
+
+.resources-hero-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-white, #ffffff);
+  margin-bottom: 1.2rem;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.resources-hero-subtitle {
+  font-size: clamp(0.95rem, 1.3vw, 1.12rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* 2. Resources Grid Section */
+.resources-grid-section {
+  width: 100%;
+  background-color: var(--bg-pure-white, #ffffff);
+  padding: 5.5rem 2rem 6.5rem 2rem;
+}
+
+.resources-grid-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.resources-section-heading {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 500;
+  color: var(--text-dark, #1e293b);
+  margin-bottom: 2.5rem;
+}
+
+/* 3. Filter Bar */
+.resources-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 3.5rem;
+}
+
+.resources-filter-dropdowns {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.resources-filter-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted, #64748b);
+  text-transform: uppercase;
+  margin-right: 0.4rem;
+}
+
+.resource-select {
+  background-color: #0b2b48;
+  color: #ffffff;
+  border: none;
+  padding: 0.45rem 1.8rem 0.45rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23ffffff' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+}
+
+.resources-filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.resource-filter-btn {
+  background-color: #991b1b;
+  color: #ffffff;
+  border: none;
+  border-radius: 0px;
+  padding: 0.48rem 1.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 0.2s ease);
+}
+
+.resource-filter-btn:hover {
+  background-color: #7f1d1d;
+}
+
+.resource-clear-btn {
+  background: none;
+  border: none;
+  color: var(--steel-blue, #3b4674);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.4rem 0.2rem;
+  transition: color var(--transition-fast, 0.2s ease);
+}
+
+.resource-clear-btn:hover {
+  color: var(--slate-blue, #114680);
+}
+
+/* 4. 3-Column Resource Cards */
+.resources-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 2rem;
+}
+
+.resource-card {
+  background-color: var(--bg-pure-white, #ffffff);
+  border-radius: var(--radius-xl, 16px);
+  border: 1.5px solid var(--border-light, #edf2f7);
+  padding: 1.2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-fast, 0.25s ease), border-color var(--transition-fast, 0.25s ease), box-shadow var(--transition-fast, 0.25s ease);
+  cursor: pointer;
+}
+
+.resource-card:hover {
+  transform: translateY(-6px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.resource-card-img-wrapper {
+  width: 100%;
+  margin-bottom: 1.4rem;
+}
+
+.resource-card-img {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.resource-card-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.4rem;
+}
+
+.resource-card-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1d2744;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  max-width: 220px;
+  margin: 0;
+}
+
+.resource-card-arrow-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--steel-blue, #3f4770);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease);
+}
+
+.resource-card-arrow-btn:hover {
+  background-color: var(--slate-blue, #114680);
+  transform: scale(1.08);
+}
+
+/* Empty State */
+.resources-empty-box {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--bg-light-surface, #f8fafc);
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid var(--border-medium, #e2e8f0);
+}
+
+.resources-empty-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary, #475569);
+  margin: 0;
+}
+
+.resources-reset-btn {
+  margin-top: 1rem;
+  background-color: var(--steel-blue, #3f4770);
+  color: var(--text-white, #ffffff);
+  border: none;
+  border-radius: 0px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .resources-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .resources-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .resources-filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

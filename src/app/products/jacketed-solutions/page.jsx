@@ -6,30 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
 import { ChevronLeft } from 'lucide-react';
-
-const jacketedProducts = [
-  {
-    id: 'metal-jacketed',
-    title: 'METAL JACKETED GASKETS',
-    subtitle: 'High-temperature sealing for heat exchangers and pressure vessels',
-    image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
-    href: '/contact',
-  },
-  {
-    id: 'corrugated-jacketed',
-    title: 'CORRUGATED JACKETED GASKETS',
-    subtitle: 'Resilient corrugated metal design with filler core for cyclic pressure',
-    image: '/images/products/industrial-gaskets/sprial-wound-gaskets.png',
-    href: '/contact',
-  },
-  {
-    id: 'flat-jacketed',
-    title: 'FLAT JACKETED GASKETS',
-    subtitle: 'Smooth jacket construction for narrow flange surfaces and valves',
-    image: '/images/products/industrial-gaskets/ring-type-joint.png',
-    href: '/contact',
-  },
-];
+import { jacketedProducts } from '@/data/productsData';
 
 export default function JacketedSolutionsPage() {
   return (
@@ -37,14 +14,8 @@ export default function JacketedSolutionsPage() {
       <Header />
       <main>
         {/* Top Product Cards Section */}
-        <section
-          style={{
-            width: '100%',
-            backgroundColor: '#f2f6fc',
-            padding: '3.5rem 2rem 5.5rem 2rem',
-          }}
-        >
-          <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+        <section className="txco-section txco-section-cool-grey" style={{ padding: '3.5rem 2rem 5.5rem 2rem' }}>
+          <div className="txco-container">
             {/* Breadcrumb Navigation */}
             <div style={{ marginBottom: '1.2rem' }}>
               <Link
@@ -55,7 +26,7 @@ export default function JacketedSolutionsPage() {
                   gap: '0.4rem',
                   fontSize: '0.8rem',
                   fontWeight: '700',
-                  color: '#3b4674',
+                  color: 'var(--steel-blue)',
                   textDecoration: 'none',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
@@ -66,77 +37,21 @@ export default function JacketedSolutionsPage() {
               </Link>
             </div>
 
-            <h1
-              style={{
-                fontFamily: "'Inter', -apple-system, sans-serif",
-                fontSize: 'clamp(1.8rem, 2.8vw, 2.5rem)',
-                fontWeight: '600',
-                color: '#3b4674',
-                letterSpacing: '0.01em',
-                marginBottom: '3.5rem',
-              }}
-            >
+            <h1 className="section-title" style={{ marginBottom: '3.5rem' }}>
               Jacketed Solutions
             </h1>
 
             {/* 3-Column Product Cards Grid */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '2.2rem',
-              }}
-              className="products-grid"
-            >
+            <div className="grid-3-col">
               {jacketedProducts.map((item) => (
                 <Link
                   key={item.id}
                   href={item.href}
                   style={{ textDecoration: 'none', color: 'inherit' }}
                 >
-                  <div
-                    style={{
-                      backgroundColor: '#ffffff',
-                      borderRadius: '16px',
-                      padding: '1.2rem',
-                      border: '1px solid #e2e8f0',
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.03)',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      height: '100%',
-                      minHeight: '340px',
-                      transition:
-                        'transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
-                      cursor: 'pointer',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-6px)';
-                      e.currentTarget.style.borderColor = '#3b4674';
-                      e.currentTarget.style.boxShadow =
-                        '0 14px 30px rgba(37, 50, 88, 0.12)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.borderColor = '#e2e8f0';
-                      e.currentTarget.style.boxShadow =
-                        '0 4px 12px rgba(0, 0, 0, 0.03)';
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: '100%',
-                        height: '190px',
-                        backgroundColor: '#f8fafc',
-                        borderRadius: '12px',
-                        overflow: 'hidden',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '1.2rem',
-                        border: '1px solid #f1f5f9',
-                      }}
-                    >
+                  <div className="product-overview-card" style={{ minHeight: '340px' }}>
+                    {/* Top Image Box */}
+                    <div className="product-img-box" style={{ height: '190px' }}>
                       <img
                         src={item.image}
                         alt={item.title}
@@ -147,63 +62,25 @@ export default function JacketedSolutionsPage() {
                           padding: '0.8rem',
                         }}
                         onError={(e) => {
-                          e.currentTarget.src = '/images/home-offering.png';
+                          e.currentTarget.src = '/images/home-products.png';
                         }}
                       />
                     </div>
 
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'flex-end',
-                        justifyContent: 'space-between',
-                        gap: '1rem',
-                      }}
-                    >
+                    {/* Card Content & Action Badge */}
+                    <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
                       <div style={{ flexGrow: 1 }}>
-                        <h3
-                          style={{
-                            fontFamily:
-                              "'Inter', -apple-system, sans-serif",
-                            fontSize: '0.98rem',
-                            fontWeight: '700',
-                            color: '#1d2744',
-                            letterSpacing: '0.04em',
-                            textTransform: 'uppercase',
-                            marginBottom: '0.4rem',
-                            lineHeight: '1.35',
-                          }}
-                        >
+                        <h3 className="product-card-title">
                           {item.title}
                         </h3>
 
-                        <p
-                          style={{
-                            fontSize: '0.86rem',
-                            fontWeight: '400',
-                            color: '#64748b',
-                            margin: 0,
-                            lineHeight: '1.45',
-                          }}
-                        >
+                        <p className="product-card-desc">
                           {item.subtitle}
                         </p>
                       </div>
 
-                      <div
-                        style={{
-                          width: '32px',
-                          height: '32px',
-                          borderRadius: '50%',
-                          backgroundColor: '#3b4674',
-                          color: '#ffffff',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0,
-                          boxShadow: '0 2px 8px rgba(59, 70, 116, 0.25)',
-                        }}
-                      >
+                      {/* Circular Dark Navy Arrow Badge */}
+                      <div className="product-arrow-badge" style={{ width: '32px', height: '32px' }}>
                         <svg
                           width="15"
                           height="15"
@@ -226,21 +103,9 @@ export default function JacketedSolutionsPage() {
           </div>
         </section>
 
+        {/* Global Contact CTA Section */}
         <ContactSection />
       </main>
-
-      <style jsx>{`
-        @media (max-width: 1024px) {
-          .products-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .products-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
       <Footer />
     </>
   );

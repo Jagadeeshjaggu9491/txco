@@ -100,67 +100,18 @@ export default function AboutMissionVisionValues() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className='container-fluid'
-      style={{
-        width: '100%',
-        backgroundColor: '#ffffff',
-        padding: '5rem 2rem 6rem 2rem',
-      }}
-    >
-      <div>
-        {/* Mission & Vision 2-Card Row matching Image 2 */}
+    <section ref={sectionRef} className="about-mv-section">
+      <div className="about-mv-container">
+        {/* Mission & Vision 2-Card Row */}
         <div className="container px-0 mb-5">
           <div className="row g-4">
             {/* Card 1: Our Mission Statement */}
             <div className="col-12 col-md-6 d-flex">
-              <div
-                ref={addToMvRef}
-                className="w-100"
-                style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: '20px',
-                  padding: '3rem 2.5rem',
-                  border: '1px solid #edf2f7',
-                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  minHeight: '220px',
-                  transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 12px 28px rgba(0, 0, 0, 0.06)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.03)';
-                }}
-              >
-                <h2
-                  style={{
-                    fontFamily: "'Inter', -apple-system, sans-serif",
-                    fontSize: '1.8rem',
-                    fontWeight: '500',
-                    color: '#1e293b',
-                    marginBottom: '1.2rem',
-                  }}
-                >
+              <div ref={addToMvRef} className="mission-vision-card">
+                <h2 className="mission-vision-title">
                   {missionVisionData.mission.title}
                 </h2>
-                <p
-                  style={{
-                    fontSize: '0.9rem',
-                    color: '#475569',
-                    lineHeight: '1.6',
-                    margin: 0,
-                    maxWidth: '400px',
-                  }}
-                >
+                <p className="mission-vision-desc">
                   {missionVisionData.mission.description}
                 </p>
               </div>
@@ -168,52 +119,11 @@ export default function AboutMissionVisionValues() {
 
             {/* Card 2: Our Vision */}
             <div className="col-12 col-md-6 d-flex">
-              <div
-                ref={addToMvRef}
-                className="w-100"
-                style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: '20px',
-                  padding: '3rem 2.5rem',
-                  border: '1px solid #edf2f7',
-                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  minHeight: '220px',
-                  transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 12px 28px rgba(0, 0, 0, 0.06)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.03)';
-                }}
-              >
-                <h2
-                  style={{
-                    fontFamily: "'Inter', -apple-system, sans-serif",
-                    fontSize: '1.8rem',
-                    fontWeight: '500',
-                    color: '#1e293b',
-                    marginBottom: '1.2rem',
-                  }}
-                >
+              <div ref={addToMvRef} className="mission-vision-card">
+                <h2 className="mission-vision-title">
                   {missionVisionData.vision.title}
                 </h2>
-                <p
-                  style={{
-                    fontSize: '0.9rem',
-                    color: '#475569',
-                    lineHeight: '1.6',
-                    margin: 0,
-                    maxWidth: '400px',
-                  }}
-                >
+                <p className="mission-vision-desc">
                   {missionVisionData.vision.description}
                 </p>
               </div>
@@ -222,98 +132,24 @@ export default function AboutMissionVisionValues() {
         </div>
 
         {/* Middle Heading: Our values */}
-        <h2
-          ref={valuesHeadingRef}
-          style={{
-            fontFamily: "'Inter', -apple-system, sans-serif",
-            fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
-            fontWeight: '500',
-            color: '#1e293b',
-            textAlign: 'center',
-            marginBottom: '3rem',
-          }}
-        >
+        <h2 ref={valuesHeadingRef} className="values-heading">
           Our values
         </h2>
 
-        {/* 3x3 Values Grid matching Image 2 */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '1.8rem',
-          }}
-          className="values-grid container"
-        >
+        {/* 3x3 Values Grid */}
+        <div className="values-grid">
           {valuesData.map((val) => {
             const isDark = val.type === 'dark';
             return (
               <div
                 key={val.id}
                 ref={addToValueRef}
-                style={{
-                  backgroundColor: isDark ? '#3f4770' : '#ffffff',
-                  color: isDark ? '#ffffff' : '#1e293b',
-                  borderRadius: '16px',
-                  padding: '2.5rem 1.8rem',
-                  border: isDark ? 'none' : '1.5px solid #cbd5e1',
-                  boxShadow: isDark
-                    ? '0 6px 18px rgba(63, 71, 112, 0.2)'
-                    : '0 2px 8px rgba(0, 0, 0, 0.02)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  minHeight: '170px',
-                  transition:
-                    'transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-5px)';
-                  if (!isDark) {
-                    e.currentTarget.style.borderColor = '#3f4770';
-                    e.currentTarget.style.boxShadow =
-                      '0 10px 24px rgba(63, 71, 112, 0.12)';
-                  } else {
-                    e.currentTarget.style.boxShadow =
-                      '0 12px 28px rgba(63, 71, 112, 0.35)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  if (!isDark) {
-                    e.currentTarget.style.borderColor = '#cbd5e1';
-                    e.currentTarget.style.boxShadow =
-                      '0 2px 8px rgba(0, 0, 0, 0.02)';
-                  } else {
-                    e.currentTarget.style.boxShadow =
-                      '0 6px 18px rgba(63, 71, 112, 0.2)';
-                  }
-                }}
+                className={`value-card ${isDark ? 'value-card-dark' : 'value-card-light'}`}
               >
-                <h3
-                  style={{
-                    fontFamily: "'Inter', -apple-system, sans-serif",
-                    fontSize: '1.2rem',
-                    fontWeight: '600',
-                    color: isDark ? '#ffffff' : '#1e293b',
-                    marginBottom: '0.8rem',
-                    lineHeight: '1.35',
-                  }}
-                >
+                <h3 className="value-card-title">
                   {val.title}
                 </h3>
-                <p
-                  style={{
-                    fontSize: '0.86rem',
-                    fontWeight: '400',
-                    color: isDark ? 'rgba(255, 255, 255, 0.88)' : '#64748b',
-                    lineHeight: '1.5',
-                    margin: 0,
-                  }}
-                >
+                <p className="value-card-desc">
                   {val.description}
                 </p>
               </div>
@@ -321,22 +157,6 @@ export default function AboutMissionVisionValues() {
           })}
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 900px) {
-          .mission-vision-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .values-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .values-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

@@ -50,70 +50,22 @@ export default function CertificationsGrid() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: '100%',
-        backgroundColor: '#ffffff',
-        padding: '5.5rem 2rem 6.5rem 2rem',
-      }}
-    >
-      <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
-        {/* 3-Column Certificates Grid matching Image 2 */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '3rem 2.2rem',
-          }}
-          className="certifications-cards-grid"
-        >
+    <section ref={sectionRef} className="certifications-grid-section">
+      <div className="certifications-grid-container">
+        {/* 3-Column Certificates Grid */}
+        <div className="certifications-cards-grid">
           {certificatesList.map((item) => (
             <div
               key={item.id}
               ref={addToCardsRef}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                cursor: 'pointer',
-              }}
+              className="certificate-card-item"
             >
               {/* Certificate Image Frame */}
-              <div
-                style={{
-                  width: '100%',
-                  backgroundColor: '#ffffff',
-                  padding: '0.8rem',
-                  borderRadius: '4px',
-                  border: '1.5px solid #e2e8f0',
-                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.04)',
-                  overflow: 'hidden',
-                  transition:
-                    'transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px)';
-                  e.currentTarget.style.borderColor = '#114680';
-                  e.currentTarget.style.boxShadow =
-                    '0 14px 30px rgba(5, 44, 88, 0.12)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#e2e8f0';
-                  e.currentTarget.style.boxShadow =
-                    '0 4px 14px rgba(0, 0, 0, 0.04)';
-                }}
-              >
+              <div className="certificate-img-frame">
                 <img
                   src={item.image}
                   alt={item.title}
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    objectFit: 'contain',
-                    display: 'block',
-                  }}
+                  className="certificate-img"
                   onError={(e) => {
                     e.currentTarget.src = '/images/home-products.png';
                   }}
@@ -121,38 +73,13 @@ export default function CertificationsGrid() {
               </div>
 
               {/* Certificate Title Label */}
-              <h3
-                style={{
-                  fontFamily: "'Inter', -apple-system, sans-serif",
-                  fontSize: '0.96rem',
-                  fontWeight: '600',
-                  color: '#1d2744',
-                  textAlign: 'center',
-                  marginTop: '1rem',
-                  lineHeight: '1.35',
-                  letterSpacing: '0.01em',
-                }}
-              >
+              <h3 className="certificate-title">
                 {item.title}
               </h3>
             </div>
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 900px) {
-          .certifications-cards-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 2rem 1.5rem !important;
-          }
-        }
-        @media (max-width: 550px) {
-          .certifications-cards-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

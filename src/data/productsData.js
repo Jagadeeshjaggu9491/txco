@@ -13,7 +13,7 @@ export const mainProductCategories = [
     title: 'GASKETS, KITS, AND SEALS',
     description:
       'Reliable sealing solutions engineered for critical applications, high pressure, and demanding operating environments.',
-    image: '/images/products/Gaskets-img.avif',
+    image: '/images/products/industrial-gaskets/ring-type-joint.png',
     fallbackImage: '/images/home-products.png',
     href: '/products/gaskets-kits-seals',
   },
@@ -22,7 +22,7 @@ export const mainProductCategories = [
     title: 'JACKETED SOLUTIONS',
     description:
       'High-performance metal jacketed and insulated sealing solutions designed for demanding temperature, pressure, and chemical applications.',
-    image: '/images/products/JACKETED-img.avif',
+    image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
     fallbackImage: '/images/home-offering.png',
     href: '/products/jacketed-solutions',
   },
@@ -31,7 +31,7 @@ export const mainProductCategories = [
     title: 'SPECIALIZED SOLUTIONS',
     description:
       'Engineered protection and customized sealing solutions tailored to enhance equipment performance, reliability, and service life.',
-    image: '/images/products/SPECIALIZED-img.avif',
+    image: '/images/products/industrial-gaskets/special-custom.png',
     fallbackImage: '/images/home-services.png',
     href: '/products/specialized-solutions',
   },
@@ -157,3 +157,58 @@ export const rtjTabContent = {
     'Precision machined tolerances preventing flange face damage',
   ],
 };
+
+export const jacketedProducts = [
+  {
+    id: 'metal-jacketed',
+    title: 'METAL JACKETED GASKETS',
+    subtitle: 'High-temperature sealing for heat exchangers and pressure vessels',
+    image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
+    href: '/contact',
+  },
+  {
+    id: 'corrugated-jacketed',
+    title: 'CORRUGATED JACKETED GASKETS',
+    subtitle: 'Resilient corrugated metal design with filler core for cyclic pressure',
+    image: '/images/products/industrial-gaskets/sprial-wound-gaskets.png',
+    href: '/contact',
+  },
+  {
+    id: 'flat-jacketed',
+    title: 'FLAT JACKETED GASKETS',
+    subtitle: 'Smooth jacket construction for narrow flange surfaces and valves',
+    image: '/images/products/industrial-gaskets/ring-type-joint.png',
+    href: '/contact',
+  },
+];
+
+export const specializedProducts = [
+  {
+    id: 'special-custom-gaskets',
+    title: 'SPECIAL & CUSTOM GASKETS',
+    subtitle: 'Tailored sealing geometry for high pressure and non-standard flanges',
+    image: '/images/products/industrial-gaskets/special-custom.png',
+    href: '/contact',
+  },
+  {
+    id: 'protective-coatings',
+    title: 'PROTECTIVE COATINGS',
+    subtitle: 'Anti-corrosion, anti-wear and thermal protective surface treatments',
+    image: '/images/products/industrial-gaskets/non-metallic-gaskets.png',
+    href: '/contact',
+  },
+  {
+    id: 'pipeline-insulation-kits',
+    title: 'PIPELINE INSULATION KITS',
+    subtitle: 'Complete electrical isolation for cathodic protection and flange preservation',
+    image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
+    href: '/contact',
+  },
+  {
+    id: 'custom-groove-config',
+    title: 'CUSTOM GROOVE CONFIGURATIONS',
+    subtitle: 'Lens, Delta, IX, Bridgeman and specialized metal profiles',
+    image: '/images/products/industrial-gaskets/ring-type-joint.png',
+    href: '/contact',
+  },
+];
