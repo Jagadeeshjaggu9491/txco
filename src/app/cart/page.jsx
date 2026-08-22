@@ -12,23 +12,16 @@ export default function CartPage() {
     <>
       <Header />
       <main>
-        {/* Top Hero Banner */}
-        <section className="products-hero-section">
-          <div className="products-hero-grid">
-            <div>
-              <h1 className="products-hero-title">
+        {/* Top Hero Banner matching About Us page hero */}
+        <section className="about-hero-section">
+          <div className="about-hero-container">
+            <div className="about-hero-content">
+              <h1 className="about-hero-title">
                 QUOTATION CART (RFQ)
               </h1>
-              <p className="products-hero-subtitle">
+              <p className="about-hero-subtitle">
                 Review your selected gasket profiles, flange specs, and valve sealing items before submitting for instant engineering quotation.
               </p>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <img
-                src="/images/home-products.png"
-                alt="TXCO RFQ Cart"
-                className="products-hero-banner-img"
-              />
             </div>
           </div>
         </section>

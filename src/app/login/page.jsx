@@ -46,23 +46,16 @@ export default function LoginPage() {
     <>
       <Header />
       <main>
-        {/* Top Hero Banner */}
-        <section className="products-hero-section">
-          <div className="products-hero-grid" ref={heroRef}>
-            <div>
-              <h1 className="products-hero-title">
+        {/* Top Hero Banner matching About Us page hero */}
+        <section ref={heroRef} className="about-hero-section">
+          <div className="about-hero-container">
+            <div className="about-hero-content">
+              <h1 className="about-hero-title">
                 CUSTOMER PORTAL
               </h1>
-              <p className="products-hero-subtitle">
+              <p className="about-hero-subtitle">
                 Access your engineering datasheets, material test reports (MTRs), CAD models, RFQ tracking, and custom manufacturing orders.
               </p>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <img
-                src="/images/home-products.png"
-                alt="TXCO Customer Portal"
-                className="products-hero-banner-img"
-              />
             </div>
           </div>
         </section>

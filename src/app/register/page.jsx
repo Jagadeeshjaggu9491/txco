@@ -67,23 +67,16 @@ export default function RegisterPage() {
     <>
       <Header />
       <main>
-        {/* Top Hero Banner */}
-        <section className="products-hero-section">
-          <div className="products-hero-grid" ref={heroRef}>
-            <div>
-              <h1 className="products-hero-title">
+        {/* Top Hero Banner matching About Us page hero */}
+        <section ref={heroRef} className="about-hero-section">
+          <div className="about-hero-container">
+            <div className="about-hero-content">
+              <h1 className="about-hero-title">
                 CREATE ACCOUNT
               </h1>
-              <p className="products-hero-subtitle">
-                Register for corporate access to instant quotation tools, technical datasheets, CAD 3D libraries, and material test certificates.
+              <p className="about-hero-subtitle">
+                Register for instant access to TXCO engineering documents, certified 3D CAD models, material test certificates, and personalized pricing.
               </p>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <img
-                src="/images/home-services.png"
-                alt="TXCO Portal Registration"
-                className="products-hero-banner-img"
-              />
             </div>
           </div>
         </section>
