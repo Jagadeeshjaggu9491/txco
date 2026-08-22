@@ -6,7 +6,9 @@
 .about-hero-section {
   position: relative;
   width: 100%;
-  background-color: var(--primary-navy, #052C58);
+  /* background-color: var(--primary-navy, #052C58); */
+  background: linear-gradient(to bottom, #114680 0%, #052C58 100%);
+
   background-image: url('/images/banner/txco-page-banner.avif');
   background-position: center bottom;
   background-repeat: no-repeat;
