@@ -1,0 +1,387 @@
+/* =========================================================================
+   PRODUCT DETAILS PAGE STYLESHEET
+========================================================================= */
+
+.product-details-main {
+  background-color: var(--bg-pure-white, #ffffff);
+  min-height: 85vh;
+}
+
+.product-details-section {
+  width: 100%;
+  padding: 3rem 2rem 12rem 2rem;
+}
+
+.product-details-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 1. Header Bar */
+.product-details-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.product-details-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #3b4674;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  transition: color var(--transition-fast, 0.2s ease);
+}
+
+.product-details-breadcrumb:hover {
+  color: var(--primary-navy, #052C58);
+}
+
+.product-details-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 600;
+  color: var(--primary-navy, #052C58);
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.product-details-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 24px;
+  border: 1.5px solid var(--primary-navy, #052C58);
+  color: var(--primary-navy, #052C58);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.product-details-download-btn:hover {
+  background-color: var(--primary-navy, #052C58);
+  color: #ffffff;
+}
+
+/* 2. Split Two-Column Layout */
+.product-details-split-grid {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 4rem;
+  align-items: start;
+  transition: grid-template-columns 0.35s cubic-bezier(0.4, 0, 0.2, 1), gap 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-details-split-grid.sidebar-collapsed {
+  grid-template-columns: 52px 1fr;
+  gap: 2.5rem;
+}
+
+/* 3. Left Sticky Sidebar */
+.product-details-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: sticky;
+  top: 90px;
+  transition: all 0.3s ease;
+}
+
+.product-sidebar-top-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.product-sidebar-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.product-sidebar-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.product-sidebar-toggle-btn:hover {
+  background-color: #052C58;
+  border-color: #052C58;
+  color: #ffffff;
+}
+
+/* Collapsed Sidebar Rail */
+.product-details-sidebar.collapsed {
+  align-items: center;
+}
+
+.product-sidebar-collapsed-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #052C58;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 0.55rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(5, 44, 88, 0.25);
+  transition: all 0.2s ease;
+}
+
+.product-sidebar-collapsed-btn:hover {
+  background-color: #114680;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(5, 44, 88, 0.35);
+}
+
+.product-sidebar-collapsed-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.product-details-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.product-details-nav-item {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  cursor: pointer;
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  transition: color 0.15s ease;
+}
+
+.product-details-nav-item:hover {
+  color: var(--primary-navy, #052C58);
+}
+
+.product-details-nav-item.active {
+  font-weight: 800;
+  color: var(--primary-navy, #052C58);
+}
+
+.product-details-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: #114680;
+  color: #ffffff;
+  padding: 0.9rem 1.2rem;
+  border-radius: 0px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(17, 70, 128, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.product-details-contact-btn:hover {
+  background-color: var(--primary-navy, #052C58);
+  transform: translateY(-2px);
+}
+
+.product-details-contact-icon-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* 4. Right Content Panel */
+.product-details-content-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.product-details-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.product-details-banner-header {
+  background-color: var(--bg-lavender, #f4f3fe);
+  padding: 0.85rem 1.2rem;
+  border-radius: 4px;
+}
+
+.product-details-banner-title {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: var(--primary-navy, #052C58);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.product-details-paragraph {
+  font-size: 0.94rem;
+  font-weight: 400;
+  color: #334155;
+  line-height: 1.7;
+  margin: 0 0 0.4rem 0;
+}
+
+.product-details-image-box {
+  width: 100%;
+  margin: 1.8rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #edf2f7;
+  overflow: hidden;
+}
+
+.product-details-image {
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.product-details-bullets-intro {
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: #1e293b;
+  margin: 0.4rem 0 0.2rem 0;
+}
+
+.product-details-bullets-list {
+  margin: 0.2rem 0 1rem 1.4rem;
+  padding: 0;
+  color: #334155;
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.product-details-bullets-list li {
+  margin-bottom: 0.3rem;
+}
+
+/* 5. Engineering Specification Table */
+.product-details-table-wrapper {
+  margin-top: 1.2rem;
+  overflow-x: auto;
+}
+
+.product-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.product-details-table thead tr {
+  background-color: #8fa9c4;
+  color: var(--primary-navy, #052C58);
+}
+
+.product-details-table th {
+  padding: 0.75rem 0.9rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+}
+
+.product-details-table tbody tr {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.product-details-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.product-details-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.product-details-table td {
+  padding: 0.8rem;
+  color: #334155;
+  line-height: 1.5;
+  border-right: 1px solid #e2e8f0;
+}
+
+.product-details-table-footnote {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  color: #64748b;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .product-details-split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+}

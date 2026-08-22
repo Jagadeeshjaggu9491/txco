@@ -1,7 +1,7 @@
 export const utilityNavLinks = [
   { name: 'Home', href: '/' },
   { name: 'Contact', href: '/contact' },
-  { name: 'Downloads', href: '/downloads' },
+  { name: 'Catalogues', href: '/catalogues' },
 ];
 
 export const mainNavigationMenu = {
@@ -20,32 +20,90 @@ export const mainNavigationMenu = {
     title: 'Products',
     href: '/products',
     items: [
-      { name: 'All Products', href: '/products' },
       {
-        name: 'Gaskets, Kits, and Seals',
-        href: '/products/gaskets-kits-seals',
+        name: 'GASKETS',
+        href: '/products/gaskets',
         children: [
-          { name: 'Metallic', href: '/products/gaskets/metallic' },
-          { name: 'Semi-Metallic Gaskets', href: '/products/gaskets/semi-metallic' },
-          { name: 'Non-Metallic', href: '/products/gaskets/non-metallic' },
-          { name: 'Flange Isolation Gaskets and Kits', href: '/products/gaskets/flange-isolation' },
-          { name: 'Blinds and Seals', href: '/products/gaskets/blinds-seals' },
+          {
+            name: 'Metallic Gaskets',
+            href: '/products/gaskets/metallic-gaskets',
+            children: [
+              { name: 'Ring Type Joint (RTJ)', href: '/products/gaskets/metallic-gaskets/details?product=ring-type-joint-rtj' },
+              { name: 'Rubber-Coated RTJ', href: '/products/gaskets/metallic-gaskets/details?product=rubber-coated-rtj' },
+              { name: 'PTFE-Insert RTJ', href: '/products/gaskets/metallic-gaskets/details?product=ptfe-insert-rtj' },
+              { name: 'Protective-Coated RTJ', href: '/products/gaskets/metallic-gaskets/details?product=protective-coated-rtj' },
+              { name: 'Bonnet Rings', href: '/products/gaskets/metallic-gaskets/details?product=bonnet-rings' },
+              { name: 'Lens Rings', href: '/products/gaskets/metallic-gaskets/details?product=lens-rings' },
+              { name: 'Blind Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=blind-gaskets' },
+              { name: 'VX–AX Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=vx-ax-gaskets' },
+              { name: 'IX Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=ix-gaskets' },
+              { name: 'Delta Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=delta-gaskets' },
+              { name: 'Bridge Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=bridge-gaskets' },
+              { name: 'Spectacle Blind Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=spectacle-blind-gaskets' },
+              { name: 'Transition RTJ', href: '/products/gaskets/metallic-gaskets/details?product=transition-rtj' },
+              { name: 'Soft-Material-Seated RTJ', href: '/products/gaskets/metallic-gaskets/details?product=soft-material-seated-rtj' },
+              { name: 'Weld-Lip Seals', href: '/products/gaskets/metallic-gaskets/details?product=weld-lip-seals' },
+            ],
+          },
+          {
+            name: 'Semi-Metallic Gaskets',
+            href: '/products/gaskets/semi-metallic-gaskets',
+            children: [
+              { name: 'Spiral Wound Gaskets', href: '/products/gaskets/semi-metallic-gaskets?product=spiral-wound-gaskets' },
+              { name: 'Kammprofile Gaskets', href: '/products/gaskets/semi-metallic-gaskets?product=kammprofile-gaskets' },
+              { name: 'Metal Jacketed Gaskets', href: '/products/gaskets/semi-metallic-gaskets?product=metal-jacketed-gaskets' },
+            ],
+          },
+          {
+            name: 'Non-Metallic Gaskets',
+            href: '/products/gaskets/non-metallic-gaskets',
+            children: [
+              { name: 'Rubber Gaskets', href: '/products/gaskets/non-metallic-gaskets?product=rubber-gaskets' },
+              { name: 'PTFE Gaskets', href: '/products/gaskets/non-metallic-gaskets?product=ptfe-gaskets' },
+              { name: 'ePTFE Gaskets', href: '/products/gaskets/non-metallic-gaskets?product=eptfe-gaskets' },
+              { name: 'Non-Asbestos Gaskets', href: '/products/gaskets/non-metallic-gaskets?product=non-asbestos-gaskets' },
+              { name: 'Asbestos-Free Gaskets', href: '/products/gaskets/non-metallic-gaskets?product=asbestos-free-gaskets' },
+            ],
+          },
+          {
+            name: 'Steel-Inserted Gaskets',
+            href: '/products/gaskets/steel-inserted-gaskets',
+            children: [
+              { name: 'Rubber-Inserted', href: '/products/gaskets/steel-inserted-gaskets?product=rubber-inserted' },
+              { name: 'Graphite-Inserted', href: '/products/gaskets/steel-inserted-gaskets?product=graphite-inserted' },
+            ],
+          },
         ],
       },
       {
-        name: 'Hoses and Expansion Joints',
-        href: '/products/hoses-expansion',
+        name: 'FLANGES',
+        href: '/products/flanges',
         children: [
-          { name: 'Metallic Hoses', href: '/products/hoses/metallic' },
-          { name: 'Expansion Joints', href: '/products/hoses/expansion' },
+          { name: 'Weld Neck Flanges', href: '/products/flanges' },
+          { name: 'Slip-On Flanges', href: '/products/flanges' },
+          { name: 'Blind Flanges', href: '/products/flanges' },
+          { name: 'Socket Weld Flanges', href: '/products/flanges' },
+          { name: 'Lap Joint Flanges', href: '/products/flanges' },
+          { name: 'Threaded / Screwed Flanges', href: '/products/flanges' },
+          { name: 'Orifice Flanges', href: '/products/flanges' },
+          { name: 'Custom Flanges', href: '/products/flanges' },
         ],
       },
       {
-        name: 'Fasteners',
-        href: '/products/fasteners',
+        name: 'VALVE COMPONENTS',
+        href: '/products/valve-components',
         children: [
-          { name: 'Heavy Hex Bolts', href: '/products/fasteners/hex-bolts' },
-          { name: 'Stud Bolts & Nuts', href: '/products/fasteners/stud-bolts' },
+          { name: 'Valve Components', href: '/products/valve-components' },
+          { name: 'Valve Packing', href: '/products/valve-components' },
+          { name: 'Valve Gaskets', href: '/products/valve-components' },
+          { name: 'Sealing Components', href: '/products/valve-components' },
+        ],
+      },
+      {
+        name: 'COMMERCIAL PRODUCTS',
+        href: '/products/commercial-products',
+        children: [
+          { name: 'Commercial Products', href: '/products/commercial-products' },
         ],
       },
     ],
@@ -102,9 +160,13 @@ export const footerNavigationColumns = [
     title: 'PRODUCTS',
     links: [
       { name: 'All Products', href: '/products' },
-      { name: 'Gaskets, Kits, and Seals', href: '/products/gaskets-kits-seals' },
-      { name: 'Hoses and Expansion Joints', href: '/products/hoses-expansion' },
-      { name: 'Fasteners', href: '/products/fasteners' },
+      { name: 'Gaskets', href: '/products/gaskets-kits-seals' },
+      { name: 'Metallic Gaskets', href: '/products/ring-type-joint' },
+      { name: 'Semi-Metallic Gaskets', href: '/products/gaskets-kits-seals' },
+      { name: 'Non-Metallic Gaskets', href: '/products/specialized-solutions' },
+      { name: 'Flanges', href: '/products/flanges' },
+      { name: 'Valve Components', href: '/products/valve-components' },
+      { name: 'Commercial Products', href: '/products/commercial-products' },
     ],
   },
   {
@@ -140,10 +202,5 @@ export const footerNavigationColumns = [
       { name: 'Sustainability', href: '/about/sustainability' },
     ],
   },
-  {
-    title: 'CUSTOMER LOGIN',
-    links: [
-      { name: 'E Catalogs', href: '/login/catalogs' },
-    ],
-  },
+
 ];

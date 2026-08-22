@@ -84,7 +84,7 @@ export default function OurProductsOverview() {
 
   return (
     <section ref={sectionRef} className="products-overview-section">
-      <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         {/* Top Badge */}
         <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
           <span ref={badgeRef} className="section-badge">
@@ -101,15 +101,34 @@ export default function OurProductsOverview() {
           Don’t let demanding sealing requirements become an engineering challenge.
         </h2>
 
-        {/* 3 Product Cards Grid */}
-        <div className="grid-3-col" style={{ marginBottom: '3.5rem' }}>
+        {/* Product Cards Flexbox with exactly 3 cards per row */}
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '2rem',
+            marginBottom: '3.5rem',
+          }}
+          className="products-flex-container"
+        >
           {mainProductCategories.map((item) => (
             <Link
               key={item.id}
               href={item.href}
-              style={{ textDecoration: 'none', color: 'inherit' }}
+              className="product-card-flex-item"
+              style={{
+                flex: '0 0 calc(33.333% - 1.35rem)',
+                maxWidth: 'calc(33.333% - 1.35rem)',
+                textDecoration: 'none',
+                color: 'inherit',
+                display: 'flex',
+              }}
             >
-              <div ref={addToCardsRef} className="product-overview-card">
+              <div
+                ref={addToCardsRef}
+                className="product-overview-card"
+                style={{ width: '100%' }}
+              >
                 {/* Product Image Preview Box */}
                 <div className="product-img-box">
                   <img

@@ -7,13 +7,16 @@
 @import '../styles/home.css';
 @import '../styles/products.css';
 @import '../styles/contact.css';
-@import '../styles/search.css';
 @import '../styles/about.css';
 @import '../styles/resources.css';
 @import '../styles/certifications.css';
 @import '../styles/blog.css';
 @import '../styles/faqs.css';
 @import '../styles/news.css';
+@import '../styles/auth.css';
+@import '../styles/catalogues.css';
+@import '../styles/flipbook.css';
+@import '../styles/product-details.css';
 
 * {
   box-sizing: border-box;

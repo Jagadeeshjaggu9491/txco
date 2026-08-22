@@ -1,3 +1,10 @@
+export {
+  productCategoriesHierarchy,
+  allProductsList,
+  getProductBySlug,
+  getCategoryBySlug,
+} from './productsCatalogData';
+
 export const productsHeroData = {
   title: 'TXCO SEALING',
   subtitle:
@@ -9,31 +16,40 @@ export const productsHeroData = {
 
 export const mainProductCategories = [
   {
-    id: 'gaskets-kits-seals',
-    title: 'GASKETS, KITS, AND SEALS',
+    id: 'gaskets',
+    title: 'GASKETS',
     description:
-      'Reliable sealing solutions engineered for critical applications, high pressure, and demanding operating environments.',
+      'High-performance precision engineered industrial metallic, semi-metallic, non-metallic, and steel-inserted gaskets.',
     image: '/images/products/industrial-gaskets/ring-type-joint.png',
     fallbackImage: '/images/home-products.png',
-    href: '/products/gaskets-kits-seals',
+    href: '/products/gaskets',
   },
   {
-    id: 'jacketed-solutions',
-    title: 'JACKETED SOLUTIONS',
+    id: 'flanges',
+    title: 'FLANGES',
     description:
-      'High-performance metal jacketed and insulated sealing solutions designed for demanding temperature, pressure, and chemical applications.',
-    image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
-    fallbackImage: '/images/Our-Offerings.avif',
-    href: '/products/jacketed-solutions',
+      'Forged and precision-machined connection flanges including Weld Neck, Slip-On, Blind, Socket Weld, and custom designs.',
+    image: '/images/home-products.png',
+    fallbackImage: '/images/home-products.png',
+    href: '/products/flanges',
   },
   {
-    id: 'specialized-solutions',
-    title: 'SPECIALIZED SOLUTIONS',
+    id: 'valve-components',
+    title: 'VALVE COMPONENTS',
     description:
-      'Engineered protection and customized sealing solutions tailored to enhance equipment performance, reliability, and service life.',
-    image: '/images/products/industrial-gaskets/special-custom.png',
+      'Engineered valve trims, compression packings, bonnet gaskets, and high-integrity sealing components for flow control.',
+    image: '/images/home-services.png',
     fallbackImage: '/images/home-services.png',
-    href: '/products/specialized-solutions',
+    href: '/products/valve-components',
+  },
+  {
+    id: 'commercial-products',
+    title: 'COMMERCIAL PRODUCTS',
+    description:
+      'Complete commercial supply range including ASTM heavy hex stud bolts, nuts, flange protectors, and pipeline consumables.',
+    image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
+    fallbackImage: '/images/home-products.png',
+    href: '/products/commercial-products',
   },
 ];
 
@@ -49,12 +65,12 @@ export const industrialSealingProducts = {
         'Precision-engineered sealing solutions for demanding industrial applications. Our gasket range includes Ring Type Joints, Spiral Wound Gaskets, Kammprofile Gaskets, Non-Metallic Gaskets, Gasket Sheets and Flange Insulation Kits. Designed for reliable sealing performance across high-pressure, high-temperature and critical service environments.',
       label: 'PRODUCTS:',
       productsList: [
-        'Ring Type Joints (R, RX, BX)',
-        'Spiral Wound (R, RIR, CG, CGI)',
-        'Kammprofile',
-        'Non-Metallic Gaskets',
-        'Gasket Sheets',
-        'Flange Insulation Kits',
+        'Metallic Gaskets (RTJ, Bonnet, Lens, Blind, Delta, IX, etc.)',
+        'Semi-Metallic Gaskets (Spiral Wound, Kammprofile, Metal Jacketed)',
+        'Non-Metallic Gaskets (Rubber, PTFE, ePTFE, CNAF)',
+        'Steel-Inserted Gaskets (Rubber-Inserted, Graphite-Inserted)',
+        'Flanges (Weld Neck, Slip-On, Blind, Orifice, Custom)',
+        'Valve Components (Packing, Gaskets, Trims, Sealing)',
       ],
     },
     {

@@ -3,32 +3,44 @@
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Search, Menu, X, ChevronRight } from 'lucide-react';
+import { Globe, Search, Menu, X, ChevronRight, User, ShoppingCart } from 'lucide-react';
 import { utilityNavLinks, mainNavigationMenu } from '@/data/navigationData';
 
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
-  const [activeSubitemIndex, setActiveSubitemIndex] = useState(1);
+  const [activeSubitemIndex, setActiveSubitemIndex] = useState(0);
+  const [activeTertiaryIndex, setActiveTertiaryIndex] = useState(0);
 
   const leaveTimeoutRef = useRef(null);
 
   const handleMouseEnterMenu = (menuKey) => {
-    if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
-    setActiveMenu(menuKey);
-    setActiveSubitemIndex(menuKey === 'products' ? 1 : 0);
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current);
+      leaveTimeoutRef.current = null;
+    }
+    if (activeMenu !== menuKey) {
+      setActiveMenu(menuKey);
+      setActiveSubitemIndex(0);
+      setActiveTertiaryIndex(0);
+    }
   };
 
   const handleMouseLeaveMenu = () => {
+    if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
     leaveTimeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-    }, 180);
+    }, 280);
   };
 
   const currentMenu = activeMenu ? mainNavigationMenu[activeMenu] : null;
   const currentSubitem = currentMenu && currentMenu.items[activeSubitemIndex];
   const hasSubChildren = currentSubitem && currentSubitem.children && currentSubitem.children.length > 0;
+
+  const currentTertiaryItem = hasSubChildren && currentSubitem.children[activeTertiaryIndex];
+  const hasTertiaryChildren = currentTertiaryItem && currentTertiaryItem.children && currentTertiaryItem.children.length > 0;
 
   return (
     <header className="site-header">
@@ -53,16 +65,96 @@ export default function Header() {
             })}
           </div>
 
-          <div className="header-top-right">
+          <div className="header-top-right" style={{ position: 'relative' }}>
             <div className="header-country-select">
               <Globe size={16} color="#475569" />
               <span>Germany</span>
             </div>
             <span className="header-divider">|</span>
-            <Link href="/search" className="header-search-link">
-              <Search size={16} color="#475569" />
+            <button
+              type="button"
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="header-search-link header-search-btn"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+                color: searchOpen ? 'var(--primary-navy)' : 'inherit',
+              }}
+              title="Search products and catalogues"
+            >
+              <Search size={16} color={searchOpen ? '#052C58' : '#475569'} />
               <span>Search</span>
+            </button>
+            <span className="header-divider">|</span>
+            <Link href="/login" className="header-search-link">
+              <User size={16} color="#475569" />
+              <span>Login</span>
             </Link>
+            <span className="header-divider">|</span>
+            <Link href="/cart" className="header-search-link">
+              <ShoppingCart size={16} color="#475569" />
+              <span>Cart</span>
+            </Link>
+
+            {/* In-Header Expandable Search Bar Popover */}
+            {searchOpen && (
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '100%',
+                  right: 0,
+                  marginTop: '0.5rem',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  boxShadow: '0 12px 30px rgba(5, 44, 88, 0.18)',
+                  border: '1.5px solid #cbd5e1',
+                  padding: '0.6rem 0.8rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  zIndex: 999,
+                  minWidth: '280px',
+                }}
+              >
+                <Search size={16} color="#64748b" />
+                <input
+                  type="text"
+                  placeholder="Search products, RTJ, gaskets..."
+                  autoFocus
+                  style={{
+                    border: 'none',
+                    outline: 'none',
+                    fontSize: '0.86rem',
+                    width: '100%',
+                    fontFamily: 'inherit',
+                    color: '#1e293b',
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      window.location.href = `/products?q=${encodeURIComponent(e.target.value)}`;
+                    }
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={() => setSearchOpen(false)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    color: '#94a3b8',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '0.1rem',
+                  }}
+                >
+                  <X size={15} />
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -70,7 +162,16 @@ export default function Header() {
       {/* Main Navigation Bar & Logo */}
       <div className="header-main-nav">
         {/* Main Nav Links */}
-        <nav className="header-nav-list">
+        <nav
+          className="header-nav-list"
+          onMouseEnter={() => {
+            if (leaveTimeoutRef.current) {
+              clearTimeout(leaveTimeoutRef.current);
+              leaveTimeoutRef.current = null;
+            }
+          }}
+          onMouseLeave={handleMouseLeaveMenu}
+        >
           {Object.keys(mainNavigationMenu).map((key) => {
             const menu = mainNavigationMenu[key];
             const isActive = activeMenu === key;
@@ -79,7 +180,6 @@ export default function Header() {
               <div
                 key={key}
                 onMouseEnter={() => handleMouseEnterMenu(key)}
-                onMouseLeave={handleMouseLeaveMenu}
                 className="nav-item-wrapper"
               >
                 <Link
@@ -93,12 +193,14 @@ export default function Header() {
                 {isActive && (
                   <div
                     onMouseEnter={() => {
-                      if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
+                      if (leaveTimeoutRef.current) {
+                        clearTimeout(leaveTimeoutRef.current);
+                        leaveTimeoutRef.current = null;
+                      }
                     }}
-                    onMouseLeave={handleMouseLeaveMenu}
                     className="mega-menu-dropdown"
                   >
-                    {/* Primary Column */}
+                    {/* Primary Column (Level 1) */}
                     <div className="mega-menu-primary-col">
                       {menu.items.map((item, idx) => {
                         const isSelected = activeSubitemIndex === idx;
@@ -106,7 +208,10 @@ export default function Header() {
                         return (
                           <div
                             key={idx}
-                            onMouseEnter={() => setActiveSubitemIndex(idx)}
+                            onMouseEnter={() => {
+                              setActiveSubitemIndex(idx);
+                              setActiveTertiaryIndex(0);
+                            }}
                             className={`mega-menu-item ${isSelected ? 'active' : ''}`}
                           >
                             <Link
@@ -125,17 +230,57 @@ export default function Header() {
                       })}
                     </div>
 
-                    {/* Secondary Submenu Column */}
+                    {/* Secondary Submenu Column (Level 2) */}
                     {hasSubChildren && (
                       <div className="mega-menu-secondary-col">
-                        {currentSubitem.children.map((child, cIdx) => (
+                        {currentSubitem.children.map((child, cIdx) => {
+                          const hasNestedChildren = child.children && child.children.length > 0;
+                          const isSubSelected = activeTertiaryIndex === cIdx;
+
+                          if (hasNestedChildren) {
+                            return (
+                              <div
+                                key={cIdx}
+                                onMouseEnter={() => setActiveTertiaryIndex(cIdx)}
+                                className={`mega-menu-subitem ${isSubSelected ? 'active' : ''}`}
+                              >
+                                <Link
+                                  href={child.href}
+                                  onClick={() => setActiveMenu(null)}
+                                  className="mega-submenu-link"
+                                >
+                                  {child.name}
+                                </Link>
+                                <ChevronRight size={15} color={isSubSelected ? '#ffffff' : '#666666'} />
+                              </div>
+                            );
+                          }
+
+                          return (
+                            <Link
+                              key={cIdx}
+                              href={child.href}
+                              onClick={() => setActiveMenu(null)}
+                              className="mega-submenu-link-standalone"
+                            >
+                              {child.name}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    {/* Tertiary Column (Level 3 - e.g. RTJ Variants) */}
+                    {hasTertiaryChildren && (
+                      <div className="mega-menu-tertiary-col">
+                        {currentTertiaryItem.children.map((tert, tIdx) => (
                           <Link
-                            key={cIdx}
-                            href={child.href}
+                            key={tIdx}
+                            href={tert.href}
                             onClick={() => setActiveMenu(null)}
-                            className="mega-submenu-link"
+                            className="mega-tertiary-link"
                           >
-                            {child.name}
+                            {tert.name}
                           </Link>
                         ))}
                       </div>
@@ -146,9 +291,7 @@ export default function Header() {
             );
           })}
 
-          <Link href="/login" className="nav-customer-login">
-            Customer Login
-          </Link>
+
         </nav>
 
         {/* Mobile / Tablet Hamburger Toggle */}
@@ -188,9 +331,7 @@ export default function Header() {
           <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
             About Us
           </Link>
-          <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link" style={{ color: '#344473' }}>
-            Customer Login
-          </Link>
+
         </div>
       )}
     </header>
