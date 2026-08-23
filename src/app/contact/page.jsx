@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageHero from '@/components/PageHero';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -151,21 +152,14 @@ export default function ContactPage() {
 
       <main style={{ width: '100%', backgroundColor: 'var(--bg-light-surface)', color: 'var(--dark-navy)', overflow: 'hidden' }}>
         {/* =========================================================================
-            1. HERO SECTION (Matching About Us Hero)
+            1. HERO SECTION (PageHero Component)
         ========================================================================= */}
-        <section ref={heroRef} className="contact-hero-section">
-          <div className="contact-hero-container">
-            <div className="contact-hero-content">
-              <h1 ref={titleRef} className="contact-hero-title">
-                {contactHeroData.title}
-              </h1>
-
-              <p ref={subtitleRef} className="contact-hero-subtitle">
-                {contactHeroData.subtitle}
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title={contactHeroData.title}
+          subtitle={contactHeroData.subtitle}
+          bgImage="/images/banner/txco-page-banner.avif"
+          bgPosition="center bottom"
+        />
 
         {/* =========================================================================
             2. QUICK CONTACT DETAILS (3-Column Cards Grid)

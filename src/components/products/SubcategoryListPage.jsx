@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -8,8 +8,70 @@ import ContactSection from '@/components/ContactSection';
 import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
 import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 import { ChevronLeft } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function SubcategoryListPage({ categoryData }) {
+  const containerRef = useRef(null);
+  const breadcrumbRef = useRef(null);
+  const titleRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  cardsRef.current = [];
+
+  const addToCardsRef = (el) => {
+    if (el && !cardsRef.current.includes(el)) {
+      cardsRef.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      if (breadcrumbRef.current) {
+        tl.fromTo(
+          breadcrumbRef.current,
+          { opacity: 0, x: -20 },
+          { opacity: 1, x: 0, duration: 0.5 }
+        );
+      }
+
+      if (titleRef.current) {
+        tl.fromTo(
+          titleRef.current,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.65 },
+          '-=0.25'
+        );
+      }
+
+      if (cardsRef.current.length > 0) {
+        tl.fromTo(
+          cardsRef.current,
+          { opacity: 0, y: 45, scale: 0.97 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.65,
+            stagger: 0.12,
+            ease: 'power3.out',
+          },
+          '-=0.3'
+        );
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [categoryData]);
+
   if (!categoryData) return null;
 
   return (
@@ -17,10 +79,14 @@ export default function SubcategoryListPage({ categoryData }) {
       <Header />
       <main style={{ backgroundColor: '#ffffff', minHeight: '80vh' }}>
         {/* Top Subcategories Section */}
-        <section className="txco-section txco-section-cool-grey" style={{ padding: '3.5rem 2rem 5.5rem 2rem' }}>
+        <section
+          ref={containerRef}
+          className="txco-section txco-section-cool-grey"
+          style={{ padding: '3.5rem 2rem 5.5rem 2rem' }}
+        >
           <div className="txco-container">
             {/* Breadcrumb Navigation */}
-            <div style={{ marginBottom: '1.2rem' }}>
+            <div ref={breadcrumbRef} style={{ marginBottom: '1.2rem' }}>
               <Link
                 href={categoryData.parentHref || '/products'}
                 style={{
@@ -42,7 +108,7 @@ export default function SubcategoryListPage({ categoryData }) {
             </div>
 
             {/* Main Page Title */}
-            <h1 className="section-title" style={{ marginBottom: '3.5rem' }}>
+            <h1 ref={titleRef} className="section-title" style={{ marginBottom: '3.5rem' }}>
               {categoryData.title}
             </h1>
 
@@ -59,6 +125,7 @@ export default function SubcategoryListPage({ categoryData }) {
                 <Link
                   key={item.id}
                   href={item.href}
+                  ref={addToCardsRef}
                   className="product-card-flex-item"
                   style={{
                     flex: '0 0 calc(33.333% - 1.35rem)',
@@ -99,10 +166,10 @@ export default function SubcategoryListPage({ categoryData }) {
                       </div>
 
                       {/* Circular Dark Navy Arrow Badge */}
-                      <div className="product-arrow-badge" style={{ width: '32px', height: '32px' }}>
+                      <div className="product-arrow-badge">
                         <svg
-                          width="15"
-                          height="15"
+                          width="18"
+                          height="18"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="#ffffff"
@@ -122,13 +189,9 @@ export default function SubcategoryListPage({ categoryData }) {
           </div>
         </section>
 
-        {/* 2. Industrial Sealing Products Info Cards Component */}
+        {/* Supporting Global Sections */}
         <IndustrialSealingProducts />
-
-        {/* 3. Discover Our Engineered Solutions Component */}
         <DiscoverEngineeredSolutions />
-
-        {/* 4. Global Contact Section */}
         <ContactSection />
       </main>
       <Footer />

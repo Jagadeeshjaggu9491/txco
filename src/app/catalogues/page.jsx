@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
+import PageHero from '@/components/PageHero';
 import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
 import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 import { Eye, Download, Search, X, FileText, CheckCircle2, ChevronRight, BookOpen, Layers, ShieldCheck, ArrowRight } from 'lucide-react';
@@ -17,19 +18,7 @@ export default function CataloguesPage() {
   const [activeModalItem, setActiveModalItem] = useState(null);
   const [downloadSuccess, setDownloadSuccess] = useState(null);
 
-  const heroRef = useRef(null);
   const gridRef = useRef(null);
-
-  useEffect(() => {
-    const tl = gsap.timeline();
-    if (heroRef.current) {
-      tl.fromTo(
-        heroRef.current.children,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.65, stagger: 0.15, ease: 'power3.out' }
-      );
-    }
-  }, []);
 
   const filteredCatalogues = cataloguesList.filter((item) => {
     const matchesCategory =
@@ -41,7 +30,8 @@ export default function CataloguesPage() {
     return matchesCategory && matchesSearch;
   });
 
-  const handleDownload = (item) => {
+  const handleDownload = (item, e) => {
+    e.stopPropagation();
     setDownloadSuccess(item.title);
     setTimeout(() => {
       setDownloadSuccess(null);
@@ -52,19 +42,12 @@ export default function CataloguesPage() {
     <>
       <Header />
       <main style={{ backgroundColor: '#ffffff', minHeight: '85vh' }}>
-        {/* Top Hero Section matching About Us page hero */}
-        <section ref={heroRef} className="about-hero-section">
-          <div className="about-hero-container">
-            <div className="about-hero-content">
-              <h1 className="about-hero-title">
-                PRODUCT CATALOGUES
-              </h1>
-              <p className="about-hero-subtitle">
-                Download official engineering product brochures, technical dimension manuals, torque guidelines, and material specifications for TXCO industrial sealing solutions.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Top Hero Section */}
+        <PageHero
+          title="PRODUCT CATALOGUES"
+          subtitle="Download official engineering product brochures, technical dimension manuals, torque guidelines, and material specifications for TXCO industrial sealing solutions."
+          bgImage="/images/banner/txco-page-banner.avif"
+        />
 
         {/* Download Success Toast */}
         {downloadSuccess && (

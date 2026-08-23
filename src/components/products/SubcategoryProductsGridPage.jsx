@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -8,6 +8,12 @@ import ContactSection from '@/components/ContactSection';
 import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
 import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 import { ChevronLeft } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function SubcategoryProductsGridPage({
   categorySlug,
@@ -15,6 +21,62 @@ export default function SubcategoryProductsGridPage({
   categoryHref,
   subcategoryData,
 }) {
+  const containerRef = useRef(null);
+  const breadcrumbRef = useRef(null);
+  const headerBlockRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  cardsRef.current = [];
+
+  const addToCardsRef = (el) => {
+    if (el && !cardsRef.current.includes(el)) {
+      cardsRef.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      if (breadcrumbRef.current) {
+        tl.fromTo(
+          breadcrumbRef.current,
+          { opacity: 0, x: -20 },
+          { opacity: 1, x: 0, duration: 0.5 }
+        );
+      }
+
+      if (headerBlockRef.current) {
+        tl.fromTo(
+          headerBlockRef.current.children,
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.65, stagger: 0.12 },
+          '-=0.25'
+        );
+      }
+
+      if (cardsRef.current.length > 0) {
+        tl.fromTo(
+          cardsRef.current,
+          { opacity: 0, y: 45, scale: 0.97 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.65,
+            stagger: 0.08,
+            ease: 'power3.out',
+          },
+          '-=0.3'
+        );
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [subcategoryData]);
+
   if (!subcategoryData) return null;
 
   return (
@@ -22,10 +84,14 @@ export default function SubcategoryProductsGridPage({
       <Header />
       <main style={{ backgroundColor: '#ffffff', minHeight: '80vh' }}>
         {/* Top Subcategory Products Section */}
-        <section className="txco-section txco-section-cool-grey" style={{ padding: '3.5rem 2rem 5.5rem 2rem' }}>
+        <section
+          ref={containerRef}
+          className="txco-section txco-section-cool-grey"
+          style={{ padding: '3.5rem 2rem 5.5rem 2rem' }}
+        >
           <div className="txco-container">
             {/* Breadcrumb Navigation back to Parent Category */}
-            <div style={{ marginBottom: '1.2rem' }}>
+            <div ref={breadcrumbRef} style={{ marginBottom: '1.2rem' }}>
               <Link
                 href={categoryHref || `/products/${categorySlug}`}
                 style={{
@@ -47,7 +113,7 @@ export default function SubcategoryProductsGridPage({
             </div>
 
             {/* Subcategory Page Heading & Description */}
-            <div style={{ maxWidth: '900px', marginBottom: '3.5rem' }}>
+            <div ref={headerBlockRef} style={{ maxWidth: '900px', marginBottom: '3.5rem' }}>
               <h1 className="section-title" style={{ marginBottom: '0.8rem' }}>
                 {subcategoryData.name || subcategoryData.title}
               </h1>
@@ -74,6 +140,7 @@ export default function SubcategoryProductsGridPage({
                   <Link
                     key={item.id || item.slug}
                     href={detailsHref}
+                    ref={addToCardsRef}
                     className="product-card-flex-item"
                     style={{
                       flex: '0 0 calc(33.333% - 1.35rem)',

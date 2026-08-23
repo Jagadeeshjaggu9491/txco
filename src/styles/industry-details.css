@@ -1,0 +1,376 @@
+/* =========================================================================
+   INDUSTRY DETAILS PAGE STYLESHEET
+========================================================================= */
+
+.industry-details-main {
+  background-color: var(--bg-pure-white, #ffffff);
+  min-height: 85vh;
+}
+
+.industry-details-section {
+  width: 100%;
+  padding: 4rem 2rem 5rem 2rem;
+}
+
+.industry-details-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 1. Two-Column Split Grid */
+.industry-details-split-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 4.5rem;
+  align-items: start;
+}
+
+/* 2. Left Sticky Sidebar */
+.industry-details-sidebar {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.industry-sidebar-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748b;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  margin-bottom: 0.5rem;
+}
+
+.industry-sidebar-breadcrumb:hover {
+  color: var(--primary-navy, #052C58);
+}
+
+.industry-sidebar-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.75rem;
+  /* font-weight: 700; */
+  color: var(--primary-navy, #052C58);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.25;
+}
+
+.industry-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.industry-sidebar-nav-item {
+  width: 100%;
+}
+
+.industry-sidebar-nav-btn {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0.6rem 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+  font-family: inherit;
+}
+
+.industry-sidebar-nav-btn:hover {
+  color: var(--primary-navy, #052C58);
+  padding-left: 0.6rem;
+}
+
+.industry-sidebar-nav-btn.active {
+  color: var(--primary-navy, #052C58);
+  font-weight: 800;
+  border-bottom-color: var(--primary-navy, #052C58);
+}
+
+.industry-sidebar-active-arrow {
+  color: var(--primary-navy, #052C58);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.industry-sidebar-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #384576;
+  color: #ffffff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.industry-sidebar-contact-btn:hover {
+  background-color: var(--primary-navy, #052C58);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.industry-sidebar-btn-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3. Right Content Area */
+.industry-content-area {
+  max-width: 900px;
+}
+
+.industry-content-heading {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(1.8rem, 2.8vw, 2.3rem);
+  /* font-weight: 700; */
+  color: #384576;
+  line-height: 1.25;
+  margin: 0 0 1.2rem 0;
+}
+
+.industry-content-tagline {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.industry-content-body-p {
+  font-size: 0.94rem;
+  color: #334155;
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+
+.industry-content-subheading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 1.8rem 0 0.8rem 0;
+}
+
+.industry-who-we-serve-box {
+  margin: 1.8rem 0;
+}
+
+.industry-who-we-serve-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.8rem;
+}
+
+.industry-who-we-serve-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.industry-who-we-serve-item {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.industry-who-we-serve-item::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #384576;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+/* 4. Product Spotlight Section */
+.industry-spotlight-section {
+  padding: 4rem 2rem 5rem 2rem;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.industry-spotlight-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.industry-spotlight-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.2rem;
+}
+
+.industry-spotlight-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-weight: 600;
+  color: #384576;
+  margin: 0;
+}
+
+.industry-spotlight-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.industry-spotlight-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #384576;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.industry-spotlight-nav-btn:hover {
+  background-color: #384576;
+  color: #ffffff;
+  border-color: #384576;
+}
+
+.industry-spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+}
+
+.industry-spotlight-card {
+  background-color: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.industry-spotlight-card:hover {
+  border-color: #384576;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(56, 69, 118, 0.1);
+}
+
+.industry-spotlight-img-box {
+  width: 100%;
+  height: 160px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.industry-spotlight-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.industry-spotlight-card-body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-grow: 1;
+}
+
+.industry-spotlight-card-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--primary-navy, #052C58);
+  margin: 0 0 0.35rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.industry-spotlight-card-specs {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.industry-spotlight-card-arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #384576;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.industry-spotlight-card:hover .industry-spotlight-card-arrow {
+  background-color: var(--primary-navy, #052C58);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .industry-details-split-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .industry-details-sidebar {
+    position: static;
+  }
+
+  .industry-spotlight-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .industry-spotlight-grid {
+    grid-template-columns: 1fr;
+  }
+}

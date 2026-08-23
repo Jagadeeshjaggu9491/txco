@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
+import PageHero from '@/components/PageHero';
 import { Mail, Lock, Eye, EyeOff, ArrowRight, ShieldCheck, UserCheck } from 'lucide-react';
 import gsap from 'gsap';
 
@@ -15,24 +16,14 @@ export default function LoginPage() {
   const [rememberMe, setRememberMe] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const heroRef = useRef(null);
   const cardRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline();
-    if (heroRef.current) {
-      tl.fromTo(
-        heroRef.current.children,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.65, stagger: 0.15, ease: 'power3.out' }
-      );
-    }
     if (cardRef.current) {
-      tl.fromTo(
+      gsap.fromTo(
         cardRef.current,
         { opacity: 0, y: 35, scale: 0.98 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.2)' },
-        '-=0.3'
+        { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.2)', delay: 0.2 }
       );
     }
   }, []);
@@ -46,28 +37,19 @@ export default function LoginPage() {
     <>
       <Header />
       <main>
-        {/* Top Hero Banner matching About Us page hero */}
-        <section ref={heroRef} className="about-hero-section">
-          <div className="about-hero-container">
-            <div className="about-hero-content">
-              <h1 className="about-hero-title">
-                CUSTOMER PORTAL
-              </h1>
-              <p className="about-hero-subtitle">
-                Access your engineering datasheets, material test reports (MTRs), CAD models, RFQ tracking, and custom manufacturing orders.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Top Hero Banner */}
+        <PageHero
+          title="CUSTOMER PORTAL"
+          subtitle="Access your engineering datasheets, material test reports (MTRs), CAD models, RFQ tracking, and custom manufacturing orders."
+          bgImage="/images/log-in-page-banner-img.avif"
+          bgPosition="center"
+        />
 
         {/* Login Card Section */}
         <section className="auth-page-section">
           <div className="auth-card-container" ref={cardRef}>
             <div className="auth-card-header">
-              <span className="auth-badge">
-                <ShieldCheck size={14} />
-                <span>SECURE CLIENT ACCESS</span>
-              </span>
+
               <h2 className="auth-card-title">
                 Welcome Back
               </h2>

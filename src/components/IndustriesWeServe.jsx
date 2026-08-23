@@ -85,24 +85,30 @@ export default function IndustriesWeServe() {
             Industries We Serve
           </h2>
           <p className="industries-description">
-            Lamons can help you solve the urgent needs you face today while helping you scale for tomorrow. Learn how we customize our solutions and technical expertise around your industry’s unique challenges.
+            TXCO helps solve the critical sealing and bolting challenges you face today while scaling for tomorrow. Learn how we customize our engineering solutions around your industry’s unique demands.
           </p>
         </div>
 
         {/* 8 Square Cards Grid */}
         <div ref={gridRef} className="industries-grid">
           {industries.map((item, idx) => (
-            <div key={idx} ref={addToCardsRef} className="industry-card-item">
-              <div className="industry-card-box">
-                <img
-                  src={item.iconSrc}
-                  alt={item.title}
-                  className="industry-icon-img"
-                />
-              </div>
+            <Link
+              key={idx}
+              href={item.href || '/industries'}
+              style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+            >
+              <div ref={addToCardsRef} className="industry-card-item">
+                <div className="industry-card-box">
+                  <img
+                    src={item.iconSrc}
+                    alt={item.title}
+                    className="industry-icon-img"
+                  />
+                </div>
 
-              <span className="industry-card-title">{item.title}</span>
-            </div>
+                <span className="industry-card-title">{item.title}</span>
+              </div>
+            </Link>
           ))}
         </div>
 

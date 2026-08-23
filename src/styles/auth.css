@@ -2,6 +2,22 @@
    AUTH PAGES (LOGIN & REGISTER) & CART STYLES
 ========================================================================= */
 
+/* Auth Hero Section */
+.auth-hero-section {
+  position: relative;
+  width: 100%;
+  background-image: url('/images/log-in-page-banner-img.avif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  color: var(--text-white, #ffffff);
+  padding: 5.5rem 2rem 5rem 2rem;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+}
+
 .auth-page-section {
   width: 100%;
   background-color: var(--bg-cool-grey);
@@ -13,7 +29,7 @@
 }
 
 .auth-card-container {
-  max-width: 520px;
+  max-width: 600px;
   width: 100%;
   margin: 0 auto;
   background-color: var(--bg-pure-white);
@@ -28,21 +44,6 @@
 .auth-card-header {
   text-align: center;
   margin-bottom: 2.2rem;
-}
-
-.auth-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.9rem;
-  background-color: #e0f2fe;
-  color: #0369a1;
-  border-radius: var(--radius-full);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
 }
 
 .auth-card-title {
@@ -220,7 +221,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  margin-top: 1.5rem;
   font-size: 0.78rem;
   color: #64748b;
 }
@@ -236,7 +236,7 @@
 }
 
 .cart-container {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 

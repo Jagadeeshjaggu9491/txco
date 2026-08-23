@@ -17,6 +17,10 @@
 @import '../styles/catalogues.css';
 @import '../styles/flipbook.css';
 @import '../styles/product-details.css';
+@import '../styles/stock-list.css';
+@import '../styles/page-hero.css';
+@import '../styles/industry-details.css';
+@import '../styles/cart.css';
 
 * {
   box-sizing: border-box;

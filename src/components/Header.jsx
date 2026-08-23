@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Search, Menu, X, ChevronRight, User, ShoppingCart } from 'lucide-react';
+import { Globe, Search, Menu, X, ChevronRight, User, ShoppingCart, ChevronDown } from 'lucide-react';
 import { utilityNavLinks, mainNavigationMenu } from '@/data/navigationData';
+import { getCartCount } from '@/utils/cartManager';
 
 export default function Header() {
   const pathname = usePathname();
@@ -13,6 +14,24 @@ export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeSubitemIndex, setActiveSubitemIndex] = useState(0);
   const [activeTertiaryIndex, setActiveTertiaryIndex] = useState(0);
+  const [selectedLanguage, setSelectedLanguage] = useState('English');
+  const [cartCount, setCartCount] = useState(0);
+
+  // Sync cart count from localStorage
+  useEffect(() => {
+    const updateCartCount = () => {
+      setCartCount(getCartCount());
+    };
+
+    updateCartCount();
+    window.addEventListener('cart-updated', updateCartCount);
+    window.addEventListener('storage', updateCartCount);
+
+    return () => {
+      window.removeEventListener('cart-updated', updateCartCount);
+      window.removeEventListener('storage', updateCartCount);
+    };
+  }, []);
 
   const leaveTimeoutRef = useRef(null);
 
@@ -66,9 +85,29 @@ export default function Header() {
           </div>
 
           <div className="header-top-right" style={{ position: 'relative' }}>
-            <div className="header-country-select">
-              <Globe size={16} color="#475569" />
-              <span>Germany</span>
+            <div className="header-country-select" style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+              <Globe size={16} color="#475569" style={{ flexShrink: 0 }} />
+              <select
+                value={selectedLanguage}
+                onChange={(e) => setSelectedLanguage(e.target.value)}
+                style={{
+                  border: 'none',
+                  background: 'transparent',
+                  color: 'var(--text-body, #475569)',
+                  fontSize: 'inherit',
+                  fontFamily: 'inherit',
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  outline: 'none',
+                  paddingRight: '0.2rem',
+                }}
+                aria-label="Select Language"
+              >
+                <option value="English">English</option>
+                <option value="Germany">Germany</option>
+                <option value="Spanish">Spanish</option>
+                <option value="French">French</option>
+              </select>
             </div>
             <span className="header-divider">|</span>
             <button
@@ -94,9 +133,44 @@ export default function Header() {
               <span>Login</span>
             </Link>
             <span className="header-divider">|</span>
-            <Link href="/cart" className="header-search-link">
-              <ShoppingCart size={16} color="#475569" />
-              <span>Cart</span>
+            <Link
+              href="/cart"
+              className="header-search-link"
+              style={{
+                position: 'relative',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                textDecoration: 'none',
+              }}
+            >
+              <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+                <ShoppingCart size={17} color="#475569" />
+                {cartCount > 0 && (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      top: '-8px',
+                      right: '-9px',
+                      backgroundColor: '#00529b',
+                      color: '#ffffff',
+                      fontSize: '0.65rem',
+                      fontWeight: 700,
+                      minWidth: '17px',
+                      height: '17px',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      lineHeight: 1,
+                      padding: '0 2px',
+                    }}
+                  >
+                    {cartCount}
+                  </span>
+                )}
+              </div>
+              <span>Cart {cartCount > 0 ? `(${cartCount})` : ''}</span>
             </Link>
 
             {/* In-Header Expandable Search Bar Popover */}
