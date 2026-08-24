@@ -213,8 +213,8 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                       {sec.showAssemblyDiagram && (
                         <div className="product-details-image-box">
                           <img
-                            src={sec.image || '/images/products/product-details-image.avif'}
-                            alt={sec.heading || 'Product Details Technical Drawing'}
+                            src={sec.image || productData?.image || '/images/products/product-details-image.avif'}
+                            alt={sec.heading || productData?.title || 'Product Details Technical Drawing'}
                             className="product-details-image"
                           />
                         </div>

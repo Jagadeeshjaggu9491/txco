@@ -20,7 +20,7 @@ export const mainProductCategories = [
     title: 'GASKETS',
     description:
       'High-performance precision engineered industrial metallic, semi-metallic, non-metallic, and steel-inserted gaskets.',
-    image: '/images/products/industrial-gaskets/ring-type-joint.png',
+    image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
     fallbackImage: '/images/home-products.png',
     href: '/products/gaskets',
   },
@@ -38,7 +38,7 @@ export const mainProductCategories = [
     title: 'VALVE COMPONENTS',
     description:
       'Engineered valve trims, compression packings, bonnet gaskets, and high-integrity sealing components for flow control.',
-    image: '/images/home-services.png',
+    image: '/images/product-detials-images/Ball-for-Ball-Valve.avif',
     fallbackImage: '/images/home-services.png',
     href: '/products/valve-components',
   },
@@ -47,7 +47,7 @@ export const mainProductCategories = [
     title: 'COMMERCIAL PRODUCTS',
     description:
       'Complete commercial supply range including ASTM heavy hex stud bolts, nuts, flange protectors, and pipeline consumables.',
-    image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
+    image: '/images/product-detials-images/Expanding-Gates-and-Through-Conduit-Gates.avif',
     fallbackImage: '/images/home-products.png',
     href: '/products/commercial-products',
   },

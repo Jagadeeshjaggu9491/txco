@@ -69,6 +69,90 @@
   color: var(--border-medium);
 }
 
+/* Custom Country / Language Selector Dropdown (Megamenu Style) */
+.country-dropdown-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.country-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  padding: 0.2rem 0;
+  color: var(--text-body, #475569);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.country-dropdown-btn:hover,
+.country-dropdown-btn.active {
+  color: var(--primary-navy, #052C58);
+}
+
+.country-dropdown-chevron {
+  transition: transform 0.2s ease;
+}
+
+.country-dropdown-chevron.open {
+  transform: rotate(180deg);
+}
+
+.country-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 170px;
+  background-color: var(--bg-pure-white, #ffffff);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  z-index: 350;
+  border: 1px solid var(--border-light, #e2e8f0);
+  border-radius: 0 0 8px 8px;
+  padding: 0.4rem 0;
+  animation: fadeInDown 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Invisible hover bridge */
+.country-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: transparent;
+  z-index: 10;
+}
+
+.country-dropdown-item {
+  width: 100%;
+  padding: 0.75rem 1.4rem;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #222222;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.country-dropdown-item:hover,
+.country-dropdown-item.selected {
+  background-color: var(--secondary-navy, #114680);
+  color: var(--text-white, #ffffff);
+  font-weight: 600;
+}
+
 /* Main Navigation Bar & Brand Logo */
 .header-main-nav {
   max-width: 1380px;
@@ -128,7 +212,7 @@
 }
 
 .header-logo-img {
-  height: 64px;
+  height: 70px;
   width: auto;
   object-fit: contain;
 }

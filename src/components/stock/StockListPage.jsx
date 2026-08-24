@@ -138,7 +138,7 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
       <main className="stock-list-main">
         {/* Top Hero Banner */}
         <PageHero
-          title="LIVE INVENTORY & STOCK LIST"
+          title="COMPARSSION AND STOCK LIST"
           subtitle="Browse our real-time stock list of precision-engineered industrial gaskets, RTJ rings, spiral wound gaskets, flanges, and valve sealing components ready for fast dispatch."
           bgImage="/images/banner/txco-page-banner.avif"
         />

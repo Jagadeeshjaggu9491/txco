@@ -104,7 +104,7 @@ export const sustainabilityData = {
 export const industrySolutionsData = [
   {
     title: 'Services',
-    image: '/images/service-1.avif',
+    image: '/images/services-img.avif',
     imageLeft: true,
     description:
       "Whether you need a hard-to-find component to keep your operations running or ongoing training to fine-tune your team's skill set, services like our proprietary reverse engineering and training gives your equipment and team a leading edge.",
@@ -113,7 +113,7 @@ export const industrySolutionsData = [
   },
   {
     title: 'Products',
-    image: '/images/service-1.avif',
+    image: '/images/Products-img.avif',
     imageLeft: false,
     description:
       'As a manufacturer of industrial fasteners, gaskets, and custom-made hoses, we build each of our product lines on the same foundation: steadfast commitment to industry-leading expertise and stringent testing for durability and longevity.',

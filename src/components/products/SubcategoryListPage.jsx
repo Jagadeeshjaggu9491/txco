@@ -137,7 +137,7 @@ export default function SubcategoryListPage({ categoryData }) {
                 >
                   <div className="product-overview-card" style={{ width: '100%', minHeight: '340px' }}>
                     {/* Top Product Image Preview Box */}
-                    <div className="product-img-box" style={{ height: '190px' }}>
+                    <div className="product-img-box" style={{ height: '200px' }}>
                       <img
                         src={item.image}
                         alt={item.title}

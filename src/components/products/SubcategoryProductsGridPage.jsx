@@ -152,7 +152,7 @@ export default function SubcategoryProductsGridPage({
                   >
                     <div className="product-overview-card" style={{ width: '100%', minHeight: '350px' }}>
                       {/* Product Image Preview Box */}
-                      <div className="product-img-box" style={{ height: '190px' }}>
+                      <div className="product-img-box" style={{ height: '200px' }}>
                         <img
                           src={item.image || '/images/products/industrial-gaskets/ring-type-joint.png'}
                           alt={item.name || item.title}

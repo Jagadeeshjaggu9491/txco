@@ -5,16 +5,21 @@
 .product-details-main {
   background-color: var(--bg-pure-white, #ffffff);
   min-height: 85vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .product-details-section {
   width: 100%;
   padding: 3rem 2rem 12rem 2rem;
+  box-sizing: border-box;
 }
 
 .product-details-container {
   max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* 1. Header Bar */
@@ -25,6 +30,8 @@
   margin-bottom: 2.5rem;
   flex-wrap: wrap;
   gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .product-details-breadcrumb {
@@ -77,14 +84,16 @@
 /* 2. Split Two-Column Layout */
 .product-details-split-grid {
   display: grid;
-  grid-template-columns: 290px 1fr;
+  grid-template-columns: 290px minmax(0, 1fr);
   gap: 4rem;
   align-items: start;
+  width: 100%;
+  box-sizing: border-box;
   transition: grid-template-columns 0.35s cubic-bezier(0.4, 0, 0.2, 1), gap 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-details-split-grid.sidebar-collapsed {
-  grid-template-columns: 52px 1fr;
+  grid-template-columns: 52px minmax(0, 1fr);
   gap: 2.5rem;
 }
 
@@ -250,12 +259,20 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .product-details-section-block {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .product-details-banner-header {
@@ -280,10 +297,13 @@
   color: #334155;
   line-height: 1.7;
   margin: 0 0 0.4rem 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .product-details-image-box {
   width: 100%;
+  max-width: 100%;
   margin: 1.8rem 0;
   display: flex;
   justify-content: center;
@@ -293,6 +313,7 @@
   border-radius: 8px;
   border: 1px solid #edf2f7;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .product-details-image {
@@ -325,11 +346,16 @@
 /* 5. Engineering Specification Table */
 .product-details-table-wrapper {
   margin-top: 1.2rem;
+  width: 100%;
+  max-width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 
 .product-details-table {
   width: 100%;
+  min-width: 600px;
   border-collapse: collapse;
   font-size: 0.86rem;
   border: 1px solid #cbd5e1;

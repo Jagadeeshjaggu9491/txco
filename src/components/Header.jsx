@@ -3,9 +3,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Search, Menu, X, ChevronRight, User, ShoppingCart, ChevronDown } from 'lucide-react';
+import { Globe, Search, Menu, X, ChevronRight, User, ShoppingCart, ChevronDown, Check } from 'lucide-react';
 import { utilityNavLinks, mainNavigationMenu } from '@/data/navigationData';
 import { getCartCount } from '@/utils/cartManager';
+
+const languagesList = ['English', 'Germany', 'Spanish', 'French'];
 
 export default function Header() {
   const pathname = usePathname();
@@ -15,7 +17,25 @@ export default function Header() {
   const [activeSubitemIndex, setActiveSubitemIndex] = useState(0);
   const [activeTertiaryIndex, setActiveTertiaryIndex] = useState(0);
   const [selectedLanguage, setSelectedLanguage] = useState('English');
+  const [countryMenuOpen, setCountryMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+
+  const countryMenuTimeoutRef = useRef(null);
+
+  const handleCountryMouseEnter = () => {
+    if (countryMenuTimeoutRef.current) {
+      clearTimeout(countryMenuTimeoutRef.current);
+      countryMenuTimeoutRef.current = null;
+    }
+    setCountryMenuOpen(true);
+  };
+
+  const handleCountryMouseLeave = () => {
+    if (countryMenuTimeoutRef.current) clearTimeout(countryMenuTimeoutRef.current);
+    countryMenuTimeoutRef.current = setTimeout(() => {
+      setCountryMenuOpen(false);
+    }, 240);
+  };
 
   // Sync cart count from localStorage
   useEffect(() => {
@@ -85,29 +105,47 @@ export default function Header() {
           </div>
 
           <div className="header-top-right" style={{ position: 'relative' }}>
-            <div className="header-country-select" style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
-              <Globe size={16} color="#475569" style={{ flexShrink: 0 }} />
-              <select
-                value={selectedLanguage}
-                onChange={(e) => setSelectedLanguage(e.target.value)}
-                style={{
-                  border: 'none',
-                  background: 'transparent',
-                  color: 'var(--text-body, #475569)',
-                  fontSize: 'inherit',
-                  fontFamily: 'inherit',
-                  fontWeight: 500,
-                  cursor: 'pointer',
-                  outline: 'none',
-                  paddingRight: '0.2rem',
-                }}
-                aria-label="Select Language"
+            {/* Custom Country / Region Megamenu Selector */}
+            <div
+              className="country-dropdown-wrapper"
+              onMouseEnter={handleCountryMouseEnter}
+              onMouseLeave={handleCountryMouseLeave}
+            >
+              <button
+                type="button"
+                onClick={() => setCountryMenuOpen(!countryMenuOpen)}
+                className={`country-dropdown-btn ${countryMenuOpen ? 'active' : ''}`}
+                aria-expanded={countryMenuOpen}
+                aria-haspopup="true"
               >
-                <option value="English">English</option>
-                <option value="Germany">Germany</option>
-                <option value="Spanish">Spanish</option>
-                <option value="French">French</option>
-              </select>
+                <Globe size={15} color={countryMenuOpen ? '#052C58' : '#475569'} style={{ flexShrink: 0 }} />
+                <span>{selectedLanguage}</span>
+                <ChevronDown
+                  size={13}
+                  className={`country-dropdown-chevron ${countryMenuOpen ? 'open' : ''}`}
+                />
+              </button>
+
+              {countryMenuOpen && (
+                <div className="country-dropdown-menu">
+                  {languagesList.map((lang) => {
+                    const isSelected = selectedLanguage === lang;
+                    return (
+                      <button
+                        key={lang}
+                        type="button"
+                        className={`country-dropdown-item ${isSelected ? 'selected' : ''}`}
+                        onClick={() => {
+                          setSelectedLanguage(lang);
+                          setCountryMenuOpen(false);
+                        }}
+                      >
+                        <span>{lang}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
             <span className="header-divider">|</span>
             <button
@@ -258,6 +296,11 @@ export default function Header() {
               >
                 <Link
                   href={menu.href}
+                  onClick={(e) => {
+                    if (menu.href === '#' || !menu.href) {
+                      e.preventDefault();
+                    }
+                  }}
                   className={`nav-item-link ${isActive ? 'active' : ''}`}
                 >
                   {menu.title}
@@ -290,7 +333,13 @@ export default function Header() {
                           >
                             <Link
                               href={item.href}
-                              onClick={() => setActiveMenu(null)}
+                              onClick={(e) => {
+                                if (item.href === '#' || !item.href) {
+                                  e.preventDefault();
+                                } else {
+                                  setActiveMenu(null);
+                                }
+                              }}
                               className="mega-menu-item-link"
                             >
                               {item.name}
@@ -320,7 +369,13 @@ export default function Header() {
                               >
                                 <Link
                                   href={child.href}
-                                  onClick={() => setActiveMenu(null)}
+                                  onClick={(e) => {
+                                    if (child.href === '#' || !child.href) {
+                                      e.preventDefault();
+                                    } else {
+                                      setActiveMenu(null);
+                                    }
+                                  }}
                                   className="mega-submenu-link"
                                 >
                                   {child.name}
@@ -334,7 +389,13 @@ export default function Header() {
                             <Link
                               key={cIdx}
                               href={child.href}
-                              onClick={() => setActiveMenu(null)}
+                              onClick={(e) => {
+                                if (child.href === '#' || !child.href) {
+                                  e.preventDefault();
+                                } else {
+                                  setActiveMenu(null);
+                                }
+                              }}
                               className="mega-submenu-link-standalone"
                             >
                               {child.name}
@@ -351,7 +412,13 @@ export default function Header() {
                           <Link
                             key={tIdx}
                             href={tert.href}
-                            onClick={() => setActiveMenu(null)}
+                            onClick={(e) => {
+                              if (tert.href === '#' || !tert.href) {
+                                e.preventDefault();
+                              } else {
+                                setActiveMenu(null);
+                              }
+                            }}
                             className="mega-tertiary-link"
                           >
                             {tert.name}

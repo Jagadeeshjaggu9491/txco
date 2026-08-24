@@ -100,7 +100,15 @@ export default function Footer() {
               <ul className="footer-link-list">
                 {col.links.map((link, lIdx) => (
                   <li key={lIdx}>
-                    <Link href={link.href} className="footer-link">
+                    <Link
+                      href={link.href}
+                      onClick={(e) => {
+                        if (link.href === '#' || !link.href) {
+                          e.preventDefault();
+                        }
+                      }}
+                      className="footer-link"
+                    >
                       {link.name}
                     </Link>
                   </li>

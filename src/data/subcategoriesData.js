@@ -21,7 +21,7 @@ export const subcategoriesByCategory = {
         subtitle: 'R • RX • BX • Bonnet • Lens • Delta • IX',
         description:
           'Precision CNC-machined solid metallic ring joints, subsea seals, and specialty high-pressure vessel gaskets.',
-        image: '/images/products/industrial-gaskets/ring-type-joint.png',
+        image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
         href: '/products/gaskets/metallic-gaskets',
       },
       {
@@ -30,7 +30,7 @@ export const subcategoriesByCategory = {
         subtitle: 'Spiral Wound • Kammprofile • Metal Jacketed',
         description:
           'Engineered composite sealing elements combining metal mechanical strength with compressible soft filler materials.',
-        image: '/images/products/industrial-gaskets/sprial-wound-gaskets.png',
+        image: '/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif',
         href: '/products/gaskets/semi-metallic-gaskets',
       },
       {
@@ -39,7 +39,7 @@ export const subcategoriesByCategory = {
         subtitle: 'Rubber • PTFE • ePTFE • Non-Asbestos',
         description:
           'Elastomeric, fluoropolymer, and CNAF compressed sheets designed for universal chemical resistance and utility service.',
-        image: '/images/products/industrial-gaskets/non-metallic-gaskets.png',
+        image: '/images/product-detials-images/PTFE-Jointing-Sheets-Planiflon.avif',
         href: '/products/gaskets/non-metallic-gaskets',
       },
       {
@@ -48,7 +48,7 @@ export const subcategoriesByCategory = {
         subtitle: 'Rubber-Inserted • Graphite-Inserted',
         description:
           'Reinforced composite gaskets containing internal steel wire or tanged cores for high blowout resistance and stiffness.',
-        image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
+        image: '/images/product-detials-images/Graphite-Gasketing-Sheet.avif',
         href: '/products/gaskets/steel-inserted-gaskets',
       },
     ],
@@ -69,7 +69,7 @@ export const subcategoriesByCategory = {
         description:
           'Butt-weld connection flanges with long tapered hub engineered for critical high-pressure and cyclic thermal duty.',
         image: '/images/home-products.png',
-        href: '/products/flanges/weld-neck-flanges',
+        href: '/products/flanges/details?product=weld-neck-flanges',
       },
       {
         id: 'slip-on-flanges',
@@ -78,7 +78,7 @@ export const subcategoriesByCategory = {
         description:
           'Cost-effective slip-over pipe flanges with dual fillet welds for low to medium pressure process piping systems.',
         image: '/images/home-products.png',
-        href: '/products/flanges/slip-on-flanges',
+        href: '/products/flanges/details?product=slip-on-flanges',
       },
       {
         id: 'blind-flanges',
@@ -87,7 +87,7 @@ export const subcategoriesByCategory = {
         description:
           'Solid forged blanking flanges for positive line termination, vessel inspection ports, and pressure isolation.',
         image: '/images/home-products.png',
-        href: '/products/flanges/blind-flanges',
+        href: '/products/flanges/details?product=blind-flanges',
       },
       {
         id: 'socket-weld-flanges',
@@ -96,7 +96,7 @@ export const subcategoriesByCategory = {
         description:
           'Socket recess design engineered for high-pressure compact small bore pipelines in chemical plants.',
         image: '/images/home-products.png',
-        href: '/products/flanges/socket-weld-flanges',
+        href: '/products/flanges/details?product=socket-weld-flanges',
       },
       {
         id: 'lap-joint-flanges',
@@ -105,7 +105,7 @@ export const subcategoriesByCategory = {
         description:
           'Loose backing flanges that rotate freely on stub ends for quick bolt hole alignment in stainless systems.',
         image: '/images/home-products.png',
-        href: '/products/flanges/lap-joint-flanges',
+        href: '/products/flanges/details?product=lap-joint-flanges',
       },
       {
         id: 'threaded-screwed-flanges',
@@ -114,7 +114,7 @@ export const subcategoriesByCategory = {
         description:
           'Internal tapered thread flanges for hazardous piping environments where welding is strictly prohibited.',
         image: '/images/home-products.png',
-        href: '/products/flanges/threaded-screwed-flanges',
+        href: '/products/flanges/details?product=threaded-screwed-flanges',
       },
       {
         id: 'orifice-flanges',
@@ -123,7 +123,7 @@ export const subcategoriesByCategory = {
         description:
           'Equipped with radial tapped holes and jacking screws for differential pressure flow metering plates.',
         image: '/images/home-products.png',
-        href: '/products/flanges/orifice-flanges',
+        href: '/products/flanges/details?product=orifice-flanges',
       },
       {
         id: 'custom-flanges',
@@ -132,7 +132,7 @@ export const subcategoriesByCategory = {
         description:
           'CNC-machined bespoke flanges, compact swivel-ring flanges, and specialized offshore subsea profiles.',
         image: '/images/home-products.png',
-        href: '/products/flanges/custom-flanges',
+        href: '/products/flanges/details?product=custom-flanges',
       },
     ],
   },
@@ -151,8 +151,8 @@ export const subcategoriesByCategory = {
         subtitle: 'API 6D • API 600 • Precision Trims',
         description:
           'Precision CNC-machined valve stems, balls, seats, discs, wedges, and internal guide components.',
-        image: '/images/home-services.png',
-        href: '/products/valve-components/valve-components-trim',
+        image: '/images/product-detials-images/Ball-for-Ball-Valve.avif',
+        href: '/products/valve-components/details?product=valve-components-trim',
       },
       {
         id: 'valve-packing',
@@ -160,8 +160,8 @@ export const subcategoriesByCategory = {
         subtitle: 'API 622 • API 624 Low-E Certified',
         description:
           'Die-formed flexible graphite rings and braided carbon fiber stem packing for zero-emission fugitive VOC compliance.',
-        image: '/images/home-services.png',
-        href: '/products/valve-components/valve-packing',
+        image: '/images/product-detials-images/O-Ring-for-Ball-Valve.avif',
+        href: '/products/valve-components/details?product=valve-packing',
       },
       {
         id: 'valve-gaskets',
@@ -169,8 +169,8 @@ export const subcategoriesByCategory = {
         subtitle: 'ASME B16.34 • Body-to-Bonnet Seals',
         description:
           'Pressure-seal rings, body-to-bonnet gaskets, and lantern rings for extreme pressure gate and globe valves.',
-        image: '/images/products/industrial-gaskets/ring-type-joint.png',
-        href: '/products/valve-components/valve-gaskets',
+        image: '/images/product-detials-images/Bodies-and-Closures-for-Ball-Valve.avif',
+        href: '/products/valve-components/details?product=valve-gaskets',
       },
       {
         id: 'sealing-components',
@@ -178,8 +178,8 @@ export const subcategoriesByCategory = {
         subtitle: 'Spring-Energized PTFE • PEEK Backups',
         description:
           'Spring-energized PTFE lip seals, PEEK backup rings, and custom energizers for high-cycle and sour service.',
-        image: '/images/home-services.png',
-        href: '/products/valve-components/sealing-components',
+        image: '/images/product-detials-images/Seat-for-Ball-and-Gate-Valve.avif',
+        href: '/products/valve-components/details?product=sealing-components',
       },
     ],
   },
@@ -198,8 +198,8 @@ export const subcategoriesByCategory = {
         subtitle: 'ASTM A193 B7/B16 • Stud Bolts & Nuts',
         description:
           'Heavy hex stud bolts, nuts, anti-seize torque lubricants, flange protectors, and standard pipeline hardware.',
-        image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
-        href: '/products/commercial-products/commercial-products-item',
+        image: '/images/product-detials-images/Expanding-Gates-and-Through-Conduit-Gates.avif',
+        href: '/products/commercial-products/details?product=commercial-products-item',
       },
     ],
   },
