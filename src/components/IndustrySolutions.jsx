@@ -145,35 +145,37 @@ export default function IndustrySolutions() {
                 className="solution-text-col"
                 style={{ order: isImageLeft ? 2 : 1 }}
               >
-                <h3 className="solution-title">
-                  {item.title}
-                </h3>
+                <div className="solution-text-content">
+                  <h3 className="solution-title">
+                    {item.title}
+                  </h3>
 
-                <p className="solution-desc">
-                  {item.description}
-                </p>
+                  <p className="solution-desc">
+                    {item.description}
+                  </p>
 
-                <div>
-                  <Link href={item.href} style={{ textDecoration: 'none' }}>
-                    <button className="txco-btn txco-btn-steel">
-                      <span>{item.buttonText}</span>
-                      <div className="txco-btn-icon-circle">
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="#3b4674"
-                          strokeWidth="2.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <line x1="4" y1="12" x2="20" y2="12" />
-                          <polyline points="13 5 20 12 13 19" />
-                        </svg>
-                      </div>
-                    </button>
-                  </Link>
+                  <div className="solution-btn-wrapper">
+                    <Link href={item.href} style={{ textDecoration: 'none' }}>
+                      <button className="txco-btn txco-btn-steel">
+                        <span>{item.buttonText}</span>
+                        <div className="txco-btn-icon-circle">
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#3b4674"
+                            strokeWidth="2.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <line x1="4" y1="12" x2="20" y2="12" />
+                            <polyline points="13 5 20 12 13 19" />
+                          </svg>
+                        </div>
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

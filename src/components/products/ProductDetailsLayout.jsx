@@ -12,16 +12,36 @@ import { TableFigureIcon } from '@/components/products/EngineeringProductDiagram
 
 export default function ProductDetailsLayout({ subcategoryData }) {
   const searchParams = useSearchParams();
-  const initialProductParam =
-    searchParams.get('product') || (subcategoryData?.productsList?.[0]?.id ?? '');
+  const productParam = searchParams.get('product');
 
   const defaultProductId =
-    subcategoryData?.productsList?.find((p) => p.id === initialProductParam)?.id ||
+    subcategoryData?.productsList?.find((p) => p.id === productParam)?.id ||
     subcategoryData?.productsList?.[0]?.id;
 
   const [activeProductId, setActiveProductId] = useState(defaultProductId);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const contentRef = useRef(null);
+
+  // Synchronize active product when URL query parameter changes (e.g. clicking header navbar links)
+  useEffect(() => {
+    if (productParam) {
+      const matched = subcategoryData?.productsList?.find((p) => p.id === productParam);
+      if (matched) {
+        setActiveProductId(matched.id);
+      }
+    } else if (subcategoryData?.productsList?.[0]?.id) {
+      setActiveProductId(subcategoryData.productsList[0].id);
+    }
+  }, [productParam, subcategoryData]);
+
+  const handleProductSelect = (id) => {
+    setActiveProductId(id);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('product', id);
+      window.history.pushState({}, '', url.toString());
+    }
+  };
 
   const productData =
     subcategoryData?.productDetails?.[activeProductId] ||
@@ -149,7 +169,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                           return (
                             <button
                               key={item.id}
-                              onClick={() => setActiveProductId(item.id)}
+                              onClick={() => handleProductSelect(item.id)}
                               type="button"
                               className={`product-details-nav-item ${isActive ? 'active' : ''}`}
                             >
@@ -213,7 +233,15 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                       {sec.showAssemblyDiagram && (
                         <div className="product-details-image-box">
                           <img
-                            src={sec.image || productData?.image || '/images/products/product-details-image.avif'}
+                            src={
+                              sec.image ||
+                              productData?.image ||
+                              ((subcategoryData?.subcategoryTitle?.toLowerCase().includes('flange') || subcategoryData?.parentCategoryTitle?.toLowerCase().includes('flange'))
+                                ? '/images/product-detials-images/flanges-product-detials-place-holder-img.png'
+                                : (subcategoryData?.subcategoryTitle?.toLowerCase().includes('valve') || subcategoryData?.parentCategoryTitle?.toLowerCase().includes('valve'))
+                                ? '/images/product-detials-images/valve-components-product-detials-place-holder-img.png'
+                                : '/images/product-detials-images/gaskets-product-detials-place-holder-img.png')
+                            }
                             alt={sec.heading || productData?.title || 'Product Details Technical Drawing'}
                             className="product-details-image"
                           />

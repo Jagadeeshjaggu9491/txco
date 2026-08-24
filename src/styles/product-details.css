@@ -6,7 +6,6 @@
   background-color: var(--bg-pure-white, #ffffff);
   min-height: 85vh;
   width: 100%;
-  overflow-x: hidden;
 }
 
 .product-details-section {
@@ -102,8 +101,13 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: -webkit-sticky;
   position: sticky;
-  top: 90px;
+  top: 100px;
+  align-self: start;
+  z-index: 10;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
   transition: all 0.3s ease;
 }
 

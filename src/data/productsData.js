@@ -29,8 +29,8 @@ export const mainProductCategories = [
     title: 'FLANGES',
     description:
       'Forged and precision-machined connection flanges including Weld Neck, Slip-On, Blind, Socket Weld, and custom designs.',
-    image: '/images/home-products.png',
-    fallbackImage: '/images/home-products.png',
+    image: '/images/product-detials-images/flanges-1.avif',
+    fallbackImage: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
     href: '/products/flanges',
   },
   {

@@ -68,7 +68,7 @@ export const subcategoriesByCategory = {
         subtitle: 'ASME B16.5 • Class 150 to 2500',
         description:
           'Butt-weld connection flanges with long tapered hub engineered for critical high-pressure and cyclic thermal duty.',
-        image: '/images/home-products.png',
+        image: '/images/product-detials-images/flanges-1.avif',
         href: '/products/flanges/details?product=weld-neck-flanges',
       },
       {
@@ -77,7 +77,7 @@ export const subcategoriesByCategory = {
         subtitle: 'ASME B16.5 • Flat Face & Raised Face',
         description:
           'Cost-effective slip-over pipe flanges with dual fillet welds for low to medium pressure process piping systems.',
-        image: '/images/home-products.png',
+        image: '/images/product-detials-images/flanges-2.avif',
         href: '/products/flanges/details?product=slip-on-flanges',
       },
       {
@@ -86,7 +86,7 @@ export const subcategoriesByCategory = {
         subtitle: 'ASME B16.5 • API 6B / 6BX',
         description:
           'Solid forged blanking flanges for positive line termination, vessel inspection ports, and pressure isolation.',
-        image: '/images/home-products.png',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         href: '/products/flanges/details?product=blind-flanges',
       },
       {
@@ -95,7 +95,7 @@ export const subcategoriesByCategory = {
         subtitle: 'ASME B16.5 • Small Bore Piping',
         description:
           'Socket recess design engineered for high-pressure compact small bore pipelines in chemical plants.',
-        image: '/images/home-products.png',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         href: '/products/flanges/details?product=socket-weld-flanges',
       },
       {
@@ -104,7 +104,7 @@ export const subcategoriesByCategory = {
         subtitle: 'ASME B16.5 • Used with Stub Ends',
         description:
           'Loose backing flanges that rotate freely on stub ends for quick bolt hole alignment in stainless systems.',
-        image: '/images/home-products.png',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         href: '/products/flanges/details?product=lap-joint-flanges',
       },
       {
@@ -113,7 +113,7 @@ export const subcategoriesByCategory = {
         subtitle: 'ASME B16.5 • NPT Threads',
         description:
           'Internal tapered thread flanges for hazardous piping environments where welding is strictly prohibited.',
-        image: '/images/home-products.png',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         href: '/products/flanges/details?product=threaded-screwed-flanges',
       },
       {
@@ -122,7 +122,7 @@ export const subcategoriesByCategory = {
         subtitle: 'ASME B16.36 • Differential Flow',
         description:
           'Equipped with radial tapped holes and jacking screws for differential pressure flow metering plates.',
-        image: '/images/home-products.png',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         href: '/products/flanges/details?product=orifice-flanges',
       },
       {
@@ -131,7 +131,7 @@ export const subcategoriesByCategory = {
         subtitle: 'API 17D • TEMA • Bespoke Drawings',
         description:
           'CNC-machined bespoke flanges, compact swivel-ring flanges, and specialized offshore subsea profiles.',
-        image: '/images/home-products.png',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         href: '/products/flanges/details?product=custom-flanges',
       },
     ],
@@ -169,7 +169,7 @@ export const subcategoriesByCategory = {
         subtitle: 'ASME B16.34 • Body-to-Bonnet Seals',
         description:
           'Pressure-seal rings, body-to-bonnet gaskets, and lantern rings for extreme pressure gate and globe valves.',
-        image: '/images/product-detials-images/Bodies-and-Closures-for-Ball-Valve.avif',
+        image: '/images/product-detials-images/valve-components-product-detials-place-holder-img.png',
         href: '/products/valve-components/details?product=valve-gaskets',
       },
       {
@@ -178,7 +178,7 @@ export const subcategoriesByCategory = {
         subtitle: 'Spring-Energized PTFE • PEEK Backups',
         description:
           'Spring-energized PTFE lip seals, PEEK backup rings, and custom energizers for high-cycle and sour service.',
-        image: '/images/product-detials-images/Seat-for-Ball-and-Gate-Valve.avif',
+        image: '/images/product-detials-images/valve-components-product-detials-place-holder-img.png',
         href: '/products/valve-components/details?product=sealing-components',
       },
     ],

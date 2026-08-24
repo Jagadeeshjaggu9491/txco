@@ -108,7 +108,7 @@ export const industrySolutionsData = [
     imageLeft: true,
     description:
       "Whether you need a hard-to-find component to keep your operations running or ongoing training to fine-tune your team's skill set, services like our proprietary reverse engineering and training gives your equipment and team a leading edge.",
-    buttonText: 'EXPLORE PRODUCTS',
+    buttonText: 'EXPLORE SERVICES',
     href: '/services',
   },
   {
@@ -126,7 +126,7 @@ export const industrySolutionsData = [
     imageLeft: true,
     description:
       'New industries require new solutions. Learn how our team of experts are partnering with our customers to pioneer innovative solutions for some of the greatest challenges our industries face.',
-    buttonText: 'EXPLORE PRODUCTS',
+    buttonText: 'EXPLORE INNOVATIONS',
     href: '/resources',
   },
 ];

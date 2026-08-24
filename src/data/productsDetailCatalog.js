@@ -14,6 +14,7 @@ export const subcategoryDetailCatalog = {
     productsList: [
       { id: 'weld-lip-seals', title: 'WELD-LIP SEALS', downloadTitle: 'Weld Ring Gaskets' },
       { id: 'ring-type-joint-rtj', title: 'RING TYPE JOINT (RTJ)', downloadTitle: 'Ring Type Joint (RTJ)' },
+      { id: 'spectacle-blind-gaskets', title: 'SPECTACLE BLIND GASKETS', downloadTitle: 'Spectacle Blinds' },
       { id: 'rubber-coated-rtj', title: 'RUBBER-COATED RTJ', downloadTitle: 'Rubber-Coated RTJ' },
       { id: 'ptfe-insert-rtj', title: 'PTFE-INSERT RTJ', downloadTitle: 'PTFE-Insert RTJ' },
       { id: 'protective-coated-rtj', title: 'PROTECTIVE-COATED RTJ', downloadTitle: 'Protective-Coated RTJ' },
@@ -24,7 +25,6 @@ export const subcategoryDetailCatalog = {
       { id: 'ix-gaskets', title: 'IX GASKETS', downloadTitle: 'IX Gaskets' },
       { id: 'delta-gaskets', title: 'DELTA GASKETS', downloadTitle: 'Delta Gaskets' },
       { id: 'bridge-gaskets', title: 'BRIDGE GASKETS', downloadTitle: 'Bridge Gaskets' },
-      { id: 'spectacle-blind-gaskets', title: 'SPECTACLE BLIND GASKETS', downloadTitle: 'Spectacle Blinds' },
       { id: 'transition-rtj', title: 'TRANSITION RTJ', downloadTitle: 'Transition RTJ' },
       { id: 'soft-material-seated-rtj', title: 'SOFT-MATERIAL-SEATED RTJ', downloadTitle: 'Soft-Seated RTJ' },
     ],
@@ -455,7 +455,7 @@ export const subcategoryDetailCatalog = {
 
       'rubber-coated-rtj': {
         title: 'RUBBER-COATED RING TYPE JOINT (RTJ)',
-        image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'Rubber-Coated RTJ Catalog',
         sections: [
           {
@@ -473,7 +473,7 @@ export const subcategoryDetailCatalog = {
 
       'ptfe-insert-rtj': {
         title: 'PTFE-INSERT RING TYPE JOINT (RTJ)',
-        image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'PTFE-Insert RTJ Catalog',
         sections: [
           {
@@ -490,7 +490,7 @@ export const subcategoryDetailCatalog = {
 
       'protective-coated-rtj': {
         title: 'PROTECTIVE-COATED RING TYPE JOINT (RTJ)',
-        image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'Protective-Coated RTJ Catalog',
         sections: [
           {
@@ -507,7 +507,7 @@ export const subcategoryDetailCatalog = {
 
       'bonnet-rings': {
         title: 'BONNET RINGS & PRESSURE SEALS',
-        image: '/images/product-detials-images/Special-Metal-Gaskets.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'Bonnet Rings Catalog',
         sections: [
           {
@@ -524,7 +524,7 @@ export const subcategoryDetailCatalog = {
 
       'lens-rings': {
         title: 'LENS RINGS (DIN 2696 / LENTICOLARI)',
-        image: '/images/product-detials-images/Special-Metal-Gaskets.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'Lens Rings Catalog',
         sections: [
           {
@@ -541,7 +541,7 @@ export const subcategoryDetailCatalog = {
 
       'blind-gaskets': {
         title: 'BLIND GASKETS & PADDLE BLANKS',
-        image: '/images/product-detials-images/Special-Metal-Gaskets.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'Blind Gaskets Catalog',
         sections: [
           {
@@ -557,7 +557,7 @@ export const subcategoryDetailCatalog = {
 
       'vx-ax-gaskets': {
         title: 'VX–AX SUBSEA WELLHEAD GASKETS',
-        image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'VX-AX Gaskets Catalog',
         sections: [
           {
@@ -573,7 +573,7 @@ export const subcategoryDetailCatalog = {
 
       'ix-gaskets': {
         title: 'IX COMPACT FLANGE GASKETS (NORSOK L-005)',
-        image: '/images/product-detials-images/Special-Metal-Gaskets.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'IX Gaskets Catalog',
         sections: [
           {
@@ -589,7 +589,7 @@ export const subcategoryDetailCatalog = {
 
       'delta-gaskets': {
         title: 'DELTA GASKETS',
-        image: '/images/product-detials-images/Special-Metal-Gaskets.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'Delta Gaskets Catalog',
         sections: [
           {
@@ -605,7 +605,7 @@ export const subcategoryDetailCatalog = {
 
       'bridge-gaskets': {
         title: 'BRIDGE GASKETS (BRIDGMAN CLOSURES)',
-        image: '/images/product-detials-images/Special-Metal-Gaskets.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'Bridge Gaskets Catalog',
         sections: [
           {
@@ -621,7 +621,7 @@ export const subcategoryDetailCatalog = {
 
       'transition-rtj': {
         title: 'TRANSITION RING TYPE JOINTS (RTJ)',
-        image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'Transition RTJ Catalog',
         sections: [
           {
@@ -637,7 +637,7 @@ export const subcategoryDetailCatalog = {
 
       'soft-material-seated-rtj': {
         title: 'SOFT-MATERIAL-SEATED RTJ GASKETS',
-        image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         downloadTitle: 'Soft-Material-Seated RTJ Catalog',
         sections: [
           {
@@ -1055,6 +1055,51 @@ export const subcategoryDetailCatalog = {
           },
         ],
       },
+      'eptfe-gaskets': {
+        title: 'EXPANDED PTFE GASKETS (ePTFE)',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        downloadTitle: 'ePTFE Gaskets Catalog',
+        sections: [
+          {
+            heading: 'EXPANDED PTFE (ePTFE) JOINT SEALANTS & GASKETS',
+            paragraphs: [
+              '100% multi-directionally expanded PTFE gasketing sheet and joint sealant engineered with high tensile strength to eliminate cold-flow creep, providing outstanding conformability on fragile or damaged flanges.',
+            ],
+            showAssemblyDiagram: true,
+            diagramType: 'weld-lip',
+          },
+        ],
+      },
+      'non-asbestos-gaskets': {
+        title: 'COMPRESSED NON-ASBESTOS FIBER GASKETS (CNAF)',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        downloadTitle: 'Non-Asbestos Gaskets Catalog',
+        sections: [
+          {
+            heading: 'COMPRESSED NON-ASBESTOS FIBER GASKETS (CNAF)',
+            paragraphs: [
+              'High-performance non-asbestos fiber sheets bonded with elastomeric binders (NBR/HNBR) for low to medium pressure utility, hydrocarbon, water, and steam services.',
+            ],
+            showAssemblyDiagram: true,
+            diagramType: 'weld-lip',
+          },
+        ],
+      },
+      'asbestos-free-gaskets': {
+        title: 'ECO-COMPLIANT ASBESTOS-FREE GASKETS',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        downloadTitle: 'Asbestos-Free Gaskets Catalog',
+        sections: [
+          {
+            heading: 'ECO-COMPLIANT ASBESTOS-FREE GASKET MATERIALS',
+            paragraphs: [
+              'Environmentally safe synthetic fiber sheets engineered to deliver reliable leak-tight sealing for industrial water, air, mild chemicals, and steam services.',
+            ],
+            showAssemblyDiagram: true,
+            diagramType: 'weld-lip',
+          },
+        ],
+      },
     },
   },
 
@@ -1123,6 +1168,7 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'weld-neck-flanges': {
         title: 'WELD NECK FLANGES (WN)',
+        image: '/images/product-detials-images/flanges-1.avif',
         downloadTitle: 'Weld Neck Flanges Catalog',
         sections: [
           {
@@ -1182,6 +1228,7 @@ export const subcategoryDetailCatalog = {
 
       'slip-on-flanges': {
         title: 'SLIP-ON FLANGES (SO)',
+        image: '/images/product-detials-images/flanges-2.avif',
         downloadTitle: 'Slip-On Flanges Catalog',
         sections: [
           {
@@ -1204,6 +1251,7 @@ export const subcategoryDetailCatalog = {
 
       'blind-flanges': {
         title: 'BLIND FLANGES (BL)',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         downloadTitle: 'Blind Flanges Catalog',
         sections: [
           {
@@ -1226,6 +1274,7 @@ export const subcategoryDetailCatalog = {
 
       'socket-weld-flanges': {
         title: 'SOCKET WELD FLANGES (SW)',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         downloadTitle: 'Socket Weld Flanges Catalog',
         sections: [
           {
@@ -1242,6 +1291,7 @@ export const subcategoryDetailCatalog = {
 
       'lap-joint-flanges': {
         title: 'LAP JOINT FLANGES (LJ)',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         downloadTitle: 'Lap Joint Flanges Catalog',
         sections: [
           {
@@ -1258,6 +1308,7 @@ export const subcategoryDetailCatalog = {
 
       'threaded-screwed-flanges': {
         title: 'THREADED / SCREWED FLANGES (TH)',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         downloadTitle: 'Threaded Flanges Catalog',
         sections: [
           {
@@ -1274,6 +1325,7 @@ export const subcategoryDetailCatalog = {
 
       'orifice-flanges': {
         title: 'ORIFICE FLANGES (ASME B16.36)',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         downloadTitle: 'Orifice Flanges Catalog',
         sections: [
           {
@@ -1290,6 +1342,7 @@ export const subcategoryDetailCatalog = {
 
       'custom-flanges': {
         title: 'CUSTOM & SUBSEA SWIVEL FLANGES',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
         downloadTitle: 'Custom Flanges Catalog',
         sections: [
           {
@@ -1352,7 +1405,7 @@ export const subcategoryDetailCatalog = {
       },
       'valve-gaskets': {
         title: 'VALVE BODY-TO-BONNET GASKETS & PRESSURE SEALS',
-        image: '/images/product-detials-images/Bodies-and-Closures-for-Ball-Valve.avif',
+        image: '/images/product-detials-images/valve-components-product-detials-place-holder-img.png',
         downloadTitle: 'Valve Gaskets Catalog',
         sections: [
           {
@@ -1367,7 +1420,7 @@ export const subcategoryDetailCatalog = {
       },
       'sealing-components': {
         title: 'SPRING-ENERGIZED SEALS & BACKUP RINGS',
-        image: '/images/product-detials-images/Seat-for-Ball-and-Gate-Valve.avif',
+        image: '/images/product-detials-images/valve-components-product-detials-place-holder-img.png',
         downloadTitle: 'Sealing Components Catalog',
         sections: [
           {

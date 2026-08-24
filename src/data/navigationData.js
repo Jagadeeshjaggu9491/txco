@@ -28,7 +28,9 @@ export const mainNavigationMenu = {
             name: 'Metallic Gaskets',
             href: '/products/gaskets/metallic-gaskets',
             children: [
+              { name: 'Weld-Lip Seals', href: '/products/gaskets/metallic-gaskets/details?product=weld-lip-seals' },
               { name: 'Ring Type Joint (RTJ)', href: '/products/gaskets/metallic-gaskets/details?product=ring-type-joint-rtj' },
+              { name: 'Spectacle Blind Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=spectacle-blind-gaskets' },
               { name: 'Rubber-Coated RTJ', href: '/products/gaskets/metallic-gaskets/details?product=rubber-coated-rtj' },
               { name: 'PTFE-Insert RTJ', href: '/products/gaskets/metallic-gaskets/details?product=ptfe-insert-rtj' },
               { name: 'Protective-Coated RTJ', href: '/products/gaskets/metallic-gaskets/details?product=protective-coated-rtj' },
@@ -39,10 +41,9 @@ export const mainNavigationMenu = {
               { name: 'IX Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=ix-gaskets' },
               { name: 'Delta Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=delta-gaskets' },
               { name: 'Bridge Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=bridge-gaskets' },
-              { name: 'Spectacle Blind Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=spectacle-blind-gaskets' },
+
               { name: 'Transition RTJ', href: '/products/gaskets/metallic-gaskets/details?product=transition-rtj' },
               { name: 'Soft-Material-Seated RTJ', href: '/products/gaskets/metallic-gaskets/details?product=soft-material-seated-rtj' },
-              { name: 'Weld-Lip Seals', href: '/products/gaskets/metallic-gaskets/details?product=weld-lip-seals' },
             ],
           },
           {
