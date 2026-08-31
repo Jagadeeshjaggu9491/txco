@@ -189,7 +189,7 @@
 
 .nav-item-link.active,
 .nav-item-link:hover {
-  border-bottom: 2px solid var(--accent-blue);
+  border-bottom: 2px solid #018F5D;
   color: var(--primary-navy);
 }
 

@@ -217,7 +217,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: var(--steel-blue, #3f4770);
+  background-color: #018f5d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,7 +226,7 @@
 }
 
 .resource-card-arrow-btn:hover {
-  background-color: var(--slate-blue, #114680);
+  background-color: #018f5d;
   transform: scale(1.08);
 }
 

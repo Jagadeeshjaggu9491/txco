@@ -164,7 +164,7 @@ export default function IndustrySolutions() {
                             height="14"
                             viewBox="0 0 24 24"
                             fill="none"
-                            stroke="#3b4674"
+                            stroke="#ffffff"
                             strokeWidth="2.8"
                             strokeLinecap="round"
                             strokeLinejoin="round"

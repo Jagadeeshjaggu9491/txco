@@ -192,7 +192,7 @@
 }
 
 .faq-item-box.active .faq-icon-circle {
-  background-color: var(--primary-navy, #052C58);
+  background-color: #018f5d;
   color: #ffffff;
   transform: rotate(180deg);
 }

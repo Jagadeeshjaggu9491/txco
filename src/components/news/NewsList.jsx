@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { newsCategories, newsArticlesList } from '@/data/newsData';
-import { Calendar, MapPin, ArrowRight, Clock, Download, Mail, Phone } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, Clock, Download } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -17,7 +17,6 @@ export default function NewsList() {
   const pillsRef = useRef(null);
   const featuredRef = useRef(null);
   const cardsRef = useRef([]);
-  const pressBannerRef = useRef(null);
 
   cardsRef.current = [];
 
@@ -90,20 +89,6 @@ export default function NewsList() {
             ease: 'power3.out',
           },
           '-=0.4'
-        );
-      }
-
-      if (pressBannerRef.current) {
-        tl.fromTo(
-          pressBannerRef.current,
-          { opacity: 0, y: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-          },
-          '-=0.3'
         );
       }
     }, sectionRef);
@@ -255,43 +240,6 @@ export default function NewsList() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Press Office / Media Inquiries Banner */}
-        <div ref={pressBannerRef} className="news-press-banner">
-          <div>
-            <span style={{ fontSize: '0.78rem', fontWeight: '700', letterSpacing: '0.08em', color: '#93c5fd', textTransform: 'uppercase', display: 'block', marginBottom: '0.4rem' }}>
-              MEDIA & COMMUNICATIONS
-            </span>
-            <h3 className="news-press-title">
-              Press Relations & Official Inquiries
-            </h3>
-            <p className="news-press-desc">
-              For journalist inquiries, executive interviews, high-resolution product photography, and corporate press kits, please contact our global communications department.
-            </p>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', justifyContent: 'center' }}>
-            <Link href="/contact" style={{ textDecoration: 'none' }}>
-              <button
-                className="txco-btn txco-btn-outline"
-                style={{ width: '100%', justifyContent: 'center', borderColor: '#ffffff', color: '#ffffff' }}
-              >
-                <Mail size={16} />
-                <span>Email Press Office</span>
-              </button>
-            </Link>
-
-            <a href="tel:+916302152938" style={{ textDecoration: 'none' }}>
-              <button
-                className="txco-btn txco-btn-steel"
-                style={{ width: '100%', justifyContent: 'center' }}
-              >
-                <Phone size={16} />
-                <span>+91 6302 152 938</span>
-              </button>
-            </a>
-          </div>
         </div>
       </div>
     </section>

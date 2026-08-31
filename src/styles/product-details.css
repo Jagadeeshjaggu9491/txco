@@ -304,11 +304,15 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: #018F5D;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+.product-details-contact-icon-circle svg {
+  stroke: white;
 }
 
 /* 4. Right Content Panel */

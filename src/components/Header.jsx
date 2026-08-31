@@ -286,7 +286,11 @@ export default function Header() {
         >
           {Object.keys(mainNavigationMenu).map((key) => {
             const menu = mainNavigationMenu[key];
-            const isActive = activeMenu === key;
+            const isDropdownOpen = activeMenu === key;
+            const isPageActive =
+              pathname === menu.href ||
+              (menu.href !== '/' && pathname.startsWith(menu.href));
+            const isActive = isDropdownOpen || isPageActive;
 
             return (
               <div
@@ -307,7 +311,7 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Mega Menu Dropdown Panel aligned exactly to this nav link's left */}
-                {isActive && (
+                {isDropdownOpen && (
                   <div
                     onMouseEnter={() => {
                       if (leaveTimeoutRef.current) {

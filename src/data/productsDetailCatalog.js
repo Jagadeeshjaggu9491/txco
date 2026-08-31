@@ -33,6 +33,7 @@ export const subcategoryDetailCatalog = {
       'about-metallic-gaskets': {
         title: 'METALLIC GASKETS',
         image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+        bannerImage: '/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif',
         downloadTitle: 'Metallic Gaskets Catalog',
         sections: [
           {
@@ -83,6 +84,7 @@ export const subcategoryDetailCatalog = {
       'ring-type-joint-rtj': {
         title: 'RING TYPE JOINT (RTJ) GASKETS',
         image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+        bannerImage: '/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif',
         downloadTitle: 'Ring Type Joint (RTJ)',
         sections: [
           {
@@ -142,6 +144,7 @@ export const subcategoryDetailCatalog = {
       'rubber-coated-rtj': {
         title: 'RUBBER-COATED RING TYPE JOINTS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif',
         downloadTitle: 'Rubber-Coated RTJ Catalog',
         sections: [
           {
@@ -163,6 +166,7 @@ export const subcategoryDetailCatalog = {
       'ptfe-insert-rtj': {
         title: 'PTFE-INSERT RING TYPE JOINT GASKETS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/PTFE-Insert-RTJ-Gaskets-banner-image.avif',
         downloadTitle: 'PTFE-Insert RTJ Catalog',
         sections: [
           {
@@ -185,6 +189,7 @@ export const subcategoryDetailCatalog = {
       'protective-coated-rtj': {
         title: 'PROTECTIVE COATINGS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/Protective-Coated-RTJ-Gaskets-banner-image.avif',
         downloadTitle: 'Protective-Coated RTJ Catalog',
         sections: [
           {
@@ -205,6 +210,7 @@ export const subcategoryDetailCatalog = {
       'bonnet-rings': {
         title: 'BONNET GASKETS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner-image.avif',
         downloadTitle: 'Bonnet Rings Catalog',
         sections: [
           {
@@ -228,6 +234,7 @@ export const subcategoryDetailCatalog = {
       'lens-rings': {
         title: 'LENS GASKETS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/Lens-Rings-banner-image.avif',
         downloadTitle: 'Lens Rings Catalog',
         sections: [
           {
@@ -251,6 +258,7 @@ export const subcategoryDetailCatalog = {
       'blind-gaskets': {
         title: 'BLIND FLANGE METALLIC GASKETS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/Blind-RTJ-Gaskets-banner-img.avif',
         downloadTitle: 'Blind Gaskets Catalog',
         sections: [
           {
@@ -272,6 +280,7 @@ export const subcategoryDetailCatalog = {
       'vx-ax-gaskets': {
         title: 'VX–AX GASKETS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner-image.avif',
         downloadTitle: 'VX-AX Gaskets Catalog',
         sections: [
           {
@@ -294,6 +303,7 @@ export const subcategoryDetailCatalog = {
       'ix-gaskets': {
         title: 'IX RING TYPE JOINT GASKETS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/SRX_SBX_Gaskets_Banner-image.avif',
         downloadTitle: 'IX Gaskets Catalog',
         sections: [
           {
@@ -316,6 +326,7 @@ export const subcategoryDetailCatalog = {
       'delta-gaskets': {
         title: 'DELTA GASKETS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner-image.avif',
         downloadTitle: 'Delta Gaskets Catalog',
         sections: [
           {
@@ -338,6 +349,7 @@ export const subcategoryDetailCatalog = {
       'bridge-gaskets': {
         title: 'BRIDGEMAN GASKETS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/SRX_SBX_Gaskets_Banner-image.avif',
         downloadTitle: 'Bridgeman Gaskets Catalog',
         sections: [
           {
@@ -360,6 +372,7 @@ export const subcategoryDetailCatalog = {
       'spectacle-blind-gaskets': {
         title: 'SPECTACLE BLINDS',
         image: '/images/product-detials-images/Special-Metal-Gaskets.avif',
+        bannerImage: '/images/product-detials-images/Blind-RTJ-Gaskets-banner-img.avif',
         downloadTitle: 'Spectacle Blinds & Spades Catalog',
         sections: [
           {
@@ -383,6 +396,7 @@ export const subcategoryDetailCatalog = {
       'transition-rtj': {
         title: 'TRANSITION RING TYPE JOINTS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif',
         downloadTitle: 'Transition RTJ Catalog',
         sections: [
           {
@@ -405,6 +419,7 @@ export const subcategoryDetailCatalog = {
       'soft-material-seated-rtj': {
         title: 'SOFT MATERIAL SERRATED RTJ GASKETS',
         image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        bannerImage: '/images/product-detials-images/Soft_Material_Serrated_RTJ_Gaskets_Banner-image.avif',
         downloadTitle: 'Soft-Material-Seated RTJ Catalog',
         sections: [
           {
@@ -427,6 +442,7 @@ export const subcategoryDetailCatalog = {
       'weld-lip-seals': {
         title: 'TXCO WELD RING GASKETS',
         image: '/images/product-detials-images/Welded-Lip-Seals.avif',
+        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
         downloadTitle: 'Weld Ring Gaskets',
         sections: [
           {

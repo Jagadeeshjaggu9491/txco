@@ -260,8 +260,8 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                               {isActive && (
                                 <Play
                                   size={11}
-                                  fill="#404377"
-                                  color="#404377"
+                                  fill="#018f5d"
+                                  color="#018f5d"
                                   style={{ flexShrink: 0 }}
                                 />
                               )}
@@ -292,7 +292,14 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                 className="product-details-content-panel"
               >
                 {/* Top Hero Banner matching UI screenshot */}
-                <div className="product-details-hero-banner">
+                <div
+                  className="product-details-hero-banner"
+                  style={
+                    productData?.bannerImage
+                      ? { backgroundImage: `url('${productData.bannerImage}')` }
+                      : undefined
+                  }
+                >
                   <h1 className="product-details-hero-title">
                     {productData?.title || subcategoryData?.subcategoryTitle}
                   </h1>
@@ -321,7 +328,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
 
                       {/* Product Assembly & Detail Image */}
                       {sec.showAssemblyDiagram && (
-                        <div className="product-details-image-box">
+                        <div className="product-details-image-box d-none">
                           <img
                             src={
                               sec.image ||
@@ -329,8 +336,8 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                               ((subcategoryData?.subcategoryTitle?.toLowerCase().includes('flange') || subcategoryData?.parentCategoryTitle?.toLowerCase().includes('flange'))
                                 ? '/images/product-detials-images/flanges-product-detials-place-holder-img.png'
                                 : (subcategoryData?.subcategoryTitle?.toLowerCase().includes('valve') || subcategoryData?.parentCategoryTitle?.toLowerCase().includes('valve'))
-                                ? '/images/product-detials-images/valve-components-product-detials-place-holder-img.png'
-                                : '/images/product-detials-images/gaskets-product-detials-place-holder-img.png')
+                                  ? '/images/product-detials-images/valve-components-product-detials-place-holder-img.png'
+                                  : '/images/product-detials-images/gaskets-product-detials-place-holder-img.png')
                             }
                             alt={sec.heading || productData?.title || 'Product Details Technical Drawing'}
                             className="product-details-image"
