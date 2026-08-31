@@ -54,6 +54,26 @@ export const subcategoriesByCategory = {
     ],
   },
 
+  'plug-gaskets': {
+    id: 'plug-gaskets',
+    title: 'PLUG GASKETS',
+    parentTitle: 'PRODUCTS',
+    parentHref: '/products',
+    description:
+      'Specialized metallic and non-metallic sealing elements engineered to provide reliable fluid and gas containment for equipment and piping plugs.',
+    items: [
+      {
+        id: 'plug-gaskets',
+        title: 'PLUG GASKETS',
+        subtitle: 'High-Pressure & High-Temperature Containment',
+        description:
+          'Engineered for quick installation and replacement to minimize maintenance downtime while withstanding severe pressure fluctuations, thermal cycling, and corrosive chemical environments.',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        href: '/products/plug-gaskets/details?product=plug-gaskets',
+      },
+    ],
+  },
+
   flanges: {
     id: 'flanges',
     title: 'FLANGES',
@@ -137,6 +157,26 @@ export const subcategoriesByCategory = {
     ],
   },
 
+  'monolithic-insulation-joints': {
+    id: 'monolithic-insulation-joints',
+    title: 'MONOLITHIC INSULATION JOINTS',
+    parentTitle: 'PRODUCTS',
+    parentHref: '/products',
+    description:
+      'Solid-state, fully welded structural forgings engineered for permanent Cathodic Protection (CP) isolation in buried and aboveground pipelines.',
+    items: [
+      {
+        id: 'monolithic-insulation-joints',
+        title: 'MONOLITHIC INSULATION JOINTS',
+        subtitle: 'ASME B31.4 / B31.8 • API 6D • Class 150 - 2500',
+        description:
+          'Boltless monolithic dielectric joints engineered with encapsulated dual seals and high-density G10/G11 insulating rings.',
+        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+        href: '/products/monolithic-insulation-joints/details?product=monolithic-insulation-joints',
+      },
+    ],
+  },
+
   'valve-components': {
     id: 'valve-components',
     title: 'VALVE COMPONENTS',
@@ -146,40 +186,31 @@ export const subcategoriesByCategory = {
       'Precision machined internal valve trims, compression packings, bonnet gaskets, and high-integrity sealing elements.',
     items: [
       {
-        id: 'valve-components-trim',
-        title: 'VALVE COMPONENTS',
-        subtitle: 'API 6D • API 600 • Precision Trims',
+        id: 'precision-o-rings',
+        title: 'PRECISION O-RINGS & BACKUP RINGS',
+        subtitle: 'NORSOK M-710 • AED / RGD Certified',
         description:
-          'Precision CNC-machined valve stems, balls, seats, discs, wedges, and internal guide components.',
-        image: '/images/product-detials-images/Ball-for-Ball-Valve.avif',
-        href: '/products/valve-components/details?product=valve-components-trim',
+          'Precision molded elastomer O-rings (FFKM, FKM, HNBR, EPDM) and anti-extrusion PEEK backup rings up to 10,000 PSI.',
+        image: '/images/product-detials-images/O-Ring-for-Ball-Valve.avif',
+        href: '/products/valve-components/details?product=precision-o-rings',
       },
       {
         id: 'valve-packing',
-        title: 'VALVE PACKING',
-        subtitle: 'API 622 • API 624 Low-E Certified',
+        title: 'LOW-EMISSION GLAND PACKING',
+        subtitle: 'API 622 • ISO 15848-1 Class A • TA-Luft',
         description:
-          'Die-formed flexible graphite rings and braided carbon fiber stem packing for zero-emission fugitive VOC compliance.',
-        image: '/images/product-detials-images/O-Ring-for-Ball-Valve.avif',
+          'Precision-braided flexible graphite and Inconel-reinforced packing sets for zero-emission fugitive VOC compliance.',
+        image: '/images/product-detials-images/Ball-for-Ball-Valve.avif',
         href: '/products/valve-components/details?product=valve-packing',
       },
       {
-        id: 'valve-gaskets',
-        title: 'VALVE GASKETS',
-        subtitle: 'ASME B16.34 • Body-to-Bonnet Seals',
+        id: 'valve-seats-inserts',
+        title: 'VALVE SEATS & INSERTS',
+        subtitle: 'API 6D • ASME B16.34 • Cryogenic to +260°C',
         description:
-          'Pressure-seal rings, body-to-bonnet gaskets, and lantern rings for extreme pressure gate and globe valves.',
+          'CNC-machined bubble-tight seat rings in PEEK, PCTFE, Devlon V, Virgin/Filled PTFE, and metallic base rings.',
         image: '/images/product-detials-images/valve-components-product-detials-place-holder-img.png',
-        href: '/products/valve-components/details?product=valve-gaskets',
-      },
-      {
-        id: 'sealing-components',
-        title: 'SEALING COMPONENTS',
-        subtitle: 'Spring-Energized PTFE • PEEK Backups',
-        description:
-          'Spring-energized PTFE lip seals, PEEK backup rings, and custom energizers for high-cycle and sour service.',
-        image: '/images/product-detials-images/valve-components-product-detials-place-holder-img.png',
-        href: '/products/valve-components/details?product=sealing-components',
+        href: '/products/valve-components/details?product=valve-seats-inserts',
       },
     ],
   },

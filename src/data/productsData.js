@@ -16,13 +16,49 @@ export const productsHeroData = {
 
 export const mainProductCategories = [
   {
-    id: 'gaskets',
-    title: 'GASKETS',
+    id: 'metallic-gaskets',
+    title: 'METALLIC GASKETS',
     description:
-      'High-performance precision engineered industrial metallic, semi-metallic, non-metallic, and steel-inserted gaskets.',
+      'Solid metal and precision CNC-machined metallic sealing profiles designed for high-pressure API 6A/17D and ASME flanges.',
     image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
     fallbackImage: '/images/home-products.png',
-    href: '/products/gaskets',
+    href: '/products/gaskets/metallic-gaskets',
+  },
+  {
+    id: 'semi-metallic-gaskets',
+    title: 'SEMI-METALLIC GASKETS',
+    description:
+      'Engineered composite sealing elements combining metallic mechanical strength with compressible soft filler materials.',
+    image: '/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif',
+    fallbackImage: '/images/home-products.png',
+    href: '/products/gaskets/semi-metallic-gaskets',
+  },
+  {
+    id: 'non-metallic-gaskets',
+    title: 'NON-METALLIC GASKETS',
+    description:
+      'Elastomeric, fluoropolymer, and CNAF compressed sheets designed for universal chemical resistance and utility service.',
+    image: '/images/product-detials-images/PTFE-Jointing-Sheets-Planiflon.avif',
+    fallbackImage: '/images/home-products.png',
+    href: '/products/gaskets/non-metallic-gaskets',
+  },
+  {
+    id: 'steel-inserted-gaskets',
+    title: 'STEEL-INSERTED GASKETS',
+    description:
+      'Reinforced composite gaskets containing internal steel wire or tanged cores for high blowout resistance and stiffness.',
+    image: '/images/product-detials-images/Graphite-Gasketing-Sheet.avif',
+    fallbackImage: '/images/home-products.png',
+    href: '/products/gaskets/steel-inserted-gaskets',
+  },
+  {
+    id: 'plug-gaskets',
+    title: 'PLUG GASKETS',
+    description:
+      'Specialized metallic and non-metallic sealing elements engineered to seal industrial equipment and piping plugs.',
+    image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+    fallbackImage: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+    href: '/products/plug-gaskets',
   },
   {
     id: 'flanges',
@@ -32,6 +68,15 @@ export const mainProductCategories = [
     image: '/images/product-detials-images/flanges-1.avif',
     fallbackImage: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
     href: '/products/flanges',
+  },
+  {
+    id: 'monolithic-insulation-joints',
+    title: 'MONOLITHIC INSULATION JOINTS',
+    description:
+      'Solid-state, fully welded structural forgings for permanent Cathodic Protection (CP) isolation in buried and aboveground pipelines.',
+    image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+    fallbackImage: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+    href: '/products/monolithic-insulation-joints',
   },
   {
     id: 'valve-components',
@@ -132,7 +177,7 @@ export const engineeredSolutionsData = {
   ],
   banner: {
     text:
-      'From high-performance gaskets, hoses and fasteners to custom-engineered sealing solutions, Lamons helps customers solve demanding applications with reliable products, technical expertise and responsive support.',
+      'From high-performance gaskets, hoses and fasteners to custom-engineered sealing solutions, TXCO helps customers solve demanding applications with reliable products, technical expertise and responsive support.',
     phone: '+91 6302 152 938',
     email: 'info@txco.co',
     image: '/images/contact-img.png',

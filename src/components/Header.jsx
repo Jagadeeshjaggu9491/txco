@@ -447,7 +447,7 @@ export default function Header() {
         {/* Brand Logo */}
         <Link href="/" className="header-logo-link">
           <img
-            src="/images/logo/logo.png"
+            src="/images/logo/txco-logo-new.avif"
             alt="TXCO Sealing Products Logo"
             className="header-logo-img"
           />
