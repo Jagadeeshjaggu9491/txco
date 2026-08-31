@@ -169,38 +169,35 @@ export default function SubcategoryProductsGridPage({
                       </div>
 
                       {/* Card Content & Circular Arrow Badge */}
-                      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem', marginTop: '1.2rem' }}>
-                        <div style={{ flexGrow: 1 }}>
-                          {item.standards && (
-                            <div style={{ fontSize: '0.74rem', fontWeight: '700', color: '#0369a1', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.35rem' }}>
-                              {item.standards}
-                            </div>
-                          )}
+                      <div className="product-card-body-content">
+                        <h3 className="product-card-title">
+                          {item.name || item.title}
+                        </h3>
 
-                          <h3 className="product-card-title">
-                            {item.name || item.title}
-                          </h3>
-
-                          <p className="product-card-desc">
-                            {item.description}
+                        <div className="product-card-types-box">
+                          <span className="product-card-types-label">Types / Variants</span>
+                          <p className="product-card-types-value">
+                            {item.types || item.subtitle || item.standards || item.description}
                           </p>
                         </div>
 
                         {/* Circular Dark Navy Arrow Button */}
-                        <div className="product-arrow-badge" style={{ width: '34px', height: '34px', flexShrink: 0 }}>
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="#ffffff"
-                            strokeWidth="2.8"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <line x1="4" y1="12" x2="20" y2="12" />
-                            <polyline points="13 5 20 12 13 19" />
-                          </svg>
+                        <div className="product-card-bottom-row">
+                          <div className="product-arrow-badge">
+                            <svg
+                              width="18"
+                              height="18"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="#ffffff"
+                              strokeWidth="2.8"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <line x1="4" y1="12" x2="20" y2="12" />
+                              <polyline points="13 5 20 12 13 19" />
+                            </svg>
+                          </div>
                         </div>
                       </div>
                     </div>

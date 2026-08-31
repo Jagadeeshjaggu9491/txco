@@ -154,32 +154,35 @@ export default function SubcategoryListPage({ categoryData }) {
                     </div>
 
                     {/* Card Bottom Details */}
-                    <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
-                      <div style={{ flexGrow: 1 }}>
-                        <h3 className="product-card-title">
-                          {item.title}
-                        </h3>
+                    <div className="product-card-body-content">
+                      <h3 className="product-card-title">
+                        {item.title}
+                      </h3>
 
-                        <p className="product-card-desc">
-                          {item.subtitle || item.description}
+                      <div className="product-card-types-box">
+                        <span className="product-card-types-label">Types / Variants</span>
+                        <p className="product-card-types-value">
+                          {item.types || item.subtitle || item.description}
                         </p>
                       </div>
 
                       {/* Circular Dark Navy Arrow Badge */}
-                      <div className="product-arrow-badge">
-                        <svg
-                          width="18"
-                          height="18"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="#ffffff"
-                          strokeWidth="2.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <line x1="4" y1="12" x2="20" y2="12" />
-                          <polyline points="13 5 20 12 13 19" />
-                        </svg>
+                      <div className="product-card-bottom-row">
+                        <div className="product-arrow-badge">
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#ffffff"
+                            strokeWidth="2.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <line x1="4" y1="12" x2="20" y2="12" />
+                            <polyline points="13 5 20 12 13 19" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>

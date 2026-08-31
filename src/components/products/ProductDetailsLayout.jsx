@@ -10,6 +10,94 @@ import { ChevronLeft, Play, ArrowRight, Download } from 'lucide-react';
 import gsap from 'gsap';
 import { TableFigureIcon } from '@/components/products/EngineeringProductDiagrams';
 
+// Smart helper to highlight lead-in line as an h5 title and remaining text as description
+function splitPointItem(item) {
+  if (typeof item !== 'string') return { title: '', desc: item };
+
+  const text = item.trim();
+
+  // 1. Explicit colon (e.g. "Type R – Oval: Designed for...")
+  const colonIdx = text.indexOf(':');
+  if (colonIdx > 0 && colonIdx <= 65) {
+    return {
+      title: text.substring(0, colonIdx).trim(),
+      desc: text.substring(colonIdx + 1).trim(),
+    };
+  }
+
+  // 2. Dash separator (e.g. "AF-110 – High temperature synthetic...")
+  const dashMatch = text.match(/^([^\n—–]{3,55})\s+[—–]\s+(.*)$/);
+  if (dashMatch) {
+    return {
+      title: dashMatch[1].trim(),
+      desc: dashMatch[2].trim(),
+    };
+  }
+
+  // 3. Natural clause breaking keywords
+  const keywords = [
+    ' designed for ',
+    ' consist of ',
+    ' consists of ',
+    ' engineered for ',
+    ' suitable for ',
+    ' provides ',
+    ' commonly used in ',
+    ' commonly used ',
+    ' manufactured from ',
+    ' features ',
+  ];
+
+  for (const kw of keywords) {
+    const kwIdx = text.indexOf(kw);
+    if (kwIdx >= 15 && kwIdx <= 65) {
+      const isActionVerb = kw.includes('designed') || kw.includes('engineered') || kw.includes('manufactured');
+      if (isActionVerb) {
+        return {
+          title: text.substring(0, kwIdx).trim(),
+          desc: (text.substring(kwIdx + 1).charAt(0).toUpperCase() + text.substring(kwIdx + 2)).trim(),
+        };
+      } else {
+        return {
+          title: (text.substring(0, kwIdx) + kw).trim(),
+          desc: text.substring(kwIdx + kw.length).trim(),
+        };
+      }
+    }
+  }
+
+  // 4. First comma split if title length is balanced
+  const commaIdx = text.indexOf(',');
+  if (commaIdx >= 18 && commaIdx <= 55) {
+    return {
+      title: text.substring(0, commaIdx).trim(),
+      desc: text.substring(commaIdx + 1).trim(),
+    };
+  }
+
+  // 5. If under 55 characters, render whole string as the bold title
+  if (text.length <= 55) {
+    return {
+      title: text,
+      desc: '',
+    };
+  }
+
+  // 6. Split after 5-6 words for longer points
+  const words = text.split(' ');
+  if (words.length > 6) {
+    return {
+      title: words.slice(0, 5).join(' '),
+      desc: words.slice(5).join(' '),
+    };
+  }
+
+  return {
+    title: text,
+    desc: '',
+  };
+}
+
 export default function ProductDetailsLayout({ subcategoryData }) {
   const searchParams = useSearchParams();
   const productParam = searchParams.get('product');
@@ -40,6 +128,12 @@ export default function ProductDetailsLayout({ subcategoryData }) {
       const url = new URL(window.location.href);
       url.searchParams.set('product', id);
       window.history.pushState({}, '', url.toString());
+
+      // Scroll window to starting top position
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     }
   };
 
@@ -68,6 +162,9 @@ export default function ProductDetailsLayout({ subcategoryData }) {
         { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }
       );
     }
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }, [activeProductId]);
 
   if (!subcategoryData) return null;
@@ -80,24 +177,17 @@ export default function ProductDetailsLayout({ subcategoryData }) {
       <main className="product-details-main">
         <section className="product-details-section">
           <div className="product-details-container">
-            {/* Top Navigation & Subcategory Header Bar */}
+            {/* Top Navigation Bar: Breadcrumb on Left, Download on Right */}
             <div className="product-details-header-bar">
+              {/* Breadcrumb back to Parent Category */}
               <div>
-                {/* Breadcrumb back to Parent Category */}
-                <div>
-                  <Link
-                    href={subcategoryData.parentCategoryHref || '/products'}
-                    className="product-details-breadcrumb"
-                  >
-                    <ChevronLeft size={16} strokeWidth={2.8} />
-                    <span>{subcategoryData.parentCategoryTitle || 'PRODUCTS'}</span>
-                  </Link>
-                </div>
-
-                {/* Subcategory Title */}
-                <h1 className="product-details-title">
-                  {subcategoryData.subcategoryTitle}
-                </h1>
+                <Link
+                  href={subcategoryData.parentCategoryHref || '/products'}
+                  className="product-details-breadcrumb"
+                >
+                  <ChevronLeft size={16} strokeWidth={2.8} />
+                  <span>{subcategoryData.parentCategoryTitle || 'PRODUCTS'}</span>
+                </Link>
               </div>
 
               {/* Top Right Actions: Product Download & Sidebar Toggle */}
@@ -120,7 +210,9 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                   className="product-details-download-btn"
                 >
                   <span>{productData.downloadTitle || subcategoryData.subcategoryTitle}</span>
-                  <Download size={14} />
+                  <div className="product-details-download-icon-circle">
+                    <Download size={13} strokeWidth={2.4} />
+                  </div>
                 </Link>
               </div>
             </div>
@@ -144,20 +236,11 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                   </button>
                 ) : (
                   <>
-                    {/* Top Sidebar Header with Collapse Button */}
-                    <div className="product-sidebar-top-control">
-                      <span className="product-sidebar-label">
-                        PROFILES ({totalProductsCount})
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => setIsSidebarCollapsed(true)}
-                        className="product-sidebar-toggle-btn"
-                        title="Collapse sidebar to read full width"
-                      >
-                        <ChevronLeft size={13} strokeWidth={2.5} />
-                        <span>Hide</span>
-                      </button>
+                    {/* Subcategory / Category Title in Sidebar */}
+                    <div className="product-sidebar-title-box">
+                      <h2 className="product-sidebar-category-title">
+                        {subcategoryData.subcategoryTitle}
+                      </h2>
                     </div>
 
                     {/* Subcategory Products List */}
@@ -176,9 +259,9 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                               <span>{item.title}</span>
                               {isActive && (
                                 <Play
-                                  size={10}
-                                  fill="var(--primary-navy, #052C58)"
-                                  color="var(--primary-navy, #052C58)"
+                                  size={11}
+                                  fill="#404377"
+                                  color="#404377"
                                   style={{ flexShrink: 0 }}
                                 />
                               )}
@@ -208,6 +291,13 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                 ref={contentRef}
                 className="product-details-content-panel"
               >
+                {/* Top Hero Banner matching UI screenshot */}
+                <div className="product-details-hero-banner">
+                  <h1 className="product-details-hero-title">
+                    {productData?.title || subcategoryData?.subcategoryTitle}
+                  </h1>
+                </div>
+
                 {productData.sections &&
                   productData.sections.map((sec, idx) => (
                     <div key={idx} className="product-details-section-block">
@@ -248,7 +338,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                         </div>
                       )}
 
-                      {/* Bullet Points Intro and List */}
+                      {/* Bullet Points Intro and Box Grid */}
                       {sec.bulletsIntro && (
                         <p className="product-details-bullets-intro">
                           {sec.bulletsIntro}
@@ -256,13 +346,26 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                       )}
 
                       {sec.bullets && (
-                        <ul className="product-details-bullets-list">
-                          {sec.bullets.map((bItem, bIdx) => (
-                            <li key={bIdx}>
-                              {bItem}
-                            </li>
-                          ))}
-                        </ul>
+                        <div className="product-details-points-grid">
+                          {sec.bullets.map((bItem, bIdx) => {
+                            const { title, desc } = splitPointItem(bItem);
+
+                            return (
+                              <div key={bIdx} className="product-details-point-card">
+                                {title && (
+                                  <h5 className="product-details-point-title">
+                                    {title}
+                                  </h5>
+                                )}
+                                {desc && (
+                                  <p className="product-details-point-desc">
+                                    {desc}
+                                  </p>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
                       )}
 
                       {/* Sub Paragraphs */}
@@ -283,40 +386,61 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                             <thead>
                               <tr>
                                 {sec.table.headers.map((th, thIdx) => (
-                                  <th
-                                    key={thIdx}
-                                    style={{
-                                      textAlign: thIdx === 0 ? 'center' : thIdx === 1 ? 'center' : 'left',
-                                    }}
-                                  >
+                                  <th key={thIdx}>
                                     {th}
                                   </th>
                                 ))}
                               </tr>
                             </thead>
                             <tbody>
-                              {sec.table.rows.map((row, rIdx) => (
-                                <tr key={rIdx}>
-                                  <td style={{ textAlign: 'center', fontWeight: '700', color: '#052C58' }}>
-                                    {row.code}
-                                  </td>
-                                  <td style={{ textAlign: 'center', minWidth: '90px' }}>
-                                    <TableFigureIcon type={row.figureType || 'membrane'} />
-                                  </td>
-                                  <td style={{ minWidth: '220px' }}>
-                                    {row.description}
-                                  </td>
-                                  <td style={{ textAlign: 'center', whiteSpace: 'nowrap', color: '#1e293b' }}>
-                                    {row.thickness}
-                                  </td>
-                                  <td style={{ textAlign: 'center', whiteSpace: 'nowrap', color: '#1e293b' }}>
-                                    {row.reweld}
-                                  </td>
-                                  <td style={{ textAlign: 'center', whiteSpace: 'nowrap', color: '#1e293b' }}>
-                                    {row.radial}
-                                  </td>
-                                </tr>
-                              ))}
+                              {sec.table.rows.map((row, rIdx) => {
+                                const hasFigureCol = sec.table.headers.some(h => h.toUpperCase().includes('FIGURE'));
+
+                                if (Array.isArray(row.cells)) {
+                                  return (
+                                    <tr key={rIdx}>
+                                      {row.cells.map((cell, cIdx) => (
+                                        <td key={cIdx} className={cIdx === 0 ? 'product-details-table-first-col' : ''}>
+                                          {cell}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  );
+                                }
+
+                                if (hasFigureCol) {
+                                  return (
+                                    <tr key={rIdx}>
+                                      <td className="product-details-table-first-col">{row.code}</td>
+                                      <td className="product-details-table-figure-col">
+                                        <TableFigureIcon type={row.figureType || 'membrane'} />
+                                      </td>
+                                      <td>{row.description}</td>
+                                      {row.thickness !== undefined && <td>{row.thickness}</td>}
+                                      {row.reweld !== undefined && <td>{row.reweld}</td>}
+                                      {row.radial !== undefined && <td>{row.radial}</td>}
+                                    </tr>
+                                  );
+                                }
+
+                                const values = [
+                                  row.code,
+                                  row.description,
+                                  row.thickness,
+                                  row.reweld,
+                                  row.radial,
+                                ].filter((v, idx) => idx < sec.table.headers.length);
+
+                                return (
+                                  <tr key={rIdx}>
+                                    {values.map((val, vIdx) => (
+                                      <td key={vIdx} className={vIdx === 0 ? 'product-details-table-first-col' : ''}>
+                                        {val || '—'}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                );
+                              })}
                             </tbody>
                           </table>
 

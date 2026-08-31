@@ -1690,6 +1690,35 @@ export const subcategoryDetailCatalog = {
               'Valve Seats & Inserts: Precision-machined thermoplastic and metallic valve seats ensuring bubble-tight shut-off and wear resistance in ball, gate and globe valves.',
             ],
           },
+          {
+            heading: 'COMPONENT SPECIFICATIONS & PERFORMANCE MATRIX',
+            table: {
+              headers: ['COMPONENT', 'PRIMARY MATERIALS', 'TEMPERATURE RANGE', 'PRESSURE RATING', 'KEY STANDARDS'],
+              rows: [
+                {
+                  code: 'Precision O-Rings',
+                  description: 'FFKM, FKM, HNBR, EPDM',
+                  thickness: '-50°C to +315°C',
+                  reweld: 'Up to 10,000 PSI',
+                  radial: 'NORSOK M-710, ISO 23936-2',
+                },
+                {
+                  code: 'Gland Packing',
+                  description: 'ePTFE, Graphite, Inconel Wire',
+                  thickness: '-200°C to +650°C',
+                  reweld: 'Class 150–2500',
+                  radial: 'API 622, ISO 15848-1, TA-Luft',
+                },
+                {
+                  code: 'Seat Rings & Inserts',
+                  description: 'PEEK, PCTFE, Devlon V, PTFE',
+                  thickness: '-196°C to +260°C',
+                  reweld: 'Class 150–2500',
+                  radial: 'API 6D, ASME B16.34',
+                },
+              ],
+            },
+          },
         ],
       },
       'precision-o-rings': {

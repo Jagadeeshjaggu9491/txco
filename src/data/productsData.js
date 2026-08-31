@@ -18,6 +18,7 @@ export const mainProductCategories = [
   {
     id: 'metallic-gaskets',
     title: 'METALLIC GASKETS',
+    types: 'R – Oval, R – Octagonal, RX, BX, Bonnet, Lens, Delta, IX',
     description:
       'Solid metal and precision CNC-machined metallic sealing profiles designed for high-pressure API 6A/17D and ASME flanges.',
     image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
@@ -27,6 +28,7 @@ export const mainProductCategories = [
   {
     id: 'semi-metallic-gaskets',
     title: 'SEMI-METALLIC GASKETS',
+    types: 'Spiral Wound, Kammprofile, Metal Jacketed, Flange Isolation Kits',
     description:
       'Engineered composite sealing elements combining metallic mechanical strength with compressible soft filler materials.',
     image: '/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif',
@@ -36,6 +38,7 @@ export const mainProductCategories = [
   {
     id: 'non-metallic-gaskets',
     title: 'NON-METALLIC GASKETS',
+    types: 'Rubber, PTFE, ePTFE, Compressed Non-Asbestos (AF & Planiflex™)',
     description:
       'Elastomeric, fluoropolymer, and CNAF compressed sheets designed for universal chemical resistance and utility service.',
     image: '/images/product-detials-images/PTFE-Jointing-Sheets-Planiflon.avif',
@@ -45,6 +48,7 @@ export const mainProductCategories = [
   {
     id: 'steel-inserted-gaskets',
     title: 'STEEL-INSERTED GASKETS',
+    types: 'Steel Insert - Rubber Gaskets, Steel Insert - Graphite Gaskets',
     description:
       'Reinforced composite gaskets containing internal steel wire or tanged cores for high blowout resistance and stiffness.',
     image: '/images/product-detials-images/Graphite-Gasketing-Sheet.avif',
@@ -54,6 +58,7 @@ export const mainProductCategories = [
   {
     id: 'plug-gaskets',
     title: 'PLUG GASKETS',
+    types: 'Metallic & Non-Metallic Equipment Plug Seals',
     description:
       'Specialized metallic and non-metallic sealing elements engineered to seal industrial equipment and piping plugs.',
     image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
@@ -63,6 +68,7 @@ export const mainProductCategories = [
   {
     id: 'flanges',
     title: 'FLANGES',
+    types: 'Weld Neck, Slip-On, Blind, Socket Weld, Lap Joint, Threaded, Orifice, Custom',
     description:
       'Forged and precision-machined connection flanges including Weld Neck, Slip-On, Blind, Socket Weld, and custom designs.',
     image: '/images/product-detials-images/flanges-1.avif',
@@ -72,6 +78,7 @@ export const mainProductCategories = [
   {
     id: 'monolithic-insulation-joints',
     title: 'MONOLITHIC INSULATION JOINTS',
+    types: 'Fully Welded Boltless CP Isolating Joints (NPS 1/2" to 60", Class 150 to 2500)',
     description:
       'Solid-state, fully welded structural forgings for permanent Cathodic Protection (CP) isolation in buried and aboveground pipelines.',
     image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
@@ -81,6 +88,7 @@ export const mainProductCategories = [
   {
     id: 'valve-components',
     title: 'VALVE COMPONENTS',
+    types: 'Precision O-Rings, Low-Emission Gland Packing, Valve Seats & Inserts',
     description:
       'Engineered valve trims, compression packings, bonnet gaskets, and high-integrity sealing components for flow control.',
     image: '/images/product-detials-images/Ball-for-Ball-Valve.avif',
@@ -90,6 +98,7 @@ export const mainProductCategories = [
   {
     id: 'commercial-products',
     title: 'COMMERCIAL PRODUCTS',
+    types: 'Industrial Bolting, Heavy Hex Studs, Nuts & Pipeline Hardware',
     description:
       'Complete commercial supply range including ASTM heavy hex stud bolts, nuts, flange protectors, and pipeline consumables.',
     image: '/images/product-detials-images/Expanding-Gates-and-Through-Conduit-Gates.avif',

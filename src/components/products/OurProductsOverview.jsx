@@ -147,7 +147,7 @@ export default function OurProductsOverview() {
                 </div>
 
                 {/* Card Content & Arrow Button */}
-                <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem', marginTop: '1.2rem' }}>
                   <div style={{ flexGrow: 1 }}>
                     <h3 className="product-card-title">
                       {item.title}
@@ -159,8 +159,8 @@ export default function OurProductsOverview() {
 
                   <div className="product-arrow-badge">
                     <svg
-                      width="16"
-                      height="16"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="#ffffff"
