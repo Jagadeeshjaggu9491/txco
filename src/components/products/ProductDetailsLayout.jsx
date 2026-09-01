@@ -46,6 +46,7 @@ function splitPointItem(item) {
     ' commonly used ',
     ' manufactured from ',
     ' features ',
+    ' where ',
   ];
 
   for (const kw of keywords) {
@@ -373,7 +374,9 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                       {sec.bullets && (
                         <div className="product-details-points-grid">
                           {sec.bullets.map((bItem, bIdx) => {
-                            const { title, desc } = splitPointItem(bItem);
+                            const { title, desc } = sec.bulletsAsHeadings
+                              ? { title: typeof bItem === 'string' ? bItem : bItem.title, desc: '' }
+                              : splitPointItem(bItem);
 
                             return (
                               <div key={bIdx} className="product-details-point-card">

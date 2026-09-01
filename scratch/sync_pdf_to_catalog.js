@@ -1,4 +1,7 @@
-/**
+const fs = require('fs');
+const path = require('path');
+
+const newCatalogContent = `/**
  * Comprehensive Product Details Catalog
  * Provides verbatim data matching TXCO Industrial Flanges Website Content Revised PDF
  */
@@ -98,7 +101,6 @@ export const subcategoryDetailCatalog = {
           },
           {
             heading: 'TYPE R – OVAL',
-            bulletsAsHeadings: true,
             bullets: [
               'Oval-shaped cross-section designed for line-contact sealing.',
               'Suitable for compatible oval and octagonal RTJ grooves.',
@@ -109,7 +111,6 @@ export const subcategoryDetailCatalog = {
           },
           {
             heading: 'TYPE R – OCTAGONAL',
-            bulletsAsHeadings: true,
             bullets: [
               'Features an octagonal cross-section for concentrated point-contact sealing.',
               'Designed specifically for octagonal RTJ grooves.',
@@ -120,7 +121,6 @@ export const subcategoryDetailCatalog = {
           },
           {
             heading: 'TYPE RX',
-            bulletsAsHeadings: true,
             bullets: [
               'Features a modified octagonal cross-section with pressure-energized sealing.',
               'Internal pressure increases the sealing force against the groove walls.',
@@ -132,7 +132,6 @@ export const subcategoryDetailCatalog = {
           },
           {
             heading: 'TYPE BX',
-            bulletsAsHeadings: true,
             bullets: [
               'High-pressure, pressure-energized RTJ gasket designed for extreme service conditions.',
               'Incorporates a pressure-equalizing hole to support uniform pressure distribution.',
@@ -155,11 +154,11 @@ export const subcategoryDetailCatalog = {
             heading: 'RUBBER-COATED RING TYPE JOINTS',
             bullets: [
               'Rubber-Coated Ring Type Joints consist A metallic RTJ core encapsulated in a nitrile rubber (NBR) coating, with the core typically manufactured from soft iron or low-carbon steel.',
-              'Designed primarily for pressure testing applications, Where protection of the flange sealing faces and RTJ grooves is important.',
-              'The resilient rubber coating provides Additional contact with the mating surfaces, supporting enhanced sealing during pressure testing.',
-              'The coating helps minimize mechanical damage, Surface marking and wear on flange faces during assembly and testing.',
-              'By isolating the metallic core From direct metal-to-metal contact with the groove surfaces, the coating also helps reduce the potential for surface corrosion and damage.',
-              'Available in standard RTJ sizes, Custom dimensions and configurations available to suit specific flange and testing requirements.',
+              'Designed primarily for pressure testing applications, where protection of the flange sealing faces and RTJ grooves is important.',
+              'The resilient rubber coating provides additional contact with the mating surfaces, supporting enhanced sealing during pressure testing.',
+              'The coating helps minimize mechanical damage, surface marking and wear on flange faces during assembly and testing.',
+              'By isolating the metallic core from direct metal-to-metal contact with the groove surfaces, the coating also helps reduce the potential for surface corrosion and damage.',
+              'Available in standard RTJ sizes, with custom dimensions and configurations available to suit specific flange and testing requirements.',
             ],
             showAssemblyDiagram: true,
             diagramType: 'weld-lip',
@@ -177,12 +176,12 @@ export const subcategoryDetailCatalog = {
             heading: 'PTFE-INSERT RING TYPE JOINT GASKETS',
             bullets: [
               'R and RX Ring Type Joint Gaskets can be supplied with PTFE inserts to reduce turbulence within the flow path and minimize erosion of the gasket and flange bore surfaces.',
-              'The PTFE insert forms A protective barrier between the process medium and the exposed internal surfaces of the gasket and flange, helping reduce erosion, wear and flow-induced damage.',
-              'For RX-type RTJ gaskets, The PTFE insert incorporates strategically positioned radial pressure-passage holes. These allow system pressure to reach the sealing surfaces and preserve the self-energizing characteristics of the RX profile.',
-              'The insert is located between The inner diameter of the RTJ gasket and the flange bore, occupying the annular gap between the gasket and flange bore.',
-              'During flange assembly, The PTFE insert is securely retained between the mating flange faces, maintaining its position under operating conditions.',
-              'The design provides a combination Metallic sealing strength and PTFE chemical resistance, making it suitable for demanding process environments.',
-              'PTFE insert configurations can be Selected based on gasket profile, flange geometry, operating pressure, temperature and process medium.',
+              'The PTFE insert forms a protective barrier between the process medium and the exposed internal surfaces of the gasket and flange, helping reduce erosion, wear and flow-induced damage.',
+              'For RX-type RTJ gaskets, the PTFE insert incorporates strategically positioned radial pressure-passage holes. These allow system pressure to reach the sealing surfaces and preserve the self-energizing characteristics of the RX profile.',
+              'The insert is located between the inner diameter of the RTJ gasket and the flange bore, occupying the annular gap between the gasket and flange bore.',
+              'During flange assembly, the PTFE insert is securely retained between the mating flange faces, maintaining its position under operating conditions.',
+              'The design provides a combination of metallic sealing strength and PTFE chemical resistance, making it suitable for demanding process environments.',
+              'PTFE insert configurations can be selected based on gasket profile, flange geometry, operating pressure, temperature and process medium.',
             ],
             showAssemblyDiagram: true,
             diagramType: 'weld-lip',
@@ -199,11 +198,11 @@ export const subcategoryDetailCatalog = {
           {
             heading: 'PROTECTIVE COATINGS',
             bullets: [
-              'Protective coatings are applied to Metallic Ring Type Joint Gaskets to enhance surface protection and improve suitability for specific service conditions.',
+              'Protective coatings are applied to metallic Ring Type Joint Gaskets to enhance surface protection and improve suitability for specific service conditions.',
               'As specified by applicable API requirements, RTJ gaskets manufactured from soft iron and low-carbon steel can be electroplated with zinc coating up to a maximum thickness of 13 μm.',
-              'TXCO Sealing Products Private Limited The capability to provide Zinc, Nickel and Silver electroplated coatings for RTJ gaskets.',
-              'Zinc coating provides protection against Surface oxidation and corrosion, while Nickel and Silver coatings can be selected for specific service, compatibility and sealing requirements.',
-              'Coating selection and thickness Can be provided in accordance with customer specifications, applicable standards and operating conditions.',
+              'TXCO Sealing Products Private Limited has the capability to provide Zinc, Nickel and Silver electroplated coatings for RTJ gaskets.',
+              'Zinc coating provides protection against surface oxidation and corrosion, while Nickel and Silver coatings can be selected for specific service, compatibility and sealing requirements.',
+              'Coating selection and thickness can be provided in accordance with customer specifications, applicable standards and operating conditions.',
             ],
             showAssemblyDiagram: true,
             diagramType: 'weld-lip',
@@ -2238,7 +2237,7 @@ export const subcategoryDetailCatalog = {
           {
             heading: 'TXCO VALVE COMPONENTS — PRECISION SEALING TECHNOLOGY',
             paragraphs: [
-              'A valve\'s operational integrity relies entirely on the reliability of its internal sealing interfaces. Under extreme pressure dynamics, severe thermal shock, and aggressive chemical exposure, substandard seals lead to stem leaks, seat blowouts, and non-compliant fugitive emissions.',
+              'A valve\\'s operational integrity relies entirely on the reliability of its internal sealing interfaces. Under extreme pressure dynamics, severe thermal shock, and aggressive chemical exposure, substandard seals lead to stem leaks, seat blowouts, and non-compliant fugitive emissions.',
               'TXCO Valve Components are engineered to provide low-friction, high-integrity static and dynamic barriers within critical flow control equipment. Precision-manufactured to exacting tolerances, our components ensure bubble-tight shut-off, smooth actuator torque, and maximum operational lifespan across severe-service isolation and control valves.',
             ],
           },
@@ -2342,3 +2341,7 @@ export const subcategoryDetailCatalog = {
     },
   },
 };
+`;
+
+fs.writeFileSync(path.join(__dirname, '../src/data/productsDetailCatalog.js'), newCatalogContent, 'utf8');
+console.log('Successfully written complete synced productsDetailCatalog.js!');

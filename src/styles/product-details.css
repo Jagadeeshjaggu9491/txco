@@ -461,6 +461,11 @@
   font-weight: 600;
   color: #262846;
   margin: 0 0 0.55rem 0;
+  line-height: 1.45;
+}
+
+.product-details-point-title:last-child {
+  margin-bottom: 0;
 }
 
 .product-details-point-desc {

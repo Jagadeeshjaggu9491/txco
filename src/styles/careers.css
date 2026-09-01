@@ -1,0 +1,463 @@
+/* ==========================================================================
+   CAREERS PAGE STYLES — TXCO SEALING PRODUCTS
+   Matches exact card layout with Left Image + Right Job Postings
+   ========================================================================== */
+
+.careers-page-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Hero Banner */
+.careers-hero-section {
+  position: relative;
+  background: linear-gradient(135deg, #052c58 0%, #1d2744 100%);
+  padding: 4.5rem 2rem 4rem 2rem;
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.careers-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.careers-hero-breadcrumb {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #00d2ff;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.careers-hero-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+.careers-hero-subtitle {
+  font-size: 1.08rem;
+  color: #cbd5e1;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 2. Main Section Container */
+.careers-main-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 4.5rem auto 5rem auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* 3. Primary Card matching User Design */
+.careers-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(5, 44, 88, 0.08);
+  border: 1px solid #e2e8f0;
+  overflow: visible;
+  position: relative;
+}
+
+/* Top colored accent line */
+.careers-card-top-bar {
+  height: 6px;
+  width: 220px;
+  background: #1d4ed8;
+  border-top-left-radius: 16px;
+  margin-left: 2rem;
+}
+
+.careers-card-body {
+  padding: 3rem 3.5rem 3.5rem 3.5rem;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* 4. Left Column (Sticky while scrolling) */
+.careers-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 130px;
+  align-self: flex-start;
+}
+
+.careers-left-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.careers-left-image-wrapper {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.careers-left-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.careers-left-image-wrapper:hover .careers-left-image {
+  transform: scale(1.03);
+}
+
+.careers-left-tagline {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 5. Right Column (Job Postings) */
+.careers-right-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.careers-jobs-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.careers-job-item {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.careers-job-item:last-of-type {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.careers-job-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.careers-job-qualification {
+  font-size: 0.95rem;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 400;
+}
+
+.careers-job-qualification strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.careers-job-desc {
+  font-size: 0.94rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0.2rem 0 0.4rem 0;
+}
+
+.careers-apply-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 0.2rem;
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.careers-apply-link:hover {
+  color: #018f5d;
+  transform: translateX(3px);
+}
+
+.careers-apply-arrow {
+  transition: transform 0.2s ease;
+}
+
+.careers-apply-link:hover .careers-apply-arrow {
+  transform: translateX(4px);
+}
+
+/* Bottom Contact Text Box */
+.careers-contact-note {
+  margin-top: 1.5rem;
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.careers-contact-email-link {
+  color: #1d4ed8;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.careers-contact-email-link:hover {
+  color: #018f5d;
+  text-decoration: underline;
+}
+
+/* 6. Why Work With TXCO Section */
+.careers-benefits-section {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto 5rem auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.careers-benefits-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #052c58;
+  text-align: center;
+  margin: 0 0 2.5rem 0;
+}
+
+.careers-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.careers-benefit-card {
+  background: #ffffff;
+  padding: 2.2rem 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.careers-benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(5, 44, 88, 0.08);
+  border-color: #cbd5e1;
+}
+
+.careers-benefit-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #052c58;
+  margin: 0;
+}
+
+.careers-benefit-desc {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* 7. Application Modal */
+.careers-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.careers-modal-content {
+  background: #ffffff;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.careers-modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: #f1f5f9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.careers-modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.careers-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #052c58;
+  margin: 0 0 0.3rem 0;
+}
+
+.careers-modal-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0 0 1.8rem 0;
+}
+
+.careers-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.careers-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.careers-form-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.careers-form-input,
+.careers-form-textarea,
+.careers-form-select {
+  padding: 0.8rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.94rem;
+  font-family: inherit;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.careers-form-input:focus,
+.careers-form-textarea:focus,
+.careers-form-select:focus {
+  border-color: #018f5d;
+  box-shadow: 0 0 0 3px rgba(1, 143, 93, 0.12);
+}
+
+.careers-form-submit-btn {
+  margin-top: 0.8rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.careers-form-success {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.careers-form-success-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 1.2rem auto;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .careers-card-body {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem 2rem;
+  }
+
+  .careers-left-image {
+    height: 260px;
+  }
+
+  .careers-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .careers-card-top-bar {
+    width: 140px;
+    margin-left: 1rem;
+  }
+
+  .careers-card-body {
+    padding: 2rem 1.25rem;
+  }
+
+  .careers-hero-title {
+    font-size: 2rem;
+  }
+
+  .careers-left-heading {
+    font-size: 1.8rem;
+  }
+
+  .careers-modal-content {
+    padding: 1.8rem 1.25rem;
+  }
+}

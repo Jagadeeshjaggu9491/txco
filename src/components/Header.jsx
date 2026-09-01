@@ -89,8 +89,11 @@ export default function Header() {
           <div className="header-top-links">
             {utilityNavLinks.map((item, idx) => {
               const isPageActive =
-                pathname === item.href ||
-                (item.href !== '/' && pathname.startsWith(item.href));
+                item.href === '/'
+                  ? pathname === '/'
+                  : pathname === item.href ||
+                    pathname.startsWith(item.href) ||
+                    (item.href === '/catalogues' && pathname.startsWith('/catalogue'));
 
               return (
                 <Link
