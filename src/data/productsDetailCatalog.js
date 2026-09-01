@@ -466,15 +466,23 @@ export const subcategoryDetailCatalog = {
           {
             heading: 'TECHNICAL SUMMARY',
             table: {
-              headers: ['FEATURE', 'FIGURE', 'ENGINEERING STANDARD', 'SERVICE PROFILE', 'JOINING METHOD', 'APPLICATIONS'],
+              headers: ['Feature', 'Engineering Standard'],
               rows: [
                 {
                   code: 'Design Type',
-                  figureType: 'membrane',
                   description: 'Symmetrical Dual-Ring Metallic Assembly',
-                  thickness: 'Semi-Permanent / Semi-Detachable',
-                  reweld: 'Outer Edge Seal Welding (GTAW / TIG)',
-                  radial: 'High-Temperature Steam, Lethal Media, Infrequent Overhaul Lines',
+                },
+                {
+                  code: 'Joint Category',
+                  description: 'Semi-Permanent / Semi-Detachable',
+                },
+                {
+                  code: 'Primary Joining Method',
+                  description: 'Outer Edge Seal Welding (GTAW / TIG)',
+                },
+                {
+                  code: 'Recommended Service',
+                  description: 'High-Temperature Steam, Lethal Media, Infrequent Overhaul Lines',
                 },
               ],
               footnote: 'Precision CNC-machined to matching flange metallurgy and pressure ratings.',

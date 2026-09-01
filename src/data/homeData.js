@@ -137,7 +137,7 @@ export const offeringsGlanceData = {
     'Get to know our signature products, customer-centric solutions, and certifications through this brief overview of our company.',
   image: '/images/Our-Offerings.avif',
   buttonText: 'READ BROCHURE',
-  href: '/downloads',
+  href: '/catalogues',
 };
 
 export const customerTestimonialsData = [

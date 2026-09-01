@@ -206,7 +206,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                 )}
 
                 <Link
-                  href="/downloads"
+                  href="/catalogues"
                   className="product-details-download-btn"
                 >
                   <span>{productData.downloadTitle || subcategoryData.subcategoryTitle}</span>
@@ -291,6 +291,24 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                 ref={contentRef}
                 className="product-details-content-panel"
               >
+                {/* Content Breadcrumbs above Hero Banner */}
+                <div className="product-details-content-breadcrumbs">
+                  <Link href="/products" className="product-details-breadcrumb-link">
+                    {subcategoryData.parentCategoryTitle || 'PRODUCTS'}
+                  </Link>
+                  <span className="product-details-breadcrumb-sep">/</span>
+                  <Link
+                    href={subcategoryData.parentCategoryHref || '/products'}
+                    className="product-details-breadcrumb-link"
+                  >
+                    {subcategoryData.subcategoryTitle}
+                  </Link>
+                  <span className="product-details-breadcrumb-sep">/</span>
+                  <span className="product-details-breadcrumb-current">
+                    {productData?.title || subcategoryData?.subcategoryTitle}
+                  </span>
+                </div>
+
                 {/* Top Hero Banner matching UI screenshot */}
                 <div
                   className="product-details-hero-banner"

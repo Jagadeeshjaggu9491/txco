@@ -86,7 +86,7 @@ export default function AboutBrochure() {
             {companyOverviewData.description}
           </p>
 
-          <Link href="/downloads" style={{ textDecoration: 'none' }}>
+          <Link href="/catalogues" style={{ textDecoration: 'none' }}>
             <button className="about-brochure-btn">
               <span>{companyOverviewData.buttonText}</span>
               <div className="about-brochure-btn-circle">

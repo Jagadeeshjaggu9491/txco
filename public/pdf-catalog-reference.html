@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TXCO Product Catalog Reference & Architecture (PDF Master Spec)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-navy: #052C58;
+      --dark-navy: #262846;
+      --accent-green: #018F5D;
+      --slate-blue: #114680;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --font-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-base);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Top Header */
+    .top-header {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .header-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+    .brand-logo {
+      height: 38px;
+      width: auto;
+    }
+    .brand-badge {
+      background-color: #F5F5FF;
+      color: #404377;
+      padding: 0.3rem 0.65rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .view-mode-tabs {
+      display: flex;
+      background: #f1f5f9;
+      padding: 0.25rem;
+      border-radius: 8px;
+      gap: 0.3rem;
+    }
+    .view-mode-btn {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #475569;
+      transition: all 0.2s;
+    }
+    .view-mode-btn.active {
+      background: #ffffff;
+      color: var(--primary-navy);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      font-weight: 700;
+    }
+    .search-box {
+      flex-grow: 1;
+      max-width: 380px;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.6rem 1rem 0.6rem 2.4rem;
+      border-radius: 20px;
+      border: 1.5px solid var(--border-color);
+      font-size: 0.88rem;
+      background: #f1f5f9;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .search-input:focus {
+      background: #ffffff;
+      border-color: var(--accent-green);
+      box-shadow: 0 0 0 3px rgba(1, 143, 93, 0.12);
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Category Navigation Bar */
+    .cat-nav-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 0 1.5rem;
+    }
+    .cat-nav-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .cat-tab {
+      padding: 0.85rem 1.1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--dark-navy);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .cat-tab:hover {
+      color: var(--accent-green);
+    }
+    .cat-tab.active {
+      color: var(--primary-navy);
+      border-bottom-color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    .app-layout {
+      max-width: 1600px;
+      margin: 1.5rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 310px minmax(0, 1fr);
+      gap: 2.2rem;
+      align-items: start;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.2rem;
+      position: sticky;
+      top: 135px;
+      max-height: calc(100vh - 160px);
+      overflow-y: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .sidebar-heading {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .product-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .product-nav-btn {
+      width: 100%;
+      text-align: left;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      background: none;
+      border: none;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 1.35;
+    }
+    .product-nav-btn:hover {
+      background: #f1f5f9;
+      color: var(--primary-navy);
+    }
+    .product-nav-btn.active {
+      background: #f4f3fe;
+      color: #404377;
+      font-weight: 700;
+      border-left: 3px solid var(--accent-green);
+    }
+    .product-nav-btn.active::after {
+      content: '▶';
+      font-size: 0.7rem;
+      color: var(--accent-green);
+    }
+
+    /* Content Area */
+    .content-area {
+      min-width: 0;
+    }
+    
+    /* Top Hero Banner */
+    .hero-banner {
+      width: 100%;
+      min-height: 200px;
+      border-radius: 16px;
+      background-color: #232747;
+      background-image: url('/images/product-detials-images/product-details-page-banner.avif');
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 2.2rem 3rem;
+      box-shadow: 0 6px 20px rgba(5, 44, 88, 0.06);
+      margin-bottom: 2rem;
+    }
+    .hero-title {
+      font-size: clamp(1.4rem, 2.3vw, 1.95rem);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      max-width: 65%;
+      line-height: 1.25;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Section Block */
+    .section-block {
+      margin-bottom: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .section-header {
+      background-color: #F5F5FF;
+      padding: 0.85rem 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid #404377;
+    }
+    .section-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #404377;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .section-p {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    /* Point Cards Grid */
+    .points-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem 1.4rem;
+      margin: 0.6rem 0 1rem 0;
+    }
+    .point-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .point-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 6px 16px rgba(5, 44, 88, 0.06);
+      transform: translateY(-2px);
+    }
+    .point-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #262846;
+      line-height: 1.35;
+    }
+    .point-desc {
+      font-size: 1rem;
+      color: #000000;
+      line-height: 1.65;
+    }
+
+    /* Tables */
+    .table-container {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow-x: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      margin: 1rem 0;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .data-table thead tr {
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .data-table th {
+      padding: 1rem 1.2rem;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #1e293b;
+      text-align: left;
+    }
+    .data-table tbody tr {
+      border-bottom: 1px solid #f1f5f9;
+      transition: background 0.15s;
+    }
+    .data-table tbody tr:last-child {
+      border-bottom: none;
+    }
+    .data-table tbody tr:hover {
+      background: #f8fafc;
+    }
+    .data-table td {
+      padding: 1rem 1.2rem;
+      color: #334155;
+      vertical-align: middle;
+    }
+    .data-table td:first-child {
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .table-footnote {
+      padding: 0.6rem 0.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* PDF Master Matrix View */
+    .matrix-section {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.8rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+    }
+    .matrix-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .matrix-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      text-transform: uppercase;
+    }
+    .matrix-page-tag {
+      background: #E8F5E9;
+      color: #1B5E20;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .matrix-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    /* Breadcrumbs */
+    .content-breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #262846;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.2rem;
+    }
+
+    @media (max-width: 960px) {
+      .app-layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; max-height: none; }
+      .points-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="header-inner">
+      <a href="/pdf-catalog-reference.html" class="brand-title">
+        <span style="font-size: 1.3rem; font-weight: 800; color: #052C58; letter-spacing: 0.04em;">TXCO SEALING</span>
+        <span class="brand-badge">PDF Master Spec Reference</span>
+      </a>
+
+      <div class="view-mode-tabs">
+        <button class="view-mode-btn active" id="btnDetailedView" onclick="setViewMode('detailed')">📖 Detailed Product View</button>
+        <button class="view-mode-btn" id="btnMatrixView" onclick="setViewMode('matrix')">📑 PDF Product Range & Types (Pages 1–3)</button>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" class="search-input" placeholder="Filter products or search specifications..." oninput="handleSearch(this.value)">
+      </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="cat-nav-bar" id="catNavBar">
+      <div class="cat-nav-inner" id="categoryTabs">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <main class="app-layout">
+    <!-- Left Sticky Sidebar -->
+    <aside class="sidebar" id="sidebarContainer">
+      <div class="sidebar-heading" id="sidebarTitle">Products List</div>
+      <ul class="product-nav-list" id="productsListNav">
+        <!-- Rendered by JS -->
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <section class="content-area" id="mainContent">
+      <!-- Rendered by JS -->
+    </section>
+  </main>
+
+  <script>
+    const CATALOG_DATA = {"metallic-gaskets":{"parentCategoryTitle":"GASKETS","parentCategoryHref":"/products/gaskets","subcategoryTitle":"Metallic Gaskets","productsList":[{"id":"about-metallic-gaskets","title":"ABOUT METALLIC GASKETS","downloadTitle":"Metallic Gaskets Catalog"},{"id":"ring-type-joint-rtj","title":"RING TYPE JOINT (RTJ)","downloadTitle":"Ring Type Joint (RTJ)"},{"id":"rubber-coated-rtj","title":"RUBBER-COATED RTJ","downloadTitle":"Rubber-Coated RTJ"},{"id":"ptfe-insert-rtj","title":"PTFE-INSERT RTJ","downloadTitle":"PTFE-Insert RTJ"},{"id":"protective-coated-rtj","title":"PROTECTIVE-COATED RTJ","downloadTitle":"Protective-Coated RTJ"},{"id":"bonnet-rings","title":"BONNET RINGS","downloadTitle":"Bonnet Rings"},{"id":"lens-rings","title":"LENS RINGS","downloadTitle":"Lens Rings"},{"id":"blind-gaskets","title":"BLIND GASKETS","downloadTitle":"Blind Gaskets"},{"id":"vx-ax-gaskets","title":"VX–AX GASKETS","downloadTitle":"VX-AX Gaskets"},{"id":"ix-gaskets","title":"IX GASKETS","downloadTitle":"IX Gaskets"},{"id":"delta-gaskets","title":"DELTA GASKETS","downloadTitle":"Delta Gaskets"},{"id":"bridge-gaskets","title":"BRIDGEMAN GASKETS","downloadTitle":"Bridgeman Gaskets"},{"id":"spectacle-blind-gaskets","title":"SPECTACLE BLIND GASKETS","downloadTitle":"Spectacle Blinds"},{"id":"transition-rtj","title":"TRANSITION RTJ","downloadTitle":"Transition RTJ"},{"id":"soft-material-seated-rtj","title":"SOFT-MATERIAL-SEATED RTJ","downloadTitle":"Soft-Seated RTJ"},{"id":"weld-lip-seals","title":"WELD-LIP SEALS","downloadTitle":"Weld Ring Gaskets"}],"productDetails":{"about-metallic-gaskets":{"title":"METALLIC GASKETS","image":"/images/product-detials-images/Ring-Type-Joint-RT-J.avif","bannerImage":"/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif","downloadTitle":"Metallic Gaskets Catalog","sections":[{"heading":"METALLIC GASKETS","paragraphs":["TXCO Sealing Products Private Limited manufactures and supplies metallic gaskets for critical applications in the oil & gas, petrochemical, refining, chemical and power industries.","Our metallic gaskets are designed for demanding services requiring high pressure and temperature resistance, mechanical strength and chemical compatibility.","We manufacture using stainless steel, duplex, super duplex, nickel alloys and other special alloys, selected to suit the application and customer requirements.","Quality is maintained through controlled material selection, dimensional accuracy, hardness, surface finish and traceability. Each gasket is manufactured and inspected in accordance with the applicable standard, drawing and customer specification.","Quality Controlled. Standards Compliant. Reliable Sealing."],"showAssemblyDiagram":true,"diagramType":"rtj-assembly"},{"heading":"CONTROLLED HARDNESS SPECIFICATIONS & METALLURGY MATRIX","table":{"headers":["MATERIAL","UNS NO.","MAX BRINELL HARDNESS","MAX ROCKWELL HARDNESS","DESCRIPTION / CODE"],"rows":[{"code":"Soft Iron","figureType":"rtj-material","description":"—","thickness":"90","reweld":"56","radial":"D"},{"code":"Low Carbon Steel","figureType":"rtj-material","description":"—","thickness":"120","reweld":"68","radial":"S"},{"code":"4-6% Chrome 1/2% Moly","figureType":"rtj-material","description":"K42544","thickness":"130","reweld":"75","radial":"F5"},{"code":"Type 304 Stainless Steel","figureType":"rtj-material","description":"S30400","thickness":"160","reweld":"83","radial":"S304"},{"code":"Type 316 Stainless Steel","figureType":"rtj-material","description":"S31600","thickness":"160","reweld":"83","radial":"S316"},{"code":"Type 347 Stainless Steel","figureType":"rtj-material","description":"S34700","thickness":"160","reweld":"83","radial":"S347"},{"code":"Type 410 Stainless Steel","figureType":"rtj-material","description":"S41000","thickness":"170","reweld":"86","radial":"S410"},{"code":"Titanium Grade 2","figureType":"rtj-material","description":"R50400","thickness":"215","reweld":"94","radial":"Ti Gr.2"},{"code":"Alloy 600","figureType":"rtj-material","description":"N06600","thickness":"200","reweld":"92","radial":"Inconel 600"},{"code":"Alloy 625","figureType":"rtj-material","description":"N06625","thickness":"200","reweld":"92","radial":"Inconel 625"},{"code":"Alloy 800","figureType":"rtj-material","description":"N08800","thickness":"200","reweld":"92","radial":"Incoloy 800"},{"code":"Alloy 825","figureType":"rtj-material","description":"N08825","thickness":"200","reweld":"92","radial":"Incoloy 825"},{"code":"Hastelloy","figureType":"rtj-material","description":"N10001","thickness":"200","reweld":"—","radial":"Hastelloy B"},{"code":"Alloy C276","figureType":"rtj-material","description":"N10276","thickness":"200","reweld":"92","radial":"Hastelloy C276"},{"code":"SMO 254","figureType":"rtj-material","description":"S32154","thickness":"180","reweld":"89","radial":"254 SMO"},{"code":"Zeron 100","figureType":"rtj-material","description":"—","thickness":"200","reweld":"—","radial":"Super Duplex Zeron"},{"code":"Super Duplex","figureType":"rtj-material","description":"S31803","thickness":"200","reweld":"92","radial":"Duplex 2205"},{"code":"321 Stainless Steel","figureType":"rtj-material","description":"—","thickness":"160","reweld":"83","radial":"S321"},{"code":"MONEL 400","figureType":"rtj-material","description":"—","thickness":"130","reweld":"72","radial":"Monel 400"},{"code":"309 Stainless Steel","figureType":"rtj-material","description":"—","thickness":"160","reweld":"83","radial":"S309"},{"code":"Alloy 20","figureType":"rtj-material","description":"—","thickness":"160","reweld":"83","radial":"Carpenter 20"}],"footnote":"Other exotic materials available on request."}}]},"ring-type-joint-rtj":{"title":"RING TYPE JOINT (RTJ) GASKETS","image":"/images/product-detials-images/Ring-Type-Joint-RT-J.avif","bannerImage":"/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif","downloadTitle":"Ring Type Joint (RTJ)","sections":[{"heading":"RING TYPE JOINT (RTJ) GASKETS","paragraphs":["Ring Type Joint (RTJ) Gaskets are metallic sealing solutions designed for high-pressure, high-temperature and demanding flange connections. They provide a reliable metal-to-metal seal and are available in R, RX and BX profiles, selected according to flange design, pressure class and service conditions.","At TXCO Sealing Products Private Limited, RTJ gaskets are a key part of our sealing portfolio for critical oil & gas, petrochemical, refining, chemical and power applications. Our range covers various materials, sizes and pressure ratings, with products aligned to ASME B16.20 and API 6A requirements for dependable sealing performance."],"showAssemblyDiagram":true,"diagramType":"rtj-assembly"},{"heading":"TYPE R – OVAL","bullets":["Oval-shaped cross-section designed for line-contact sealing.","Suitable for compatible oval and octagonal RTJ grooves.","Commonly used in legacy equipment and low-to-medium pressure applications.","Provides reliable sealing for conventional flange connections.","Suitable for a wide range of industrial services where standard RTJ sealing is required."]},{"heading":"TYPE R – OCTAGONAL","bullets":["Features an octagonal cross-section for concentrated point-contact sealing.","Designed specifically for octagonal RTJ grooves.","Provides improved sealing performance compared with the oval profile.","Widely used in oil & gas, petrochemical, refining and industrial applications.","Suitable for demanding pressure and temperature conditions."]},{"heading":"TYPE RX","bullets":["Features a modified octagonal cross-section with pressure-energized sealing.","Internal pressure increases the sealing force against the groove walls.","Designed for compatible API 6A and ASME flange connections.","Commonly used in high-pressure valves, wellheads and pressure vessels.","Suitable for critical services involving pressure and temperature fluctuations.","Must be matched with the correct groove dimensions and is not interchangeable with BX."]},{"heading":"TYPE BX","bullets":["High-pressure, pressure-energized RTJ gasket designed for extreme service conditions.","Incorporates a pressure-equalizing hole to support uniform pressure distribution.","Designed exclusively for compatible API 6A BX flanges.","Suitable for pressures up to 20,000 psi, depending on material and application.","Commonly used in wellheads, Christmas trees, subsea systems and high-pressure manifolds.","Requires proper alignment, groove condition and surface finish for reliable sealing."]}]},"rubber-coated-rtj":{"title":"RUBBER-COATED RING TYPE JOINTS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif","downloadTitle":"Rubber-Coated RTJ Catalog","sections":[{"heading":"RUBBER-COATED RING TYPE JOINTS","bullets":["Rubber-Coated Ring Type Joints consist of a metallic RTJ core encapsulated in a nitrile rubber (NBR) coating, with the core typically manufactured from soft iron or low-carbon steel.","Designed primarily for pressure testing applications, where protection of the flange sealing faces and RTJ grooves is important.","The resilient rubber coating provides additional contact with the mating surfaces, supporting enhanced sealing during pressure testing.","The coating helps minimize mechanical damage, surface marking and wear on flange faces during assembly and testing.","By isolating the metallic core from direct metal-to-metal contact with the groove surfaces, the coating also helps reduce the potential for surface corrosion and damage.","Available in standard RTJ sizes, with custom dimensions and configurations available to suit specific flange and testing requirements."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"ptfe-insert-rtj":{"title":"PTFE-INSERT RING TYPE JOINT GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/PTFE-Insert-RTJ-Gaskets-banner-image.avif","downloadTitle":"PTFE-Insert RTJ Catalog","sections":[{"heading":"PTFE-INSERT RING TYPE JOINT GASKETS","bullets":["R and RX Ring Type Joint Gaskets can be supplied with PTFE inserts to reduce turbulence within the flow path and minimize erosion of the gasket and flange bore surfaces.","The PTFE insert forms a protective barrier between the process medium and the exposed internal surfaces of the gasket and flange, helping reduce erosion, wear and flow-induced damage.","For RX-type RTJ gaskets, the PTFE insert incorporates strategically positioned radial pressure-passage holes. These allow system pressure to reach the sealing surfaces and preserve the self-energizing characteristics of the RX profile.","The insert is located between the inner diameter of the RTJ gasket and the flange bore, occupying the annular gap between the gasket and flange bore.","During flange assembly, the PTFE insert is securely retained between the mating flange faces, maintaining its position under operating conditions.","The design provides a combination of metallic sealing strength and PTFE chemical resistance, making it suitable for demanding process environments.","PTFE insert configurations can be selected based on gasket profile, flange geometry, operating pressure, temperature and process medium."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"protective-coated-rtj":{"title":"PROTECTIVE COATINGS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/Protective-Coated-RTJ-Gaskets-banner-image.avif","downloadTitle":"Protective-Coated RTJ Catalog","sections":[{"heading":"PROTECTIVE COATINGS","bullets":["Protective coatings are applied to metallic Ring Type Joint Gaskets to enhance surface protection and improve suitability for specific service conditions.","As specified by applicable API requirements, RTJ gaskets manufactured from soft iron and low-carbon steel can be electroplated with zinc coating up to a maximum thickness of 13 μm.","TXCO Sealing Products Private Limited has the capability to provide Zinc, Nickel and Silver electroplated coatings for RTJ gaskets.","Zinc coating provides protection against surface oxidation and corrosion, while Nickel and Silver coatings can be selected for specific service, compatibility and sealing requirements.","Coating selection and thickness can be provided in accordance with customer specifications, applicable standards and operating conditions."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"bonnet-rings":{"title":"BONNET GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner-image.avif","downloadTitle":"Bonnet Rings Catalog","sections":[{"heading":"BONNET GASKETS","bullets":["Bonnet Gaskets are sealing components installed between the valve body and bonnet, providing a reliable pressure boundary and preventing leakage of fluids or gases.","They are designed to maintain sealing integrity under pressure, temperature and process-fluid conditions encountered in industrial valve applications.","Bonnet gaskets are commonly used in gate valves and other pressure-containing valve assemblies, particularly in oil & gas, petrochemical, refining and power industries.","Depending on the valve design and service conditions, bonnet gaskets may be supplied in RTJ and other metallic sealing configurations.","Material selection is based on operating temperature, pressure, corrosion environment and process-fluid compatibility.","Common materials include carbon steel, stainless steel 304/316 and other alloy grades, subject to application requirements.","Proper control of gasket dimensions, hardness, surface finish and bonnet-groove compatibility is essential for reliable sealing performance.","Bonnet gaskets support equipment integrity, leak prevention and safe operation in critical valve services."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"lens-rings":{"title":"LENS GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/Lens-Rings-banner-image.avif","downloadTitle":"Lens Rings Catalog","sections":[{"heading":"LENS GASKETS","bullets":["Lens Gaskets are metallic sealing elements designed for flanged connections with spherical sealing geometries.","Unlike conventional flat gaskets, the lens profile has a convex sealing surface that mates with the corresponding concave flange seat, creating a concentrated metal-to-metal seal.","The spherical geometry allows controlled deformation under bolt load, producing a narrow, high-integrity sealing contact.","This design provides reliable sealing under high pressure, elevated temperatures and severe thermal cycling.","Lens Gaskets are primarily specified in accordance with DIN 2696, with dimensions and configurations adaptable to other flange standards where required.","The gasket material is selected with appropriate hardness relative to the flange material, allowing deformation to occur preferentially in the gasket and minimizing damage to the flange sealing surface.","Available materials include carbon steel, stainless steel and selected alloy grades, depending on pressure, temperature and process-media requirements.","Common applications include chemical plants, reactors, high-pressure piping systems and other critical process equipment where sealing reliability and resistance to thermal cycling are essential."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"blind-gaskets":{"title":"BLIND FLANGE METALLIC GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/Blind-RTJ-Gaskets-banner-img.avif","downloadTitle":"Blind Gaskets Catalog","sections":[{"heading":"BLIND FLANGE METALLIC GASKETS","bullets":["Blind Flange Metallic Gaskets are designed for sealing blind flange connections in high-pressure and high-temperature systems.","They provide a secure metal-to-metal sealing interface, maintaining joint integrity under demanding operating conditions.","Suitable for critical pressure-containing applications where reliable sealing is essential.","Manufactured from high-strength metallic materials selected according to pressure, temperature and process-fluid requirements.","Designed to maintain dimensional compatibility with the mating flange, supporting proper fit-up and sealing performance.","Commonly used in oil & gas, petrochemical, refining, chemical and power applications."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"vx-ax-gaskets":{"title":"VX–AX GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner-image.avif","downloadTitle":"VX-AX Gaskets Catalog","sections":[{"heading":"VX–AX GASKETS","bullets":["VX–AX Gaskets are specialized sealing solutions developed for demanding oil & gas, offshore and subsea applications, combining reliable pressure sealing with application-specific performance requirements.","VX gaskets feature a face-to-face, pressure-energized design that supports reliable sealing while allowing direct hub-to-hub contact.","The pressure-energized geometry enhances sealing performance as system pressure increases, helping maintain joint integrity under demanding operating conditions.","VX gaskets are suitable for wellheads, riser connectors and subsea equipment, including services involving aggressive chemicals, elevated temperatures and various process fluids.","AX gaskets incorporate sealing and insulating elements to provide both effective sealing and electrical isolation between mating flange components.","The electrical insulation helps minimize the risk of galvanic corrosion between dissimilar metallic components and supports the integrity of the flange connection.","VX and AX configurations can be selected according to flange design, pressure and temperature conditions, material compatibility and service environment."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"ix-gaskets":{"title":"IX RING TYPE JOINT GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/SRX_SBX_Gaskets_Banner-image.avif","downloadTitle":"IX Gaskets Catalog","sections":[{"heading":"IX RING TYPE JOINT GASKETS","bullets":["IX Ring Type Joint Gaskets, available from IX 15 to IX 1200, are designed and supplied in accordance with the requirements of NORSOK L-005.","Gasket materials are selected in accordance with applicable NORSOK M-650 and NORSOK M-630 requirements for demanding offshore and subsea service.","PTFE or XYLAN coatings can be applied to provide suitable surface protection and support reliable sealing performance.","Color coding is used to identify the gasket material type in accordance with the applicable specification.","IX gaskets can be supplied in various material grades, sizes and coating configurations based on operating conditions and project requirements.","Silver-coated IX gaskets can also be provided where specified by the customer or project requirements.","Suitable for critical applications where material traceability, corrosion resistance and reliable sealing performance are essential."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"delta-gaskets":{"title":"DELTA GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner-image.avif","downloadTitle":"Delta Gaskets Catalog","sections":[{"heading":"DELTA GASKETS","bullets":["Delta Gaskets are pressure-energized metallic seals designed for compact, high-integrity flange connections, particularly in subsea applications.","Their geometry utilizes system pressure to enhance the sealing force, supporting reliable metal-to-metal sealing under demanding conditions.","Designed for deepwater, high-pressure and high-temperature environments, where conventional sealing solutions may be subject to severe operating conditions.","Commonly used in API 17D subsea equipment, including wellhead and subsea production systems.","The pressure-energized design helps maintain sealing integrity during pressure fluctuations and demanding service conditions.","Manufactured from suitable metallic alloys selected according to pressure, temperature, corrosion environment and material compatibility.","Delta Gaskets are suited to critical applications where leak prevention, mechanical integrity and long-term sealing reliability are essential."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"bridge-gaskets":{"title":"BRIDGEMAN GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/SRX_SBX_Gaskets_Banner-image.avif","downloadTitle":"Bridgeman Gaskets Catalog","sections":[{"heading":"BRIDGEMAN GASKETS","bullets":["Bridgeman Gaskets are specialized metallic seals designed for ultra-high-pressure and high-vacuum applications where exceptional sealing integrity is required.","The sealing mechanism relies on controlled plastic deformation of the metallic gasket under high compressive loading.","This deformation allows the gasket to conform closely to the mating surfaces, creating a high-integrity metal-to-metal seal.","Suitable for applications involving extreme pressure differentials, vacuum conditions and demanding thermal environments.","Material selection is based on operating pressure, temperature, corrosion resistance and compatibility with the process medium.","Commonly associated with research equipment, nuclear systems, aerospace applications and other specialized high-integrity systems.","Proper control of surface finish, gasket geometry, material hardness and applied load is essential to achieve reliable sealing performance."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"spectacle-blind-gaskets":{"title":"SPECTACLE BLINDS","image":"/images/product-detials-images/Special-Metal-Gaskets.avif","bannerImage":"/images/product-detials-images/Blind-RTJ-Gaskets-banner-img.avif","downloadTitle":"Spectacle Blinds & Spades Catalog","sections":[{"heading":"SPECTACLE BLINDS","bullets":["Spectacle Blinds are figure-eight-shaped metallic devices used for positive isolation of pipeline sections during maintenance, inspection and operational activities.","They consist of two integral plates: an open bore for normal flow and a solid blind for complete flow isolation.","The two plates are connected by a web, allowing the blind to be rotated between the open and closed positions without removing it from the pipeline.","In the closed position, the solid plate provides a positive mechanical barrier, offering a higher level of isolation than conventional valves alone.","Spectacle blinds are installed between mating flanges and require suitable gaskets on the sealing faces to achieve a leak-tight flange connection.","Gasket selection depends on the flange facing, pressure class, temperature and process medium and may include spiral wound, RTJ or other suitable gasket configurations.","Serrated sealing surfaces may be provided to improve gasket retention and load distribution under bolting.","Commonly used in oil & gas, petrochemical, refining, chemical and power industries where reliable pipeline isolation is essential."],"showAssemblyDiagram":true,"diagramType":"spectacle-blind"}]},"transition-rtj":{"title":"TRANSITION RING TYPE JOINTS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif","downloadTitle":"Transition RTJ Catalog","sections":[{"heading":"TRANSITION RING TYPE JOINTS","bullets":["Transition Ring Type Joints are specialized sealing elements designed to connect mating RTJ flanges with different groove geometries while maintaining the same pitch circle diameter.","They provide an effective sealing solution where the flange groove profiles do not directly match, avoiding the need for flange modification or replacement.","These combination rings are engineered to accommodate different RTJ configurations while maintaining the required sealing integrity and dimensional compatibility.","Available with oval and octagonal sealing profiles, depending on the mating flange configurations.","Transition RTJs are typically application-specific components and are not directly governed by standard API or ASME RTJ specifications.","Dimensions, materials, hardness and profile geometry are established according to the specific flange configuration and service requirements.","Suitable for specialized applications where reliable sealing, dimensional compatibility and operational integrity are critical."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"soft-material-seated-rtj":{"title":"SOFT MATERIAL SERRATED RTJ GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","bannerImage":"/images/product-detials-images/Soft_Material_Serrated_RTJ_Gaskets_Banner-image.avif","downloadTitle":"Soft-Material-Seated RTJ Catalog","sections":[{"heading":"SOFT MATERIAL SERRATED RTJ GASKETS","bullets":["Soft Material Serrated RTJ Gaskets combine a serrated metallic core with a soft facing material to provide enhanced sealing in demanding flange connections.","The serrated profile increases the effective contact area and helps the facing material conform to minor surface irregularities in the flange groove.","Soft facing materials such as graphite or PTFE can be selected according to the process medium, temperature and chemical conditions.","The metallic core provides mechanical strength and dimensional stability, while the soft facing improves sealing capability and surface conformity.","Suitable for applications where improved sealing is required against minor flange imperfections or surface irregularities.","Material, serration geometry and facing selection can be customized based on operating pressure, temperature, flange configuration and service conditions.","Common applications include oil & gas, petrochemical, refining, chemical and process industries."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"weld-lip-seals":{"title":"TXCO WELD RING GASKETS","image":"/images/product-detials-images/Welded-Lip-Seals.avif","bannerImage":"/images/product-detials-images/product-details-page-banner.avif","downloadTitle":"Weld Ring Gaskets","sections":[{"heading":"TXCO WELD RING GASKETS","paragraphs":["Dual-Ring Metallic Sealing for Critical & Semi-Permanent Flange Connections","TXCO Weld Ring Gaskets—also known as lip seal weld rings—utilize a matched pair of precision metallic rings to establish a fused, 100% leak-proof joint. During installation, each individual ring is first welded directly to its respective flange face. Once the flange connection is aligned and bolted, the outer edges of the two mating rings are seal-welded together along their outer periphery to complete the hermetic seal."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"OPERATIONAL FEATURES & ADVANTAGES","bullets":["Dual-Weld Hermetic Seal: Combines inner structural flange welds with an outer circumferential seal weld, creating a continuous metal barrier that completely eliminates leakage pathways.","Severe-Service Alternative: Engineered for extreme pressure, thermal cycling, and hazardous media applications where standard elastomeric or soft sheet gaskets risk blowout or degradation.","Decoupled Stress Distribution: Flange bolts handle the mechanical line loads and structural tension, allowing the weld rings to focus purely on zero-leakage fluid containment.","Semi-Detachable Maintenance Profile: Ideal for piping systems requiring infrequent maintenance. When servicing is necessary, the joint is opened by removing the flange bolts and mechanically cutting the outer peripheral weld seam without damaging the underlying flange face."]},{"heading":"TECHNICAL SUMMARY","table":{"headers":["Feature","Engineering Standard"],"rows":[{"code":"Design Type","description":"Symmetrical Dual-Ring Metallic Assembly"},{"code":"Joint Category","description":"Semi-Permanent / Semi-Detachable"},{"code":"Primary Joining Method","description":"Outer Edge Seal Welding (GTAW / TIG)"},{"code":"Recommended Service","description":"High-Temperature Steam, Lethal Media, Infrequent Overhaul Lines"}],"footnote":"Precision CNC-machined to matching flange metallurgy and pressure ratings."}}]}}},"semi-metallic-gaskets":{"parentCategoryTitle":"GASKETS","parentCategoryHref":"/products/gaskets","subcategoryTitle":"Semi-Metallic Gaskets","productsList":[{"id":"about-semi-metallic-gaskets","title":"ABOUT SEMI-METALLIC GASKETS","downloadTitle":"Semi-Metallic Gaskets Catalog"},{"id":"spiral-wound-gaskets","title":"SPIRAL WOUND GASKETS","downloadTitle":"Spiral Wound Gaskets"},{"id":"kammprofile-gaskets","title":"KAMMPROFILE GASKETS","downloadTitle":"Kammprofile Gaskets"},{"id":"metal-jacketed-gaskets","title":"METAL JACKETED GASKETS","downloadTitle":"Metal Jacketed Gaskets"},{"id":"flange-isolation-kits","title":"FLANGE ISOLATION KITS","downloadTitle":"Flange Isolation Kits"}],"productDetails":{"about-semi-metallic-gaskets":{"title":"SEMI METALLIC GASKETS","image":"/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif","downloadTitle":"Semi-Metallic Gaskets Catalog","sections":[{"heading":"SEMI METALLIC GASKETS","paragraphs":["Semi-metallic gaskets combine metallic strength with compressible sealing materials to provide reliable performance under demanding pressure, temperature and process conditions.","TXCO Sealing Products Private Limited offers Spiral Wound, Kammprofile and Metal Jacketed Gaskets, along with Flange Isolation Kits for sealing and electrical isolation. Material and construction are selected according to flange design, service conditions and process media.","Designed for critical applications across oil & gas, petrochemical, refining, chemical and power industries, TXCO solutions deliver dependable sealing, mechanical stability and service reliability."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"SPIRAL WOUND GASKETS — OVERVIEW & MATERIALS","paragraphs":["Spiral Wound Gaskets are semi-metallic sealing elements designed for reliable performance under demanding pressure, temperature and process conditions. Their alternating metallic winding and filler construction provides flexibility, recovery and resistance to operating fluctuations.","At TXCO Sealing Products Private Limited, Spiral Wound Gaskets are designed and configured in accordance with applicable ASME B16.20, ASME B16.5 and ASME B16.47 requirements, with construction and materials selected based on flange configuration, process medium, pressure, temperature and service conditions."],"table":{"headers":["COMPONENT","FIGURE","TYPICAL MATERIALS","FUNCTION","APPLICABLE STYLES","KEY STANDARDS"],"rows":[{"code":"Winding","figureType":"mat-sw1","description":"SS 304, SS 316, SS 321, SS 347, Inconel, Monel, Nickel Alloys","thickness":"Provides strength, resilience and recovery","reweld":"Style R, Style RIR, Style CG, Style CGI, Style CGI Bolt-Holes","radial":"ASME B16.20, ASME B16.5, ASME B16.47"},{"code":"Filler","figureType":"mat-sw2","description":"Flexible Graphite, PTFE, Ceramic, Mica","thickness":"Provides the primary sealing medium","reweld":"All Styles","radial":"ASME B16.20"},{"code":"Inner Ring","figureType":"mat-sw3","description":"Carbon Steel, SS 304/316, SS 321/347, Nickel Alloys","thickness":"Prevents inward buckling and protects the winding","reweld":"Style RIR, Style CGI, Style CGI Bolt-Holes","radial":"ASME B16.20"},{"code":"Outer Ring","figureType":"mat-sw4","description":"Carbon Steel, SS 304/316, SS 321/347","thickness":"Provides centering and compression control","reweld":"Style CG, Style CGI, Style CGI Bolt-Holes","radial":"ASME B16.20"},{"code":"Special Alloys","figureType":"mat-sw5","description":"Duplex, Super Duplex, Hastelloy, Inconel","thickness":"For corrosive and severe service conditions","reweld":"Custom / All Styles","radial":"NACE MR0175 / ISO 15156"}],"footnote":"Winding, filler and ring materials are selected according to pressure, temperature, chemical compatibility and flange requirements."}},{"heading":"KEY CONSTRUCTION ELEMENTS","bullets":["Outer Ring: Provides accurate centering, alignment and controlled compression during flange assembly.","Inner Ring: Supports the winding, prevents inward buckling and helps protect against process turbulence and erosion.","Sealing Element: Alternating metal winding and filler layers form the primary sealing barrier.","Material Selection: Winding, filler and ring materials are selected according to pressure, temperature, chemical compatibility and flange requirements."]}]},"spiral-wound-gaskets":{"title":"SPIRAL WOUND GASKETS","image":"/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif","downloadTitle":"Spiral Wound Gaskets Catalog","sections":[{"heading":"STYLE R – BASIC SPIRAL WOUND GASKET","bullets":["Consists of the spiral wound sealing element without inner or outer guide rings.","Manufactured using alternating layers of metallic winding strip and filler material.","Additional winding at the start and end provides stability and resistance to unwinding.","The V-shaped winding profile provides spring-like recovery during pressure and temperature variations.","Suitable for tongue & groove, male & female and other confined flange configurations.","Useful where the flange design itself provides gasket positioning and compression control."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"STYLE RIR – INNER RING","bullets":["Consists of a spiral wound sealing element with an integral inner metal ring.","The inner ring provides radial support and additional structural stability.","Helps prevent inward buckling or collapse of the winding under compression.","Acts as a barrier against process-media turbulence, erosion and debris accumulation.","Provides additional control of the gasket’s inner sealing diameter.","Commonly used with male & female, spigot-and-recess and confined flange configurations."]},{"heading":"STYLE CG – OUTER RING","bullets":["Consists of the spiral wound sealing element with an outer centering and guide ring.","The outer ring ensures accurate gasket positioning relative to the flange bore.","Functions as a compression limiter, helping prevent excessive crushing of the winding.","Supports uniform gasket loading during bolt tightening and flange assembly.","Commonly used with raised face (RF) and flat face (FF) flanges.","Suitable for general process piping and moderate service conditions."]},{"heading":"STYLE CGI – INNER & OUTER RINGS","bullets":["Incorporates the spiral wound sealing element with both inner and outer metallic rings.","The inner ring provides radial reinforcement, compression control and media protection.","Helps minimize inward buckling, turbulence and erosion at the gasket ID.","The outer ring provides centering, alignment and controlled compression.","Provides improved mechanical stability under high pressure and temperature conditions.","Recommended for severe service, aggressive media and critical flange connections.","Suitable for applications requiring enhanced sealing reliability and protection of the winding element."]},{"heading":"STYLE CGI – BOLT-HOLE TYPE","bullets":["Incorporates the CGI construction with bolt holes provided in the outer centering ring.","Bolt holes provide positive gasket location and alignment during flange assembly.","Helps prevent gasket displacement or rotation during installation.","Supports consistent positioning of the sealing element relative to the flange and bolt circle.","The inner ring provides protection against inward buckling, erosion and process-media effects.","The outer ring provides compression control and accurate centering.","Suitable for critical applications where precise gasket positioning and repeatable assembly are required."]}]},"kammprofile-gaskets":{"title":"KAMMPROFILE GASKETS","image":"/images/product-detials-images/Planisteel-Camprofile.avif","downloadTitle":"Kammprofile Gaskets Catalog","sections":[{"heading":"KAMMPROFILE GASKETS","paragraphs":["Kammprofile Gaskets are semi-metallic sealing elements consisting of a serrated metallic core with a facing material. The controlled serration profile concentrates the sealing load while the facing material fills minor surface irregularities, providing reliable sealing under demanding pressure, temperature and process conditions.","At TXCO Sealing Products Private Limited, Kammprofile Gaskets are configured according to flange design, operating conditions and process media, with materials selected for the required service. Designs can be supplied to applicable ASME B16.20 and project-specific requirements."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"TYPE Z – BASIC KAMMPROFILE","bullets":["Consists of a serrated metallic sealing core without an integral guide ring.","The serrations provide controlled contact and support the sealing material under compression.","Can be supplied with suitable facing materials such as flexible graphite or PTFE, depending on service requirements.","Suitable for applications where controlled compression and reliable metal-core support are required.","Material selection is based on pressure, temperature and chemical compatibility."]},{"heading":"TYPE ZA – KAMMPROFILE WITH OUTER RING","bullets":["Incorporates a serrated sealing core with an outer centering ring.","The outer ring provides accurate gasket positioning and alignment during flange assembly.","Helps control compression and protects the sealing element during installation.","Suitable for raised-face and other compatible flange configurations.","Commonly selected for general industrial and demanding process applications."]},{"heading":"TYPE ZI – KAMMPROFILE WITH INNER & OUTER RINGS","bullets":["Features a serrated metallic core with both inner and outer rings.","The inner ring provides additional radial support and protects the sealing element from process turbulence and erosion.","The outer ring provides centering and compression control.","Offers enhanced mechanical stability for high-pressure, high-temperature and aggressive service conditions.","Suitable for critical applications where sealing integrity, stability and long service life are essential."]}]},"metal-jacketed-gaskets":{"title":"METAL JACKETED GASKETS","image":"/images/product-detials-images/Metal-jacketed-gaskets-Planisteel MJ.avif","downloadTitle":"Metal Jacketed Gaskets Catalog","sections":[{"heading":"METAL JACKETED GASKETS","paragraphs":["Metal Jacketed Gaskets are semi-metallic sealing elements consisting of a soft filler enclosed within a metallic jacket. The metal jacket provides mechanical protection and resistance to pressure and temperature, while the filler accommodates flange irregularities and supports sealing performance.","At TXCO Sealing Products Private Limited, Metal Jacketed Gaskets are configured in different constructions and materials to suit heat exchangers, pressure vessels, piping and other critical process equipment. Material selection is based on the process medium, operating temperature, pressure and flange configuration."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"1. CORRUGATED METAL JACKETED GASKETS","bullets":["Incorporate a corrugated metallic jacket around the filler material.","Corrugations provide increased flexibility and improved surface conformity.","Suitable for heat exchangers, boilers and high-temperature applications.","Available with suitable metallic jackets and fillers according to service conditions."]},{"heading":"2. FLAT METAL JACKETED GASKETS","bullets":["Consist of a flat metallic jacket enclosing a soft filler.","Provide a robust sealing solution for conventional flange and equipment connections.","Suitable for moderate pressure and temperature applications.","Commonly used in piping, covers, heat exchangers and process equipment."]},{"heading":"3. DOUBLE JACKETED GASKETS","bullets":["Manufactured with two metallic jackets enclosing the filler material.","The double-jacket construction provides enhanced mechanical protection and sealing stability.","Suitable for demanding pressure and temperature conditions.","Commonly used for heat exchangers, pressure vessels and equipment flanges."]},{"heading":"4. HEAT EXCHANGER GASKETS","bullets":["Designed specifically for heat exchanger covers, channels and tube-sheet assemblies.","Available in configurations suited to complex flange geometries and multiple sealing requirements.","Can incorporate different jacket materials, fillers, pass partitions and sealing arrangements.","Designed to withstand thermal cycling, pressure fluctuations and process-fluid exposure.","Material selection is based on the shell-side and tube-side operating conditions."]}]},"flange-isolation-kits":{"title":"FLANGE ISOLATION KITS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","downloadTitle":"Flange Isolation Kits Catalog","sections":[{"heading":"FLANGE ISOLATION KITS","paragraphs":["TXCO Flange Isolation Kits are designed to electrically isolate flanged joints and help prevent galvanic corrosion between dissimilar metals. They also support cathodic protection systems by preventing unwanted electrical continuity across the flange connection.","A typical kit includes an insulating gasket, insulating sleeves, insulating washers and steel backup washers. The insulating components work together to provide effective electrical separation while maintaining the required sealing integrity and mechanical stability of the flange joint.","These kits are widely used in oil & gas, petrochemical, refining, chemical, water and process industries, where corrosion control and reliable flange isolation are essential."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"TX-ISOPRO™","paragraphs":["Engineered for critical galvanic corrosion control and Cathodic Protection (CP) integrity, the TX ISOPRO™ series delivers total dielectric isolation and zero-leakage fluid containment across oil & gas, petrochemical, and process piping.","Combining a high-strength Glass Reinforced Epoxy (GRE G10/G11) substrate with an integrated TX-FLEX™ modified ePTFE primary seal, the system eliminates creep relaxation and resists aggressive media (pH 0–14) under thermal cycling. Paired with insulating sleeves and double washers, it creates a complete 360° electrical barrier."],"bulletsIntro":"Available Configurations:","bullets":["TX ISOPRO™-F (Type F – Raised Face): Fits inside the bolt circle across the raised face. Simplifies centering and minimizes exposure to external contaminants in RF flange connections.","TX ISOPRO™-E (Type E – Full Face): Extends to the flange outer diameter with precision bolt holes. Delivers full face-to-face coverage to prevent metallic debris from bridging the isolation gap."]},{"heading":"TX-CERAMPRO™","paragraphs":["TX-CERAMPRO™ is a fire-safe flange isolation gasket designed to provide electrical insulation and reliable sealing in critical flange connections. TX-CERAMPRO™ redefines high-temperature pipeline integrity through a revolutionary dual-sheet facing technology, establishing a new standard where absolute thermal endurance meets uncompromised dielectric defense. Engineered around a precision steel core encapsulated within high-strength Glass Reinforced Epoxy (GRE), it integrates proprietary TX-CERAMSHIELD™ and TX-IGNISIL™ facings to create an impenetrable barrier built for the world's most punishing process lines."],"bulletsIntro":"Engineering Highlights:","bullets":["Revolutionary Dual-Sheet Facing: Fuses specialized ceramic and mineral matrices to deliver continuous thermal management up to 1000°C with zero carbon oxidation or material degradation.","API 6FB Certified Fire Safety: Formulated to preserve joint tightness and structural seal integrity under direct flame exposure and catastrophic thermal shock.","Permanent Dielectric Defense: High-density GRE encapsulation isolates stray electrical currents, halting galvanic corrosion across mating flanges for the lifetime of the connection.","Low-Emission Dual Sealing: Synergized mica and PTFE sealing profiles deliver micro-fine fluid containment, excelling in sour gas (H2S), high-pH media, and volatile hydrocarbons.","Complete System Integration: Fully compatible with Raised Face (RF), Full Face (FF), and Ring Type Joint (RTJ) flanges, supplied with matching high-dielectric sleeves and isolation washers."]},{"heading":"TX TYPE D – RTJ ISOLATION GASKET","bullets":["Designed specifically for Ring Type Joint flange connections where electrical isolation is required.","Installed within the RTJ groove to provide both metallic sealing and electrical separation between the mating flanges.","The insulating sealing element is selected to withstand the required pressure, temperature and process-media conditions.","Particularly suitable for high-integrity systems where cathodic protection and galvanic corrosion prevention are important.","Requires proper compatibility between the gasket, RTJ groove geometry, flange materials and isolation components for reliable performance."]},{"heading":"TX TYPE -N : FLANGE ISOLATION GASKET","paragraphs":["TXCO Type N is a flange isolation system designed to provide electrical isolation and reliable sealing in RF and FF flange connections. The gasket uses modified, bi-directionally oriented PTFE as the primary sealing and insulating element, offering strong chemical resistance and improved resistance to PTFE relaxation and cold flow."],"bullets":["The PTFE sealing element provides electrical insulation and fluid sealing within the flange joint.","Suitable for a broad range of chemical services, with compatibility across approximately pH 0–14, subject to specific media compatibility.","Designed for reliable performance under pressure, temperature and chemical exposure.","Suitable for RF and FF flange connections.","Applicable for service temperatures up to 200°C, with pressure ratings selected according to the applicable flange class.","GRE G10 (FR4) insulating sleeves and washers are recommended for enhanced mechanical and electrical performance.","GRE G10 offers low moisture absorption compared with conventional phenolic materials, helping maintain insulation resistance and mechanical stability throughout service.","Suitable for oil & gas, chemical, petrochemical, water and process applications where electrical isolation and chemical resistance are required."]}]}}},"non-metallic-gaskets":{"parentCategoryTitle":"GASKETS","parentCategoryHref":"/products/gaskets","subcategoryTitle":"Non-Metallic Gaskets","productsList":[{"id":"about-non-metallic-gaskets","title":"ABOUT NON-METALLIC GASKETS","downloadTitle":"Non-Metallic Gaskets Catalog"},{"id":"rubber-gaskets","title":"RUBBER GASKETS","downloadTitle":"Rubber Gaskets"},{"id":"ptfe-gaskets","title":"PTFE GASKETS","downloadTitle":"PTFE Gaskets"},{"id":"eptfe-gaskets","title":"EXPANDED PTFE (ePTFE) GASKETS","downloadTitle":"Expanded PTFE Gaskets"},{"id":"asbestos-free-gaskets","title":"ASBESTOS-FREE GASKETS (AF SERIES)","downloadTitle":"Asbestos-Free Gaskets"},{"id":"non-asbestos-gaskets","title":"COMPRESSED NON-ASBESTOS (STYLE SERIES)","downloadTitle":"Compressed Fiber Gaskets"}],"productDetails":{"about-non-metallic-gaskets":{"title":"NON METALLIC GASKETS","image":"/images/product-detials-images/PTFE-Jointing-Sheets-Planiflon.avif","downloadTitle":"Non-Metallic Gaskets Catalog","sections":[{"heading":"NON METALLIC GASKETS","paragraphs":["Non-metallic gaskets conform to flange surfaces and minor irregularities, creating a reliable barrier against leakage. Their flexibility, chemical resistance and material compatibility make them suitable for varied process conditions.","At TXCO Sealing Products Private Limited, materials such as rubber, PTFE and compressed fibre are selected according to the fluid, pressure, temperature and service environment—because a good seal must remain dependable when the system is under pressure."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"rubber-gaskets":{"title":"RUBBER GASKETS","image":"/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif","downloadTitle":"Rubber Gaskets Catalog","sections":[{"heading":"RUBBER GASKETS","paragraphs":["Rubber Gaskets provide flexible, resilient sealing by conforming to flange surfaces and accommodating minor irregularities. Their ability to maintain contact under compression makes them suitable for sealing liquids and gases across a wide range of industrial applications.","At TXCO Sealing Products Private Limited, rubber compounds are selected according to the medium, temperature, pressure and service environment, with different elastomers available for specific requirements."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"TYPES OF RUBBER GASKETS","bullets":["Neoprene: Good resistance to weathering, ozone and oxidation; suitable for outdoor and general industrial applications.","NBR (Nitrile): Excellent resistance to oils, fuels and hydraulic fluids; widely used in oil & gas and industrial service.","EPDM: Strong resistance to water, steam, weathering, UV and many chemicals.","Silicone: Excellent flexibility and temperature stability; suitable for applications requiring cleanliness and electrical insulation.","FKM (Viton®): High resistance to heat, fuels, oils and aggressive chemicals for demanding process conditions.","Natural Rubber: High elasticity, resilience and abrasion resistance; suited to selected water and general service applications.","SBR: Good abrasion resistance and economical performance, particularly for water and general industrial service.","Butyl: Very low gas permeability with excellent resistance to moisture and air, making it suitable for gas-sealing applications."]}]},"eptfe-gaskets":{"title":"EXPANDED PTFE (ePTFE) GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","downloadTitle":"Expanded PTFE Gaskets Catalog","sections":[{"heading":"EXPANDED PTFE GASKETS","paragraphs":["Expanded PTFE (ePTFE) Gaskets are soft, chemically resistant sealing elements designed to conform closely to flange surfaces and compensate for surface irregularities and flange imperfections. Their low permeability, chemical inertness and low seating stress make them suitable for demanding sealing applications.","At TXCO Sealing Products Private Limited, ePTFE gaskets are selected for applications requiring chemical resistance, reliable sealing and low bolt loads, particularly where conventional gasket materials may be unsuitable."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"KEY FEATURES","bullets":["Excellent resistance to acids, alkalis, solvents and aggressive chemicals.","Wide operating temperature capability with good sealing stability.","Highly conformable, helping seal irregular and damaged flange surfaces.","Requires relatively low seating stress, reducing flange loading.","Non-stick surface reduces adhesion and facilitates gasket removal.","Good resistance to creep and long-term compression effects.","Suitable for chemical, pharmaceutical, food, power and process industries.","Available as sheets, tapes, cut gaskets and application-specific shapes."]}]},"ptfe-gaskets":{"title":"PTFE JOINTING SHEETS & GASKETS (PLANIFLON™)","image":"/images/product-detials-images/PTFE-Jointing-Sheets-Planiflon.avif","downloadTitle":"Planiflon™ PTFE Gaskets Catalog","sections":[{"heading":"PLANIFLON™ HIGH-PERFORMANCE PTFE GASKETING SHEETS & SEALS","paragraphs":["Planiflon™ is a comprehensive range of premium PTFE (Polytetrafluoroethylene) gasketing sheets and precision-cut flange gaskets engineered for critical industrial applications demanding total chemical inertness, high mechanical reliability, and ultra-low fugitive emissions.","Operating across a wide temperature envelope from cryogenic levels (-200°C / -328°F) up to +260°C (+500°F), Planiflon™ PTFE gaskets resist virtually all chemical media across the full pH 0–14 spectrum (with the exception of molten alkali metals and elemental fluorine at high temperature/pressure).","Manufactured using advanced skiving, calendering, and biaxial orientation technologies, Planiflon™ materials overcome the traditional cold-flow (creep relaxation) limitations of conventional virgin PTFE while delivering superior sealability under moderate to high bolt loads."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Key Product Range & Formulations:","bullets":["Planiflon™ B01: 100% Pure Virgin PTFE for pharmaceutical, food, and high-dielectric service","Planiflon™ B02: Glass-Filled PTFE for improved mechanical resistance and reduced creep","Planiflon™ B13: Silica-Filled Biaxially Oriented PTFE for strong mineral acids, steam, and chlorine","Planiflon™ B15: Barium Sulphate Filled Biaxially Oriented PTFE for strong alkalis, caustics, and food/pharma","Planiflon™ E12: 100% Multidirectional Expanded ePTFE for fragile glass-lined, FRP, and uneven flanges"]},{"heading":"MATERIAL SELECTION & FILLER TECHNOLOGIES","paragraphs":["The Planiflon™ series incorporates tailored micro-fillers and biaxially oriented molecular structures to optimize mechanical integrity and eliminate creep relaxation in challenging chemical environments:","1. Silica-Filled Biaxial PTFE (Planiflon™ B13): Features a dense, multi-directional fibrous structure filled with high-purity silica. Engineered specifically for strong acids (sulfuric, nitric, hydrochloric, phosphoric), solvents, hydrocarbons, water, steam, and chlorine.","2. Barium Sulphate Biaxial PTFE (Planiflon™ B15): Formulated with food-grade barium sulphate to withstand aggressive alkalis, caustic soda, potassium hydroxide, bleach, and general chemicals where silica-filled grades may experience caustic etching.","3. Multidirectional Expanded ePTFE (Planiflon™ E12): Fabricated from 100% pure PTFE expanded into a multi-directional fibrillated network. Provides exceptional elasticity, zero creep, and ultra-low minimum seating stress (y-value), making it the ideal solution for fragile glass-lined, enamel, plastic, or distorted flanges."],"table":{"headers":["GRADE CODE","FIGURE","FILLER TYPE","COLOR","TEMP RANGE","MAX PRESSURE","COMPATIBLE MEDIA & APPLICATIONS"],"rows":[{"code":"Planiflon™ B01","figureType":"ptfe-b01","description":"100% Virgin PTFE (Unfilled)","thickness":"White","reweld":"-200°C to +260°C","radial":"40 bar (Class 150/300) | Universal pH 0-14, High Dielectric, Food/Pharma"},{"code":"Planiflon™ B02","figureType":"ptfe-b02","description":"Glass-Filled PTFE","thickness":"White / Off-White","reweld":"-200°C to +260°C","radial":"60 bar (Class 300) | Solvents, Fuels, Refrigerants, Moderate Acids"},{"code":"Planiflon™ B13","figureType":"ptfe-b13","description":"Silica-Filled Biaxial PTFE","thickness":"Fawn / Light Brown","reweld":"-200°C to +260°C","radial":"83 bar (Class 150-600) | Strong Mineral Acids, Steam, Chlorine, Solvents"},{"code":"Planiflon™ B15","figureType":"ptfe-b15","description":"Barium Sulphate Biaxial PTFE","thickness":"Off-White","reweld":"-200°C to +260°C","radial":"83 bar (Class 150-600) | Strong Alkalis, Caustic Soda, Food & Pharma"},{"code":"Planiflon™ E12","figureType":"ptfe-e12","description":"100% Multidirectional Expanded ePTFE","thickness":"Pure White","reweld":"-240°C to +270°C (315°C peak)","radial":"100 bar (Class 150-600) | Enamel, Glass-Lined, FRP & Distorted Flanges"}],"footnote":"Available in sheets (1500 x 1500 mm) and custom-cut gaskets in thicknesses: 0.5 mm, 1.0 mm, 1.5 mm, 2.0 mm, 3.0 mm, 6.0 mm. Compliant with FDA 21 CFR 177.1550, TA-Luft (VDI 2440), BAM (Oxygen), DVGW, and EC 1935/2004."}}]},"asbestos-free-gaskets":{"title":"ASBESTOS-FREE COMPRESSED FIBER GASKETS (AF SERIES)","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","downloadTitle":"Asbestos-Free Gaskets Catalog","sections":[{"heading":"TXCO ASBESTOS-FREE (AF) COMPRESSED FIBER GASKET RANGE","paragraphs":["TXCO Asbestos-Free compressed fiber gaskets are engineered from high-grade aramid, carbon, glass, and inorganic mineral fibers bound within high-performance elastomeric matrices (NBR and HNBR).","Available in standard Non-Metallic cut gaskets and steel wire-mesh reinforced Metallic variants, delivering exceptional torque retention, blowout resistance, and gas-tight sealing across steam, chemical, oil, and gas duties."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Key Technical Highlights & Formulations:","bullets":["TXCO AF-110: General-purpose synthetic fiber & NBR binder for utility lines, water, and low-pressure steam (40-50 Bar, up to 300°C peak)","TXCO AF-120: Advanced aramid-NBR matrix for steam manifolds, process utilities, and pump casings (50-60 Bar, up to 400°C peak)","TXCO AF-139: Premium Grade-X universal aramid-NBR for superheated steam headers and hydrocarbon transport (90-100 Bar, up to 400°C peak)","TXCO AF-154: Ultra-high-performance Grade-X aramid-NBR for extreme thermal stress (150-160 Bar, up to 475°C peak)","TXCO AF-155 GF: Quad-fiber blend (aramid, glass, mineral) in HNBR matrix for severe thermal service (150-160 Bar, 400-500°C, continuous steam up to 425°C)","TXCO AF-159: Heavy-duty NBR matrix engineered for diesel engine blocks, hydraulic pumps, and fuel handling (150-160 Bar, up to 450°C peak)","TXCO AF-160 Acid: Specialized acid- and chemical-resistant NBR binder for acid transfer and fertilizer plants (100 Bar, up to 300°C peak)","TXCO AF-170: Ultra-high-performance carbon-graphite HNBR matrix for power boilers and superheated steam (160-200 Bar, up to 650°C peak)","TXCO AF-190: Severe-service aramid-carbon-graphite HNBR matrix for high-impulse media lines and compressors (150-170 Bar, up to 500°C peak)"]},{"heading":"AF SERIES TECHNICAL SPECIFICATIONS MATRIX","paragraphs":["Full compliance with BS 7531 Grade-X and Grade-Y, and IS 17796 standards. Factory-applied anti-stick graphited release coatings prevent flange face pitting and accelerate plant turnaround overhauls."],"table":{"headers":["GRADE","FIGURE","GASKET ARCHITECTURE","Max Operating Pressure","Max Continuous Temp","Specification Compliance"],"rows":[{"code":"TXCO AF-110","figureType":"af-110","description":"Synthetic Organic Fibers + Elastomeric Binder (Brown)","thickness":"40 Bar (Non-Met) / 50 Bar (Metallic)","reweld":"220°C (280-300°C peak)","radial":"BS 7531 Grade-Y / IS 17796 Grade-Y"},{"code":"TXCO AF-120","figureType":"af-120","description":"High-Tensile Aramid Fibers + NBR Matrix (Green / Graphited Black)","thickness":"50 Bar (GP) / 60 Bar (Metallic)","reweld":"250°C (400°C peak)","radial":"BS 7531 Grade-Y / IS 17796 Grade-Y"},{"code":"TXCO AF-139","figureType":"af-139","description":"High-Tensile Aramid + Inorganic Fibers + NBR (Orange / Black)","thickness":"90 Bar (Non-Met) / 100 Bar (Metallic)","reweld":"250°C (400°C peak)","radial":"BS 7531 Grade-X / IS 17796 Grade-X"},{"code":"TXCO AF-154","figureType":"af-154","description":"Superior Heat-Resistant Aramid + High-Density NBR (Yellow / Black)","thickness":"150 Bar (Non-Met) / 160 Bar (Metallic)","reweld":"300°C (450-475°C peak)","radial":"BS 7531 Grade-X / IS 17796 Grade-X"},{"code":"TXCO AF-155 GF","figureType":"af-155","description":"Quad-Fiber Blend (Aramid, Glass, Mineral) + HNBR (Purple / Black)","thickness":"150 Bar (Non-Met) / 160 Bar (Metallic)","reweld":"400-450°C (500°C peak)","radial":"BS 7531 Grade-X (Steam 375-425°C)"},{"code":"TXCO AF-159","figureType":"af-159","description":"Heat-Resistant Aramid + Heavy-Duty NBR (Black / Graphited Black)","thickness":"150 Bar (Non-Met) / 160 Bar (Metallic)","reweld":"300°C (450°C peak)","radial":"BS 7531 Grade-X / IS 17796 Grade-X"},{"code":"TXCO AF-160 Acid","figureType":"af-160","description":"Aramid Fibers + Chemical-Grade NBR Binder (Off-White)","thickness":"100 Bar (10.0 MPa)","reweld":"250°C (300°C peak)","radial":"BS 7531 Grade-X (Organic & Mineral Acids)"},{"code":"TXCO AF-170","figureType":"af-170","description":"Aramid + Carbon + Mineral Fibers + Graphite + HNBR (Black)","thickness":"160 Bar (Non-Met) / 200 Bar (Metallic)","reweld":"425-525°C (600-650°C peak)","radial":"BS 7531 Grade-X (Steam 450-550°C)"},{"code":"TXCO AF-190","figureType":"af-190","description":"Aramid + Carbon + Graphite + HNBR Matrix (Dark Grey / Black)","thickness":"150 Bar (Non-Met) / 170 Bar (Metallic)","reweld":"300°C (500°C peak)","radial":"BS 7531 Grade-X / IS 17796 Grade-X"}],"footnote":"All AF-Series gaskets available in sheet thicknesses from 0.5 mm to 5.0 mm and pre-cut standard/custom dimensions."}}]},"non-asbestos-gaskets":{"title":"COMPRESSED FIBER GASKETS (STYLE SERIES)","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","downloadTitle":"Compressed Fiber Gaskets Catalog","sections":[{"heading":"TXCO COMPRESSED FIBER JOINTING SHEETS & GASKETS (STYLE SERIES)","paragraphs":["TXCO Compressed Fiber jointing sheets and gaskets are manufactured in strict compliance with IS 2712 and international standards for utility, steam, petrochemical, and acid containment.","Formulated with high-density fiber matrices bound with elastomeric compounds and available in Non-Metallic and wire-mesh reinforced Metallic variants with factory anti-stick coatings."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Style Series Range & Service Duties:","bullets":["TXCO Style 11: General-purpose utility jointing for water, low-pressure air, and drainage lines (25-30 Bar, 270-300°C, IS 2712 Grade C / W/3)","TXCO Style 20: Medium-duty jointing for steam headers, water distribution, and gas mains (35-40 Bar, 380-415°C, IS 2712 Grade C / W/3)","TXCO Style 39: High-duty petrochemical & refinery jointing for distillates and hydrocarbon transport (80-100 Bar, 440-480°C, IS 2712 Grade O/2)","TXCO Style 51: High-pressure steam & thermal fluid jointing for catalytic cracking and boiler feed (80-100 Bar, 440-480°C, IS 2712 Grade W/2)","TXCO Style 54 Super: Elite superheated steam jointing with minimum 18 mesh x 30 gauge wire insert (150-160 Bar, 550-600°C)","TXCO Style 55: Extreme mechanical stability for high vibration, engines, and compressors (200-225 Bar, 600°C)","TXCO Style 59 Oil: Premium oil & solvent resistant jointing for solvent extraction and heavy hydrocarbons (150-160 Bar, 550-600°C)","TXCO Style 60 Acid: Specialized acid-resistant jointing for sulfuric, phosphoric, and nitric acid dosing lines (150 Bar, 210°C, IS 2712 Grade A/1)"]},{"heading":"COMPRESSED FIBER STYLE SERIES SPECIFICATIONS","paragraphs":["High compressibility profile ensures tight sealing under low bolt torque across cast iron, light-duty, or distorted flange faces."],"table":{"headers":["STYLE CODE","FIGURE","CORE ARCHITECTURE","Max Operating Pressure","Max Continuous Temp","Specification Compliance"],"rows":[{"code":"TXCO Style 11","figureType":"style-11","description":"Chrysotile Asbestos Fibers + Elastomeric Binder (Graphited)","thickness":"25 Bar (Non-Met) / 30 Bar (Metallic)","reweld":"270°C (300°C peak)","radial":"IS 2712-1971 Grade C / IS 2712-1998 Grade W/3"},{"code":"TXCO Style 20","figureType":"style-20","description":"Processed Fibers + Quality Elastomeric Binder (Red / Black)","thickness":"35 Bar (Non-Met) / 40 Bar (Metallic)","reweld":"380°C (415°C peak)","radial":"IS 2712-1971 Grade C / IS 2712-1998 Grade W/3"},{"code":"TXCO Style 39","figureType":"style-39","description":"Select Fibers + Oil-Resistant Matrix (Orange / Grey / Black)","thickness":"80 Bar (Non-Met) / 100 Bar (Metallic)","reweld":"440°C (480°C peak)","radial":"IS 2712-1998 Grade O/2 (Hydrocarbons & Solvents)"},{"code":"TXCO Style 51","figureType":"style-51","description":"Heat-Resistant Fibers + High-Grade Elastomer (Brown / Grey)","thickness":"80 Bar (Non-Met) / 100 Bar (Metallic)","reweld":"440°C (480°C peak)","radial":"IS 2712-1998 Grade W/2 (Superheated Steam)"},{"code":"TXCO Style 54 Super","figureType":"style-54","description":"Heavy-Duty Wire Insertion (Min 18 mesh x 30 gauge wire) (Yellow / Black)","thickness":"150 Bar (Non-Met) / 160 Bar (Metallic)","reweld":"550°C (600°C peak)","radial":"High-Impulse Steam & Boilers"},{"code":"TXCO Style 55","figureType":"style-55","description":"High-Density Matrix + Stainless Wire Mesh (Dark Grey / Black)","thickness":"200 Bar (Non-Met) / 225 Bar (Metallic)","reweld":"600°C (1112°F)","radial":"Engines, Compressors & Dynamic Vibration"},{"code":"TXCO Style 59 Oil","figureType":"style-59","description":"High-Density Oil-Resistant Binders + Steel Gauze (Dark Grey)","thickness":"150 Bar (Non-Met) / 160 Bar (Metallic)","reweld":"550°C (600°C peak)","radial":"Petroleum Distillates & Heavy Hydrocarbons"},{"code":"TXCO Style 60 Acid","figureType":"style-60","description":"Acid-Resistant Fibers + Inert Elastomeric Binder (Cream / Light Grey)","thickness":"150 Bar (15.0 MPa)","reweld":"210°C (410°F)","radial":"IS 2712-1971 Grade A/1 (Aggressive Acids)"}],"footnote":"Sheet dimensions up to 2000 mm x 4500 mm available with standard and custom cut sizes."}}]}}},"steel-inserted-gaskets":{"parentCategoryTitle":"GASKETS","parentCategoryHref":"/products/gaskets","subcategoryTitle":"Steel-Inserted Gaskets","productsList":[{"id":"about-steel-inserted-gaskets","title":"ABOUT STEEL-INSERTED GASKETS","downloadTitle":"Steel-Inserted Gaskets Catalog"},{"id":"rubber-inserted","title":"STEEL-INSERTED RUBBER GASKETS","downloadTitle":"Rubber-Inserted Gaskets"},{"id":"graphite-inserted","title":"STEEL-INSERTED GRAPHITE GASKETS","downloadTitle":"Graphite-Inserted Gaskets"}],"productDetails":{"about-steel-inserted-gaskets":{"title":"STEEL-INSERTED GASKETS","image":"/images/product-detials-images/Gasketing-sheet-Planix-Megatherm.avif","downloadTitle":"Steel-Inserted Gaskets Catalog","sections":[{"heading":"STEEL-INSERTED GASKETS OVERVIEW","paragraphs":["Steel-Inserted Gaskets are reinforced composite sealing elements incorporating an internal metallic reinforcement core (perforated, tanged, or flat metal sheet) encapsulated within high-performance elastomeric or expanded graphite layers.","The internal steel core imparts high rigidity, blow-out resistance, and dimensional stability under pressure and thermal cycling, while the soft outer layers conform to mating flange faces."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Available Steel-Inserted Configurations:","bullets":["Steel-Inserted Rubber Gaskets (Lens-shaped elastomeric profile vulcanized over steel core for large-diameter pipelines)","Steel-Inserted Graphite Gaskets (Pure expanded graphite mechanically bonded to 316SS tanged core for steam & thermal fluids)"]}]},"rubber-inserted":{"title":"STEEL INSERT - RUBBER GASKETS","image":"/images/product-detials-images/Gasketing-sheet-Planix-Megatherm.avif","downloadTitle":"Rubber-Inserted Gaskets","sections":[{"heading":"STEEL INSERT - RUBBER GASKETS","paragraphs":["Rubber Gaskets combine a lens-shaped elastomeric sealing body with an internal steel reinforcement ring, creating a robust composite sealing element for demanding flange applications.","The rubber covering is firmly vulcanised to the steel insert, forming an integrated structure with high mechanical stability.","The steel insert improves blow-out resistance and dimensional stability under pressure.","The lens-shaped profile concentrates contact pressure at the sealing area, enhancing sealing performance.","The elastomer provides flexibility and surface conformity, helping accommodate minor flange irregularities.","The composite construction is suitable for applications requiring reliable sealing, mechanical strength and resistance to pressure loading. Rubber compound and steel grade can be selected according to the process medium, pressure, temperature and service environment."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"graphite-inserted":{"title":"STEEL INSERT - GRAPHITE GASKETS","image":"/images/product-detials-images/Graphite-Gasketing-Sheet.avif","downloadTitle":"Graphite-Inserted Gaskets","sections":[{"heading":"STEEL INSERT - GRAPHITE GASKETS","paragraphs":["Steel Insert Graphite Gaskets combine expanded flexible graphite with a metallic reinforcement core, providing a robust sealing element for demanding flange applications. The steel insert improves mechanical strength, rigidity and resistance to blowout, while the graphite conforms to mating surfaces to create an effective seal.","Expanded graphite conforms to mating surfaces and provides excellent sealing, thermal stability and chemical resistance.","The steel insert improves rigidity, dimensional stability and resistance to blowout during pressure and temperature cycling.","Suitable for high-pressure, high-temperature and thermal cycling applications. Offers excellent resistance to steam, hot water, gases and many process fluids.","Free from resins, impregnations, organic binders and fibre fillers.","Suitable for oil & gas, petrochemical, refining, chemical and power industries, where dependable sealing and long service life are required."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]}}},"plug-gaskets":{"parentCategoryTitle":"PRODUCTS","parentCategoryHref":"/products","subcategoryTitle":"Plug Gaskets","productsList":[{"id":"plug-gaskets","title":"PLUG GASKETS","downloadTitle":"Plug Gaskets Catalog"}],"productDetails":{"plug-gaskets":{"title":"PLUG GASKETS","image":"/images/product-detials-images/gaskets-product-detials-place-holder-img.png","downloadTitle":"Plug Gaskets Catalog","sections":[{"heading":"INDUSTRIAL EQUIPMENT & PIPING PLUG GASKETS","paragraphs":["Plug Gaskets are sealing elements designed to provide a reliable seal between a plug and its mating surface, preventing leakage of fluids or gases in industrial equipment and piping systems.","Provide secure sealing under varying pressure and temperature conditions.","Available in suitable metallic and non-metallic materials based on the application. Material selection can be matched to process media, chemical exposure and operating conditions.","Designed for simple installation and replacement, helping reduce maintenance downtime.","Suitable for applications requiring reliable containment and resistance to pressure fluctuations, temperature changes and corrosive environments.","Commonly used across oil & gas, petrochemical, chemical, refining and general process industries."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]}}},"flanges":{"parentCategoryTitle":"PRODUCTS","parentCategoryHref":"/products","subcategoryTitle":"Flanges","productsList":[{"id":"about-flanges","title":"ABOUT FLANGES","downloadTitle":"Flanges Catalog"},{"id":"weld-neck-flanges","title":"WELD NECK FLANGES","downloadTitle":"Weld Neck Flanges Catalog"},{"id":"slip-on-flanges","title":"SLIP-ON FLANGES","downloadTitle":"Slip-On Flanges Catalog"},{"id":"blind-flanges","title":"BLIND FLANGES","downloadTitle":"Blind Flanges Catalog"},{"id":"socket-weld-flanges","title":"SOCKET WELD FLANGES","downloadTitle":"Socket Weld Flanges Catalog"},{"id":"lap-joint-flanges","title":"LAP JOINT FLANGES","downloadTitle":"Lap Joint Flanges Catalog"},{"id":"threaded-screwed-flanges","title":"THREADED / SCREWED FLANGES","downloadTitle":"Threaded Flanges Catalog"},{"id":"orifice-flanges","title":"ORIFICE FLANGES","downloadTitle":"Orifice Flanges Catalog"},{"id":"custom-flanges","title":"CUSTOM FLANGES","downloadTitle":"Custom & Subsea Flanges Catalog"}],"productDetails":{"about-flanges":{"title":"TXCO INDUSTRIAL FLANGES","image":"/images/product-detials-images/flanges-1.avif","downloadTitle":"Flanges Catalog","sections":[{"heading":"TXCO INDUSTRIAL FLANGES","paragraphs":["Precision-engineered flange solutions for demanding industrial applications.","TXCO Sealing Products Private Limited is a manufacturer of industrial sealing products and precision-engineered components serving the oil & gas, petrochemical, refining, chemical, power and process industries.","TXCO manufactures and supplies industrial flanges in stainless steel, duplex, super duplex and nickel-based and special alloys, in accordance with applicable international standards, approved drawings and customer or project specifications.","TXCO operates under certified quality management systems and is committed to manufacturing in accordance with applicable ASME and API requirements. Our quality systems, manufacturing controls and inspection processes are aligned with the requirements of the relevant product and project specifications.","Our flange manufacturing focuses on dimensional accuracy, material integrity, controlled machining, traceability and dependable sealing performance. Our experience in industrial gaskets also gives us a practical understanding of the flange, gasket and bolting interface.","PRECISION ENGINEERED. STANDARDS DRIVEN. QUALITY CONTROLLED."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"WHAT IS A FLANGE?","paragraphs":["A flange is a mechanical component used to create a bolted, detachable connection between piping and equipment such as pipes, valves, pumps, pressure vessels, heat exchangers and other process equipment.","A typical flanged joint consists of a flange, gasket, bolting and mating flange. The flanges provide the mechanical connection and transmit the required bolt load, while the gasket is compressed between the mating faces to create a pressure-tight seal.","Reliable flange performance depends on material, dimensions, pressure class, facing, surface finish, bore and bolt-hole accuracy, RTJ groove geometry where applicable, gasket compatibility and operating conditions."]},{"heading":"FLANGE FACING TYPES","table":{"headers":["FACING TYPE","DESCRIPTION","APPLICATIONS"],"rows":[{"code":"Raised Face (RF)","figureType":"flange-wn-std","description":"Raised surface area concentrated on gasket contact; smooth or serrated finish.","thickness":"General industrial, process and chemical piping","reweld":"ASME B16.5 / B16.47","radial":"Smooth or spiral/concentric serrated finish"},{"code":"Flat Face (FF)","figureType":"flange-wn-large","description":"Full flat mating surface across entire flange face, used with full-face gaskets.","thickness":"Cast-iron equipment, FRP and low-pressure systems","reweld":"ASME B16.5","radial":"Prevents flange cracking under bolting load"},{"code":"Ring Type Joint (RTJ)","figureType":"flange-wn-api","description":"Machined metallic groove for metallic RTJ ring gaskets (R, RX, BX).","thickness":"High-pressure, high-temperature and subsea pipelines","reweld":"ASME B16.5 / API 6A","radial":"Class 300 to 2500 & API up to 20,000 psi"}],"footnote":"Supplied in full compliance with ASME B16.5, ASME B16.47, and API 6A specifications."}},{"heading":"STANDARDS WE FOLLOW","table":{"headers":["STANDARD CODE","ORGANIZATION / GOVERNING BODY","SCOPE & COVERAGE"],"rows":[{"code":"ASME B16.5","figureType":"flange-wn-std","description":"American Society of Mechanical Engineers","thickness":"Pipe Flanges and Flanged Fittings: NPS 1/2 through NPS 24 Metric/Inch Standard","reweld":"Class 150 - 2500","radial":"Global oil & gas standard"},{"code":"ASME B16.47","figureType":"flange-wn-large","description":"American Society of Mechanical Engineers","thickness":"Large Diameter Steel Flanges: NPS 26 through NPS 60 (Series A and Series B)","reweld":"Class 75 - 900","radial":"Pipelines and pressure vessels"},{"code":"ASME B16.48","figureType":"spec-fig8","description":"American Society of Mechanical Engineers","thickness":"Line Blanks (Spectacle Blinds, Spades, and Spacers)","reweld":"Class 150 - 2500","radial":"Piping positive isolation"},{"code":"API 6A","figureType":"flange-wn-api","description":"American Petroleum Institute","thickness":"Wellhead and Christmas Tree Equipment Flanges","reweld":"2,000 to 20,000 psi","radial":"Upstream oil & gas and subsea"},{"code":"MSS SP-44","figureType":"flange-wn-std","description":"Manufacturers Standardization Society","thickness":"Steel Pipeline Flanges","reweld":"Class 150 - 900","radial":"Cross-country transmission pipelines"},{"code":"EN Standards","figureType":"flange-wn-std","description":"European Standards (EN 1092-1)","thickness":"Flanges and their joints - Circular flanges for pipes, valves, fittings","reweld":"PN 2.5 to PN 400","radial":"European industrial piping"},{"code":"DIN Standards","figureType":"flange-wn-std","description":"Deutsches Institut für Normung","thickness":"German industrial flange standards (DIN 2631 to DIN 2638)","reweld":"PN 6 to PN 400","radial":"Process and chemical plants"},{"code":"JIS Standards","figureType":"flange-wn-std","description":"Japanese Industrial Standards","thickness":"Steel pipe flanges (JIS B2220)","reweld":"5K to 63K","radial":"Japanese & Asian equipment"},{"code":"BS Standards","figureType":"flange-wn-std","description":"British Standards Institution","thickness":"Flanges and bolting for pipes, valves, and fittings (BS 4504, BS 10)","reweld":"Table D - T / PN ratings","radial":"UK and Commonwealth systems"}],"footnote":"Flanges can also be manufactured according to other international standards and customer drawings."}},{"heading":"FLANGE MATERIALS","table":{"headers":["MATERIAL GROUP","TYPICAL GRADES & SPECIFICATIONS","COMMON SERVICE APPLICATIONS"],"rows":[{"code":"Austenitic Stainless Steel","figureType":"mat-ss316","description":"ASTM A182 F304/304L, F316/316L, F321, F347","thickness":"Corrosion resistance across general chemical, food, pharmaceutical and cryogenic service","reweld":"Cryogenic to +600°C","radial":"Broad chemical compatibility"},{"code":"High-Temperature Stainless","figureType":"mat-ss316","description":"ASTM A182 F310, F321H, F347H","thickness":"Elevated-temperature petrochemical, refining, furnace and thermal fluid applications","reweld":"Up to +800°C","radial":"High creep and oxidation resistance"},{"code":"Duplex Stainless Steel","figureType":"mat-duplex","description":"ASTM A182 F51 / UNS S31803 / S32205 (2205)","thickness":"High mechanical strength with resistance to stress corrosion cracking and pitting in chloride environments","reweld":"-50°C to +300°C","radial":"Offshore, marine and chemical"},{"code":"Super Duplex Stainless","figureType":"mat-sduplex","description":"ASTM A182 F53 / UNS S32750 (2507), F55 / UNS S32760","thickness":"Severe offshore, subsea, marine and high-chloride services requiring PREN ≥ 42","reweld":"-50°C to +300°C","radial":"High chloride and sour service"},{"code":"Nickel Alloys","figureType":"mat-inconel","description":"Inconel 600, 625, 718 / UNS N06600, N06625, N07718","thickness":"Demanding chemical, offshore, high-temperature, sour gas and severe-service applications","reweld":"-196°C to +980°C","radial":"Severe sour gas H2S and hot acids"},{"code":"Nickel-Iron-Chromium","figureType":"mat-incoloy","description":"Incoloy 800, 825 / UNS N08800, N08825","thickness":"High-temperature, oxidation, carburization and acid-corrosion environments","reweld":"-196°C to +540°C","radial":"Sulfuric and phosphoric acids"},{"code":"Nickel-Copper Alloys","figureType":"rtj-material","description":"Monel 400, K-500 / UNS N04400, N05500","thickness":"Marine environments, seawater systems, chemical processing and hydrofluoric acid service","reweld":"-196°C to +480°C","radial":"Hydrofluoric acid and marine"},{"code":"Special Alloys","figureType":"mat-hastelloy","description":"Hastelloy C-276, Alloy 20, Titanium Gr. 2 / UNS N10276, N08020, R50400","thickness":"Severe chemical, oxidizing acids, bleaching, wet chlorine and aggressive process conditions","reweld":"Application specific","radial":"Severe acids and wet chlorine"}],"footnote":"Materials supplied with full traceability, Positive Material Identification (PMI), and EN 10204 3.1 Mill Test Certificates."}}]},"weld-neck-flanges":{"title":"WELD NECK FLANGES","image":"/images/product-detials-images/flanges-1.avif","downloadTitle":"Weld Neck Flanges Catalog","sections":[{"heading":"WELD NECK FLANGES — HIGH-INTEGRITY FLANGES FOR CRITICAL SERVICE","paragraphs":["Weld Neck Flanges have a long, tapered hub and are connected to the pipe by butt welding. The tapered hub provides a gradual transition between the flange and pipe and helps distribute stresses at the flange-to-pipe connection.","The bore can be matched to the pipe bore to maintain a smooth flow path and reduce turbulence and localized erosion."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Typical Applications:","bullets":["Oil & gas","Refineries and petrochemical plants","Chemical processing","Power generation","Pressure vessels and heat exchangers","High-pressure and high-temperature piping"]}]},"slip-on-flanges":{"title":"SLIP-ON FLANGES","image":"/images/product-detials-images/flanges-2.avif","downloadTitle":"Slip-On Flanges Catalog","sections":[{"heading":"SLIP-ON FLANGES — PRACTICAL FLANGE CONNECTIONS FOR INDUSTRIAL PIPING","paragraphs":["Slip-On Flanges fit over the outside diameter of the pipe and are normally welded internally and externally. They offer a practical and economical connection where the service conditions permit their use. They are commonly selected for general industrial and utility piping."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Typical Applications:","bullets":["Process piping","Utility systems","General industrial piping","Equipment connections","Water and utility services"]}]},"blind-flanges":{"title":"BLIND FLANGES","image":"/images/product-detials-images/flanges-product-detials-place-holder-img.png","downloadTitle":"Blind Flanges Catalog","sections":[{"heading":"BLIND FLANGES — POSITIVE CLOSURE AND MECHANICAL ISOLATION","paragraphs":["A Blind Flange is a solid flange with bolt holes but no central bore. It is used to close the end of a piping system, valve, pressure vessel or equipment nozzle. Blind flanges provide positive isolation and allow a connection to be reopened for inspection, maintenance, testing or future expansion."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Typical Applications:","bullets":["Pipeline isolation","Pressure vessel nozzles","Equipment connections","Hydrostatic testing","Maintenance and shutdowns","Pipeline termination"]}]},"socket-weld-flanges":{"title":"SOCKET WELD FLANGES","image":"/images/product-detials-images/flanges-product-detials-place-holder-img.png","downloadTitle":"Socket Weld Flanges Catalog","sections":[{"heading":"SOCKET WELD FLANGES — COMPACT FLANGES FOR SMALL-BORE PIPING","paragraphs":["Socket Weld Flanges have a machined socket into which the pipe is inserted before welding. They are primarily used for smaller-diameter piping and are suitable for selected high-pressure applications within the applicable design rating."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Typical Applications:","bullets":["Small-bore piping","High-pressure piping","Instrumentation systems","Chemical processing","Hydraulic systems","Process piping"]}]},"lap-joint-flanges":{"title":"LAP JOINT FLANGES","image":"/images/product-detials-images/flanges-product-detials-place-holder-img.png","downloadTitle":"Lap Joint Flanges Catalog","sections":[{"heading":"LAP JOINT FLANGES — FLEXIBLE ALIGNMENT FOR MAINTENANCE-INTENSIVE SYSTEMS","paragraphs":["Lap Joint Flanges are used with a compatible Stub End. The pipe is welded to the stub end while the flange remains free to rotate around it, allowing convenient bolt-hole alignment during assembly. This configuration is useful where frequent dismantling or maintenance is required."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Typical Applications:","bullets":["Chemical processing","Corrosive services","Stainless-steel piping","Duplex and special-alloy piping","Process plants","Maintenance-intensive systems"]}]},"threaded-screwed-flanges":{"title":"THREADED (SCREWED) FLANGES","image":"/images/product-detials-images/flanges-product-detials-place-holder-img.png","downloadTitle":"Threaded Flanges Catalog","sections":[{"heading":"THREADED (SCREWED) FLANGES — FLANGED CONNECTIONS WITHOUT WELDING","paragraphs":["Threaded Flanges, also known as Screwed Flanges, have internal threads that engage with the external threads of the pipe. They can be installed without flange-to-pipe welding and are used for selected applications where welding is impractical, undesirable or restricted. They are generally considered for selected low-pressure or utility services, subject to design requirements."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Typical Applications:","bullets":["Utility systems","Instrumentation","Small-diameter piping","Selected process applications","Applications where welding is restricted"]}]},"orifice-flanges":{"title":"ORIFICE FLANGES","image":"/images/product-detials-images/flanges-product-detials-place-holder-img.png","downloadTitle":"Orifice Flanges Catalog","sections":[{"heading":"ORIFICE FLANGES — PRECISION FLANGES FOR FLOW MEASUREMENT","paragraphs":["Orifice Flanges are specialized flange assemblies used in differential-pressure flow measurement. They incorporate provisions for pressure tapping on either side of an orifice plate. The pressure differential across the orifice is used to determine the process-fluid flow rate."],"showAssemblyDiagram":true,"diagramType":"weld-lip","bulletsIntro":"Typical Applications:","bullets":["Oil & gas","Refineries","Petrochemical plants","Chemical processing","Process plants","Flow measurement systems"]}]},"custom-flanges":{"title":"CUSTOM FLANGES","image":"/images/product-detials-images/flanges-product-detials-place-holder-img.png","downloadTitle":"Custom Flanges Catalog","sections":[{"heading":"ENGINEERED & CUSTOM FLANGES","paragraphs":["TXCO manufactures custom-made flanges to customer drawings and project-specific requirements where standard configurations do not meet the application.","Custom flange solutions can be developed for special dimensions, bore configurations, bolt patterns, thicknesses, facings, RTJ grooves, reducing arrangements, internal bevels and specified stainless, duplex, super duplex or nickel-based alloys.","Each custom requirement is reviewed against the approved drawing, applicable ASME/API or other governing standard, material specification and inspection requirements before manufacture."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]}}},"monolithic-insulation-joints":{"parentCategoryTitle":"PRODUCTS","parentCategoryHref":"/products","subcategoryTitle":"Monolithic Insulation Joints","productsList":[{"id":"monolithic-insulation-joints","title":"MONOLITHIC INSULATION JOINTS","downloadTitle":"Monolithic Joints Catalog"}],"productDetails":{"monolithic-insulation-joints":{"title":"MONOLITHIC INSULATION JOINTS","image":"/images/product-detials-images/flanges-product-detials-place-holder-img.png","downloadTitle":"Monolithic Insulation Joints Catalog","sections":[{"heading":"MONOLITHIC INSULATION JOINTS","paragraphs":["Monolithic Insulation Joints are pre-fabricated, fully welded, boltless isolating fittings designed to provide electrical isolation between sections of buried, aboveground and submerged pipelines. They prevent the flow of unwanted electrical currents and protect cathodic protection (CP) systems from interference and current loss.","At TXCO Sealing Products Private Limited, monolithic insulation joints are manufactured and tested in accordance with international pipeline standards to ensure dielectric integrity, pressure containment and mechanical strength."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"KEY FEATURES","bullets":["Pre-assembled, factory-tested and ready for direct welding into the pipeline.","Provides reliable electrical isolation to maintain cathodic protection efficiency.","High mechanical strength to withstand external bending moments, axial loads and internal pressures.","Eliminates the need for ongoing maintenance, bolt tightening or field insulation kits.","Available in sizes from 1/2\" up to 60\" and pressure ratings from Class 150 to Class 2500.","Suitable for oil, gas, water, petrochemical and offshore pipeline systems."]}]}}},"valve-components":{"parentCategoryTitle":"PRODUCTS","parentCategoryHref":"/products","subcategoryTitle":"Valve Components","productsList":[{"id":"about-valve-components","title":"ABOUT VALVE COMPONENTS","downloadTitle":"Valve Components Catalog"},{"id":"precision-o-rings","title":"PRECISION O-RINGS","downloadTitle":"Precision O-Rings Catalog"},{"id":"valve-packing","title":"LOW-EMISSION GLAND PACKING","downloadTitle":"Gland Packing Catalog"},{"id":"valve-seats-inserts","title":"VALVE SEATS & INSERTS","downloadTitle":"Valve Seats Catalog"}],"productDetails":{"about-valve-components":{"title":"VALVE COMPONENTS","image":"/images/product-detials-images/Ball-for-Ball-Valve.avif","downloadTitle":"Valve Components Catalog","sections":[{"heading":"VALVE COMPONENTS","paragraphs":["Valve components are engineered internal and body parts designed to control, direct and regulate the flow of fluids within piping and process systems. They are manufactured to maintain dimensional accuracy, pressure containment and reliable operation across a wide range of industrial applications.","At TXCO Sealing Products Private Limited, valve components are manufactured from quality materials selected to withstand operating pressure, temperature fluctuations, mechanical wear and corrosive service environments."],"showAssemblyDiagram":true,"diagramType":"weld-lip"},{"heading":"TYPES OF VALVE COMPONENTS","bullets":["Precision O-Rings: Precision-moulded elastomeric sealing rings providing reliable static and dynamic sealing in valve stems, bodies and actuators.","Low-Emission Gland Packing: Engineered braided packing sets designed to minimize fugitive VOC emissions and provide reliable stem sealing in high-pressure and high-temperature valves.","Valve Seats & Inserts: Precision-machined thermoplastic and metallic valve seats ensuring bubble-tight shut-off and wear resistance in ball, gate and globe valves."]},{"heading":"COMPONENT SPECIFICATIONS & PERFORMANCE MATRIX","table":{"headers":["COMPONENT","PRIMARY MATERIALS","TEMPERATURE RANGE","PRESSURE RATING","KEY STANDARDS"],"rows":[{"code":"Precision O-Rings","description":"FFKM, FKM, HNBR, EPDM","thickness":"-50°C to +315°C","reweld":"Up to 10,000 PSI","radial":"NORSOK M-710, ISO 23936-2"},{"code":"Gland Packing","description":"ePTFE, Graphite, Inconel Wire","thickness":"-200°C to +650°C","reweld":"Class 150–2500","radial":"API 622, ISO 15848-1, TA-Luft"},{"code":"Seat Rings & Inserts","description":"PEEK, PCTFE, Devlon V, PTFE","thickness":"-196°C to +260°C","reweld":"Class 150–2500","radial":"API 6D, ASME B16.34"}]}}]},"precision-o-rings":{"title":"PRECISION O-RINGS","image":"/images/product-detials-images/O-Ring-for-Ball-Valve.avif","downloadTitle":"Precision O-Rings Catalog","sections":[{"heading":"PRECISION O-RINGS","paragraphs":["Precision-moulded elastomeric sealing rings providing reliable static and dynamic sealing in valve stems, bodies and actuators.","TXCO precision O-rings are engineered to withstand extreme pressures and prevent rapid gas decompression in harsh operating environments."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"valve-packing":{"title":"LOW-EMISSION GLAND PACKING","image":"/images/product-detials-images/Ball-for-Ball-Valve.avif","downloadTitle":"Gland Packing Catalog","sections":[{"heading":"LOW-EMISSION GLAND PACKING","paragraphs":["Engineered braided packing sets designed to minimize fugitive VOC emissions and provide reliable stem sealing in high-pressure and high-temperature valves."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]},"valve-seats-inserts":{"title":"VALVE SEATS & INSERTS","image":"/images/product-detials-images/Seat-Insert-for-Ball-Valve.avif","downloadTitle":"Valve Seats Catalog","sections":[{"heading":"VALVE SEATS & INSERTS","paragraphs":["Precision-machined thermoplastic and metallic valve seats ensuring bubble-tight shut-off and wear resistance in ball, gate and globe valves."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]}}},"commercial-products":{"parentCategoryTitle":"PRODUCTS","parentCategoryHref":"/products","subcategoryTitle":"Commercial Products","productsList":[{"id":"commercial-products-item","title":"COMMERCIAL PRODUCTS","downloadTitle":"Commercial Products Catalog"}],"productDetails":{"commercial-products-item":{"title":"COMMERCIAL PRODUCTS","image":"/images/product-detials-images/Expanding-Gates-and-Through-Conduit-Gates.avif","downloadTitle":"Commercial Products Catalog","sections":[{"heading":"COMMERCIAL SUPPLY & INDUSTRIAL BOLTING","paragraphs":["TXCO supplies standardized commercial pipeline hardware, heavy hex stud bolts, nuts, and pipeline accessories compliant with ASTM A193, ASTM A194, and international fastener specifications."],"showAssemblyDiagram":true,"diagramType":"weld-lip"}]}}}};
+    const PDF_OVERVIEW = [{"category":"1. Metallic Gaskets","pdfPage":"Page 1","description":"Precision CNC-machined solid metal and specialty profile gaskets for high-pressure API 6A/17D and ASME flanges.","items":[{"no":1,"product":"Ring Type Joint (RTJ) Gaskets","types":"R – Oval, R – Octagonal, RX, BX, SBX, SRX"},{"no":2,"product":"Rubber-Coated RTJ Gaskets","types":"Soft Iron / Low Carbon Steel with Nitrile (NBR) Coating"},{"no":3,"product":"PTFE-Insert RTJ Gaskets","types":"PTFE-Inserts for R & RX Profiles with Radial Pressure Holes"},{"no":4,"product":"Protective-Coated RTJ Gaskets","types":"Zinc, Nickel, Silver Electroplated & Fluoropolymer Plated"},{"no":5,"product":"Bonnet Rings","types":"Oval, Octagonal, Flat & Triangular Pressure Seals"},{"no":6,"product":"Lens Rings","types":"DIN 2696 Spherical Convex-to-Concave High Pressure Seals"},{"no":7,"product":"Blind Gaskets","types":"Solid Metallic Blanks & Paddle Spades (ASME B16.48)"},{"no":8,"product":"VX–AX Gaskets","types":"VX Pressure-Energized, AX Insulated (API 16A / 17D)"},{"no":9,"product":"IX Gaskets","types":"IX 15 to IX 1200 (NORSOK L-005) with PTFE/XYLAN/Silver"},{"no":10,"product":"Delta Gaskets","types":"API 17D Subsea Pressure-Energized Delta Profile"},{"no":11,"product":"Bridgeman Gaskets","types":"Unsupported Area High-Pressure Autoclave Closures"},{"no":12,"product":"Spectacle Blind Gaskets","types":"Figure-8 Blinds, Paddle Blanks & Spacers (ASME B16.48)"},{"no":13,"product":"Transition RTJ Gaskets","types":"Combination Rings with Dual Pitch / Groove Profiles"},{"no":14,"product":"Soft-Material-Serrated RTJ Gaskets","types":"Serrated Metal Core with Graphite / PTFE Facing"},{"no":15,"product":"Weld-Lip Seals","types":"Membrane (DIN 2695), Profiled Lip, Hollow-Lip Seals"}]},{"category":"2. Semi-Metallic Gaskets","pdfPage":"Page 2","description":"Composite sealing elements combining metal mechanical strength with compressible soft filler materials.","items":[{"no":1,"product":"Spiral Wound Gaskets","types":"Style R, Style RIR, Style CG, Style CGI, Style CGI with Bolt Holes Full-Face"},{"no":2,"product":"Kammprofile Gaskets","types":"Type Z, Type ZA, Type ZI"},{"no":3,"product":"Metal Jacketed Gaskets","types":"Corrugated Metal Jacketed, Flat Metal Jacketed, Double Jacketed, Heat Exchanger"},{"no":4,"product":"Flange Isolation Kits","types":"TX-ISOPRO™, TX-CERAMPRO™, TX Type D, TX TYPE -N"}]},{"category":"3. Non-Metallic Gaskets","pdfPage":"Page 2","description":"Elastomeric, fluoropolymer, and CNAF compressed sheets designed for universal chemical resistance and utility service.","items":[{"no":1,"product":"Rubber Gaskets","types":"Neoprene, Nitrile (NBR), EPDM, Silicone, Viton® (FKM), Natural Rubber, SBR, Butyl"},{"no":2,"product":"PTFE Gaskets","types":"Virgin PTFE, Expanded PTFE, Modified PTFE, Filled PTFE, PTFE Envelope, PTFE Ring, PTFE Full-Face, PTFE Envelope with Insert"},{"no":3,"product":"ePTFE Gaskets","types":"Expanded PTFE – Sheet, Joint Sealant, Cut Gaskets, Custom Profiles"},{"no":4,"product":"Asbestos free Gaskets","types":"TXCO AF-110, TXCO AF-120, TXCO AF-139, TXCO AF-154, TXCO AF-155 GF, TXCO AF-159, TXCO AF-160, TXCO AF-170, TXCO AF-190"},{"no":5,"product":"Compressed Non Asbestos","types":"TXCO Style 11, TXCO Style 20, TXCO Style 39, TXCO Style 51, TXCO Style 54, TXCO Style 55, TXCO Style 59 Oil, TXCO Style 60 Acid"}]},{"category":"4. Steel-Inserted Gaskets","pdfPage":"Page 3","description":"Reinforced composite gaskets containing internal metallic cores for enhanced blowout resistance and stiffness.","items":[{"no":1,"product":"Steel-Inserted Gaskets","types":"Rubber, Graphite"}]},{"category":"5. Plug Gaskets","pdfPage":"Page 3","description":"Specialized metallic and non-metallic sealing elements engineered to seal industrial equipment and piping plugs.","items":[{"no":1,"product":"Equipment Plug Gaskets","types":"Metallic and Non-Metallic Sealing Elements"}]},{"category":"6. Flanges","pdfPage":"Page 3","description":"Forged and precision-machined connection flanges for all standard piping classes.","items":[{"no":1,"product":"Weld Neck Flanges","types":"Class 150 to 2500, Standard & Custom Hubs"},{"no":2,"product":"Slip-On Flanges","types":"Class 150 to 1500, Plain & Raised Face"},{"no":3,"product":"Blind Flanges","types":"Class 150 to 2500, Solid Forged Closures"},{"no":4,"product":"Socket Weld Flanges","types":"High Pressure Small Bore Piping"},{"no":5,"product":"Lap Joint Flanges","types":"For use with Stub End Pipe Fittings"},{"no":6,"product":"Threaded (Screwed) Flanges","types":"NPT, BSPT Threaded Flanged Connections"},{"no":7,"product":"Orifice Flanges","types":"With Tapped Pressure Differential Metering Ports"},{"no":8,"product":"Custom Flanges","types":"Manufactured as per customer drawings, specifications and application requirements"}]},{"category":"7. Monolithic Insulation Joints","pdfPage":"Page 3","description":"Solid-state, fully welded structural forgings for permanent Cathodic Protection (CP) isolation in buried and aboveground pipelines.","items":[{"no":1,"product":"Monolithic Insulation Joints","types":"Fully Welded Boltless CP Isolating Joints (NPS 1/2\" to 60\", Class 150 to 2500)"}]},{"category":"8. Valve Components","pdfPage":"Page 3","description":"Engineered valve trims, compression packings, bonnet gaskets, and high-integrity sealing components for flow control.","items":[{"no":1,"product":"Valve Sealing Trims","types":"Precision O-Rings, Low-Emission Gland Packing, Valve Seats & Inserts"}]},{"category":"9. Commercial Products","pdfPage":"Page 3","description":"Complete commercial supply range including ASTM heavy hex stud bolts, nuts, flange protectors, and pipeline consumables.","items":[{"no":1,"product":"Commercial Supply & Hardware","types":"Industrial Bolting, Heavy Hex Studs, Nuts & Pipeline Hardware"}]}];
+
+    let currentCategoryKey = 'metallic-gaskets';
+    let currentProductId = '';
+    let currentViewMode = 'detailed'; // 'detailed' | 'matrix'
+
+    // Point splitting helper
+    function splitPointItem(item) {
+      if (typeof item !== 'string') return { title: '', desc: item };
+      const text = item.trim();
+
+      const colonIdx = text.indexOf(':');
+      if (colonIdx > 0 && colonIdx <= 65) {
+        return {
+          title: text.substring(0, colonIdx).trim(),
+          desc: text.substring(colonIdx + 1).trim(),
+        };
+      }
+
+      const dashMatch = text.match(/^([^\n—–]{3,55})\s+[—–]\s+(.*)$/);
+      if (dashMatch) {
+        return {
+          title: dashMatch[1].trim(),
+          desc: dashMatch[2].trim(),
+        };
+      }
+
+      const keywords = [
+        ' designed for ', ' consist of ', ' consists of ', ' engineered for ',
+        ' suitable for ', ' provides ', ' commonly used in ', ' commonly used ',
+        ' manufactured from ', ' features '
+      ];
+
+      for (const kw of keywords) {
+        const kwIdx = text.indexOf(kw);
+        if (kwIdx >= 15 && kwIdx <= 65) {
+          const isActionVerb = kw.includes('designed') || kw.includes('engineered') || kw.includes('manufactured');
+          if (isActionVerb) {
+            return {
+              title: text.substring(0, kwIdx).trim(),
+              desc: (text.substring(kwIdx + 1).charAt(0).toUpperCase() + text.substring(kwIdx + 2)).trim(),
+            };
+          } else {
+            return {
+              title: (text.substring(0, kwIdx) + kw).trim(),
+              desc: text.substring(kwIdx + kw.length).trim(),
+            };
+          }
+        }
+      }
+
+      const commaIdx = text.indexOf(',');
+      if (commaIdx >= 18 && commaIdx <= 55) {
+        return {
+          title: text.substring(0, commaIdx).trim(),
+          desc: text.substring(commaIdx + 1).trim(),
+        };
+      }
+
+      if (text.length <= 55) {
+        return { title: text, desc: '' };
+      }
+
+      const words = text.split(' ');
+      if (words.length > 6) {
+        return {
+          title: words.slice(0, 5).join(' '),
+          desc: words.slice(5).join(' '),
+        };
+      }
+
+      return { title: text, desc: '' };
+    }
+
+    function init() {
+      renderCategoryTabs();
+      selectCategory('metallic-gaskets');
+    }
+
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      document.getElementById('btnDetailedView').classList.toggle('active', mode === 'detailed');
+      document.getElementById('btnMatrixView').classList.toggle('active', mode === 'matrix');
+      document.getElementById('sidebarContainer').style.display = mode === 'detailed' ? 'block' : 'none';
+      document.querySelector('.app-layout').style.gridTemplateColumns = mode === 'detailed' ? '310px minmax(0, 1fr)' : '1fr';
+
+      if (mode === 'detailed') {
+        renderProductContent();
+      } else {
+        renderMatrixView();
+      }
+    }
+
+    function renderCategoryTabs() {
+      const tabsContainer = document.getElementById('categoryTabs');
+      const catKeys = Object.keys(CATALOG_DATA);
+
+      tabsContainer.innerHTML = catKeys.map(key => {
+        const cat = CATALOG_DATA[key];
+        const isActive = key === currentCategoryKey;
+        return `<button class="cat-tab ${isActive ? 'active' : ''}" onclick="selectCategory('${key}')">${cat.subcategoryTitle}</button>`;
+      }).join('');
+    }
+
+    function selectCategory(key) {
+      currentCategoryKey = key;
+      renderCategoryTabs();
+
+      const cat = CATALOG_DATA[key];
+      const navList = document.getElementById('productsListNav');
+      const sidebarTitle = document.getElementById('sidebarTitle');
+
+      sidebarTitle.textContent = cat.subcategoryTitle;
+
+      if (cat.productsList && cat.productsList.length > 0) {
+        currentProductId = cat.productsList[0].id;
+        navList.innerHTML = cat.productsList.map(p => {
+          const isActive = p.id === currentProductId;
+          return `
+            <li>
+              <button class="product-nav-btn ${isActive ? 'active' : ''}" onclick="selectProduct('${p.id}')">
+                <span>${p.title}</span>
+              </button>
+            </li>
+          `;
+        }).join('');
+      }
+
+      if (currentViewMode === 'detailed') {
+        renderProductContent();
+      } else {
+        renderMatrixView();
+      }
+    }
+
+    function selectProduct(id) {
+      currentProductId = id;
+      const cat = CATALOG_DATA[currentCategoryKey];
+      const navList = document.getElementById('productsListNav');
+
+      navList.innerHTML = cat.productsList.map(p => {
+        const isActive = p.id === currentProductId;
+        return `
+          <li>
+            <button class="product-nav-btn ${isActive ? 'active' : ''}" onclick="selectProduct('${p.id}')">
+              <span>${p.title}</span>
+            </button>
+          </li>
+        `;
+      }).join('');
+
+      renderProductContent();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderProductContent() {
+      const cat = CATALOG_DATA[currentCategoryKey];
+      const product = cat.productDetails[currentProductId] || Object.values(cat.productDetails)[0];
+      const main = document.getElementById('mainContent');
+
+      if (!product) {
+        main.innerHTML = '<p>No details found.</p>';
+        return;
+      }
+
+      let html = '';
+
+      // Breadcrumbs
+      html += `
+        <div class="content-breadcrumbs">
+          <span>${cat.parentCategoryTitle || 'PRODUCTS'}</span>
+          <span>/</span>
+          <span>${cat.subcategoryTitle}</span>
+          <span>/</span>
+          <span style="color: var(--accent-green);">${product.title}</span>
+        </div>
+      `;
+
+      // Hero Banner
+      const bgImg = product.bannerImage || '/images/product-detials-images/product-details-page-banner.avif';
+      html += `
+        <div class="hero-banner" style="background-image: url('${bgImg}');">
+          <h1 class="hero-title">${product.title}</h1>
+        </div>
+      `;
+
+      // Sections
+      if (product.sections && product.sections.length > 0) {
+        product.sections.forEach(sec => {
+          html += `<div class="section-block">`;
+
+          // Header
+          if (sec.heading) {
+            html += `
+              <div class="section-header">
+                <h2 class="section-title">${sec.heading}</h2>
+              </div>
+            `;
+          }
+
+          // Paragraphs
+          if (sec.paragraphs) {
+            sec.paragraphs.forEach(p => {
+              html += `<p class="section-p">${p}</p>`;
+            });
+          }
+
+          // Bullets / Points Grid
+          if (sec.bullets && sec.bullets.length > 0) {
+            if (sec.bulletsIntro) {
+              html += `<p style="font-weight: 600; color: #1e293b;">${sec.bulletsIntro}</p>`;
+            }
+            html += `<div class="points-grid">`;
+            sec.bullets.forEach(b => {
+              const { title, desc } = splitPointItem(b);
+              html += `
+                <div class="point-card">
+                  ${title ? `<h5 class="point-title">${title}</h5>` : ''}
+                  ${desc ? `<p class="point-desc">${desc}</p>` : ''}
+                </div>
+              `;
+            });
+            html += `</div>`;
+          }
+
+          // Table
+          if (sec.table) {
+            html += `
+              <div class="table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      ${sec.table.headers.map(th => `<th>${th}</th>`).join('')}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${sec.table.rows.map(row => {
+                      if (Array.isArray(row.cells)) {
+                        return `<tr>${row.cells.map((cell, idx) => `<td class="${idx === 0 ? 'table-first-col' : ''}">${cell}</td>`).join('')}</tr>`;
+                      }
+                      return `
+                        <tr>
+                          <td>${row.code || '—'}</td>
+                          ${row.description !== undefined ? `<td>${row.description}</td>` : ''}
+                          ${row.thickness !== undefined ? `<td>${row.thickness}</td>` : ''}
+                          ${row.reweld !== undefined ? `<td>${row.reweld}</td>` : ''}
+                          ${row.radial !== undefined ? `<td>${row.radial}</td>` : ''}
+                        </tr>
+                      `;
+                    }).join('')}
+                  </tbody>
+                </table>
+              </div>
+              ${sec.table.footnote ? `<p class="table-footnote">${sec.table.footnote}</p>` : ''}
+            `;
+          }
+
+          html += `</div>`;
+        });
+      }
+
+      main.innerHTML = html;
+    }
+
+    function renderMatrixView() {
+      const main = document.getElementById('mainContent');
+      let html = `
+        <div style="margin-bottom: 2rem;">
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 0.5rem;">
+            PART I & II: TXCO Product Range & Types Architecture (PDF Master Reference)
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Complete verbatim product range, variants, and engineering specifications extracted directly from Pages 1 to 3 of the technical specification document.
+          </p>
+        </div>
+      `;
+
+      PDF_OVERVIEW.forEach(cat => {
+        html += `
+          <div class="matrix-section">
+            <div class="matrix-header">
+              <h3 class="matrix-title">${cat.category}</h3>
+              <span class="matrix-page-tag">PDF ${cat.pdfPage}</span>
+            </div>
+            <p class="matrix-desc">${cat.description}</p>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th style="width: 70px;">S. No.</th>
+                    <th style="width: 320px;">Product Name</th>
+                    <th>Types / Variants / Materials (Verbatim from PDF)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${cat.items.map(item => `
+                    <tr>
+                      <td style="font-weight: 700; color: var(--text-muted);">${item.no}</td>
+                      <td style="font-weight: 700; color: var(--primary-navy);">${item.product}</td>
+                      <td><span style="background: #f1f5f9; padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 500; color: #334155;">${item.types}</span></td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `;
+      });
+
+      main.innerHTML = html;
+    }
+
+    function handleSearch(query) {
+      if (!query || query.trim() === '') {
+        if (currentViewMode === 'detailed') renderProductContent();
+        else renderMatrixView();
+        return;
+      }
+
+      const q = query.toLowerCase().trim();
+      const main = document.getElementById('mainContent');
+      let resultsHtml = `<div style="margin-bottom: 1.5rem;"><h2 style="font-size: 1.4rem; color: var(--primary-navy);">Search Results for "${query}"</h2></div>`;
+      let matches = 0;
+
+      Object.keys(CATALOG_DATA).forEach(catKey => {
+        const cat = CATALOG_DATA[catKey];
+        Object.keys(cat.productDetails).forEach(prodKey => {
+          const prod = cat.productDetails[prodKey];
+          const textToSearch = JSON.stringify(prod).toLowerCase();
+
+          if (textToSearch.includes(q)) {
+            matches++;
+            resultsHtml += `
+              <div class="matrix-section" style="cursor: pointer;" onclick="currentCategoryKey='${catKey}'; selectProduct('${prodKey}'); setViewMode('detailed');">
+                <div class="matrix-header">
+                  <h3 class="matrix-title">${prod.title}</h3>
+                  <span class="matrix-page-tag">${cat.subcategoryTitle}</span>
+                </div>
+                <p style="font-size: 0.88rem; color: #64748b;">Click to open full product specification sheet</p>
+              </div>
+            `;
+          }
+        });
+      });
+
+      if (matches === 0) {
+        resultsHtml += '<p style="color: var(--text-muted); padding: 2rem; text-align: center;">No matching products found.</p>';
+      }
+
+      main.innerHTML = resultsHtml;
+    }
+
+    // Launch
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

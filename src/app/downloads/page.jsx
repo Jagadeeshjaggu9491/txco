@@ -1,1 +1,5 @@
-export { default } from '../catalogues/page';
+import { redirect } from 'next/navigation';
+
+export default function DownloadsRedirectPage() {
+  redirect('/catalogues');
+}
