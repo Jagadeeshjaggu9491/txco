@@ -147,7 +147,7 @@ export const subcategoryDetailCatalog = {
 
       'rubber-coated-rtj': {
         title: 'RUBBER-COATED RING TYPE JOINTS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        image: '/images/products/rubber-coated-rtj-gaskets.png',
         bannerImage: '/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif',
         downloadTitle: 'Rubber-Coated RTJ Catalog',
         sections: [
@@ -169,7 +169,7 @@ export const subcategoryDetailCatalog = {
 
       'ptfe-insert-rtj': {
         title: 'PTFE-INSERT RING TYPE JOINT GASKETS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        image: '/images/products/ptfe-insert-rtj-gaskets.png',
         bannerImage: '/images/product-detials-images/PTFE-Insert-RTJ-Gaskets-banner-image.avif',
         downloadTitle: 'PTFE-Insert RTJ Catalog',
         sections: [
@@ -192,7 +192,7 @@ export const subcategoryDetailCatalog = {
 
       'protective-coated-rtj': {
         title: 'PROTECTIVE COATINGS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        image: '/images/products/protective-coated-rtj-gaskets.png',
         bannerImage: '/images/product-detials-images/Protective-Coated-RTJ-Gaskets-banner-image.avif',
         downloadTitle: 'Protective-Coated RTJ Catalog',
         sections: [
@@ -237,7 +237,7 @@ export const subcategoryDetailCatalog = {
 
       'lens-rings': {
         title: 'LENS GASKETS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        image: '/images/products/lens-rings-din-2696.png',
         bannerImage: '/images/product-detials-images/Lens-Rings-banner-image.avif',
         downloadTitle: 'Lens Rings Catalog',
         sections: [
@@ -261,7 +261,7 @@ export const subcategoryDetailCatalog = {
 
       'blind-gaskets': {
         title: 'BLIND FLANGE METALLIC GASKETS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        image: '/images/products/blind-rtj-gaskets.png',
         bannerImage: '/images/product-detials-images/Blind-RTJ-Gaskets-banner-img.avif',
         downloadTitle: 'Blind Gaskets Catalog',
         sections: [
@@ -375,7 +375,7 @@ export const subcategoryDetailCatalog = {
 
       'spectacle-blind-gaskets': {
         title: 'SPECTACLE BLINDS',
-        image: '/images/product-detials-images/Special-Metal-Gaskets.avif',
+        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
         bannerImage: '/images/product-detials-images/Blind-RTJ-Gaskets-banner-img.avif',
         downloadTitle: 'Spectacle Blinds & Spades Catalog',
         sections: [
@@ -422,7 +422,7 @@ export const subcategoryDetailCatalog = {
 
       'soft-material-seated-rtj': {
         title: 'SOFT MATERIAL SERRATED RTJ GASKETS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        image: '/images/products/soft-material-serrated-rtj-gaskets.png',
         bannerImage: '/images/product-detials-images/Soft_Material_Serrated_RTJ_Gaskets_Banner-image.avif',
         downloadTitle: 'Soft-Material-Seated RTJ Catalog',
         sections: [

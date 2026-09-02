@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
@@ -8,6 +8,12 @@ import PageHero from '@/components/PageHero';
 import { careersPageData } from '@/data/careersData';
 import '@/styles/careers.css';
 import { ArrowRight, Check, X, Briefcase, Mail } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function CareersPage() {
   const { hero, card, benefits } = careersPageData;
@@ -22,6 +28,154 @@ export default function CareersPage() {
     experience: '',
     message: '',
   });
+
+  // Animation Refs
+  const pageContainerRef = useRef(null);
+  const cardRef = useRef(null);
+  const cardTopBarRef = useRef(null);
+  const leftHeadingRef = useRef(null);
+  const leftImageRef = useRef(null);
+  const leftTaglineRef = useRef(null);
+  const jobsRef = useRef([]);
+  const contactNoteRef = useRef(null);
+  const benefitsSectionRef = useRef(null);
+  const benefitsHeadingRef = useRef(null);
+  const benefitCardsRef = useRef([]);
+
+  jobsRef.current = [];
+  benefitCardsRef.current = [];
+
+  const addToJobsRef = (el) => {
+    if (el && !jobsRef.current.includes(el)) {
+      jobsRef.current.push(el);
+    }
+  };
+
+  const addToBenefitCardsRef = (el) => {
+    if (el && !benefitCardsRef.current.includes(el)) {
+      benefitCardsRef.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    if (!pageContainerRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // 1. Main Careers Card Reveal
+      if (cardRef.current) {
+        const cardTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: cardRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+
+        cardTl.fromTo(
+          cardRef.current,
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.85, ease: 'power3.out' }
+        );
+
+        if (cardTopBarRef.current) {
+          cardTl.fromTo(
+            cardTopBarRef.current,
+            { width: 0, opacity: 0 },
+            { width: 220, opacity: 1, duration: 0.7, ease: 'power3.out' },
+            '-=0.5'
+          );
+        }
+
+        if (leftHeadingRef.current) {
+          cardTl.fromTo(
+            leftHeadingRef.current,
+            { x: -30, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.65, ease: 'power3.out' },
+            '-=0.4'
+          );
+        }
+
+        if (leftImageRef.current) {
+          cardTl.fromTo(
+            leftImageRef.current,
+            { scale: 0.9, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.75, ease: 'power2.out' },
+            '-=0.4'
+          );
+        }
+
+        if (leftTaglineRef.current) {
+          cardTl.fromTo(
+            leftTaglineRef.current,
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
+            '-=0.3'
+          );
+        }
+
+        if (jobsRef.current.length > 0) {
+          cardTl.fromTo(
+            jobsRef.current,
+            { y: 35, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.65,
+              stagger: 0.12,
+              ease: 'power3.out',
+            },
+            '-=0.5'
+          );
+        }
+
+        if (contactNoteRef.current) {
+          cardTl.fromTo(
+            contactNoteRef.current,
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.55, ease: 'power3.out' },
+            '-=0.2'
+          );
+        }
+      }
+
+      // 2. Why Build Your Career Benefits Reveal
+      if (benefitsSectionRef.current) {
+        const benefitsTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: benefitsSectionRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+
+        if (benefitsHeadingRef.current) {
+          benefitsTl.fromTo(
+            benefitsHeadingRef.current,
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }
+          );
+        }
+
+        if (benefitCardsRef.current.length > 0) {
+          benefitsTl.fromTo(
+            benefitCardsRef.current,
+            { y: 40, opacity: 0, scale: 0.95 },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.65,
+              stagger: 0.1,
+              ease: 'power3.out',
+            },
+            '-=0.4'
+          );
+        }
+      }
+    }, pageContainerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleOpenApply = (jobTitle) => {
     setSelectedJob(jobTitle);
@@ -42,10 +196,10 @@ export default function CareersPage() {
   };
 
   return (
-    <div className="careers-page-wrapper">
+    <div ref={pageContainerRef} className="careers-page-wrapper">
       <Header />
 
-      {/* 1. Top Page Hero Banner (Same as About Us page) */}
+      {/* 1. Top Page Hero Banner */}
       <PageHero
         title={hero.title}
         subtitle={hero.subtitle}
@@ -53,24 +207,26 @@ export default function CareersPage() {
         bgPosition="center bottom"
       />
 
-      {/* 2. Main Careers Card (Matches Exact Screenshot Layout) */}
+      {/* 2. Main Careers Card */}
       <main className="careers-main-container">
-        <div className="careers-card">
+        <div ref={cardRef} className="careers-card">
           {/* Top Blue Accent Line */}
-          <div className="careers-card-top-bar" />
+          <div ref={cardTopBarRef} className="careers-card-top-bar" />
 
           <div className="careers-card-body">
             {/* Left Column: Heading + Team Circle Image */}
             <div className="careers-left-column">
-              <h2 className="careers-left-heading">{card.heading}</h2>
-              <div className="careers-left-image-wrapper">
+              <h2 ref={leftHeadingRef} className="careers-left-heading">
+                {card.heading}
+              </h2>
+              <div ref={leftImageRef} className="careers-left-image-wrapper">
                 <img
                   src={card.image}
                   alt="TXCO Team Unity"
                   className="careers-left-image"
                 />
               </div>
-              <p className="careers-left-tagline">
+              <p ref={leftTaglineRef} className="careers-left-tagline">
                 Join our innovative engineering and manufacturing family. We are always looking for passionate talent to grow with us.
               </p>
             </div>
@@ -79,7 +235,11 @@ export default function CareersPage() {
             <div className="careers-right-column">
               <div className="careers-jobs-list">
                 {card.jobs.map((job) => (
-                  <div key={job.id} className="careers-job-item">
+                  <div
+                    key={job.id}
+                    ref={addToJobsRef}
+                    className="careers-job-item"
+                  >
                     <h3 className="careers-job-title">{job.title}</h3>
                     <p className="careers-job-qualification">
                       <strong>Qualification :</strong> {job.qualification}
@@ -99,7 +259,7 @@ export default function CareersPage() {
               </div>
 
               {/* Bottom Contact Text */}
-              <div className="careers-contact-note">
+              <div ref={contactNoteRef} className="careers-contact-note">
                 {card.contactNote}{' '}
                 <a
                   href={`mailto:${card.contactEmail}`}
@@ -114,11 +274,17 @@ export default function CareersPage() {
       </main>
 
       {/* 3. Why Work at TXCO Benefits */}
-      <section className="careers-benefits-section">
-        <h2 className="careers-benefits-heading">Why Build Your Career at TXCO?</h2>
+      <section ref={benefitsSectionRef} className="careers-benefits-section">
+        <h2 ref={benefitsHeadingRef} className="careers-benefits-heading">
+          Why Build Your Career at TXCO?
+        </h2>
         <div className="careers-benefits-grid">
           {benefits.map((b, idx) => (
-            <div key={idx} className="careers-benefit-card">
+            <div
+              key={idx}
+              ref={addToBenefitCardsRef}
+              className="careers-benefit-card"
+            >
               <h3 className="careers-benefit-title">{b.title}</h3>
               <p className="careers-benefit-desc">{b.desc}</p>
             </div>

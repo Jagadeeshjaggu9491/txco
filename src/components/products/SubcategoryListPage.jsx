@@ -144,7 +144,7 @@ export default function SubcategoryListPage({ categoryData }) {
                         style={{
                           width: '100%',
                           height: '100%',
-                          objectFit: 'contain',
+                          objectFit: 'cover',
                           padding: '0',
                         }}
                         onError={(e) => {
@@ -159,12 +159,14 @@ export default function SubcategoryListPage({ categoryData }) {
                         {item.title}
                       </h3>
 
-                      <div className="product-card-types-box">
-                        <span className="product-card-types-label">Types / Variants</span>
-                        <p className="product-card-types-value">
-                          {item.types || item.subtitle || item.description}
-                        </p>
-                      </div>
+                      {item.types ? (
+                        <div className="product-card-types-box">
+                          <span className="product-card-types-label">Types / Variants</span>
+                          <p className="product-card-types-value">
+                            {item.types}
+                          </p>
+                        </div>
+                      ) : null}
 
                       {/* Circular Dark Navy Arrow Badge */}
                       <div className="product-card-bottom-row">

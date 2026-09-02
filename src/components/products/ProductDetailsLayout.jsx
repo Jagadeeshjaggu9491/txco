@@ -115,6 +115,9 @@ export default function ProductDetailsLayout({ subcategoryData }) {
 
   const [activeProductId, setActiveProductId] = useState(defaultProductId);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const headerBarRef = useRef(null);
+  const sidebarRef = useRef(null);
+  const sidebarNavListRef = useRef(null);
   const contentRef = useRef(null);
 
   // Synchronize active product when URL query parameter changes (e.g. clicking header navbar links)
@@ -161,16 +164,126 @@ export default function ProductDetailsLayout({ subcategoryData }) {
       ],
     };
 
+  // Initial Page Mount Intro Animation for Header and Sidebar
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
+
+      if (headerBarRef.current) {
+        tl.fromTo(
+          headerBarRef.current,
+          { y: -20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.55, ease: 'power3.out' }
+        );
+      }
+
+      if (sidebarRef.current) {
+        tl.fromTo(
+          sidebarRef.current,
+          { x: -25, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.65, ease: 'power3.out' },
+          '-=0.35'
+        );
+      }
+
+      if (sidebarNavListRef.current) {
+        const items = sidebarNavListRef.current.querySelectorAll('.product-details-nav-item');
+        if (items.length > 0) {
+          tl.fromTo(
+            items,
+            { x: -15, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.45,
+              stagger: 0.035,
+              ease: 'power2.out',
+            },
+            '-=0.45'
+          );
+        }
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  // Product Selection / Content Intro Animation
   useEffect(() => {
     if (contentRef.current) {
-      gsap.fromTo(
-        contentRef.current,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }
-      );
-    }
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline();
+
+        // 1. Breadcrumbs & Hero Banner
+        const breadcrumbs = contentRef.current.querySelector('.product-details-content-breadcrumbs');
+        const heroBanner = contentRef.current.querySelector('.product-details-hero-banner');
+        const sectionBanners = contentRef.current.querySelectorAll('.product-details-banner-header');
+        const paragraphs = contentRef.current.querySelectorAll('.product-details-paragraph');
+        const pointCards = contentRef.current.querySelectorAll('.product-details-point-card');
+        const tables = contentRef.current.querySelectorAll('.product-details-table-wrapper');
+
+        if (breadcrumbs) {
+          tl.fromTo(
+            breadcrumbs,
+            { y: -10, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }
+          );
+        }
+
+        if (heroBanner) {
+          tl.fromTo(
+            heroBanner,
+            { scale: 0.98, y: 20, opacity: 0 },
+            { scale: 1, y: 0, opacity: 1, duration: 0.55, ease: 'power3.out' },
+            '-=0.25'
+          );
+        }
+
+        if (sectionBanners.length > 0) {
+          tl.fromTo(
+            sectionBanners,
+            { y: 18, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: 'power2.out' },
+            '-=0.3'
+          );
+        }
+
+        if (paragraphs.length > 0) {
+          tl.fromTo(
+            paragraphs,
+            { y: 15, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.45, stagger: 0.05, ease: 'power2.out' },
+            '-=0.35'
+          );
+        }
+
+        if (pointCards.length > 0) {
+          tl.fromTo(
+            pointCards,
+            { y: 24, opacity: 0, scale: 0.98 },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.5,
+              stagger: 0.035,
+              ease: 'power2.out',
+            },
+            '-=0.35'
+          );
+        }
+
+        if (tables.length > 0) {
+          tl.fromTo(
+            tables,
+            { y: 25, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.55, stagger: 0.1, ease: 'power3.out' },
+            '-=0.3'
+          );
+        }
+      }, contentRef);
+
+      return () => ctx.revert();
     }
   }, [activeProductId]);
 
@@ -185,7 +298,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
         <section className="product-details-section">
           <div className="product-details-container">
             {/* Top Navigation Bar: Breadcrumb on Left, Download on Right */}
-            <div className="product-details-header-bar">
+            <div ref={headerBarRef} className="product-details-header-bar">
               {/* Breadcrumb back to Parent Category */}
               <div>
                 <Link
@@ -227,7 +340,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
             {/* Split Two-Column Layout */}
             <div className={`product-details-split-grid ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
               {/* Left Sidebar Navigation */}
-              <aside className={`product-details-sidebar ${isSidebarCollapsed ? 'collapsed' : ''}`}>
+              <aside ref={sidebarRef} className={`product-details-sidebar ${isSidebarCollapsed ? 'collapsed' : ''}`}>
                 {isSidebarCollapsed ? (
                   /* Compact Rail Expand Button */
                   <button
@@ -251,7 +364,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                     </div>
 
                     {/* Subcategory Products List */}
-                    <div className="product-details-nav-list">
+                    <div ref={sidebarNavListRef} className="product-details-nav-list">
                       {subcategoryData.productsList &&
                         subcategoryData.productsList.map((item) => {
                           const isActive = activeProductId === item.id;

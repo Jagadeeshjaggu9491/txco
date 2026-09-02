@@ -137,7 +137,7 @@ export default function OurProductsOverview() {
                     style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'contain',
+                      objectFit: 'cover',
                       padding: '0',
                     }}
                     onError={(e) => {

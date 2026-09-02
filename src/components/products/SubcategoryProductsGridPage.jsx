@@ -150,7 +150,7 @@ export default function SubcategoryProductsGridPage({
                       display: 'flex',
                     }}
                   >
-                    <div className="product-overview-card" style={{ width: '100%', minHeight: '350px' }}>
+                    <div className="product-overview-card" style={{ width: '100%' }}>
                       {/* Product Image Preview Box */}
                       <div className="product-img-box" style={{ height: '200px' }}>
                         <img
@@ -159,7 +159,7 @@ export default function SubcategoryProductsGridPage({
                           style={{
                             width: '100%',
                             height: '100%',
-                            objectFit: 'contain',
+                            objectFit: 'cover',
                             padding: '0',
                           }}
                           onError={(e) => {
@@ -174,12 +174,14 @@ export default function SubcategoryProductsGridPage({
                           {item.name || item.title}
                         </h3>
 
-                        <div className="product-card-types-box">
-                          <span className="product-card-types-label">Types / Variants</span>
-                          <p className="product-card-types-value">
-                            {item.types || item.subtitle || item.standards || item.description}
-                          </p>
-                        </div>
+                        {item.types ? (
+                          <div className="product-card-types-box">
+                            <span className="product-card-types-label">Types / Variants</span>
+                            <p className="product-card-types-value">
+                              {item.types}
+                            </p>
+                          </div>
+                        ) : null}
 
                         {/* Circular Dark Navy Arrow Button */}
                         <div className="product-card-bottom-row">
