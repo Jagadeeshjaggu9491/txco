@@ -35,7 +35,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=rubber-coated-rtj',
             standards: 'API Spec 6A / Hydrotest Preservation',
             types: 'Soft Iron / Low Carbon Steel Core with NBR Coating',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'Elastomer coated RTJ core protecting expensive flange groove faces during hydrostatic pressure testing.',
           },
           {
@@ -45,7 +45,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=ptfe-insert-rtj',
             standards: 'API 6A / ASME B16.20',
             types: 'PTFE-Inserts for R & RX Profiles',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'PTFE insert ring shielding the inner groove gap against turbulent flow erosion and aggressive acid attack.',
           },
           {
@@ -55,7 +55,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=protective-coated-rtj',
             standards: 'API 6A Electroplating Standards',
             types: 'Zinc, Nickel, Silver, Fluoropolymer / Xylan® Plated',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'Zinc, Cadmium, Silver, or Xylan-coated RTJ rings preventing galvanic oxidation and high-temp galling.',
           },
           {
@@ -65,7 +65,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=bonnet-rings',
             standards: 'API 6D, API 600, ASME B16.34',
             types: 'Oval, Octagonal, Flat & Triangular Pressure Seals',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'Specialized metallic octagonal/oval bonnet cavity rings for high-pressure gate and globe valves.',
           },
           {
@@ -75,7 +75,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=lens-rings',
             standards: 'DIN 2696, High-Pressure Piping',
             types: 'DIN 2696 Spherical Lenticolari',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'Convex spherical cross-section metallic rings for high-temperature synthesis loops and autoclaves.',
           },
           {
@@ -85,7 +85,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=blind-gaskets',
             standards: 'ASME B16.48, Line Blanks',
             types: 'Solid Metallic Blanks & Paddle Spades (ASME B16.48)',
-            image: '/images/product-detials-images/Special-Metal-Gaskets.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'Solid paddle blinds and spacers for positive pipeline positive isolation and hydrotest blanking.',
           },
           {
@@ -95,7 +95,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=vx-ax-gaskets',
             standards: 'API 16A, Subsea Drilling & Wellheads',
             types: 'VX Pressure-Energized, AX Insulated (API 16A / 17D)',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'Pressure-energized subsea wellhead and riser connector metal gaskets with face-to-face hub contact.',
           },
           {
@@ -105,7 +105,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=ix-gaskets',
             standards: 'NORSOK L-005 Compact Flanges',
             types: 'IX 15 to IX 1200 (NORSOK L-005)',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'High-integrity metallic seal rings with bevelled inner/outer lips designed for compact offshore flanges.',
           },
           {
@@ -115,7 +115,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=delta-gaskets',
             standards: 'API 17D Subsea Equipment',
             types: 'API 17D Subsea Pressure-Energized Delta Profile',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'Triangular cross-section pressure-energized metallic rings for ultra-high pressure vessels (up to 3000 bar).',
           },
           {
@@ -125,7 +125,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=bridge-gaskets',
             standards: 'Bridgeman Autoclave Closure Specs',
             types: 'Unsupported Area High-Pressure Autoclave Closures',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'Self-sealing Bridgeman-type metallic pressure-seal rings for high-pressure boiler feed reactors.',
           },
           {
@@ -145,7 +145,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=transition-rtj',
             standards: 'API Spec 6A Custom Combinations',
             types: 'Combination Rings with Dual Pitch / Groove Profiles',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'Combination RTJ rings mating two flanges of different pressure classes or mismatched groove profiles.',
           },
           {
@@ -155,7 +155,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=soft-material-seated-rtj',
             standards: 'ASME B16.20 / API 6A Modified',
             types: 'Serrated Metal Core with Graphite / PTFE Facing',
-            image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
             description: 'Metallic RTJ core with soft PTFE or elastomer seating inserts for damaged or scratched flange grooves.',
           },
           {

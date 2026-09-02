@@ -1,5 +1,6 @@
 export const utilityNavLinks = [
   { name: 'Home', href: '/' },
+  { name: 'Careers', href: '/careers' },
   { name: 'Contact', href: '/contact' },
   { name: 'Catalogues', href: '/catalogues' },
 ];
@@ -147,7 +148,7 @@ export const mainNavigationMenu = {
       { name: 'About TXCO', href: '/about' },
       { name: 'Quality & Certifications', href: '/certifications' },
       { name: 'Global Contacts', href: '/contact' },
-      { name: 'Careers', href: '#' },
+      { name: 'Careers', href: '/careers' },
       { name: 'Sustainability', href: '/about' },
     ],
   },

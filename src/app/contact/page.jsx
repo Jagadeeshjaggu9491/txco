@@ -231,12 +231,7 @@ export default function ContactPage() {
               {/* Left Column: Interactive RFQ Form Card */}
               <div className="rfq-form-card">
                 <div style={{ marginBottom: '2rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
-                    <MessageSquare size={20} color="var(--slate-blue)" />
-                    <span className="section-badge" style={{ margin: 0, color: 'var(--slate-blue)' }}>
-                      FAST RFQ & INQUIRY
-                    </span>
-                  </div>
+
 
                   <h2 className="section-title" style={{ fontSize: 'clamp(1.6rem, 2.4vw, 2.1rem)', marginBottom: '0.6rem' }}>
                     Request a Technical Quote
@@ -318,10 +313,25 @@ export default function ContactPage() {
                           attachmentName: '',
                         });
                       }}
-                      className="txco-btn"
-                      style={{ marginTop: '1rem', backgroundColor: '#166534', color: '#ffffff' }}
+                      className="txco-btn txco-btn-steel"
+                      style={{ marginTop: '1rem' }}
                     >
-                      Submit Another Inquiry
+                      <span>Submit Another Inquiry</span>
+                      <div className="txco-btn-icon-circle">
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#ffffff"
+                          strokeWidth="2.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="4" y1="12" x2="20" y2="12" />
+                          <polyline points="13 5 20 12 13 19" />
+                        </svg>
+                      </div>
                     </button>
                   </div>
                 ) : (
@@ -469,22 +479,31 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={formStatus.isSubmitting}
-                      className="txco-btn txco-btn-primary"
+                      className="txco-btn txco-btn-steel"
                       style={{
-                        padding: '1.1rem 2.2rem',
-                        fontSize: '0.98rem',
-                        justifyContent: 'center',
+                        padding: '1rem 2rem',
+                        fontSize: '0.92rem',
+                        width: 'fit-content',
                         marginTop: '0.5rem',
+                        cursor: formStatus.isSubmitting ? 'not-allowed' : 'pointer',
                       }}
                     >
-                      {formStatus.isSubmitting ? (
-                        <span>Transmitting Inquiry...</span>
-                      ) : (
-                        <>
-                          <span>Submit RFQ & Inquiry</span>
-                          <Send size={18} />
-                        </>
-                      )}
+                      <span>{formStatus.isSubmitting ? 'Transmitting Inquiry...' : 'Submit RFQ & Inquiry'}</span>
+                      <div className="txco-btn-icon-circle">
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#ffffff"
+                          strokeWidth="2.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="4" y1="12" x2="20" y2="12" />
+                          <polyline points="13 5 20 12 13 19" />
+                        </svg>
+                      </div>
                     </button>
                   </form>
                 )}
@@ -493,9 +512,7 @@ export default function ContactPage() {
               {/* Right Column: Reassurance Card */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                 <div className="advantage-card">
-                  <span className="section-badge" style={{ color: 'var(--slate-blue)' }}>
-                    THE TXCO ADVANTAGE
-                  </span>
+
 
                   <h3 className="section-title" style={{ fontSize: '1.35rem', marginBottom: '1.4rem' }}>
                     Why Engineers Choose TXCO
@@ -528,7 +545,7 @@ export default function ContactPage() {
                   style={{
                     backgroundColor: 'var(--slate-blue)',
                     backgroundImage: 'var(--brand-gradient)',
-                    borderRadius: 'var(--radius-2xl)',
+                    borderRadius: '5px',
                     padding: '2.2rem',
                     color: 'var(--text-white)',
                     boxShadow: '0 10px 28px rgba(17, 70, 128, 0.25)',
@@ -557,8 +574,22 @@ export default function ContactPage() {
                     href="tel:+916302152938"
                     className="txco-btn txco-btn-white"
                   >
-                    <Phone size={18} />
                     <span>+91 6302 152 938</span>
+                    <div className="txco-btn-icon-circle">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#ffffff"
+                        strokeWidth="2.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <line x1="4" y1="12" x2="20" y2="12" />
+                        <polyline points="13 5 20 12 13 19" />
+                      </svg>
+                    </div>
                   </a>
                 </div>
               </div>
@@ -621,12 +652,7 @@ export default function ContactPage() {
         <section style={{ width: '100%', backgroundColor: 'var(--bg-light-surface)', padding: '5rem 2rem 5.5rem 2rem', borderTop: '1px solid var(--border-light)' }}>
           <div className="txco-container-narrow">
             <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.4rem' }}>
-                <HelpCircle size={18} color="var(--slate-blue)" />
-                <span className="section-badge" style={{ color: 'var(--slate-blue)', margin: 0 }}>
-                  QUESTIONS & ANSWERS
-                </span>
-              </div>
+
               <h2 className="section-title section-title-center">
                 Frequently Asked Inquiries
               </h2>
@@ -724,10 +750,24 @@ export default function ContactPage() {
                   href={facilityMapData.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="txco-btn txco-btn-primary"
+                  className="txco-btn txco-btn-steel"
                 >
                   <span>Open In Google Maps</span>
-                  <ArrowRight size={16} />
+                  <div className="txco-btn-icon-circle">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#ffffff"
+                      strokeWidth="2.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="4" y1="12" x2="20" y2="12" />
+                      <polyline points="13 5 20 12 13 19" />
+                    </svg>
+                  </div>
                 </a>
               </div>
 

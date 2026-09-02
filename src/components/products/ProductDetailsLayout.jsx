@@ -12,6 +12,12 @@ import { TableFigureIcon } from '@/components/products/EngineeringProductDiagram
 
 // Smart helper to highlight lead-in line as an h5 title and remaining text as description
 function splitPointItem(item) {
+  if (typeof item === 'object' && item !== null) {
+    return {
+      title: item.title || item.heading || '',
+      desc: item.desc || item.description || item.text || '',
+    };
+  }
   if (typeof item !== 'string') return { title: '', desc: item };
 
   const text = item.trim();

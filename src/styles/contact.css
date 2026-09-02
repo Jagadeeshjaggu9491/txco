@@ -75,7 +75,7 @@
 
 .contact-channel-card {
   background-color: var(--bg-lavender);
-  border-radius: var(--radius-2xl);
+  border-radius: 5px;
   padding: 2.4rem 2rem;
   border: 1.5px solid var(--border-lavender);
   box-shadow: var(--shadow-card);
@@ -95,7 +95,7 @@
 .contact-icon-box {
   width: 56px;
   height: 56px;
-  border-radius: 14px;
+  border-radius: 5px;
   color: var(--text-white);
   display: flex;
   align-items: center;
@@ -141,7 +141,7 @@
 
 .rfq-form-card {
   background-color: var(--bg-pure-white);
-  border-radius: var(--radius-3xl);
+  border-radius: 5px;
   padding: 3rem;
   border: 1px solid var(--border-light);
   box-shadow: 0 12px 36px rgba(5, 44, 88, 0.07);
@@ -149,7 +149,6 @@
 
 .inquiry-pill-btn {
   padding: 0.55rem 1.1rem;
-  border-radius: 30px;
   border: 1.5px solid var(--border-medium);
   background-color: var(--bg-pure-white);
   color: var(--text-body);
@@ -171,7 +170,6 @@
 .contact-form-textarea {
   width: 100%;
   padding: 0.85rem 1rem;
-  border-radius: var(--radius-md);
   border: 1.5px solid var(--border-medium);
   outline: none;
   font-size: 0.95rem;
@@ -194,7 +192,6 @@
   gap: 0.8rem;
   padding: 1.2rem;
   border: 2px dashed var(--border-medium);
-  border-radius: var(--radius-md);
   background-color: var(--bg-light-surface);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -208,7 +205,7 @@
 /* Reassurance & Advantage Card */
 .advantage-card {
   background-color: var(--bg-pure-white);
-  border-radius: var(--radius-2xl);
+  border-radius: 5px;
   padding: 2.5rem;
   border: 1px solid var(--border-light);
   box-shadow: 0 8px 24px rgba(5, 44, 88, 0.05);
@@ -229,7 +226,7 @@
 /* Global Hubs Section */
 .global-hub-card {
   background-color: var(--bg-pure-white);
-  border-radius: var(--radius-xl);
+  border-radius: 5px;
   padding: 2rem 1.6rem;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-subtle);

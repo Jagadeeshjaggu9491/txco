@@ -110,7 +110,7 @@ export default function DiscoverEngineeredSolutions({ data = defaultData, classN
 
   return (
     <section ref={sectionRef} className={`discover-solutions-section ${className}`.trim()}>
-      <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 2rem' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 2rem' }}>
         <h2
           ref={headingRef}
           className="section-title section-title-center"

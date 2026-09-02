@@ -82,7 +82,7 @@ export default function IndustriesWeServe() {
         {/* Section Header */}
         <div ref={headerRef} className="industries-header-wrapper">
           <h2 className="industries-heading">
-            Industries We Serve
+            INDUSTRIES WE SERVE
           </h2>
           <p className="industries-description">
             TXCO helps solve the critical sealing and bolting challenges you face today while scaling for tomorrow. Learn how we customize our engineering solutions around your industry’s unique demands.

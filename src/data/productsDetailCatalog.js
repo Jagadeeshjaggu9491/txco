@@ -203,7 +203,7 @@ export const subcategoryDetailCatalog = {
               'As specified by applicable API requirements, RTJ gaskets manufactured from soft iron and low-carbon steel can be electroplated with zinc coating up to a maximum thickness of 13 μm.',
               'TXCO Sealing Products Private Limited The capability to provide Zinc, Nickel and Silver electroplated coatings for RTJ gaskets.',
               'Zinc coating provides protection against Surface oxidation and corrosion, while Nickel and Silver coatings can be selected for specific service, compatibility and sealing requirements.',
-              'Coating selection and thickness Can be provided in accordance with customer specifications, applicable standards and operating conditions.',
+              'Coating selection: Thickness Can be provided in accordance with customer specifications, applicable standards and operating conditions.',
             ],
             showAssemblyDiagram: true,
             diagramType: 'weld-lip',
