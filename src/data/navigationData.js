@@ -11,10 +11,34 @@ export const mainNavigationMenu = {
     href: '/industries',
     items: [
       { name: 'All Industries', href: '/industries' },
-      { name: 'Chemical', href: '/industries/chemical' },
-      { name: 'Energy', href: '/industries/energy' },
-      { name: 'Manufacturing', href: '/industries/manufacturing' },
-      { name: 'Metals and Mining', href: '/industries/metals-mining' },
+      {
+        name: 'CHEMICAL INDUSTRIES',
+        href: '/industries/chemical',
+        children: [
+          { name: 'Pharmaceutical & FDA', href: '/industries/chemical#pharmaceutical-fda' },
+          { name: 'Plastics & Polymers', href: '/industries/chemical#plastics-polymers' },
+          { name: 'Petrochemical & Refining', href: '/industries/chemical#petrochemical-refining' },
+          { name: 'Chemical Processing', href: '/industries/chemical#chemical-processing' },
+        ],
+      },
+      {
+        name: 'ENERGY & OIL & GAS',
+        href: '/industries/energy',
+        children: [
+          { name: 'Upstream & Offshore (HPHT & Subsea)', href: '/industries/energy#upstream-offshore' },
+          { name: 'Midstream & Pipeline (Transmission)', href: '/industries/energy#midstream-pipeline' },
+          { name: 'Downstream Refining (Thermal Shock)', href: '/industries/energy#downstream-refining' },
+        ],
+      },
+      {
+        name: 'MANUFACTURING & HEAVY INDUSTRY',
+        href: '/industries/manufacturing',
+        children: [
+          { name: 'Food & Beverage (Sanitary & FDA)', href: '/industries/manufacturing#food-beverage' },
+          { name: 'Heavy Machinery & Steel', href: '/industries/manufacturing#heavy-machinery-steel' },
+          { name: 'Metals & Mining (HPAL & Slurry)', href: '/industries/metals-mining' },
+        ],
+      },
     ],
   },
   products: {
@@ -163,13 +187,10 @@ export const footerNavigationColumns = [
     title: 'INDUSTRIES',
     links: [
       { name: 'All Industries', href: '/industries' },
-      { name: 'Chemical', href: '/industries/chemical' },
-      { name: 'Energy', href: '/industries/energy' },
-      { name: 'Engineering, Procurement & Construction', href: '/industries/epc' },
-      { name: 'Manufacturing', href: '/industries/manufacturing' },
-      { name: 'Metals and Mining', href: '/industries/metals-mining' },
-      { name: 'Renewable Energy', href: '/industries/renewable-energy' },
-      { name: 'Water and Wastewater', href: '/industries/water-wastewater' },
+      { name: 'Chemical Industries', href: '/industries/chemical' },
+      { name: 'Energy & Oil & Gas', href: '/industries/energy' },
+      { name: 'Manufacturing & Heavy Industry', href: '/industries/manufacturing' },
+      { name: 'Metals & Mining', href: '/industries/metals-mining' },
     ],
   },
   {

@@ -7,12 +7,32 @@ import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
 import ContactSection from '@/components/ContactSection';
 import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Play } from 'lucide-react';
 import gsap from 'gsap';
+import '@/styles/industry-details.css';
 
 export default function IndustryDetailsLayout({ industryData }) {
   const [activeSegmentIndex, setActiveSegmentIndex] = useState(0);
   const contentRef = useRef(null);
+
+  // Sync active segment with URL hash (e.g. #pharmaceutical-fda, #plastics-polymers)
+  useEffect(() => {
+    const handleHash = () => {
+      if (typeof window !== 'undefined' && window.location.hash) {
+        const hash = window.location.hash.replace('#', '');
+        const foundIdx = industryData.segments?.findIndex(
+          (seg) => seg.id === hash || seg.slug === hash
+        );
+        if (foundIdx !== -1 && foundIdx !== undefined) {
+          setActiveSegmentIndex(foundIdx);
+        }
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, [industryData.segments]);
 
   const activeSegment =
     industryData.segments && industryData.segments[activeSegmentIndex]
@@ -32,10 +52,18 @@ export default function IndustryDetailsLayout({ industryData }) {
 
   if (!industryData) return null;
 
+  const handleSelectSegment = (idx, segment) => {
+    setActiveSegmentIndex(idx);
+    if (typeof window !== 'undefined' && segment.id) {
+      window.history.replaceState(null, '', `#${segment.id}`);
+    }
+  };
+
   return (
     <>
       <Header />
-      <main className="industry-details-main">
+      {/* Main Container using exact product details class names */}
+      <main className="product-details-main">
         {/* Top Hero Banner matching About Us / Industry banner */}
         <PageHero
           title={industryData.heroTitle || `${industryData.title.toUpperCase()} SOLUTIONS`}
@@ -44,52 +72,68 @@ export default function IndustryDetailsLayout({ industryData }) {
           bgPosition="center"
         />
 
-        {/* Main Two-Column Industry Layout */}
-        <section className="industry-details-section">
-          <div className="industry-details-container">
-            <div className="industry-details-split-grid">
-              {/* Left Sticky Sidebar */}
-              <aside className="industry-details-sidebar">
-                <div>
-                  <Link href="/industries" className="industry-sidebar-breadcrumb">
-                    <ChevronLeft size={16} strokeWidth={2.8} />
-                    <span>INDUSTRIES</span>
-                  </Link>
+        {/* Main Two-Column Industry Layout using product-details classes */}
+        <section className="product-details-section">
+          <div className="product-details-container">
+            {/* Top Navigation Bar: Breadcrumb on Left, Consultation CTA on Right */}
+            <div className="product-details-header-bar">
+              <Link href="/industries" className="product-details-breadcrumb">
+                <ChevronLeft size={16} strokeWidth={2.8} />
+                <span>ALL INDUSTRIES</span>
+              </Link>
 
-                  <h2 className="industry-sidebar-title">
+              <Link href="/contact" className="product-details-download-btn">
+                <span>Request Engineering Consultation</span>
+                <div className="product-details-download-icon-circle">
+                  <ArrowRight size={13} strokeWidth={2.4} />
+                </div>
+              </Link>
+            </div>
+
+            <div className="product-details-split-grid">
+              {/* Left Sticky Sidebar using exact product details sidebar classes */}
+              <aside className="product-details-sidebar">
+                <div className="product-sidebar-title-box">
+                  <h2 className="product-sidebar-category-title">
                     {industryData.title}
                   </h2>
-
-                  {/* Segments Vertical Menu */}
-                  <ul className="industry-sidebar-nav">
-                    {industryData.segments?.map((segment, idx) => {
-                      const isActive = activeSegmentIndex === idx;
-
-                      return (
-                        <li key={segment.id || idx} className="industry-sidebar-nav-item">
-                          <button
-                            type="button"
-                            onClick={() => setActiveSegmentIndex(idx)}
-                            className={`industry-sidebar-nav-btn ${isActive ? 'active' : ''}`}
-                          >
-                            <span>{segment.name}</span>
-                            {isActive && (
-                              <span className="industry-sidebar-active-arrow">▶</span>
-                            )}
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
                 </div>
 
-                {/* Contact Our Experts CTA Button */}
-                <Link href="/contact" className="industry-sidebar-contact-btn">
-                  <span>CONTACT OUR EXPERTS</span>
-                  <div className="industry-sidebar-btn-circle">
-                    <ArrowRight size={14} strokeWidth={2.6} />
-                  </div>
-                </Link>
+                {/* Segments Vertical Menu */}
+                <div className="product-details-nav-list">
+                  {industryData.segments?.map((segment, idx) => {
+                    const isActive = activeSegmentIndex === idx;
+
+                    return (
+                      <button
+                        key={segment.id || idx}
+                        type="button"
+                        onClick={() => handleSelectSegment(idx, segment)}
+                        className={`product-details-nav-item ${isActive ? 'active' : ''}`}
+                      >
+                        <span>{segment.name}</span>
+                        {isActive && (
+                          <Play
+                            size={11}
+                            fill="#018f5d"
+                            color="#018f5d"
+                            style={{ flexShrink: 0 }}
+                          />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Contact Our Experts Action Button */}
+                <div>
+                  <Link href="/contact" className="product-details-contact-btn">
+                    <span>CONTACT OUR EXPERTS</span>
+                    <div className="product-details-contact-icon-circle">
+                      <ArrowRight size={13} color="#114680" strokeWidth={2.8} />
+                    </div>
+                  </Link>
+                </div>
               </aside>
 
               {/* Right Content Area */}
@@ -100,34 +144,18 @@ export default function IndustryDetailsLayout({ industryData }) {
                       {activeSegment.title}
                     </h1>
 
-                    {activeSegment.tagline && (
-                      <div className="industry-content-tagline">
-                        {activeSegment.tagline}
-                      </div>
-                    )}
-
+                    {/* Intro Narrative */}
                     {activeSegment.intro && (
                       <p className="industry-content-body-p">
                         {activeSegment.intro}
                       </p>
                     )}
 
-                    {activeSegment.section2Title && (
-                      <h3 className="industry-content-subheading">
-                        {activeSegment.section2Title}
-                      </h3>
-                    )}
-
-                    {activeSegment.section2Body && (
-                      <p className="industry-content-body-p">
-                        {activeSegment.section2Body}
-                      </p>
-                    )}
-
+                    {/* Who We Serve (when present) */}
                     {activeSegment.whoWeServe && activeSegment.whoWeServe.length > 0 && (
                       <div className="industry-who-we-serve-box">
                         <div className="industry-who-we-serve-title">
-                          {activeSegment.whoWeServeTitle || 'Who We Serve'}
+                          Who We Serve:
                         </div>
                         <ul className="industry-who-we-serve-list">
                           {activeSegment.whoWeServe.map((item, i) => (
@@ -139,16 +167,56 @@ export default function IndustryDetailsLayout({ industryData }) {
                       </div>
                     )}
 
-                    {activeSegment.conclusionTitle && (
-                      <h3 className="industry-content-subheading">
-                        {activeSegment.conclusionTitle}
-                      </h3>
+                    {/* Primary Application Areas */}
+                    {activeSegment.primaryApplications && (
+                      <div className="industry-app-box">
+                        <h3 className="industry-content-subheading">
+                          Primary Application Areas
+                        </h3>
+                        <p className="industry-content-body-p">
+                          {activeSegment.primaryApplications}
+                        </p>
+                      </div>
                     )}
 
-                    {activeSegment.conclusionBody && (
-                      <p className="industry-content-body-p">
-                        {activeSegment.conclusionBody}
-                      </p>
+                    {/* Common Flange Types & Standards */}
+                    {activeSegment.commonFlanges && activeSegment.commonFlanges.length > 0 && (
+                      <div className="industry-spec-block">
+                        <h3 className="industry-content-subheading">
+                          Common Flange Types & Standards
+                        </h3>
+                        <div className="industry-spec-list">
+                          {activeSegment.commonFlanges.map((flange, fIdx) => (
+                            <div key={fIdx} className="industry-spec-card">
+                              <div className="industry-spec-card-header">
+                                <span className="industry-spec-bullet" />
+                                <h4 className="industry-spec-name">{flange.name}</h4>
+                              </div>
+                              <p className="industry-spec-desc">{flange.desc}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Engineered Gasket & Sealing Selection */}
+                    {activeSegment.engineeredGaskets && activeSegment.engineeredGaskets.length > 0 && (
+                      <div className="industry-spec-block">
+                        <h3 className="industry-content-subheading">
+                          Engineered Gasket & Sealing Selection
+                        </h3>
+                        <div className="industry-spec-list">
+                          {activeSegment.engineeredGaskets.map((gasket, gIdx) => (
+                            <div key={gIdx} className="industry-spec-card">
+                              <div className="industry-spec-card-header">
+                                <span className="industry-spec-bullet" />
+                                <h4 className="industry-spec-name">{gasket.name}</h4>
+                              </div>
+                              <p className="industry-spec-desc">{gasket.desc}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     )}
                   </>
                 )}

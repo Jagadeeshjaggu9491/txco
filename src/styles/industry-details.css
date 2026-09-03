@@ -1,148 +1,9 @@
 /* =========================================================================
    INDUSTRY DETAILS PAGE STYLESHEET
+   Uses shared .product-details-sidebar and layout classes from product-details.css
 ========================================================================= */
 
-.industry-details-main {
-  background-color: var(--bg-pure-white, #ffffff);
-  min-height: 85vh;
-}
 
-.industry-details-section {
-  width: 100%;
-  padding: 4rem 2rem 5rem 2rem;
-}
-
-.industry-details-container {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-/* 1. Two-Column Split Grid */
-.industry-details-split-grid {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 4.5rem;
-  align-items: start;
-}
-
-/* 2. Left Sticky Sidebar */
-.industry-details-sidebar {
-  position: sticky;
-  top: 90px;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.industry-sidebar-breadcrumb {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #64748b;
-  text-decoration: none;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
-  margin-bottom: 0.5rem;
-}
-
-.industry-sidebar-breadcrumb:hover {
-  color: var(--primary-navy, #052C58);
-}
-
-.industry-sidebar-title {
-  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
-  font-size: 1.75rem;
-  /* font-weight: 700; */
-  color: var(--primary-navy, #052C58);
-  margin: 0 0 1.5rem 0;
-  line-height: 1.25;
-}
-
-.industry-sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.industry-sidebar-nav-item {
-  width: 100%;
-}
-
-.industry-sidebar-nav-btn {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 0.6rem 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #475569;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: all 0.2s ease;
-  border-bottom: 1px solid #f1f5f9;
-  font-family: inherit;
-}
-
-.industry-sidebar-nav-btn:hover {
-  color: var(--primary-navy, #052C58);
-  padding-left: 0.6rem;
-}
-
-.industry-sidebar-nav-btn.active {
-  color: var(--primary-navy, #052C58);
-  font-weight: 800;
-  border-bottom-color: var(--primary-navy, #052C58);
-}
-
-.industry-sidebar-active-arrow {
-  color: var(--primary-navy, #052C58);
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-.industry-sidebar-contact-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #384576;
-  color: #ffffff;
-  padding: 0.8rem 1.2rem;
-  border-radius: 6px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  margin-top: 1rem;
-}
-
-.industry-sidebar-contact-btn:hover {
-  background-color: var(--primary-navy, #052C58);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.industry-sidebar-btn-circle {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 /* 3. Right Content Area */
 .industry-content-area {
@@ -353,17 +214,85 @@
   background-color: var(--primary-navy, #052C58);
 }
 
+/* 3.1 Primary Applications & Technical Specifications */
+.industry-app-box {
+  background-color: var(--bg-cool-grey, #f4f8ff);
+  border-left: 4px solid #018f5d;
+  border-radius: 8px;
+  padding: 1.5rem 1.8rem;
+  margin: 2rem 0;
+}
+
+.industry-app-box .industry-content-subheading {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  color: #052c58;
+}
+
+.industry-app-box .industry-content-body-p {
+  margin-bottom: 0;
+}
+
+.industry-spec-block {
+  margin-top: 2.5rem;
+}
+
+.industry-spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.industry-spec-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.3rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(5, 44, 88, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.industry-spec-card:hover {
+  transform: translateY(-2px);
+  border-color: #384576;
+}
+
+.industry-spec-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 0.45rem;
+}
+
+.industry-spec-bullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #018f5d;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.industry-spec-name {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #052c58;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.industry-spec-desc {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.65;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
-  .industry-details-split-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .industry-details-sidebar {
-    position: static;
-  }
-
   .industry-spotlight-grid {
     grid-template-columns: repeat(2, 1fr);
   }

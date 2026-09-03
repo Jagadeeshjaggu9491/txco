@@ -1,13 +1,14 @@
 /**
  * Comprehensive TXCO Industries Data
- * Detailed engineering solutions, sub-segments, and product spotlight recommendations.
+ * Detailed engineering solutions, sub-segments, and product recommendations
+ * Content strictly aligned with client engineering specifications.
  */
 
 export const industriesList = [
   {
     id: 'chemical',
     slug: 'chemical',
-    title: 'Chemical Industry',
+    title: 'Chemical Industries',
     shortName: 'Chemical',
     heroTitle: 'CHEMICAL INDUSTRY SOLUTIONS',
     subtitle:
@@ -17,94 +18,178 @@ export const industriesList = [
       {
         id: 'pharmaceutical-fda',
         name: 'Pharmaceutical & FDA',
-        title: 'Pharmaceutical & FDA Industry Solutions',
-        tagline: 'Enabling Compliance, Quality & Operational Excellence',
+        title: 'Pharmaceutical & FDA',
         intro:
-          'The pharmaceutical industry operates in a highly regulated environment where product quality, patient safety, data integrity, and regulatory compliance are critical. Our solutions help pharmaceutical and life sciences organizations streamline operations, strengthen quality systems, maintain FDA compliance, and improve end-to-end visibility.',
-        section2Title: 'Built for a Highly Regulated Industry',
-        section2Body:
-          'Pharmaceutical companies need to balance strict regulatory requirements with operational efficiency and continuous innovation. Our industry-focused solutions help organizations establish controlled, traceable, and audit-ready processes while reducing compliance risks and operational complexity.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'Pharmaceutical Manufacturers',
-          'Biopharmaceutical Companies',
-          'Contract Manufacturing Organizations (CMOs)',
-          'Contract Development & Manufacturing Organizations (CDMOs)',
-          'Biotechnology Companies',
-          'Medical & Life Sciences Organizations',
-          'Research & Development Organizations',
-          'Laboratory & Testing Facilities',
-          'Pharmaceutical Distributors',
+          'Sanitary processing requires non-contaminating, zero-extractable sealing systems that endure aggressive Clean-In-Place (CIP) and Steam-In-Place (SIP) sterilization cycles. Gaskets and flanges must maintain structural integrity under thermal shock without leeching compounds into pure media. Compliance with FDA 21 CFR 177.1550, USP Class VI, ASME BPE, and 3-A Sanitary Standards is mandatory.',
+        primaryApplications:
+          'Water for Injection (WFI) loops, API synthesis reactors, fermentation vessels, sterile fluid transfer lines, bio-reactors, and high-pressure utility steam lines.',
+        commonFlanges: [
+          {
+            name: 'Weld Neck Flanges (ASME B16.5 WN Class 150/300)',
+            desc: 'Deployed on high-pressure clean steam boilers, WFI thermal loops, and plant utility headers (with internally polished bores).',
+          },
+          {
+            name: 'Slip-On Flanges (ASME B16.5 SO)',
+            desc: 'Restricted to non-critical utility lines, chilled water loops, and plant HVAC infrastructure.',
+          },
         ],
-        conclusionTitle: 'From Compliance Challenges to Engineered Solutions',
-        conclusionBody:
-          'Whether you are preparing for an FDA inspection, modernizing your quality management processes, validating a regulated system, or improving manufacturing visibility, our solutions help you move toward a more compliant, connected, and efficient pharmaceutical operation.',
+        engineeredGaskets: [
+          {
+            name: 'Sanitary Tri-Clamp Gaskets',
+            desc: 'Precision-molded in Virgin PTFE, USP Class VI EPDM, FKM, or Platinum-Cured Silicone for sanitary quick-disconnect unions.',
+          },
+          {
+            name: 'Virgin & Expanded PTFE (ePTFE) Gaskets',
+            desc: 'Inert, zero-extractable sheet seals for high-purity process and chemical feed lines.',
+          },
+          {
+            name: 'PTFE Envelope Gaskets',
+            desc: 'Elastomeric core encased in a seamless virgin PTFE shield for combined compressibility and chemical purity.',
+          },
+          {
+            name: 'Stainless Steel RTJ Gaskets (ASME B16.20 R Octagonal)',
+            desc: 'Precision 316L SS RTJs deployed in high-pressure plant utility boilers and extreme-pressure clean-steam generation headers.',
+          },
+          {
+            name: 'Flange Isolation Kits (FIK – TX-ISOPRO)',
+            desc: 'Full-face phenolic or G10 GRE isolation kits installed on utility boundary lines and raw water intake headers to block stray electrical currents.',
+          },
+        ],
       },
       {
-        id: 'plastics',
+        id: 'plastics-polymers',
         name: 'Plastics & Polymers',
-        title: 'Plastics & Polymer Manufacturing Solutions',
-        tagline: 'High-Temperature Thermal Stability & Melt Sealing',
+        title: 'Plastics & Polymers',
         intro:
-          'Polymerization reactors, extruders, and monomer recovery systems subject sealing materials to high temperatures, dynamic cyclic loading, and sticky polymer melts. TXCO provides specialized metal jacketed and Kammprofile gaskets that prevent build-up and maintain zero leakage.',
-        section2Title: 'Engineered for High-Pressure Polymerization',
-        section2Body:
-          'From LDPE autoclaves operating at extreme pressures up to 3,000 bar to continuous melt filtration systems, our custom solid metallic and silver-plated gaskets ensure long maintenance intervals and reliable batch integrity.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'Polyethylene & Polypropylene Producers',
-          'PET & Polyamide Polymerization Facilities',
-          'Specialty Resin & Masterbatch Compounders',
-          'Thermoplastic Extrusion & Molding Plants',
-          'Recycled Polymer Processing Centers',
+          'Polymerization infrastructure operates under severe mechanical pressures, extreme thermal loading, and continuous exposure to molten resins, synthetic monomers, and heat transfer fluids (HTFs/Dowtherm). Sealing solutions must endure operating temperatures exceeding 500°C–900°C and pressures over 1,000 bar without thermal degradation, graphite oxidation, or joint relaxation under intense thermal expansion cycles.',
+        primaryApplications:
+          'High-Pressure Polyethylene (LDPE) hyper-compressors, polymerization reactors, monomer recovery units, extruder die heads, polymer melt pumps, and synthetic resin transfer lines.',
+        commonFlanges: [
+          {
+            name: 'High-Pressure Weld Neck Flanges (ASME B16.5 WN Class 600 to 2500)',
+            desc: 'Essential for hyper-compressor discharge lines, polymer melt piping, and high-pressure polymerization loops.',
+          },
+          {
+            name: 'RTJ Weld Neck Flanges',
+            desc: 'Machined with API/ASME ring grooves for high-temperature, high-pressure polymer melt piping.',
+          },
         ],
-        conclusionTitle: 'Zero Contamination & Maximum Uptime',
-        conclusionBody:
-          'Our high-purity sealing materials eliminate polymer contamination, reduce unplanned plant downtime, and optimize energy efficiency in heat transfer jacketed lines.',
+        engineeredGaskets: [
+          {
+            name: 'API 6A / ASME B16.20 Ring Type Joint (RTJ) Gaskets',
+            desc: 'Heavy-duty machined RX and BX profiles in Soft Iron (Code D), Low Carbon Steel (Code S), or SS 316/304 engineered to contain extreme hydraulic pressures in hyper-compressors and melt pumps.',
+          },
+          {
+            name: 'High-Temperature Mica-Graphite Composite Gaskets',
+            desc: 'Layered mica-graphite construction engineered for severe thermal oxidation environments up to 1000°C.',
+          },
+          {
+            name: 'Corrugated / Kammprofile Metal Gaskets with Graphite Facings',
+            desc: 'High-recovery seals built for heat-transfer fluid loops and reactor shell joints.',
+          },
+          {
+            name: 'High-Temperature Flange Isolation Kits (FIK – TX-ISOPRO)',
+            desc: 'High-temp G11 GRE retainers with spring-energized PTFE or mica seals installed on electric heater flanges and HTF loops to prevent galvanic reaction.',
+          },
+        ],
       },
       {
         id: 'petrochemical-refining',
         name: 'Petrochemical & Refining',
-        title: 'Petrochemical & Hydrocarbon Processing Solutions',
-        tagline: 'Low-Emission Flange Sealing for Severe Hydrocarbon Services',
+        title: 'Petrochemical & Refining',
         intro:
-          'Ethylene crackers, aromatic extraction units, and catalytic reformers require sealing technologies that resist thermal shocking, hydrogen embrittlement, and VOC fugitive emissions. TXCO supplies API 622 certified packing and ASME B16.20 gaskets.',
-        section2Title: 'Meeting Strict LDAR & TA-Luft Emission Mandates',
-        section2Body:
-          'Fugitive emissions represent both safety hazards and economic losses. TXCO spiral wound gaskets with internal inner rings and graphite windings deliver class-leading tightness under cyclic thermal transients.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'Ethylene & Propylene Cracking Units',
-          'Aromatics & BTX Extraction Plants',
-          'Fertilizer & Ammonia Synthesis Complexes',
-          'Methanol & Syngas Production Facilities',
-          'Petrochemical Storage & Offsite Tank Farms',
+          'Refinery infrastructure deals with high-pressure, high-temperature (HPHT) hydrocarbons, volatile hydrogen gas, and sour gas (H2S) service governed by NACE MR0175 / ISO 15156. Sealing systems must provide fire-safe blowout protection (API 6FB / ISO 10497) and comply with stringent low-emission mandates (ISO 15848-1 / TA-Luft) under severe pipeline vibration and pressure surges up to 20,000 PSI.',
+        primaryApplications:
+          'API 6A high-pressure wellhead Christmas trees, Hydrocracker units, Crude Distillation Units (CDU/VDU), Fluid Catalytic Cracking Units (FCCU), high-pressure flare manifolds, and submarine risers.',
+        commonFlanges: [
+          {
+            name: 'Weld Neck Flanges (ASME B16.5 / B16.47 WN - RF & RTJ Facings)',
+            desc: 'Standard across all high-pressure, severe-service refinery process piping.',
+          },
+          {
+            name: 'Long Weld Neck Flanges (LWN)',
+            desc: 'Preferred for vessel nozzles, reactor headers, and column connections to eliminate girth weld stress concentration.',
+          },
+          {
+            name: 'API 6A Flanges (Type 6B & 6BX)',
+            desc: 'Heavy-duty 2,000 to 20,000 PSI rated flanges used on wellheads, blowout preventers (BOPs), and high-pressure manifolds.',
+          },
+          {
+            name: 'Orifice Flanges (ASME B16.36)',
+            desc: 'Specialized WN flanged unions equipped with differential pressure tapping holes for refinery flow metering.',
+          },
+          {
+            name: 'Blind Flanges (ASME B16.5 BL)',
+            desc: 'Used for line blinding during turnarounds, hydrotesting, and manifold capping.',
+          },
         ],
-        conclusionTitle: 'Reliable Safety in High-Hazard Units',
-        conclusionBody:
-          'Our certified materials and reverse-engineered heat exchanger gaskets prevent catastrophic flanged joint failures in severe hydrocarbon duty.',
+        engineeredGaskets: [
+          {
+            name: 'API Spec 6A & ASME B16.20 Ring Type Joint (RTJ) Gaskets',
+            desc: 'Flagship solid metal R (Oval & Octagonal), RX, and BX rings manufactured in 316L, Super Duplex, Inconel 625, or Alloy 825 with strict Brinell hardness controls.',
+          },
+          {
+            name: 'ASME B16.20 Spiral Wound Gaskets (SWG)',
+            desc: 'Built with internal/external guide rings in 316L or exotic alloys with high-density flexible graphite filler to prevent inner-ring buckling.',
+          },
+          {
+            name: 'Kammprofile Gaskets with Inner Rings',
+            desc: 'Heavy-duty serrated metal cores engineered for refinery heat-exchanger main shell-to-tube joints.',
+          },
+          {
+            name: 'API 6FB Fire-Safe Flange Isolation Kits (FIK – TX-ISOPRO)',
+            desc: 'Critical Cathodic Protection (CP) isolation kits featuring G10/G11 GRE retainers, spring-energized PTFE seals, and full-length insulating sleeves for pipelines, tank batteries, and subsea risers.',
+          },
+        ],
       },
       {
         id: 'chemical-processing',
         name: 'Chemical Processing',
-        title: 'Chemical Processing & Acid Plant Solutions',
-        tagline: 'Superior Corrosion Resistance for Highly Aggressive Media',
+        title: 'Chemical Processing',
         intro:
-          'Handling concentrated sulfuric acid, nitric acid, wet chlorine, and caustic soda demands gasket materials with total chemical inertness. TXCO manufactures exotic alloy RTJs (Hastelloy C276, Inconel 625, Titanium) and restructured ePTFE gaskets.',
-        section2Title: 'Exotic Metallurgy & Fluoropolymer Precision',
-        section2Body:
-          'Corrosive attack at flange faces causes premature joint degradation. Our multi-material composite seals combine structural strength with universal chemical barrier properties.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'Chlor-Alkali & Bleaching Chemical Plants',
-          'Sulfuric, Phosphoric & Nitric Acid Manufacturers',
-          'Fine & Specialty Chemical Producers',
-          'Agrochemical & Pesticide Formulators',
-          'Industrial Solvent & Coating Plants',
+          'General and specialty chemical plants utilize continuous and batch-processing systems cycling between full vacuum, high pressures, and wide temperature swings. Gaskets must withstand broad chemical exposure, prevent joint relaxation on non-rigid or glass-lined flanges, and maintain low bolt-load sealing performance while providing blowout protection on high-pressure headers.',
+        primaryApplications:
+          'High-pressure reaction loops, gasification units, distillation columns, acid feed manifolds, scrubbers, evaporators, flanged pump housings, and plant-wide high-pressure utility headers.',
+        commonFlanges: [
+          {
+            name: 'Weld Neck Flanges (ASME B16.5 WN)',
+            desc: 'Used for main chemical process headers, high-pressure utility steam, and hazardous media transfer.',
+          },
+          {
+            name: 'Slip-On Flanges (ASME B16.5 SO)',
+            desc: 'Deployed on low-pressure, non-hazardous process lines and utility water loops.',
+          },
+          {
+            name: 'Socket Weld Flanges (ASME B16.5 SW)',
+            desc: 'Utilized on small-bore high-pressure chemical dosing and instrument piping lines.',
+          },
+          {
+            name: 'Threaded Flanges (ASME B16.5 TH)',
+            desc: 'Restricted to low-pressure utility lines where welding is prohibited.',
+          },
         ],
-        conclusionTitle: 'Long-Term Asset Integrity',
-        conclusionBody:
-          'Extend turnaround cycles, protect personnel from hazardous chemical leaks, and reduce flange maintenance costs with TXCO engineered chemical sealing solutions.',
+        engineeredGaskets: [
+          {
+            name: 'Ring Type Joint (RTJ) Gaskets',
+            desc: 'Deployed in high-pressure reaction loops, high-temperature gasifiers, and extreme-pressure chemical transport manifolds.',
+          },
+          {
+            name: 'Tanged Metal-Reinforced Graphite Gaskets',
+            desc: 'High-strength flexible graphite sheets bonded to a 316L tanged steel core for blowout protection on standard RF flanges.',
+          },
+          {
+            name: 'Low-Emission (Low-E) Spiral Wound Gaskets',
+            desc: 'Formulated with high-density filler matrices to meet ISO 15848-1 Class A leak rates.',
+          },
+          {
+            name: 'Modified PTFE Sheet Gaskets',
+            desc: 'Biaxially oriented PTFE filled with silica, barium sulfate, or hollow glass microspheres for low bolt-load and glass-lined steel applications.',
+          },
+          {
+            name: 'Flange Isolation Kits (FIK – TX-ISOPRO)',
+            desc: 'G10 GRE retainers with dual elastomeric (FKM/NBR) or ePTFE seal elements, installed at plant battery limits, tank connections, and underground entries.',
+          },
+        ],
       },
     ],
     productSpotlight: [
@@ -118,23 +203,23 @@ export const industriesList = [
       {
         id: 'rtj-all',
         title: 'RING TYPE JOINT (RTJ)',
-        specs: 'R • RX • BX Solid Metal',
+        specs: 'Style R • RX • BX Precision Rings',
         image: '/images/products/industrial-gaskets/ring-type-joint.png',
         href: '/products/gaskets/metallic-gaskets/details?product=ring-type-joint-rtj',
       },
       {
-        id: 'kammprofile-gaskets',
+        id: 'kammprofile-all',
         title: 'KAMMPROFILE GASKETS',
-        specs: 'High Compressibility Serrated Core',
+        specs: 'High Pressure / High Temp Heat Exchangers',
         image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
         href: '/products/gaskets/semi-metallic-gaskets/details?product=kammprofile-gaskets',
       },
       {
-        id: 'non-metallic-ptfe',
-        title: 'EXPANDED PTFE GASKETS',
-        specs: 'Universal Chemical Resistance',
-        image: '/images/products/industrial-gaskets/non-metallic-gaskets.png',
-        href: '/products/gaskets/non-metallic-gaskets/details?product=expanded-ptfe-gaskets',
+        id: 'fik-all',
+        title: 'FLANGE ISOLATION KITS',
+        specs: 'TX-ISOPRO • Fire-Safe API 6FB',
+        image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
+        href: '/products/gaskets/semi-metallic-gaskets/details?product=flange-isolation-kits',
       },
     ],
   },
@@ -143,367 +228,188 @@ export const industriesList = [
     id: 'energy',
     slug: 'energy',
     title: 'Energy & Oil & Gas',
-    shortName: 'Oil and Gas',
-    heroTitle: 'OIL, GAS & ENERGY INDUSTRY SOLUTIONS',
+    shortName: 'Energy',
+    heroTitle: 'ENERGY & OIL & GAS SOLUTIONS',
     subtitle:
-      'API 6A / 17D certified metallic RTJ gaskets, subsea wellhead seals, and high-pressure valves designed for upstream, midstream, and downstream operations.',
+      'API 6A, API 17D, and ASME certified high-pressure gaskets, compact flange rings, and fire-safe flange insulation kits engineered for extreme subsea, transmission, and downstream refining.',
     bannerImage: '/images/industry-page-banner-img.avif',
     segments: [
       {
-        id: 'upstream-exploration',
+        id: 'upstream-offshore',
         name: 'Upstream & Offshore',
-        title: 'Upstream Drilling & Offshore Wellhead Solutions',
-        tagline: 'API 6A / 17D HPHT Extreme Pressure Sealing',
+        title: 'Upstream & Offshore (HPHT & Subsea)',
         intro:
-          'High-Pressure High-Temperature (HPHT) deepwater exploration pushes sealing materials to pressures up to 20,000 psi and temperatures up to 350°C. TXCO manufactures API Spec 6A & 17D certified Style BX, RX, and specialized subsea SBX/SRX gaskets.',
-        section2Title: 'Subsea Wellhead & Blowout Preventer (BOP) Integrity',
-        section2Body:
-          'Subsea intervention costs are immense. TXCO pressure-energized metallic rings utilize vent-hole pressure equalization and precision surface finishes to guarantee bubble-tight isolation.',
-        whoWeServeTitle: 'Who We Serve',
+          'Operating in harsh marine environments, subsea depths, and High-Pressure High-Temperature (HPHT) wellhead zones demands ultimate mechanical reliability. Equipment is subjected to hydrostatic ocean pressures, intense structural flexure, dynamic topside vibration, sour gas (H2S) exposure under NACE MR0175 / ISO 15156, and wellhead working pressures reaching up to 20,000 PSI.',
         whoWeServe: [
-          'Offshore Drilling Contractors & Rig Operators',
-          'Subsea Christmas Tree & Manifold Manufacturers',
-          'Floating Production Storage & Offloading (FPSO) Units',
-          'Wellhead & BOP Equipment OEMs',
-          'Subsea Pipeline Tie-In Specialists',
+          'Exploration & Production (E&P) operators',
+          'Offshore drilling contractors',
+          'FPSO operators',
+          'Subsea tree and Blowout Preventer (BOP) OEMs',
+          'Subsea piping EPCs',
+          'Naval marine infrastructure contractors',
         ],
-        conclusionTitle: 'Certified Reliability in Hostile Marine Conditions',
-        conclusionBody:
-          'With full EN 10204 3.1 & 3.2 material traceability, NACE MR0175 compliance, and third-party dimensional inspection, TXCO supports safe offshore operations.',
+        primaryApplications:
+          'API 6A wellhead Christmas trees, subsea BOP stack connections, offshore production risers, subsea manifolds, choke-and-kill manifolds, high-pressure mud pumps, and topside separation units.',
+        commonFlanges: [
+          {
+            name: 'API 6A Type 6B & 6BX Flanges',
+            desc: 'Heavy-duty, extreme-pressure flanges engineered for wellhead, BOP, and Christmas tree assemblies.',
+          },
+          {
+            name: 'ASME B16.5 / B16.47 Weld Neck Flanges (WN - RTJ Facing)',
+            desc: 'Standard high-pressure connections for topside process manifolds and riser piping.',
+          },
+        ],
+        engineeredGaskets: [
+          {
+            name: 'API Spec 6A & 17D Ring Type Joint (RTJ) Gaskets',
+            desc: 'Solid metal RX, BX, and pressure-balanced SRX / SBX subsea profiles machined in Inconel 718, Super Duplex S32750, and 316L SS with strict hardness verification to force plastic seal deformation without damaging expensive groove faces.',
+          },
+          {
+            name: 'API 6FB Fire-Safe Flange Isolation Kits (FIK - TX-ISOPRO)',
+            desc: 'High-dielectric G10/G11 Glass-Reinforced Epoxy (GRE) retainers with spring-energized PTFE seal elements engineered for splash-zone atmospheric protection and subsea Cathodic Protection (CP) isolation.',
+          },
+          {
+            name: 'Compact Flange IX Metallic Seals',
+            desc: 'Machined metallic seal rings engineered for NORSOK L-005 compact flanges to provide dual-cone seating under severe dynamic bending moments.',
+          },
+          {
+            name: 'Severe-Service Spiral Wound Gaskets (ASME B16.20)',
+            desc: 'Winding metallurgy in Inconel 625 or 316L with high-density flexible graphite or ePTFE fillers for topside gas compression and separation units.',
+          },
+        ],
       },
       {
         id: 'midstream-pipeline',
         name: 'Midstream & Pipeline',
-        title: 'Midstream Pipeline & Storage Facility Solutions',
-        tagline: 'High-Integrity Pipeline Cathodic Protection & Sealing',
+        title: 'Midstream & Pipeline (Transmission)',
         intro:
-          'Cross-country transmission pipelines and underground gas storage facilities require dielectric flange isolation kits and high-torque spiral wound gaskets to prevent electrolytic corrosion and gas leakage.',
-        section2Title: 'Dielectric Flange Isolation Kits (Type F & VCS)',
-        section2Body:
-          'Our VCS and Type F isolation kits combine G-10 glass epoxy retainers with spring-energized PTFE seals, providing electrical isolation exceeding 500 V/mil under high cyclic pressure.',
-        whoWeServeTitle: 'Who We Serve',
+          'Transporting crude oil, natural gas, NGLs, and refined products across thousands of miles of cross-country and subsea pipelines requires long-term joint integrity. Pipeline infrastructure must withstand continuous ground movement, severe thermal expansion, soil load stresses, pigging impact forces, and electrochemical corrosion—all while complying with strict environmental leakage regulations.',
         whoWeServe: [
-          'Crude Oil & Natural Gas Pipeline Operators',
-          'Compressor & Pumping Station Facilities',
-          'LNG Regasification & Liquefaction Terminals',
-          'Underground Cavern Storage Operations',
-          'Terminal Metering & Custody Transfer Skids',
+          'Interstate crude and gas pipeline operators',
+          'Compressor and pump station EPC contractors',
+          'Metering skid manufacturers',
+          'Gas processing plant operators',
+          'Underground storage facility managers',
+          'Pipeline maintenance providers',
         ],
-        conclusionTitle: 'Preventing Pipeline Corrosion & Outages',
-        conclusionBody:
-          'Protect critical transmission infrastructure and maintain uninterrupted pipeline throughput with TXCO isolation and pipeline sealing systems.',
+        primaryApplications:
+          'Cross-country transmission pipelines, gas compressor stations, liquid pump stations, pig launchers and receivers, metering/custody transfer skids, underground valve vaults, and tank farm battery limits.',
+        commonFlanges: [
+          {
+            name: 'High-Yield Weld Neck Flanges (MSS SP-44 / CSA Z245.12 / ASME B16.47)',
+            desc: 'High-strength forged flanges matched to high-yield line pipe grades (API 5L X52 through X80).',
+          },
+          {
+            name: 'ASME B16.36 Orifice Flanges',
+            desc: 'Flanged unions equipped with integrated pressure tapings for custody transfer flow measurement.',
+          },
+          {
+            name: 'Blind Flanges (ASME B16.5 BL)',
+            desc: 'Deployed on pig trap quick-actuating closures and maintenance bypass lines.',
+          },
+        ],
+        engineeredGaskets: [
+          {
+            name: 'Cathodic Protection Flange Isolation Kits (FIK - TX-ISOPRO)',
+            desc: 'Dielectric isolation sets installed to maintain cathodic protection currents and block pipeline galvanic corrosion cells.',
+          },
+          {
+            name: 'Low-Emission Spiral Wound Gaskets (ASME B16.20 Low-E)',
+            desc: 'Specially engineered filler density SWGs designed to maintain tightness under remote compressor station vibration, achieving ISO 15848-1 Class A fugitive emission compliance.',
+          },
+          {
+            name: 'Kammprofile Gaskets with Inner & Outer Rings',
+            desc: 'Heavy-duty serrated metal cores faced with expanded flexible graphite for high-vibration pump station discharge flanges.',
+          },
+          {
+            name: 'API Spec 6A Ring Type Joint (RTJ) Gaskets',
+            desc: 'Solid metal R Octagonal and RX rings used on high-pressure gas gathering manifolds and pig trap doors.',
+          },
+        ],
       },
       {
         id: 'downstream-refining',
         name: 'Downstream Refining',
-        title: 'Downstream Oil Refining & Petrochemical Solutions',
-        tagline: 'Crude Distillation & Catalytic Cracker Sealing',
+        title: 'Downstream Refining (Thermal Shock)',
         intro:
-          'Atmospheric distillation towers, vacuum columns, delayed cokers, and hydrocrackers subject bolted joints to severe thermal transients and corrosive sour crude fractions.',
-        section2Title: 'Engineered for Cyclic Coking & Hydroprocessing',
-        section2Body:
-          'TXCO Kammprofile gaskets and pass-partition metal jacketed heat exchanger gaskets withstand rapid temperature fluctuations without loss of seating stress.',
-        whoWeServeTitle: 'Who We Serve',
+          'Refining operations represent one of the most demanding thermal and chemical environments in heavy industry. Fluid containment systems must endure high thermal shock, continuous operating temperatures exceeding 650°C, High-Temperature Hydrogen Attack (HTHA), toxic Hydrofluoric (HF) acid alkylation, and sour hydrocarbon media while adhering to strict EPA Method 21 and TA-Luft / ISO 15848-1 zero-leakage mandates.',
         whoWeServe: [
-          'Petroleum Refineries & Upgraders',
-          'Hydrocracker & FCCU Units',
-          'Delayed Coking & Visbreaking Units',
-          'Sulfur Recovery (Claus) Units',
-          'Refinery Turnaround Maintenance Teams',
+          'Integrated petroleum refineries',
+          'Petrochemical complexes',
+          'Independent fuel processors',
+          'Refinery turnaround and maintenance contractors',
+          'Heat exchanger OEMs',
+          'Industrial overhaul service teams',
         ],
-        conclusionTitle: 'Turnaround Speed & Reliability',
-        conclusionBody:
-          'We provide complete turnaround gasket tagging, emergency 24-hour manufacturing, and engineering flange calculation support for major refinery TAR projects.',
+        primaryApplications:
+          'Crude Distillation Units (CDU/VDU), Fluid Catalytic Cracking Units (FCCU), Hydrocrackers, Hydrotreaters, HF/Sulfuric Acid Alkylation units, Delayed Cokers, Flare Headers, and Shell-and-Tube Heat Exchangers.',
+        commonFlanges: [
+          {
+            name: 'Weld Neck Flanges (ASME B16.5 / B16.47 WN - RF & RTJ)',
+            desc: 'Standard across all high-pressure, high-temperature refinery units to ensure smooth stress transition from flange to pipe.',
+          },
+          {
+            name: 'Long Weld Neck Flanges (LWN)',
+            desc: 'Preferred for heavy vessel nozzles, column manways, and reactor nozzles to eliminate girth-weld fatigue.',
+          },
+          {
+            name: 'Orifice Flanges (ASME B16.36)',
+            desc: 'Used for precise flow monitoring across refinery processing units.',
+          },
+        ],
+        engineeredGaskets: [
+          {
+            name: 'ASME B16.20 Spiral Wound Gaskets (SWG)',
+            desc: 'Constructed with 316L, Inconel 625, or Monel 400 windings and high-density flexible graphite fillers. Features mandatory solid inner rings to prevent radial inner-ring buckling under severe thermal shock.',
+          },
+          {
+            name: 'Kammprofile Gaskets for Heat Exchangers',
+            desc: 'Serrated metallic cores faced with expanded flexible graphite or mica, custom-engineered for floating heads, channel covers, and shell-to-tubesheet joints subject to differential thermal expansion.',
+          },
+          {
+            name: 'API Spec 6A & ASME B16.20 Ring Type Joint (RTJ) Gaskets',
+            desc: 'Precision-machined R, RX, and BX rings with strict Brinell hardness caps (e.g., Soft Iron < 90 HB, SS 316 < 160 HB) to protect expensive flange grooves from galling during cyclic operation.',
+          },
+          {
+            name: 'Monel-Wound & ePTFE Gaskets for HF Alkylation',
+            desc: 'Specially designed seals using Monel 400 cores/windings and virgin ePTFE to resist lethal hydrofluoric acid corrosion and prevent crevice attack.',
+          },
+          {
+            name: 'API 6FB Fire-Safe Flange Isolation Kits (FIK – TX-CERAMPRO)',
+            desc: 'Installed at tank battery limits, offsite transfer lines, and dissimilar metal vessel connections for CP isolation and fire-safe joint integrity.',
+          },
+        ],
       },
     ],
     productSpotlight: [
       {
         id: 'rtj-all',
-        title: 'RING TYPE JOINT (RTJ)',
-        specs: 'Style R • RX • BX Solid Metal',
+        title: 'API 6A / 17D RTJ GASKETS',
+        specs: 'Solid Metal R • RX • BX • SRX • SBX',
         image: '/images/products/industrial-gaskets/ring-type-joint.png',
         href: '/products/gaskets/metallic-gaskets/details?product=ring-type-joint-rtj',
       },
       {
-        id: 'swg-cgi',
+        id: 'swg-inconel',
         title: 'SPIRAL WOUND GASKETS',
-        specs: 'Style CGI with Inner & Outer Rings',
+        specs: 'Inconel 625 / Monel 400 Windings',
         image: '/images/products/industrial-gaskets/sprial-wound-gaskets.png',
         href: '/products/gaskets/semi-metallic-gaskets/details?product=spiral-wound-gaskets',
       },
       {
-        id: 'flange-isolation',
-        title: 'FLANGE ISOLATION KITS',
-        specs: 'Type F • Type E • High-Pressure VCS',
+        id: 'fik-cp',
+        title: 'CATHODIC ISOLATION KITS',
+        specs: 'TX-ISOPRO • TX-CERAMPRO High Dielectric',
         image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
-        href: '/products/commercial-products',
-      },
-      {
-        id: 'valve-packings',
-        title: 'VALVE STEM PACKING',
-        specs: 'API 622 Die-Formed Graphite Rings',
-        image: '/images/products/industrial-gaskets/also-offerinf.png',
-        href: '/products/valve-components',
-      },
-    ],
-  },
-
-  {
-    id: 'renewable-energy',
-    slug: 'renewable-energy',
-    title: 'Renewable Energy',
-    shortName: 'Renewable Energy',
-    heroTitle: 'RENEWABLE ENERGY INDUSTRY SOLUTIONS',
-    subtitle:
-      'Sealing technologies engineered for Green Hydrogen generation, Solar Thermal CSP plants, Wind Turbines, and Geothermal energy production.',
-    bannerImage: '/images/industry-page-banner-img.avif',
-    segments: [
-      {
-        id: 'green-hydrogen',
-        name: 'Green Hydrogen & Electrolysis',
-        title: 'Green Hydrogen Electrolysis & Storage Solutions',
-        tagline: 'Ultra-Low Permeability Sealing for Tiny Hydrogen Molecules',
-        intro:
-          'Hydrogen is the smallest molecule in the universe and easily permeates conventional elastomers and porous seals. TXCO high-density pure metallic seals and specialized ePTFE membranes deliver zero-leakage isolation across PEM and Alkaline electrolyzer stacks.',
-        section2Title: 'Electrolyzer Stack & High-Pressure H2 Fueling',
-        section2Body:
-          'With hydrogen fueling stations operating at 700 bar (10,000 psi), our precision CNC-machined metallic seals prevent hydrogen embrittlement and micro-leakage.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'PEM & Alkaline Electrolyzer OEMs',
-          'High-Pressure H2 Gas Storage Facilities',
-          'Hydrogen Refueling Station (HRS) Manufacturers',
-          'Fuel Cell Power System Developers',
-          'Ammonia & Liquid Hydrogen Carrier Logistics',
-        ],
-        conclusionTitle: 'Accelerating the Global Clean Energy Transition',
-        conclusionBody:
-          'TXCO provides laboratory-tested, low-permeation sealing solutions to ensure the safety, efficiency, and scalability of green hydrogen infrastructure.',
-      },
-      {
-        id: 'solar-thermal',
-        name: 'Solar Thermal & Geothermal',
-        title: 'Concentrated Solar Power (CSP) & Geothermal Solutions',
-        tagline: 'Molten Salt & High-Temperature Steam Resistance',
-        intro:
-          'CSP plants utilize molten nitrate salts at temperatures exceeding 565°C, while geothermal power plants face corrosive hydrogen sulfide and silica scaling. TXCO Inconel 625 Kammprofile and Spiral Wound gaskets provide dependable thermal barrier integrity.',
-        section2Title: 'Molten Salt Loop & High-Enthalpy Geothermal Steam',
-        section2Body:
-          'Engineered with high oxidation resistance and solid metal serrated cores, our gaskets prevent thermal degradation in cyclic molten salt receivers and power blocks.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'Concentrated Solar Power (Tower & Trough) Plants',
-          'Thermal Energy Storage (TES) Facilities',
-          'High-Enthalpy Geothermal Power Producers',
-          'Binary Cycle Geothermal Systems',
-          'District Heating & Renewable Steam Facilities',
-        ],
-        conclusionTitle: 'Maximized Thermal Efficiency',
-        conclusionBody:
-          'Maintain high thermal storage availability and eliminate hazardous molten salt leaks with TXCO high-temperature metallurgy.',
-      },
-    ],
-    productSpotlight: [
-      {
-        id: 'kammprofile-gaskets',
-        title: 'KAMMPROFILE GASKETS',
-        specs: 'Inconel 625 / Graphite High Temp',
-        image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
-        href: '/products/gaskets/semi-metallic-gaskets/details?product=kammprofile-gaskets',
-      },
-      {
-        id: 'swg-cgi',
-        title: 'SPIRAL WOUND GASKETS',
-        specs: 'High Thermal Cycling CGI Style',
-        image: '/images/products/industrial-gaskets/sprial-wound-gaskets.png',
-        href: '/products/gaskets/semi-metallic-gaskets/details?product=spiral-wound-gaskets',
-      },
-      {
-        id: 'rtj-all',
-        title: 'RING TYPE JOINT (RTJ)',
-        specs: 'Hydrogen Pressure Testing Spec',
-        image: '/images/products/industrial-gaskets/ring-type-joint.png',
-        href: '/products/gaskets/metallic-gaskets/details?product=ring-type-joint-rtj',
-      },
-      {
-        id: 'non-metallic-ptfe',
-        title: 'EXPANDED PTFE GASKETS',
-        specs: 'Electrolyzer Stack Cell Sealing',
-        image: '/images/products/industrial-gaskets/non-metallic-gaskets.png',
-        href: '/products/gaskets/non-metallic-gaskets/details?product=expanded-ptfe-gaskets',
-      },
-    ],
-  },
-
-  {
-    id: 'power-generation',
-    slug: 'power-generation',
-    title: 'Power Generation',
-    shortName: 'Power Generation',
-    heroTitle: 'POWER GENERATION INDUSTRY SOLUTIONS',
-    subtitle:
-      'High-pressure steam bonnet seals, pressure seal rings, and turbine casing gaskets for thermal, nuclear, and combined-cycle power utilities.',
-    bannerImage: '/images/industry-page-banner-img.avif',
-    segments: [
-      {
-        id: 'thermal-ccgt',
-        name: 'Combined Cycle & Thermal',
-        title: 'Combined Cycle Gas Turbine (CCGT) & Steam Solutions',
-        tagline: 'Supercritical Steam & Fast-Cycling Turbine Sealing',
-        intro:
-          'Supercritical and ultra-supercritical steam cycles operate at 600°C+ and 300 bar. TXCO manufactures custom silver-plated pressure seal rings, lens rings, and high-density flexible graphite gaskets designed for steam headers and heat recovery steam generators (HRSG).',
-        section2Title: 'HRSG Duct & Steam Header Sealing',
-        section2Body:
-          'Thermal cycling from frequent plant cycling causes bolt relaxation and joint leakage. TXCO expanded graphite and serrated metal core gaskets maintain residual seating stress under load swings.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'Combined Cycle Gas Turbine (CCGT) Plants',
-          'Coal & Thermal Power Stations',
-          'Heat Recovery Steam Generator (HRSG) Units',
-          'Steam Turbine OEMs & Overhaul Contractors',
-          'Cogeneration & Industrial Power Plants',
-        ],
-        conclusionTitle: 'Uninterrupted Grid Reliability',
-        conclusionBody:
-          'Eliminate steam joint blowouts, reduce boiler feed water losses, and improve heat rate efficiency with TXCO power generation sealing technology.',
-      },
-      {
-        id: 'nuclear-power',
-        name: 'Nuclear Energy',
-        title: 'Nuclear Power Generation Solutions',
-        tagline: 'Nuclear-Grade ASME Section III & RCC-M Compliance',
-        intro:
-          'Nuclear primary and secondary loops demand ultra-low halogen, low sulfur, and high-purity graphite gaskets with 100% PMI and radiological traceability. TXCO supplies nuclear-grade sealing solutions.',
-        section2Title: 'Reactor Vessel & Primary Coolant Sealing',
-        section2Body:
-          'Tested to nuclear industry standards, our gaskets prevent radiation-induced embrittlement and maintain hermetic sealing across refueling outages.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'Pressurized Water Reactor (PWR) Utilities',
-          'Boiling Water Reactor (BWR) Utilities',
-          'Small Modular Reactor (SMR) Innovators',
-          'Nuclear Valve & Pump OEMs',
-          'Decommissioning & Waste Management Centers',
-        ],
-        conclusionTitle: 'Absolute Safety & Traceability',
-        conclusionBody:
-          'Every nuclear sealing component includes comprehensive MTR documentation, chemical analysis certificates, and rigorous dimensional inspection reports.',
-      },
-    ],
-    productSpotlight: [
-      {
-        id: 'bonnet-rings',
-        title: 'PRESSURE SEAL RINGS',
-        specs: 'High-Pressure Steam Valve Bonnets',
-        image: '/images/products/industrial-gaskets/special-custom.png',
-        href: '/products/gaskets/metallic-gaskets/details?product=bonnet-rings',
-      },
-      {
-        id: 'kammprofile-gaskets',
-        title: 'KAMMPROFILE GASKETS',
-        specs: 'HRSG & Steam Header Flanges',
-        image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
-        href: '/products/gaskets/semi-metallic-gaskets/details?product=kammprofile-gaskets',
-      },
-      {
-        id: 'swg-cgi',
-        title: 'SPIRAL WOUND GASKETS',
-        specs: 'Nuclear Grade High-Purity Graphite',
-        image: '/images/products/industrial-gaskets/sprial-wound-gaskets.png',
-        href: '/products/gaskets/semi-metallic-gaskets/details?product=spiral-wound-gaskets',
+        href: '/products/gaskets/semi-metallic-gaskets/details?product=flange-isolation-kits',
       },
       {
         id: 'flanges-wn',
-        title: 'HIGH-PRESSURE FLANGES',
-        specs: 'ASME B16.5 Class 1500 / 2500',
-        image: '/images/products/industrial-gaskets/ring-type-joint.png',
-        href: '/products/flanges',
-      },
-    ],
-  },
-
-  {
-    id: 'epc',
-    slug: 'epc',
-    title: 'Engineering, Procurement & Construction',
-    shortName: 'EPC',
-    heroTitle: 'ENGINEERING, PROCUREMENT, AND CONSTRUCTION INDUSTRY SOLUTIONS',
-    subtitle:
-      'Turnkey gasket packages, standardized pipe class sheets, color-coded tagging, and expedited fabrication yard deliveries for mega-projects worldwide.',
-    bannerImage: '/images/industry-page-banner-img.avif',
-    segments: [
-      {
-        id: 'mega-projects',
-        name: 'Mega Projects & Fabrication',
-        title: 'Mega-Project Sealing & Modular Skid Solutions',
-        tagline: 'Standardized Gasket Packages & Full Project Traceability',
-        intro:
-          'EPC contractors building world-scale refineries, LNG terminals, and chemical complexes require thousands of flange gaskets, stud bolts, and isolation kits delivered on strict project milestone schedules without material mix-ups.',
-        section2Title: 'Tagging, Color Coding & Kitting by Line Class',
-        section2Body:
-          'TXCO provides complete pre-packaged line class kits with barcode labeling, laser-etched heat numbers, and digital MTR portals to accelerate field piping installation.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'Global EPC Contractors & Consortiums',
-          'Modular Process Skid Fabricators',
-          'Offshore Module & Jacket Fabrication Yards',
-          'Piping & Pressure Vessel Fabricators',
-          'Turnaround Management Specialists',
-        ],
-        conclusionTitle: 'On-Time Project Commissioning',
-        conclusionBody:
-          'Reduce punch-list items, eliminate flange assembly errors, and hit your COD milestones with TXCO dedicated EPC project management teams.',
-      },
-      {
-        id: 'shutdown-tar',
-        name: 'Turnaround & Shutdown (TAR)',
-        title: 'Industrial Turnaround (TAR) Emergency Support',
-        tagline: '24/7 Rapid CNC Machining & Dedicated On-Site Trailers',
-        intro:
-          'During plant turnarounds, every hour of delay costs tens of thousands of dollars. TXCO offers 24/7 express gasket manufacturing, on-site consignment inventory trailers, and mobile gasket measurement specialists.',
-        section2Title: 'Emergency Rapid Response Manufacturing',
-        section2Body:
-          'When non-standard dimensions or unexpected corrosion is uncovered during disassembly, our CNC waterjet and machining centers produce custom replacement gaskets in hours.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'Refinery & Chemical Turnaround Managers',
-          'Industrial Maintenance Contractors',
-          'Mechanical Bolting & Joint Integrity Teams',
-          'Plant Reliability Engineers',
-        ],
-        conclusionTitle: 'Zero Turnaround Delays',
-        conclusionBody:
-          'Trust TXCO around-the-clock manufacturing and expedited logistics to keep your critical path turnaround on schedule.',
-      },
-    ],
-    productSpotlight: [
-      {
-        id: 'swg-cgi',
-        title: 'SPIRAL WOUND GASKETS',
-        specs: 'ASME B16.20 Project Packages',
-        image: '/images/products/industrial-gaskets/sprial-wound-gaskets.png',
-        href: '/products/gaskets/semi-metallic-gaskets/details?product=spiral-wound-gaskets',
-      },
-      {
-        id: 'rtj-all',
-        title: 'RING TYPE JOINT (RTJ)',
-        specs: 'Color-Coded Material Bands',
-        image: '/images/products/industrial-gaskets/ring-type-joint.png',
-        href: '/products/gaskets/metallic-gaskets/details?product=ring-type-joint-rtj',
-      },
-      {
-        id: 'flange-isolation',
-        title: 'FLANGE ISOLATION KITS',
-        specs: 'Type F & VCS Complete Kits',
-        image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
-        href: '/products/commercial-products',
-      },
-      {
-        id: 'stud-bolts',
-        title: 'STUD BOLTS & NUTS',
-        specs: 'ASTM A193 B7 / A194 2H Coated',
-        image: '/images/products/industrial-gaskets/also-offerinf.png',
-        href: '/products/commercial-products',
+        title: 'HIGH-YIELD WELD NECK FLANGES',
+        specs: 'API 5L X52-X80 • ASME B16.47 / MSS SP-44',
+        image: '/images/products/flanges/weld-neck-flanges.png',
+        href: '/products/flanges/details?product=weld-neck-flanges',
       },
     ],
   },
@@ -515,80 +421,133 @@ export const industriesList = [
     shortName: 'Manufacturing',
     heroTitle: 'MANUFACTURING & HEAVY INDUSTRY SOLUTIONS',
     subtitle:
-      'Durable sealing materials, custom elastomer profiles, and heavy hydraulic gaskets for automotive, paper mills, food processing, and steel manufacturing.',
+      'Durable sealing materials, sanitary fluoropolymers, and heavy hydraulic gaskets engineered for food & beverage processing, blast furnaces, rolling mills, and extreme hydraulic power units.',
     bannerImage: '/images/industry-page-banner-img.avif',
     segments: [
       {
         id: 'food-beverage',
-        name: 'Food & Beverage (FDA)',
-        title: 'Food & Beverage Sanitary Sealing Solutions',
-        tagline: 'FDA 21 CFR 177.2600 & 3-A Sanitary Standards',
+        name: 'Food & Beverage (Sanitary & FDA)',
+        title: 'Food & Beverage (FDA)',
         intro:
-          'Clean-in-Place (CIP) and Steam-in-Place (SIP) cycles in dairy, beverage, and brewery processes require sanitary gaskets that resist chemical washdowns and prevent microbial contamination.',
-        section2Title: 'Hygienic Tri-Clamp & Flange Gaskets',
-        section2Body:
-          'Our USP Class VI and FDA-compliant EPDM, Silicone, and PTFE gaskets provide smooth, non-stick surfaces that eliminate bacteria entrapment.',
-        whoWeServeTitle: 'Who We Serve',
+          'Food and beverage processing requires sanitary, non-contaminating, and zero-extractable fluid containment systems that withstand high-temperature processing, organic fats, acidic flavorings, and aggressive Clean-In-Place (CIP) and Steam-In-Place (SIP) chemical sterilization cycles. Sealing materials must endure continuous thermal shock without leeching plasticizers, degrading, or creating internal crevices that encourage bacterial growth. Strict compliance with FDA 21 CFR 177.1550 / 177.2600, USP Class VI, ASME BPE, and 3-A Sanitary Standards is mandatory.',
         whoWeServe: [
-          'Dairy & Beverage Bottling Plants',
-          'Breweries & Distilleries',
-          'Food Processing & Packaging OEMs',
-          'Edible Oil & Sugar Refineries',
+          'Industrial food processors',
+          'Commercial beverage & bottling complexes',
+          'Dairy & milk processing plants',
+          'Breweries and distilleries',
+          'Sanitary equipment OEMs (mixers, homogenizers, pasteurizers)',
+          'Bioprocess piping contractors',
         ],
-        conclusionTitle: 'Safe, Compliant Food Production',
-        conclusionBody:
-          'Ensure food safety and pass sanitary audits with TXCO certified food-grade gasket materials.',
+        primaryApplications:
+          'High-temperature short-time (HTST) pasteurization loops, aseptic filling lines, CIP/SIP utility distribution headers, mixing kettles, high-pressure homogenizers, evaporation vessels, and steam sterilization headers.',
+        commonFlanges: [
+          {
+            name: 'Weld Neck Flanges (ASME B16.5 WN Class 150/300)',
+            desc: 'Deployed on high-pressure utility steam lines, thermal fluid loops, and boiler feed systems (with internally ground and polished welds).',
+          },
+          {
+            name: 'Slip-On & Threaded Flanges (ASME B16.5 SO/TH)',
+            desc: 'Restricted strictly to non-process utility lines, raw water intake, and facility HVAC cooling networks.',
+          },
+        ],
+        engineeredGaskets: [
+          {
+            name: 'Restructured Virgin & Expanded PTFE (ePTFE) Sheets',
+            desc: 'Inert, non-contaminating sheet seals designed for flanged product transfer lines, offering zero creep relaxation under thermal cycling.',
+          },
+          {
+            name: 'PTFE Envelope Gaskets',
+            desc: 'Combining an elastomeric core (EPDM/FKM) with a seamless virgin PTFE outer sheath for enhanced compressibility on low-bolt-load sanitary vessel flanges.',
+          },
+          {
+            name: 'Stainless Steel RTJ Gaskets (ASME B16.20 R Octagonal)',
+            desc: 'Precision 316L SS Ring Type Joints deployed in high-pressure clean-steam generation boilers and thermal sterilization utility headers.',
+          },
+          {
+            name: 'Flange Isolation Kits (FIK – TX-ISOPRO)',
+            desc: 'Full-face phenolic or G10 GRE isolation kits installed on facility boundary water mains and utility supply piping to isolate stray electrical currents and protect plant grounding systems.',
+          },
+        ],
       },
       {
-        id: 'heavy-machinery',
+        id: 'heavy-machinery-steel',
         name: 'Heavy Machinery & Steel',
-        title: 'Heavy Machinery & Steel Mill Solutions',
-        tagline: 'Extreme Vibration, High Shock & Slag Resistance',
+        title: 'Heavy Machinery & Steel',
         intro:
-          'Rolling mills, blast furnaces, and heavy hydraulic presses subject seals to severe mechanical vibration, thermal radiation, and hydraulic pressure spikes.',
-        section2Title: 'High-Pressure Hydraulic & Thermal Seals',
-        section2Body:
-          'TXCO steel-inserted and reinforced graphite gaskets withstand extreme mechanical clamping forces without extrusion or blowout.',
-        whoWeServeTitle: 'Who We Serve',
+          'Heavy machinery and steel manufacturing represent an environment of extreme mechanical stress, intense radiant heat, shock loading, and massive hydraulic pressures. Equipment must endure continuous exposure to molten metal proximity, abrasive furnace scale, aggressive cooling water, and hydraulic working pressures often exceeding 350 bar (5,000 PSI). Sealing integrity depends on robust metallurgy, high-recovery gasket geometries, and exceptional resistance to thermal oxidation up to 1,000°C.',
         whoWeServe: [
-          'Steel & Aluminum Rolling Mills',
-          'Heavy Mining Machinery Builders',
-          'Hydraulic Press & Cylinder Manufacturers',
-          'Foundry & Smelting Operations',
+          'Integrated steel mills (Blast Furnace, BOF, EAF)',
+          'Hot/cold rolling mills',
+          'Heavy hydraulic press OEMs',
+          'Metal forging facilities',
+          'Smelting operations',
+          'Mining equipment builders',
+          'Heavy industrial maintenance teams',
         ],
-        conclusionTitle: 'Heavy-Duty Reliability',
-        conclusionBody:
-          'Reduce equipment downtime in harsh manufacturing environments with TXCO heavy-duty sealing products.',
+        primaryApplications:
+          'Blast furnace cooling plates, oxygen steelmaking lances, continuous casting machines, hot rolling mill hydraulic power units (HPUs), heavy forging presses, slag granulators, and high-pressure steam descaling headers.',
+        commonFlanges: [
+          {
+            name: 'High-Pressure Weld Neck Flanges (ASME B16.5 / B16.47 WN Class 300 to 2500)',
+            desc: 'Essential for high-pressure cooling water mains, oxygen supply lines, and descaling spray headers.',
+          },
+          {
+            name: 'Custom Large-Diameter Vessel Flanges',
+            desc: 'Non-standard square, rectangular, or circular flanged joints built into furnace doors, gear drives, and heat treatment shells.',
+          },
+          {
+            name: 'Threaded & Socket Weld Flanges (ASME B16.5 SW/TH)',
+            desc: 'Utilized on small-bore high-pressure grease lines, hydraulic control lines, and sensor wells.',
+          },
+        ],
+        engineeredGaskets: [
+          {
+            name: 'High-Temperature Flange Isolation Kits (FIK – TX-CERAMPRO)',
+            desc: 'Engineered for high-temperature and fire-safe electrical isolation in intense radiant heat zones.',
+          },
+          {
+            name: 'API Spec 6A & ASME B16.20 Ring Type Joint (RTJ) Gaskets',
+            desc: 'Heavy-duty solid metal R (Oval/Octagonal) and RX profiles in Soft Iron (Code D) or SS 304/316 engineered for extreme-pressure hydraulic systems, oxygen lances, and forge press manifolds.',
+          },
+          {
+            name: 'Heavy-Duty Spiral Wound & Kammprofile Gaskets',
+            desc: 'Metal-cored seals with tanged graphite facings engineered to survive heavy structural vibration on rolling mill cooling water piping and high-pressure steam headers.',
+          },
+          {
+            name: 'Heavy-Duty Flange Isolation Kits (FIK – TX ISOPRO)',
+            desc: 'High-strength G10/G11 GRE isolation sets installed on electric furnace transformers, electrolysis cells, and underground cooling water mains to block massive stray electrical currents and prevent rapid galvanic destruction.',
+          },
+        ],
       },
     ],
     productSpotlight: [
       {
-        id: 'steel-inserted',
-        title: 'STEEL-INSERTED GASKETS',
-        specs: 'High-Blowout Hydraulic Sealing',
-        image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
-        href: '/products/gaskets/steel-inserted-gaskets',
+        id: 'kammprofile-all',
+        title: 'KAMMPROFILE GASKETS',
+        specs: 'High Mechanical Shock & Vibration',
+        image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
+        href: '/products/gaskets/semi-metallic-gaskets/details?product=kammprofile-gaskets',
       },
       {
-        id: 'non-metallic-ptfe',
-        title: 'SANITARY PTFE GASKETS',
-        specs: 'FDA 21 CFR 177.2600 Certified',
-        image: '/images/products/industrial-gaskets/non-metallic-gaskets.png',
-        href: '/products/gaskets/non-metallic-gaskets',
+        id: 'rtj-all',
+        title: 'HEAVY-DUTY RTJ GASKETS',
+        specs: 'Soft Iron • SS 304/316 Extreme Hydraulic',
+        image: '/images/products/industrial-gaskets/ring-type-joint.png',
+        href: '/products/gaskets/metallic-gaskets/details?product=ring-type-joint-rtj',
       },
       {
-        id: 'swg-cgi',
+        id: 'swg-heavy',
         title: 'SPIRAL WOUND GASKETS',
-        specs: 'Steam & Boiler Flange Sealing',
+        specs: 'High-Pressure Steam & Cooling Headers',
         image: '/images/products/industrial-gaskets/sprial-wound-gaskets.png',
         href: '/products/gaskets/semi-metallic-gaskets/details?product=spiral-wound-gaskets',
       },
       {
-        id: 'kammprofile-gaskets',
-        title: 'KAMMPROFILE GASKETS',
-        specs: 'Furnace & High-Temp Headers',
-        image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
-        href: '/products/gaskets/semi-metallic-gaskets/details?product=kammprofile-gaskets',
+        id: 'fik-cerampro',
+        title: 'HIGH-TEMP ISOLATION KITS',
+        specs: 'TX-CERAMPRO Up to 1000°C Thermal Zones',
+        image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
+        href: '/products/gaskets/semi-metallic-gaskets/details?product=flange-isolation-kits',
       },
     ],
   },
@@ -600,124 +559,89 @@ export const industriesList = [
     shortName: 'Metals and Mining',
     heroTitle: 'METALS & MINING INDUSTRY SOLUTIONS',
     subtitle:
-      'Heavy-duty abrasive slurry gaskets, acid leach autoclave seals, and high-wear piping isolation systems for global mineral extraction operations.',
+      'High-Pressure Acid Leach (HPAL) titanium autoclave seals, slurry transmission pipeline isolation, and erosion-resistant metallurgy engineered for extreme abrasive hydrometallurgical extraction.',
     bannerImage: '/images/industry-page-banner-img.avif',
     segments: [
       {
-        id: 'slurry-leach',
+        id: 'hpal-slurry',
         name: 'HPAL & Slurry Pipelines',
-        title: 'High-Pressure Acid Leach & Slurry Pipeline Solutions',
-        tagline: 'Titanium & Exotic Metallurgy for Severe Abrasive Slurries',
+        title: 'High-Pressure Acid Leach (HPAL) & Slurry Pipelines',
         intro:
-          'High-Pressure Acid Leach (HPAL) autoclaves used in nickel, cobalt, and gold extraction combine 250°C sulfuric acid with abrasive mineral slurries under 50 bar pressure. TXCO supplies solid Titanium Gr. 2 and Hastelloy C276 metallic gaskets.',
-        section2Title: 'Resisting Severe Erosion & Acid Attack',
-        section2Body:
-          'Our wear-resistant metallic and composite gaskets prevent flange face wire-drawing and slurry washouts in high-velocity piping.',
-        whoWeServeTitle: 'Who We Serve',
+          'Hydrometallurgical mineral extraction and long-distance ore transport represent two of the most aggressive mechanical and chemical processing environments in heavy industry. Fluid containment systems must concurrently survive extreme erosion-corrosion from high-velocity mineral slurries (silica, nickel laterite, copper tailings), concentrated hot sulfuric acid (H2SO4), continuous hydraulic shock, thermal expansion up to 270°C, and system pressures exceeding 200 bar (3,000 PSI).',
         whoWeServe: [
-          'Nickel & Cobalt HPAL Plants',
-          'Gold & Copper Hydrometallurgical Refineries',
-          'Iron Ore & Bauxite Slurry Pipeline Systems',
-          'Phosphate & Fertilizer Acid Complexes',
+          'Nickel, cobalt, gold, and lithium hydrometallurgical processing complexes',
+          'Long-distance slurry transmission pipeline operators',
+          'Mineral tailings management facilities (TMF)',
+          'Autoclave vessel OEMs',
+          'Slurry pump manufacturers',
+          'Global mining EPC contractors',
         ],
-        conclusionTitle: 'Rugged Performance in Remote Sites',
-        conclusionBody:
-          'Ensure uninterrupted mineral processing in remote mine sites with TXCO high-abrasion sealing technology.',
+        primaryApplications:
+          'HPAL titanium autoclave reactors, high-pressure slurry feed pumps, acid injection lines, flash vessel discharge headers, choke manifold assemblies, long-distance iron ore/copper slurry transmission pipelines, and tailings disposal lines.',
+        commonFlanges: [
+          {
+            name: 'Weld Neck Flanges (ASME B16.5 / B16.47 WN Class 600 to 2500)',
+            desc: 'Primary choice for severe-service, high-pressure slurry discharge lines to ensure smooth bore alignment and eliminate turbulence-induced wall erosion.',
+          },
+          {
+            name: 'Titanium & Exotic Alloy Lap Joint Flanges (ASME B16.5 LJ)',
+            desc: 'Titanium Grade 2, Grade 7, or Hastelloy C276 stub ends paired with carbon steel backup flanges to safely handle hot acid lines at optimized material costs.',
+          },
+          {
+            name: 'Custom Lined Pipe Flanges',
+            desc: 'Specialized flanged joints engineered to accommodate internal rubber, polyurethane, or basalt erosion-resistant linings without pinching or shearing the internal barrier.',
+          },
+        ],
+        engineeredGaskets: [
+          {
+            name: 'Exotic Alloy Ring Type Joint (RTJ) Gaskets (ASME B16.20)',
+            desc: 'Precision-machined R, RX, and BX rings in Titanium Grade 2/7, Hastelloy C276, or Super Duplex S32750 engineered for HPAL titanium autoclaves, acid injection nozzles, and high-pressure slurry isolation valves.',
+          },
+          {
+            name: 'Erosion-Resistant Kammprofile Gaskets',
+            desc: 'Titanium or Hastelloy serrated metallic cores faced with expanded ePTFE or flexible graphite, engineered to resist internal fluid scouring and maintain joint tightness across high-vibration slurry pump manifolds.',
+          },
+          {
+            name: 'Restructured ePTFE Sheet & Envelope Seals',
+            desc: 'Biaxially oriented ePTFE sheets resistant to full pH 0–14 acid exposure, formulated to eliminate cold-flow under cyclic thermal loading on low-to-medium pressure acid feed piping.',
+          },
+          {
+            name: 'Heavy-Duty Cathodic Protection Flange Isolation Kits (FIK - TX ISOPRO)',
+            desc: 'High-dielectric G10/G11 Glass-Reinforced Epoxy with TX-FLEX seals to block galvanic corrosion cells between titanium/exotic vessel interfaces and steel piping, while maintaining Cathodic Protection (CP) integrity on cross-country slurry pipelines.',
+          },
+        ],
       },
     ],
     productSpotlight: [
       {
-        id: 'rtj-all',
-        title: 'TITANIUM & ALLOY RTJ',
-        specs: 'Hastelloy C276 / Titanium Gr.2',
+        id: 'rtj-titanium',
+        title: 'TITANIUM & EXOTIC ALLOY RTJ',
+        specs: 'Titanium Gr. 2/7 • Hastelloy C276 • S32750',
         image: '/images/products/industrial-gaskets/ring-type-joint.png',
         href: '/products/gaskets/metallic-gaskets/details?product=ring-type-joint-rtj',
       },
       {
-        id: 'steel-inserted',
-        title: 'STEEL-INSERTED RUBBER',
-        specs: 'Slurry Piping Flange Sealing',
-        image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
-        href: '/products/gaskets/steel-inserted-gaskets',
-      },
-      {
-        id: 'kammprofile-gaskets',
-        title: 'KAMMPROFILE GASKETS',
-        specs: 'Autoclave & Reactor Manways',
+        id: 'kammprofile-erosion',
+        title: 'EROSION-RESISTANT KAMMPROFILE',
+        specs: 'Titanium / Hastelloy Serrated Cores',
         image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
         href: '/products/gaskets/semi-metallic-gaskets/details?product=kammprofile-gaskets',
       },
       {
-        id: 'flanges-all',
-        title: 'INDUSTRIAL FLANGES',
-        specs: 'Alloy & Heavy Wall Weld Neck',
-        image: '/images/products/industrial-gaskets/ring-type-joint.png',
-        href: '/products/flanges',
+        id: 'eptfe-hpal',
+        title: 'RESTRUCTURED ePTFE SEALS',
+        specs: 'Full pH 0-14 Universal Acid Resistance',
+        image: '/images/products/industrial-gaskets/non-metallic-gaskets.png',
+        href: '/products/gaskets/non-metallic-gaskets',
       },
-    ],
-  },
-
-  {
-    id: 'water-wastewater',
-    slug: 'water-wastewater',
-    title: 'Water & Wastewater',
-    shortName: 'Water and Wastewater',
-    heroTitle: 'WATER & WASTEWATER INDUSTRY SOLUTIONS',
-    subtitle:
-      'High-pressure Reverse Osmosis (RO) seals, municipal desalination gaskets, and large-diameter water transmission piping solutions.',
-    bannerImage: '/images/industry-page-banner-img.avif',
-    segments: [
       {
-        id: 'desalination-ro',
-        name: 'Desalination & Treatment',
-        title: 'Desalination & Water Treatment Solutions',
-        tagline: 'High-Pressure Seawater RO & Chlorine Resistance',
-        intro:
-          'Seawater Reverse Osmosis (SWRO) high-pressure pumps and membrane vessels operate at 70–85 bar in highly corrosive seawater environments. TXCO supplies Super Duplex (UNS S32750) and EPDM steel-inserted gaskets that prevent pitting and crevice corrosion.',
-        section2Title: 'Large-Diameter Municipal Pipelines & Pumps',
-        section2Body:
-          'For water transmission pipelines up to 72" (DN 1800), our full-face elastomeric and steel-reinforced gaskets provide low-torque sealing on ductile iron and steel flanges.',
-        whoWeServeTitle: 'Who We Serve',
-        whoWeServe: [
-          'Seawater Reverse Osmosis (SWRO) Desalination Plants',
-          'Municipal Water Treatment Authorities',
-          'Industrial Effluent & Zero Liquid Discharge (ZLD) Plants',
-          'Pumping Station & Water Transmission Networks',
-        ],
-        conclusionTitle: 'Reliable Potable Water Sealing',
-        conclusionBody:
-          'NSF/ANSI 61 and WRAS certified drinking water gasket materials ensuring safe, leak-free municipal water distribution.',
-      },
-    ],
-    productSpotlight: [
-      {
-        id: 'steel-inserted',
-        title: 'STEEL-INSERTED EPDM',
-        specs: 'Potable Water & Municipal Spec',
+        id: 'fik-slurry',
+        title: 'HEAVY-DUTY CP ISOLATION KITS',
+        specs: 'TX ISOPRO • High-Dielectric Glass Epoxy',
         image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
-        href: '/products/gaskets/steel-inserted-gaskets',
-      },
-      {
-        id: 'super-duplex-rtj',
-        title: 'SUPER DUPLEX RTJ',
-        specs: 'UNS S32750 Seawater RO Pumps',
-        image: '/images/products/industrial-gaskets/ring-type-joint.png',
-        href: '/products/gaskets/metallic-gaskets/details?product=ring-type-joint-rtj',
-      },
-      {
-        id: 'swg-cgi',
-        title: 'SPIRAL WOUND GASKETS',
-        specs: '316L / PTFE Faced for Chlorine',
-        image: '/images/products/industrial-gaskets/sprial-wound-gaskets.png',
-        href: '/products/gaskets/semi-metallic-gaskets/details?product=spiral-wound-gaskets',
-      },
-      {
-        id: 'flange-isolation',
-        title: 'FLANGE ISOLATION KITS',
-        specs: 'Buried Water Pipeline Protection',
-        image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
-        href: '/products/commercial-products',
+        href: '/products/gaskets/semi-metallic-gaskets/details?product=flange-isolation-kits',
       },
     ],
   },
 ];
+

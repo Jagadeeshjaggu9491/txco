@@ -43,29 +43,14 @@ export const engineeredSolutionsData = [
 
 export const industriesData = [
   {
-    title: 'Renewable Energy',
-    iconSrc: '/images/icons/industries/Renewable Energy.png',
-    href: '/industries/renewable-energy',
-  },
-  {
-    title: 'Power Generation',
-    iconSrc: '/images/icons/industries/Power Generation.png',
-    href: '/industries/power-generation',
-  },
-  {
-    title: 'Oil and Gas',
-    iconSrc: '/images/icons/industries/Oil and Gas.png',
-    href: '/industries/energy',
-  },
-  {
-    title: 'EPC',
-    iconSrc: '/images/icons/industries/EPC.png',
-    href: '/industries/epc',
-  },
-  {
     title: 'Chemical',
     iconSrc: '/images/icons/industries/Chemical.png',
     href: '/industries/chemical',
+  },
+  {
+    title: 'Energy & Oil & Gas',
+    iconSrc: '/images/icons/industries/Oil and Gas.png',
+    href: '/industries/energy',
   },
   {
     title: 'Manufacturing',
@@ -73,14 +58,9 @@ export const industriesData = [
     href: '/industries/manufacturing',
   },
   {
-    title: 'Metals and Mining',
+    title: 'Metals & Mining',
     iconSrc: '/images/icons/industries/Metals and Mining.png',
     href: '/industries/metals-mining',
-  },
-  {
-    title: 'Water and Wastewater',
-    iconSrc: '/images/icons/industries/Water and Wastewater.png',
-    href: '/industries/water-wastewater',
   },
 ];
 
