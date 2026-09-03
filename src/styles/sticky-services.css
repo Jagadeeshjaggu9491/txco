@@ -1,0 +1,256 @@
+/* =========================================================================
+   STICKY STACKING SERVICES SECTION STYLESHEET
+   Matching TXCO Website Design System
+========================================================================= */
+
+.sticky-services-section {
+  width: 100%;
+  padding: 6rem 0 8rem 0;
+  background-color: var(--bg-cool-grey, #f4f8ff);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.sticky-services-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Section Header */
+.sticky-services-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 4rem auto;
+}
+
+.sticky-services-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #018f5d;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.sticky-services-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(2.1rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  color: #052c58;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem 0;
+}
+
+.sticky-services-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Stacking Cards List */
+.sticky-services-cards-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  position: relative;
+}
+
+/* Individual Sticky Card */
+.sticky-service-card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #e2e8f0;
+  padding: 2.8rem;
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.sticky-service-card:hover {
+  box-shadow: 0 -14px 48px rgba(5, 44, 88, 0.1);
+  border-color: #cbd5e1;
+}
+
+/* Alternating Layout */
+.sticky-service-card.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Media/Image Column */
+.sticky-service-media-col {
+  flex: 1 1 50%;
+  width: 50%;
+  height: 480px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  background-color: #f1f5f9;
+  box-shadow: 0 8px 24px rgba(5, 44, 88, 0.08);
+}
+
+.sticky-service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sticky-service-card:hover .sticky-service-img {
+  transform: scale(1.04);
+}
+
+
+
+/* Content Column */
+.sticky-service-content-col {
+  flex: 1 1 50%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sticky-service-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #018f5d;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.sticky-service-card-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(1.7rem, 2.4vw, 2.25rem);
+  font-weight: 700;
+  color: #052c58;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.15rem 0;
+}
+
+.sticky-service-card-desc {
+  font-size: 1.02rem;
+  color: #475569;
+  line-height: 1.75;
+  margin: 0 0 1.6rem 0;
+}
+
+/* Key Scope Bullets */
+.sticky-service-bullets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sticky-service-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.94rem;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.sticky-service-bullet-icon {
+  color: #018f5d;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Action Button Matching Screenshot (#3F4374) */
+.sticky-service-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  background-color: #3f4374;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.6rem;
+  border-radius: 10px;
+  align-self: flex-start;
+  box-shadow: 0 6px 18px rgba(63, 67, 116, 0.25);
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sticky-service-btn:hover {
+  background-color: #2b2e54;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(63, 67, 116, 0.35);
+}
+
+.sticky-service-btn-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.sticky-service-btn:hover .sticky-service-btn-circle {
+  transform: translateX(3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+
+  .sticky-service-card,
+  .sticky-service-card.reverse {
+    flex-direction: column !important;
+    gap: 2.2rem;
+    padding: 2.2rem 1.8rem;
+  }
+
+  .sticky-service-media-col,
+  .sticky-service-content-col {
+    width: 100%;
+    flex: auto;
+  }
+
+  .sticky-service-media-col {
+    height: 340px;
+  }
+
+  .sticky-service-btn {
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 640px) {
+  .sticky-services-section {
+    padding: 4rem 0 5rem 0;
+  }
+
+  .sticky-service-media-col {
+    height: 260px;
+  }
+
+  .sticky-service-card {
+    padding: 1.6rem 1.3rem;
+  }
+}

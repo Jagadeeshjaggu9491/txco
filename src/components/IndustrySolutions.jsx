@@ -103,7 +103,7 @@ export default function IndustrySolutions() {
   return (
     <section ref={sectionRef} className="industry-solutions-section">
       {/* Section Header Intro Banner */}
-      <div className="industry-solutions-intro">
+      {/* <div className="industry-solutions-intro">
         <div ref={headerRef} className="txco-container">
           <h2 className="industries-heading">
             Industry Solutions
@@ -112,7 +112,7 @@ export default function IndustrySolutions() {
             TXCO provides robust safety solutions tailored for every stage of the hydrogen process, from production to distribution. With 75+ years of experience in manufacturing and engineering, our diverse product lineup ensures safety compliance across varying temperatures and pressures throughout the hydrogen value chain.
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* Grid Container */}
       <div className="solutions-rows-container">

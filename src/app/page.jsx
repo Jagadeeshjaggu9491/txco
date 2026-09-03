@@ -9,6 +9,7 @@ import OfferingsGlanceSection from '@/components/OfferingsGlanceSection';
 import CustomerTestimonials from '@/components/CustomerTestimonials';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import StickyServicesSection from '@/components/services/StickyServicesSection';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <HeroSlider />
         <BannerSection />
         <EngineeredSolutions />
+        {/* <StickyServicesSection /> */}
         <IndustriesWeServe />
         <SustainabilitySection />
         <IndustrySolutions />

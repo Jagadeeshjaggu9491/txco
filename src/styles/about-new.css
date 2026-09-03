@@ -1,0 +1,348 @@
+/* =========================================================================
+   ABOUT US (NEW) PAGE STYLESHEET — TXCO SEALING PRODUCTS
+   Matches website design language, typography, cards & color palette
+========================================================================= */
+
+.about-new-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Executive Narrative & Overview Section */
+.about-new-overview-section {
+  padding: 5rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #edf2f7;
+  position: relative;
+}
+
+.about-new-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+.about-new-overview-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.about-new-main-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  color: #3f4770;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.5rem 0;
+}
+
+.about-new-lead-text {
+  font-size: 1.05rem;
+  color: #334155;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+
+
+/* Right Image in Overview Section */
+.about-new-overview-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.about-new-overview-img-wrapper {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(5, 44, 88, 0.12);
+  border: 1px solid #e2e8f0;
+  background-color: #f1f5f9;
+}
+
+.about-new-overview-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.about-new-overview-img-wrapper:hover .about-new-overview-img {
+  transform: scale(1.02);
+}
+
+/* 2. Capabilities Section */
+.about-new-capabilities-section {
+  padding: 5.5rem 2rem;
+  background-color: var(--bg-cool-grey);
+}
+
+.about-new-section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.about-new-section-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(2rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.2;
+}
+
+.about-new-section-subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.about-new-caps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
+}
+
+.about-new-cap-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.2rem 1.8rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 18px rgba(5, 44, 88, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.about-new-cap-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(5, 44, 88, 0.09);
+  border-color: #cbd5e1;
+}
+
+.about-new-cap-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(5, 44, 88, 0.06);
+  color: #3f4770;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.about-new-cap-card:hover .about-new-cap-icon-box {
+  background: #018f5d;
+  color: #ffffff;
+}
+
+.about-new-cap-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.3;
+}
+
+.about-new-cap-desc {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 3. Vision & Mission Section */
+.about-new-vm-section {
+  padding: 5.5rem 2rem;
+  background-color: #ffffff;
+  border-top: 1px solid #edf2f7;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.about-new-vm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.about-new-vm-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 3rem 2.8rem;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-new-vm-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(5, 44, 88, 0.08);
+}
+
+.about-new-vm-card-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: #3f4770;
+}
+
+.about-new-vm-card-vision .about-new-vm-card-top-bar,
+.about-new-vm-card-mission .about-new-vm-card-top-bar {
+  background: #3f4770;
+}
+
+.about-new-vm-badge {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  color: #018f5d;
+}
+
+.about-new-vm-card-vision .about-new-vm-badge,
+.about-new-vm-card-mission .about-new-vm-badge {
+  color: #018f5d;
+}
+
+.about-new-vm-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #052c58;
+  margin: 0 0 1.2rem 0;
+  line-height: 1.3;
+}
+
+.about-new-vm-desc {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* 4. Core Values Section */
+.about-new-values-section {
+  padding: 5.5rem 2rem;
+  background-color: #f8fafc;
+}
+
+.about-new-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.about-new-value-card {
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.about-new-value-card-dark {
+  background-color: #3f4770;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 8px 22px rgba(63, 71, 112, 0.22);
+}
+
+.about-new-value-card-dark:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(63, 71, 112, 0.35);
+}
+
+.about-new-value-card-light {
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1.5px solid #404377;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.about-new-value-card-light:hover {
+  transform: translateY(-5px);
+  border-color: #3f4770;
+  box-shadow: 0 12px 28px rgba(63, 71, 112, 0.12);
+}
+
+.about-new-value-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  line-height: 1.35;
+}
+
+.about-new-value-desc {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.about-new-value-card-dark .about-new-value-desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.about-new-value-card-light .about-new-value-desc {
+  color: #475569;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .about-new-caps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .about-new-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-new-vm-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-new-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+
+  .about-new-caps-grid,
+  .about-new-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-new-vm-card {
+    padding: 2.2rem 1.8rem;
+  }
+}

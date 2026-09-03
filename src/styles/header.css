@@ -256,7 +256,9 @@
 }
 
 .mega-menu-primary-col {
-  width: 260px;
+  min-width: 280px;
+  width: max-content;
+  max-width: 360px;
   display: flex;
   flex-direction: column;
   padding: 0.4rem 0;

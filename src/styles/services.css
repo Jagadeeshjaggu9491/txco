@@ -1,0 +1,463 @@
+/* =========================================================================
+   SERVICES STYLESHEET — TXCO SPECIALIZED ENGINEERING & FIELD SERVICES
+   Matching strict website design system tokens, colors & product details layout
+========================================================================= */
+
+.services-page-wrapper {
+  background-color: var(--bg-pure-white, #ffffff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.services-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* =========================================================================
+   1. SERVICES OVERVIEW HUB PAGE (/services)
+========================================================================= */
+
+.services-intro-section {
+  padding: 5rem 0 4.5rem 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-light, #e2e8f0);
+}
+
+
+
+.services-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #018f5d;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.services-main-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  color: #052c58;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem 0;
+}
+
+.services-lead-text {
+  font-size: 1.08rem;
+  color: #334155;
+  line-height: 1.75;
+  margin-bottom: 1.75rem;
+}
+
+/* Stats Pill Bar */
+.services-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+.services-stat-pill {
+  background: var(--bg-cool-grey, #f4f8ff);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.services-stat-pill:hover {
+  transform: translateY(-3px);
+  border-color: #404377;
+}
+
+.services-stat-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #052c58;
+  margin-bottom: 0.2rem;
+}
+
+.services-stat-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Intro Image */
+.services-intro-img-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.services-intro-img-wrapper {
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(5, 44, 88, 0.12);
+  border: 1px solid #e2e8f0;
+  background-color: #f1f5f9;
+}
+
+.services-intro-img {
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.services-intro-img-wrapper:hover .services-intro-img {
+  transform: scale(1.02);
+}
+
+/* Services Catalog Grid */
+.services-catalog-section {
+  padding: 5.5rem 0;
+  background-color: var(--bg-cool-grey, #f4f8ff);
+}
+
+.services-section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.services-section-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #052c58;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.25;
+}
+
+.services-section-subtitle {
+  font-size: 1.02rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.services-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 18px rgba(5, 44, 88, 0.04);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #404377;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(5, 44, 88, 0.1);
+  border-color: #cbd5e1;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+}
+
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-card-img {
+  transform: scale(1.05);
+}
+
+.service-card-num-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #052c58;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.service-card-body {
+  padding: 1.8rem 1.8rem 1.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-card-tagline {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #018f5d;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.service-card-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #052c58;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.35;
+}
+
+.service-card-desc {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0 0 1.4rem 0;
+  flex-grow: 1;
+}
+
+.service-card-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #404377;
+  text-decoration: none;
+  transition: color 0.2s ease, gap 0.2s ease;
+  margin-top: auto;
+}
+
+.service-card-link-btn:hover {
+  color: #018f5d;
+  gap: 0.75rem;
+}
+
+/* =========================================================================
+   2. SINGLE SERVICE DETAIL CONTENT (Right Content Panel)
+   Sidebar and split-grid layout re-use styles from product-details.css
+========================================================================= */
+
+/* Right Content Panel (service-detail-main) */
+.service-detail-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-detail-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(1.85rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  color: #052c58;
+  margin: 0 0 1.2rem 0;
+  line-height: 1.25;
+}
+
+.service-detail-overview-box {
+  background: var(--bg-cool-grey, #f4f8ff);
+  border-radius: 14px;
+  border-left: 5px solid #404377;
+  padding: 1.8rem 2rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+  color: #334155;
+  line-height: 1.75;
+}
+
+/* Feature Breakdown Cards */
+.service-features-wrap {
+  margin-bottom: 2.5rem;
+}
+
+.service-subheading {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #052c58;
+  margin: 0 0 1.3rem 0;
+}
+
+.service-feature-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.8rem 2rem;
+  margin-bottom: 1.3rem;
+  box-shadow: 0 4px 14px rgba(5, 44, 88, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.service-feature-item:hover {
+  transform: translateY(-2px);
+  border-color: #404377;
+}
+
+.service-feature-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #052c58;
+  margin: 0 0 0.6rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.service-feature-title-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #018f5d;
+}
+
+.service-feature-desc {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Technical Highlights Box */
+.service-highlights-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 14px rgba(5, 44, 88, 0.03);
+}
+
+.service-widget-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #052c58;
+  margin: 0 0 1.2rem 0;
+}
+
+.service-highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.service-highlight-li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 0.96rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.service-check-icon {
+  color: #018f5d;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Applicable Standards Bar */
+.service-standards-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1.8rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.service-standards-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #052c58;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.service-standards-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.service-standard-tag {
+  background: var(--bg-cool-grey, #f4f8ff);
+  border: 1px solid #cbd5e1;
+  color: #052c58;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+}
+
+/* =========================================================================
+   3. RESPONSIVE BREAKPOINTS
+========================================================================= */
+
+@media (max-width: 992px) {
+  .services-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-stats-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .services-intro-section,
+  .services-catalog-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .service-feature-item {
+    padding: 1.4rem 1.25rem;
+  }
+}

@@ -120,13 +120,14 @@ export const mainNavigationMenu = {
 
   services: {
     title: 'Services',
-    href: '#',
+    href: '/services',
     items: [
-      { name: 'Engineering Services', href: '#' },
-      { name: 'Reverse Engineering', href: '#' },
-      { name: 'Custom Gasket Engineering', href: '#' },
-      { name: 'Field Support & Measurement', href: '#' },
-      { name: 'Technical Training', href: '#' },
+      { name: 'All Services', href: '/services' },
+      { name: 'Joint Integrity Calculations', href: '/services/flange-joint-integrity' },
+      { name: 'Precision Reverse Engineering', href: '/services/reverse-engineering' },
+      { name: 'Custom Gasket & Component Engineering', href: '/services/custom-engineering' },
+      { name: 'Field Support & Measurement', href: '/services/field-support' },
+      { name: 'Technical Training & Workshops', href: '/services/technical-training' },
     ],
   },
   resources: {
@@ -146,6 +147,9 @@ export const mainNavigationMenu = {
     href: '/about',
     items: [
       { name: 'About TXCO', href: '/about' },
+      { name: 'About TXCO (New)', href: '/about-us-new' },
+      { name: 'Quality Policy', href: '/quality-policy' },
+      { name: 'HSE Policy', href: '/hse-policy' },
       { name: 'Quality & Certifications', href: '/certifications' },
       { name: 'Global Contacts', href: '/contact' },
       { name: 'Careers', href: '/careers' },
@@ -184,12 +188,12 @@ export const footerNavigationColumns = [
   {
     title: 'SERVICES',
     links: [
-      { name: 'All Services', href: '#' },
-      { name: 'Reverse Engineering', href: '#' },
-      { name: 'Field Support', href: '#' },
-      { name: 'Gasket Recommendations', href: '#' },
-      { name: 'Training', href: '#' },
-      { name: 'Value-Added Benefits', href: '#' },
+      { name: 'All Services', href: '/services' },
+      { name: 'Joint Integrity Calculations', href: '/services/flange-joint-integrity' },
+      { name: 'Precision Reverse Engineering', href: '/services/reverse-engineering' },
+      { name: 'Custom Gasket Engineering', href: '/services/custom-engineering' },
+      { name: 'Field Support & Measurement', href: '/services/field-support' },
+      { name: 'Technical Training & Workshops', href: '/services/technical-training' },
     ],
   },
   {
@@ -208,6 +212,9 @@ export const footerNavigationColumns = [
     title: 'ABOUT US',
     links: [
       { name: 'About TXCO', href: '/about' },
+      { name: 'About TXCO (New)', href: '/about-us-new' },
+      { name: 'Quality Policy', href: '/quality-policy' },
+      { name: 'HSE Policy', href: '/hse-policy' },
       { name: 'Certifications', href: '/certifications' },
       { name: 'Global Locations', href: '/contact' },
       { name: 'Careers', href: '/careers' },

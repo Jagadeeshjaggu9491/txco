@@ -1,0 +1,309 @@
+/* =========================================================================
+   POLICY PAGES STYLESHEET — QUALITY POLICY & HSE POLICY
+   TXCO SEALING PRODUCTS
+========================================================================= */
+
+.policy-page-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Policy Overview / Statement Section */
+.policy-statement-section {
+  padding: 5rem 2rem 4rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.policy-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.policy-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #018f5d;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.policy-main-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  color: #3f4770;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.5rem 0;
+}
+
+.policy-lead-text {
+  font-size: 1.08rem;
+  color: #1e293b;
+  line-height: 1.8;
+  margin-bottom: 1.3rem;
+  font-weight: 500;
+}
+
+.policy-body-text {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.75;
+  margin-bottom: 1.3rem;
+}
+
+/* Two-Column Split Layout */
+.policy-split-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.policy-split-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.policy-split-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.policy-img-wrapper {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(5, 44, 88, 0.12);
+  border: 1px solid #e2e8f0;
+  background-color: #f1f5f9;
+}
+
+.policy-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.policy-img-wrapper:hover .policy-img {
+  transform: scale(1.02);
+}
+
+/* Statement Callout Card (Zero Harm / Right First Time) */
+.policy-callout-card {
+  background: linear-gradient(135deg, #052c58 0%, #1d2744 100%);
+  border-radius: 16px;
+  padding: 2rem 2.4rem;
+  color: #ffffff;
+  box-shadow: 0 16px 36px rgba(5, 44, 88, 0.12);
+  margin-top: 1.6rem;
+  position: relative;
+  overflow: hidden;
+  border-left: 6px solid #018f5d;
+}
+
+.policy-callout-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.3;
+}
+
+.policy-callout-desc {
+  font-size: 0.98rem;
+  color: #e2e8f0;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* 2. Pillars / Cards Grid Section */
+.policy-pillars-section {
+  padding: 5rem 2rem;
+  background-color: var(--bg-cool-grey, #f4f6fb);
+}
+
+.policy-section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.policy-section-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.25;
+}
+
+.policy-section-subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.policy-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.policy-pillar-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.4rem 2rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 18px rgba(5, 44, 88, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.policy-pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #3f4770;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.policy-pillar-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(5, 44, 88, 0.09);
+  border-color: #cbd5e1;
+}
+
+.policy-pillar-card:hover::before {
+  opacity: 1;
+}
+
+.policy-pillar-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(63, 71, 112, 0.08);
+  color: #3f4770;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.3rem;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.policy-pillar-card:hover .policy-pillar-icon-box {
+  background: #018f5d;
+  color: #ffffff;
+}
+
+
+
+.policy-pillar-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.35;
+}
+
+.policy-pillar-desc {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* 3. Commitment Banner / Bottom Section */
+.policy-commitment-section {
+  padding: 5rem 2rem;
+  background-color: #ffffff;
+  border-top: 1px solid #edf2f7;
+}
+
+.policy-commitment-box {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 3rem 3.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.policy-commitment-box-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: #3f4770;
+}
+
+.policy-commitment-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #052c58;
+  margin: 0 0 1rem 0;
+}
+
+.policy-commitment-text {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .policy-split-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .policy-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .policy-commitment-box {
+    padding: 2.2rem 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .policy-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .policy-statement-section,
+  .policy-pillars-section,
+  .policy-commitment-section {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .policy-callout-card {
+    padding: 1.8rem 1.5rem;
+  }
+}
