@@ -61,7 +61,7 @@ export const industriesList = [
         name: 'Plastics & Polymers',
         title: 'Plastics & Polymers',
         intro:
-          'Polymerization infrastructure operates under severe mechanical pressures, extreme thermal loading, and continuous exposure to molten resins, synthetic monomers, and heat transfer fluids (HTFs/Dowtherm). Sealing solutions must endure operating temperatures exceeding 500°C–900°C and pressures over 1,000 bar without thermal degradation, graphite oxidation, or joint relaxation under intense thermal expansion cycles.',
+          'Polymerization infrastructure operates under severe mechanical pressures, extreme thermal loading, and continuous exposure to molten resins, synthetic monomers, and heat transfer fluids (HTFs/Dowtherm). Sealing solutions must endure operating temperatures exceeding 500°C–900°C and pressures over 1,000 bar without thermal degradation, graphite oxidation, or joint relaxation under intense thermal expansion cycles. Primary Application Areas: High - Pressure Polyethylene(LDPE) hyper- compressors, polymerization reactors, monomer recovery units, extruder die heads, polymer melt pumps, and synthetic resin transfer lines.',
         primaryApplications:
           'High-Pressure Polyethylene (LDPE) hyper-compressors, polymerization reactors, monomer recovery units, extruder die heads, polymer melt pumps, and synthetic resin transfer lines.',
         commonFlanges: [

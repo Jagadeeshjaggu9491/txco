@@ -101,13 +101,13 @@ export const industrySolutionsData = [
     href: '/products',
   },
   {
-    title: 'Innovations',
+    title: 'Industries',
     image: '/images/service-1.avif',
     imageLeft: true,
     description:
-      'New industries require new solutions. Learn how our team of experts are partnering with our customers to pioneer innovative solutions for some of the greatest challenges our industries face.',
-    buttonText: 'EXPLORE INNOVATIONS',
-    href: '/resources',
+      'From chemical processing and offshore energy to heavy manufacturing and hydrometallurgical mining, TXCO engineers high-integrity sealing, metallic gasket, and flange solutions tailored to withstand extreme pressures, aggressive media, and severe thermal cycles.',
+    buttonText: 'EXPLORE INDUSTRIES',
+    href: '/industries',
   },
 ];
 

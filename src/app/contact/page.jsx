@@ -543,8 +543,7 @@ export default function ContactPage() {
                 {/* Direct Hotline Banner */}
                 <div
                   style={{
-                    backgroundColor: 'var(--slate-blue)',
-                    backgroundImage: 'var(--brand-gradient)',
+                    background: 'linear-gradient(180deg, #114680 0%, #052C58 100%);',
                     borderRadius: '5px',
                     padding: '2.2rem',
                     color: 'var(--text-white)',

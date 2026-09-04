@@ -13,6 +13,8 @@ import '@/styles/industry-details.css';
 
 export default function IndustryDetailsLayout({ industryData }) {
   const [activeSegmentIndex, setActiveSegmentIndex] = useState(0);
+  const headerBarRef = useRef(null);
+  const sidebarRef = useRef(null);
   const contentRef = useRef(null);
 
   // Sync active segment with URL hash (e.g. #pharmaceutical-fda, #plastics-polymers)
@@ -25,6 +27,21 @@ export default function IndustryDetailsLayout({ industryData }) {
         );
         if (foundIdx !== -1 && foundIdx !== undefined) {
           setActiveSegmentIndex(foundIdx);
+
+          // Scroll to the top of the content section so it starts from the top, not the middle
+          setTimeout(() => {
+            if (headerBarRef.current) {
+              const navbarOffset = 90;
+              const targetY =
+                headerBarRef.current.getBoundingClientRect().top +
+                window.pageYOffset -
+                navbarOffset;
+              window.scrollTo({
+                top: Math.max(0, targetY),
+                behavior: 'smooth',
+              });
+            }
+          }, 80);
         }
       }
     };
@@ -54,8 +71,30 @@ export default function IndustryDetailsLayout({ industryData }) {
 
   const handleSelectSegment = (idx, segment) => {
     setActiveSegmentIndex(idx);
-    if (typeof window !== 'undefined' && segment.id) {
-      window.history.replaceState(null, '', `#${segment.id}`);
+    if (typeof window !== 'undefined') {
+      if (segment.id) {
+        const url = new URL(window.location.href);
+        url.hash = segment.id;
+        window.history.pushState({}, '', url.toString());
+      }
+
+      // Scroll window to starting top position of the content - exactly matching product details behavior
+      if (headerBarRef.current) {
+        const navbarOffset = 90;
+        const targetY =
+          headerBarRef.current.getBoundingClientRect().top +
+          window.pageYOffset -
+          navbarOffset;
+        window.scrollTo({
+          top: Math.max(0, targetY),
+          behavior: 'smooth',
+        });
+      } else {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }
     }
   };
 
@@ -76,7 +115,7 @@ export default function IndustryDetailsLayout({ industryData }) {
         <section className="product-details-section">
           <div className="product-details-container">
             {/* Top Navigation Bar: Breadcrumb on Left, Consultation CTA on Right */}
-            <div className="product-details-header-bar">
+            <div ref={headerBarRef} className="product-details-header-bar">
               <Link href="/industries" className="product-details-breadcrumb">
                 <ChevronLeft size={16} strokeWidth={2.8} />
                 <span>ALL INDUSTRIES</span>
@@ -92,7 +131,7 @@ export default function IndustryDetailsLayout({ industryData }) {
 
             <div className="product-details-split-grid">
               {/* Left Sticky Sidebar using exact product details sidebar classes */}
-              <aside className="product-details-sidebar">
+              <aside ref={sidebarRef} className="product-details-sidebar">
                 <div className="product-sidebar-title-box">
                   <h2 className="product-sidebar-category-title">
                     {industryData.title}

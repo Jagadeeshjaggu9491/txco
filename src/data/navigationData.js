@@ -170,14 +170,14 @@ export const mainNavigationMenu = {
     title: 'About Us',
     href: '/about',
     items: [
-      { name: 'About TXCO', href: '/about' },
-      { name: 'About TXCO (New)', href: '/about-us-new' },
+      // { name: 'About TXCO', href: '/about' },
+      { name: 'About TXCO', href: '/about-us-new' },
       { name: 'Quality Policy', href: '/quality-policy' },
       { name: 'HSE Policy', href: '/hse-policy' },
       { name: 'Quality & Certifications', href: '/certifications' },
       { name: 'Global Contacts', href: '/contact' },
       { name: 'Careers', href: '/careers' },
-      { name: 'Sustainability', href: '/about' },
+      { name: 'Sustainability', href: '#' },
     ],
   },
 };
@@ -232,15 +232,15 @@ export const footerNavigationColumns = [
   {
     title: 'ABOUT US',
     links: [
-      { name: 'About TXCO', href: '/about' },
-      { name: 'About TXCO (New)', href: '/about-us-new' },
+      // { name: 'About TXCO', href: '/about' },
+      { name: 'About TXCO', href: '/about-us-new' },
       { name: 'Quality Policy', href: '/quality-policy' },
       { name: 'HSE Policy', href: '/hse-policy' },
       { name: 'Certifications', href: '/certifications' },
       { name: 'Global Locations', href: '/contact' },
       { name: 'Careers', href: '/careers' },
       { name: 'Contact Us', href: '/contact' },
-      { name: 'Sustainability', href: '/about' },
+      { name: 'Sustainability', href: '#' },
     ],
   },
   {
