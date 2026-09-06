@@ -1,68 +1,38 @@
 export const certificationsHeroData = {
   title: 'TXCO INDUSTRY CERTIFICATIONS',
   subtitle:
-    "With TXCO's commitment to quality and performance, our products are frequently subjected to rigorous testing to meet industry standards.",
+    "With TXCO's commitment to quality and performance, our operations and products strictly adhere to international management and engineering standards.",
 };
 
 export const certificatesList = [
   {
     id: 1,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
+    title: 'ISO 9001:2015 Quality Management System',
+    category: 'Quality Management',
+    standard: 'ISO 9001:2015',
+    pdfUrl: '/images/certifications/ISO-9001.pdf',
+    fileName: 'ISO-9001.pdf',
+    description:
+      'Certified Quality Management System covering precision engineering, manufacturing, quality inspection, and supply of industrial gaskets, sealing solutions, and valve components.',
   },
   {
     id: 2,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
+    title: 'ISO 14001:2015 Environmental Management System',
+    category: 'Environmental Management',
+    standard: 'ISO 14001:2015',
+    pdfUrl: '/images/certifications/ISO-14001.pdf',
+    fileName: 'ISO-14001.pdf',
+    description:
+      'Certified Environmental Management System ensuring sustainable production practices, resource optimization, waste minimization, and strict regulatory compliance.',
   },
   {
     id: 3,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
-  },
-  {
-    id: 4,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
-  },
-  {
-    id: 5,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
-  },
-  {
-    id: 6,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
-  },
-  {
-    id: 7,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
-  },
-  {
-    id: 8,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
-  },
-  {
-    id: 9,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
-  },
-  {
-    id: 10,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
-  },
-  {
-    id: 11,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
-  },
-  {
-    id: 12,
-    title: 'API Certificate 6A Houston',
-    image: '/images/industries/certificates/API Certificate 6A Houston.png',
+    title: 'ISO 45001:2018 Occupational Health & Safety Management System',
+    category: 'Health & Safety',
+    standard: 'ISO 45001:2018',
+    pdfUrl: '/images/certifications/ISO-45001.pdf',
+    fileName: 'ISO-45001.pdf',
+    description:
+      'Certified Occupational Health and Safety Management System dedicated to zero-harm workplaces, proactive hazard management, and operational workforce protection.',
   },
 ];
