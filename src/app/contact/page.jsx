@@ -542,13 +542,14 @@ export default function ContactPage() {
 
                 {/* Direct Hotline Banner */}
                 <div
-                  style={{
-                    background: 'linear-gradient(180deg, #114680 0%, #052C58 100%);',
-                    borderRadius: '5px',
-                    padding: '2.2rem',
-                    color: 'var(--text-white)',
-                    boxShadow: '0 10px 28px rgba(17, 70, 128, 0.25)',
-                  }}
+                  className='urgent-card'
+                // style={{
+                //   background: 'linear-gradient(180deg, #114680 0%, #052C58 100%);',
+                //   borderRadius: '5px',
+                //   padding: '2.2rem',
+                //   color: 'var(--text-white)',
+                //   boxShadow: '0 10px 28px rgba(17, 70, 128, 0.25)',
+                // }}
                 >
                   <span
                     style={{
