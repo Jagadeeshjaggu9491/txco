@@ -1,8 +1,9 @@
 export const utilityNavLinks = [
   { name: 'Home', href: '/' },
   { name: 'Careers', href: '/careers' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Certificates', href: '/certifications' },
   { name: 'Catalogues', href: '/catalogues' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export const mainNavigationMenu = {
