@@ -6,8 +6,9 @@ import { usePathname } from 'next/navigation';
 import { Globe, Search, Menu, X, ChevronRight, User, ShoppingCart, ChevronDown, Check } from 'lucide-react';
 import { utilityNavLinks, mainNavigationMenu } from '@/data/navigationData';
 import { getCartCount } from '@/utils/cartManager';
+import { applyLanguage, getSelectedLanguage, LANGUAGE_OPTIONS } from '@/components/GoogleTranslate';
 
-const languagesList = ['English', 'Germany', 'Spanish', 'French'];
+const languagesList = LANGUAGE_OPTIONS.map((item) => item.name);
 
 export default function Header() {
   const pathname = usePathname();
@@ -19,6 +20,21 @@ export default function Header() {
   const [selectedLanguage, setSelectedLanguage] = useState('English');
   const [countryMenuOpen, setCountryMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+
+  // Synchronize language state on client load and updates
+  useEffect(() => {
+    setSelectedLanguage(getSelectedLanguage());
+
+    const handleLangChange = (e) => {
+      if (e?.detail) {
+        setSelectedLanguage(e.detail);
+      }
+    };
+
+    window.addEventListener('language-changed', handleLangChange);
+    return () => window.removeEventListener('language-changed', handleLangChange);
+  }, []);
+
 
   const countryMenuTimeoutRef = useRef(null);
 
@@ -140,10 +156,12 @@ export default function Header() {
                         className={`country-dropdown-item ${isSelected ? 'selected' : ''}`}
                         onClick={() => {
                           setSelectedLanguage(lang);
+                          applyLanguage(lang);
                           setCountryMenuOpen(false);
                         }}
                       >
                         <span>{lang}</span>
+                        {isSelected && <Check size={14} style={{ marginLeft: 'auto' }} />}
                       </button>
                     );
                   })}
@@ -480,6 +498,42 @@ export default function Header() {
             About Us
           </Link>
 
+          <div style={{ marginTop: '1.2rem', paddingTop: '1.2rem', borderTop: '1px solid #e2e8f0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.8rem', color: '#052C58', fontWeight: 600, fontSize: '0.9rem' }}>
+              <Globe size={16} />
+              <span>Select Language</span>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem' }}>
+              {languagesList.map((lang) => {
+                const isSelected = selectedLanguage === lang;
+                return (
+                  <button
+                    key={lang}
+                    type="button"
+                    onClick={() => {
+                      setSelectedLanguage(lang);
+                      applyLanguage(lang);
+                      setMobileMenuOpen(false);
+                    }}
+                    style={{
+                      padding: '0.55rem 0.8rem',
+                      borderRadius: '6px',
+                      border: isSelected ? '1px solid #052C58' : '1px solid #e2e8f0',
+                      backgroundColor: isSelected ? '#052C58' : '#ffffff',
+                      color: isSelected ? '#ffffff' : '#334155',
+                      fontSize: '0.85rem',
+                      fontWeight: isSelected ? 600 : 500,
+                      cursor: 'pointer',
+                      textAlign: 'center',
+                      transition: 'all 0.15s ease',
+                    }}
+                  >
+                    {lang}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
       )}
     </header>

@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import Preloader from '@/components/Preloader';
 import BootstrapClient from '@/components/BootstrapClient';
+import GoogleTranslate from '@/components/GoogleTranslate';
 
 export const metadata = {
   title: 'TXCO - Advanced Gaskets & Sealing Technology',
@@ -19,13 +20,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon-txco.png" type="image/png" sizes="any" />
         <link rel="shortcut icon" href="/favicon-txco.png" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon-txco.png" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
+        <GoogleTranslate />
         <Preloader />
         <BootstrapClient />
         {children}
@@ -33,3 +35,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
