@@ -167,9 +167,9 @@ export default function SubcategoryProductsGridPage({
                         <div>
                           <div className="single-product-action-bar">
                             <span className="single-product-badge-ribbon">Details</span>
-                            <span className="single-product-tooltip-pill">
+                            {/* <span className="single-product-tooltip-pill">
                               {item.name || item.title}
-                            </span>
+                            </span> */}
                           </div>
 
                           <h3 className="single-product-title">

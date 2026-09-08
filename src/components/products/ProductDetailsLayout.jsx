@@ -8,6 +8,11 @@ import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
 import { ChevronLeft, Play, ArrowRight, Download, ChevronDown } from 'lucide-react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 import { TableFigureIcon } from '@/components/products/EngineeringProductDiagrams';
 
 // Smart helper to highlight lead-in line as an h5 title and remaining text as description
@@ -196,11 +201,13 @@ export default function ProductDetailsLayout({ subcategoryData }) {
       url.searchParams.set('product', id);
       window.history.pushState({}, '', url.toString());
 
-      // Scroll window to starting top position
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
+      // Only scroll to top if user was scrolled down deep
+      if (window.scrollY > 250) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }
     }
   };
 
@@ -326,10 +333,27 @@ export default function ProductDetailsLayout({ subcategoryData }) {
             '-=0.3'
           );
         }
+
+        // Recalculate ScrollTrigger positions once intro completes
+        tl.add(() => {
+          if (typeof window !== 'undefined') {
+            ScrollTrigger.refresh();
+          }
+        });
       }, contentRef);
 
       return () => ctx.revert();
     }
+  }, [activeProductId]);
+
+  // Ensure ScrollTrigger updates whenever activeProductId changes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    }, 120);
+    return () => clearTimeout(timer);
   }, [activeProductId]);
 
   if (!subcategoryData) return null;

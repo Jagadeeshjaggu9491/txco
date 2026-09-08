@@ -143,7 +143,7 @@ export default function OurProductsOverview() {
                 <div className="category-card-body">
                   <div className="category-card-action-bar">
                     <span className="category-badge-ribbon">Go to category</span>
-                    <span className="category-tooltip-pill">{item.title}</span>
+                    {/* <span className="category-tooltip-pill">{item.title}</span> */}
                   </div>
 
                   <h3 className="category-card-title">

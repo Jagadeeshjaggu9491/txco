@@ -39,8 +39,8 @@ export default function Footer() {
             ease: 'power3.out',
             scrollTrigger: {
               trigger: footerRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              start: 'top 95%',
+              once: true,
             },
           }
         );

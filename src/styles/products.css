@@ -194,7 +194,7 @@
 .category-badge-ribbon {
   display: inline-flex;
   align-items: center;
-  background: #e69a00;
+  background: #018f5d;
   color: #ffffff;
   font-family: var(--font-family-base, 'Inter', sans-serif);
   font-size: 0.76rem;
@@ -347,27 +347,7 @@
   white-space: nowrap;
 }
 
-.single-product-tooltip-pill {
-  position: absolute;
-  left: 65px;
-  bottom: calc(100% + 2px);
-  display: inline-flex;
-  align-items: center;
-  background: #2b3544;
-  color: #f1f5f9;
-  font-family: var(--font-family-base, 'Inter', sans-serif);
-  font-size: 0.68rem;
-  font-weight: 600;
-  padding: 2px 7px;
-  border-radius: 2px;
-  white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  pointer-events: none;
-  max-width: 220px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  z-index: 10;
-}
+
 
 .single-product-title {
   font-family: var(--font-family-base, 'Inter', sans-serif);

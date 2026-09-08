@@ -159,7 +159,7 @@ export default function SubcategoryListPage({ categoryData }) {
                           <div>
                             <div className="single-product-action-bar">
                               <span className="single-product-badge-ribbon">Details</span>
-                              <span className="single-product-tooltip-pill">{item.title}</span>
+                              {/* <span className="single-product-tooltip-pill">{item.title}</span> */}
                             </div>
 
                             <h3 className="single-product-title">
@@ -200,7 +200,7 @@ export default function SubcategoryListPage({ categoryData }) {
                           <div>
                             <div className="category-card-action-bar">
                               <span className="category-badge-ribbon">Go to category</span>
-                              <span className="category-tooltip-pill">{item.title}</span>
+                              {/* <span className="category-tooltip-pill">{item.title}</span> */}
                             </div>
 
                             <h3 className="category-card-title">

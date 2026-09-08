@@ -292,9 +292,11 @@
 
 .product-details-banner-title {
   font-family: var(--font-family-base, 'Inter', sans-serif);
+  color: var(--primary-navy);
+  padding: 10px;
   font-size: 1.18rem;
+  background: var(--bg-cool-grey);
   font-weight: 700;
-  color: #0f172a;
   letter-spacing: -0.01em;
   text-transform: none;
   margin: 0;
