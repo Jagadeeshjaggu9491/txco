@@ -163,45 +163,45 @@
 }
 
 /* =========================================================================
-   2. Main Layout: 60% Content on Left, 40% Sticky Product Image on Right
+   2. Main Layout: 2-Column Overview (Matching Client Screenshot)
 ========================================================================= */
 .product-details-2col-layout {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 3.5rem;
+  align-items: stretch;
+  gap: 2rem;
   width: 100%;
+  margin-bottom: 2rem;
   box-sizing: border-box;
 }
 
-/* Left Column - 60% Width */
+/* Left Column - 58% Width */
 .product-details-col-left {
-  flex: 0 0 60%;
-  width: 60%;
-  max-width: 60%;
+  flex: 0 0 58%;
+  width: 58%;
+  max-width: 58%;
   min-width: 0;
   box-sizing: border-box;
 }
 
-/* Right Column - 40% Width, Sticky to Screen */
+/* Right Column - 42% Width, Aligned with Overview */
 .product-details-col-right {
-  flex: 0 0 calc(40% - 3.5rem);
-  width: calc(40% - 3.5rem);
-  max-width: calc(40% - 3.5rem);
+  flex: 0 0 calc(42%);
+  width: calc(42%);
+  max-width: calc(42%);
   box-sizing: border-box;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 100px;
-  align-self: flex-start;
-  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  align-self: stretch;
 }
 
 .product-details-sticky-img-box {
   width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background: var(--bg-cool-grey);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,21 +211,116 @@
 
 .product-details-sticky-img {
   width: 100%;
-  max-width: 500px;
+  max-width: 480px;
   height: auto;
-  max-height: 540px;
+  max-height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.08));
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: auto;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.08));
+  transition: transform 0.35s ease;
 }
 
 .product-details-sticky-img:hover {
-  transform: scale(1.025);
+  transform: scale(1.02);
+}
+
+
+
+/* Blue Action Jump Buttons (Matching Screenshot) */
+.product-details-tech-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin-bottom: 1.85rem;
+  width: 100%;
+}
+
+.product-details-tech-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+  background-color: #004889;
+  color: #ffffff;
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.62rem 1.2rem;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 72, 137, 0.2);
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  max-width: 100%;
+  text-align: left;
+}
+
+.product-details-tech-btn:hover {
+  background-color: #018F5D;
+  transform: translateX(4px);
+  box-shadow: 0 3px 8px rgba(1, 143, 93, 0.25);
+}
+
+.product-details-tech-btn-arrow {
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.product-details-tech-btn:hover .product-details-tech-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Models / Bullets lead-in line */
+.product-details-models-lead {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: #374151;
+  margin: 1.35rem 0 0.65rem 0;
+  line-height: 1.7;
+}
+
+.product-details-models-lead strong {
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Clean Disc Bullets List (Matching Screenshot) */
+.product-details-client-bullets {
+  list-style-type: disc;
+  margin: 0.4rem 0 1.5rem 1.5rem;
+  padding: 0;
+  color: #374151;
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+}
+
+.product-details-client-bullets li {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  margin-bottom: 0.4rem;
+  padding-left: 0.25rem;
+}
+
+.product-details-client-bullets li strong {
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Full Width Lower Content Area */
+.product-details-full-width-content {
+  width: 100%;
+  margin-top: 1rem;
+  box-sizing: border-box;
 }
 
 /* =========================================================================
-   3. Left Side Content Typography & Elements (Matching Provided Image)
+   3. Content Typography & Elements (Matching Provided Image)
 ========================================================================= */
 .product-details-content-breadcrumbs {
   display: flex;
@@ -281,13 +376,13 @@
   box-sizing: border-box;
 }
 
-/* Section Header - Clean Bold Text (no heavy grey background) matching image */
+/* Section Header - Clean Bold Text with User Styled Cool Grey Background */
 .product-details-banner-header {
   background-color: transparent;
   padding: 0;
   border-radius: 0;
-  margin-top: 1.6rem;
-  margin-bottom: 0.6rem;
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
 }
 
 .product-details-banner-title {
@@ -313,6 +408,11 @@
   margin: 0 0 1.15rem 0;
   word-break: break-word;
   overflow-wrap: break-word;
+}
+
+.product-details-paragraph strong {
+  font-weight: 700;
+  color: #111827;
 }
 
 /* Section Bullets Intro */
@@ -500,6 +600,12 @@
     max-width: 100%;
     position: static;
     order: -1;
+    align-self: auto;
+  }
+
+  .product-details-sticky-img-box {
+    height: auto;
+    min-height: auto;
   }
 
   .product-details-sticky-img {

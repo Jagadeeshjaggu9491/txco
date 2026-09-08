@@ -8,9 +8,10 @@
 }
 
 .header-top-bar {
-  border-bottom: 1px solid #f1f5f9;
+  background: linear-gradient(#114680 0%, #052c58 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 0.88rem;
-  color: var(--text-body);
+  color: #ffffff;
   padding: 0.5rem 2rem;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .header-top-link {
-  color: #827f7f;
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
   text-decoration: none;
   padding-bottom: 4px;
@@ -45,7 +46,7 @@
 .header-top-link.active,
 .header-top-link:active {
   border-bottom: 3px solid #018F5D;
-  color: var(--primary-navy);
+  color: #ffffff;
 }
 
 .header-top-right {
@@ -61,16 +62,18 @@
   gap: 0.4rem;
   cursor: pointer;
   font-weight: 500;
-  color: var(--text-body);
+  color: #ffffff;
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 .header-search-link:hover {
-  color: var(--primary-navy);
+  color: #ffffff;
+  opacity: 0.9;
 }
 
 .header-divider {
-  color: var(--border-medium);
+  color: rgba(255, 255, 255, 0.35);
 }
 
 /* Custom Country / Language Selector Dropdown (Megamenu Style) */
@@ -87,17 +90,18 @@
   background: none;
   border: none;
   padding: 0.2rem 0;
-  color: var(--text-body, #475569);
+  color: #ffffff;
   font-family: inherit;
   font-size: 0.88rem;
   font-weight: 500;
   cursor: pointer;
-  transition: color var(--transition-fast);
+  transition: opacity var(--transition-fast);
 }
 
 .country-dropdown-btn:hover,
 .country-dropdown-btn.active {
-  color: var(--primary-navy, #052C58);
+  color: #ffffff;
+  opacity: 0.9;
 }
 
 .country-dropdown-chevron {
@@ -158,6 +162,45 @@
 }
 
 /* Main Navigation Bar & Brand Logo */
+.header-main-nav-container {
+  width: 100%;
+  position: relative;
+  background-color: var(--bg-pure-white, #ffffff);
+}
+
+.header-main-nav-sticky-bar {
+  width: 100%;
+  padding: 0 2rem;
+  background-color: var(--bg-pure-white, #ffffff);
+  transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header-main-nav-container.is-sticky {
+  min-height: 106px;
+}
+
+.header-main-nav-container.is-sticky .header-main-nav-sticky-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(#114680 0%, #052c58 100%);
+  box-shadow: 0 6px 25px rgba(5, 44, 88, 0.28);
+  animation: headerStickySlideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes headerStickySlideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 .header-main-nav {
   max-width: 1380px;
   margin: 0 auto;
@@ -165,6 +208,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: padding 0.35s ease;
+}
+
+.header-main-nav-container.is-sticky .header-main-nav {
+  padding: 0.7rem 0rem;
 }
 
 .header-nav-list {
@@ -197,6 +245,16 @@
   color: var(--primary-navy);
 }
 
+.header-main-nav-container.is-sticky .nav-item-link {
+  color: #ffffff;
+}
+
+.header-main-nav-container.is-sticky .nav-item-link.active,
+.header-main-nav-container.is-sticky .nav-item-link:hover {
+  border-bottom: 3px solid #018F5D;
+  color: #ffffff;
+}
+
 .nav-customer-login {
   font-size: 1.08rem;
   /* font-weight: 600; */
@@ -209,16 +267,47 @@
   color: var(--primary-navy);
 }
 
+.header-main-nav-container.is-sticky .nav-customer-login {
+  color: #ffffff;
+}
+
 .header-logo-link {
-  display: flex;
+  display: inline-grid;
   align-items: center;
+  position: relative;
   text-decoration: none;
 }
 
 .header-logo-img {
+  grid-area: 1 / 1;
   height: 70px;
   width: auto;
   object-fit: contain;
+  transition: opacity 0.35s ease, height 0.35s ease, transform 0.35s ease;
+}
+
+.header-main-nav-container.is-sticky .header-logo-img {
+  height: 58px;
+}
+
+.header-logo-default {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header-logo-default.logo-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header-logo-white {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header-logo-white.logo-visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .mobile-nav-toggle {

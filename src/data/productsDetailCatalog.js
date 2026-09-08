@@ -826,7 +826,7 @@ export const subcategoryDetailCatalog = {
       { id: 'rubber-gaskets', title: 'RUBBER GASKETS', downloadTitle: 'Rubber Gaskets' },
       { id: 'ptfe-gaskets', title: 'PTFE GASKETS', downloadTitle: 'PTFE Gaskets' },
       { id: 'eptfe-gaskets', title: 'EXPANDED PTFE (ePTFE) GASKETS', downloadTitle: 'ePTFE Gaskets' },
-      { id: 'asbestos-free-gaskets', title: 'ASBESTOS-FREE GASKETS (AF SERIES)', downloadTitle: 'Asbestos-Free Gaskets Range' },
+      { id: 'asbestos-free-gaskets', title: 'PLANIFLEX™ & ASBESTOS-FREE GASKETS', downloadTitle: 'Planiflex™ Sheet Catalog' },
       { id: 'txco-af-110', title: 'TXCO AF-110', downloadTitle: 'TXCO AF-110 Data Sheet' },
       { id: 'txco-af-120', title: 'TXCO AF-120', downloadTitle: 'TXCO AF-120 Data Sheet' },
       { id: 'txco-af-139', title: 'TXCO AF-139', downloadTitle: 'TXCO AF-139 Data Sheet' },
@@ -955,19 +955,43 @@ export const subcategoryDetailCatalog = {
       },
 
       'asbestos-free-gaskets': {
-        title: 'ASBESTOS-FREE COMPRESSED FIBER GASKETS (AF SERIES)',
+        title: 'PLANIFLEX™ COMPRESSED FIBER GASKETS',
         image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
         bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
-        downloadTitle: 'AF Series Catalog',
+        downloadTitle: 'Planiflex™ Sheet Catalog',
+        techDataButtonText: 'TECHNICAL DATA OF PLANIFLEX™ COMPRESSED FIBER SHEETS',
+        dimensionsButtonText: 'SHEET DIMENSIONS AND DIMENSIONAL TOLERANCES',
         sections: [
           {
-            heading: 'TXCO ASBESTOS-FREE (AF) GASKET RANGE',
+            heading: 'PLANIFLEX™ GASKET SHEET LINE',
             paragraphs: [
-              'TXCO AF Series Non-Asbestos Compressed Fiber Gaskets are engineered from high-tensile synthetic aramid, glass, carbon, and mineral fibers bound within advanced elastomeric matrices (NBR, HNBR).',
-              'Designed to replace traditional asbestos jointing, the AF Series delivers elite creep-relaxation resistance, superior torque retention, and high blowout resistance across steam, hydrocarbons, acids, and process utilities.',
+              'The **Planiflex™ gasket sheet line** is made from organic and inorganic fiber-based materials bound with NBR. These materials are carefully selected to meet high performance standards for a wide range of industrial applications.',
+              '**Planiflex™ gaskets** are suitable for sealing with vapors, lubricants, solvents, gases, steam, and many diluted acids and alkalis, and can also be used as gaskets together with PTFE envelopes.',
             ],
-            showAssemblyDiagram: true,
-            diagramType: 'weld-lip',
+            bulletsIntro: 'The **Planiflex™ line** includes the following models:',
+            bullets: [
+              'PF41 – Cellulose fibers, inert materials, and NBR binder',
+              'PF63 – Aramidic and inorganic fibers with NBR binder',
+              'PF64 – Aramidic fibers, inert materials, and NBR binder',
+              'PF65 – Inorganic and glass fibers, inert materials, and NBR binder',
+              'PF81 – Aramidic fibers, lamellar graphite, inert materials, and NBR binder',
+            ],
+            subParagraphs: [
+              'The **Planiflex™ compressed fiber sheets** for asbestos-free gaskets show excellent sealing capability and can be used with oils, gases, fuels, and inorganic acids. Planiflex™ also demonstrates excellent stress retention properties and outstanding sealing performance.',
+              'Planiflex™ can be applied continuously within the temperature range specified in the technical datasheet and within the pressure ranges up to 300/600 lbs and PN16/40 ratings. These gaskets show chemical compatibility within the pH range typical of nitrile rubbers.',
+            ],
+            table: {
+              headers: ['MODEL', 'COMPOSITION', 'BINDER', 'MAX TEMP (°C)', 'MAX PRESSURE (BAR)', 'DIMENSIONS (MM)'],
+              rows: [
+                { code: 'PF41', description: 'Cellulose fibers, inert materials', thickness: 'NBR', reweld: '150°C', radial: '40 Bar' },
+                { code: 'PF63', description: 'Aramidic and inorganic fibers', thickness: 'NBR', reweld: '200°C', radial: '60 Bar' },
+                { code: 'PF64', description: 'Aramidic fibers, inert materials', thickness: 'NBR', reweld: '250°C', radial: '100 Bar' },
+                { code: 'PF65', description: 'Inorganic and glass fibers, inert materials', thickness: 'NBR', reweld: '300°C', radial: '100 Bar' },
+                { code: 'PF81', description: 'Aramidic fibers, lamellar graphite, inert materials', thickness: 'NBR', reweld: '350°C', radial: '100 Bar' },
+              ],
+              footnote: 'Standard sheet dimensions: 1500 x 1500 mm, 1500 x 3000 mm. Thickness: 0.5 mm to 5.0 mm. Dimensional tolerances according to DIN 28091-1.',
+            },
+            showAssemblyDiagram: false,
           },
           {
             heading: 'AF SERIES GRADES SUMMARY',

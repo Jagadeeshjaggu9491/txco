@@ -20,6 +20,23 @@ export default function Header() {
   const [selectedLanguage, setSelectedLanguage] = useState('English');
   const [countryMenuOpen, setCountryMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Monitor scroll for sticky main nav bar
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 42) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Synchronize language state on client load and updates
   useEffect(() => {
@@ -137,7 +154,7 @@ export default function Header() {
                 aria-expanded={countryMenuOpen}
                 aria-haspopup="true"
               >
-                <Globe size={15} color={countryMenuOpen ? '#052C58' : '#475569'} style={{ flexShrink: 0 }} />
+                <Globe size={15} color="#ffffff" style={{ flexShrink: 0 }} />
                 <span>{selectedLanguage}</span>
                 <ChevronDown
                   size={13}
@@ -179,16 +196,16 @@ export default function Header() {
                 padding: 0,
                 font: 'inherit',
                 cursor: 'pointer',
-                color: searchOpen ? 'var(--primary-navy)' : 'inherit',
+                color: '#ffffff',
               }}
               title="Search products and catalogues"
             >
-              <Search size={16} color={searchOpen ? '#052C58' : '#475569'} />
+              <Search size={16} color="#ffffff" />
               <span>Search</span>
             </button>
             <span className="header-divider">|</span>
             <Link href="/login" className="header-search-link">
-              <User size={16} color="#475569" />
+              <User size={16} color="#ffffff" />
               <span>Login</span>
             </Link>
             <span className="header-divider">|</span>
@@ -201,17 +218,18 @@ export default function Header() {
                 alignItems: 'center',
                 gap: '0.4rem',
                 textDecoration: 'none',
+                color: '#ffffff',
               }}
             >
               <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
-                <ShoppingCart size={17} color="#475569" />
+                <ShoppingCart size={17} color="#ffffff" />
                 {cartCount > 0 && (
                   <span
                     style={{
                       position: 'absolute',
                       top: '-8px',
                       right: '-9px',
-                      backgroundColor: '#00529b',
+                      backgroundColor: '#018F5D',
                       color: '#ffffff',
                       fontSize: '0.65rem',
                       fontWeight: 700,
@@ -293,106 +311,128 @@ export default function Header() {
       </div>
 
       {/* Main Navigation Bar & Logo */}
-      <div className="header-main-nav">
-        {/* Main Nav Links */}
-        <nav
-          className="header-nav-list"
-          onMouseEnter={() => {
-            if (leaveTimeoutRef.current) {
-              clearTimeout(leaveTimeoutRef.current);
-              leaveTimeoutRef.current = null;
-            }
-          }}
-          onMouseLeave={handleMouseLeaveMenu}
-        >
-          {Object.keys(mainNavigationMenu).map((key) => {
-            const menu = mainNavigationMenu[key];
-            const isDropdownOpen = activeMenu === key;
-            const isPageActive =
-              pathname === menu.href ||
-              (menu.href !== '/' && pathname.startsWith(menu.href));
-            const isActive = isDropdownOpen || isPageActive;
+      <div className={`header-main-nav-container ${isScrolled ? 'is-sticky' : ''}`}>
+        <div className="header-main-nav-sticky-bar">
+          <div className="header-main-nav">
+            {/* Main Nav Links */}
+            <nav
+              className="header-nav-list"
+              onMouseEnter={() => {
+                if (leaveTimeoutRef.current) {
+                  clearTimeout(leaveTimeoutRef.current);
+                  leaveTimeoutRef.current = null;
+                }
+              }}
+              onMouseLeave={handleMouseLeaveMenu}
+            >
+              {Object.keys(mainNavigationMenu).map((key) => {
+                const menu = mainNavigationMenu[key];
+                const isDropdownOpen = activeMenu === key;
+                const isPageActive =
+                  pathname === menu.href ||
+                  (menu.href !== '/' && pathname.startsWith(menu.href));
+                const isActive = isDropdownOpen || isPageActive;
 
-            return (
-              <div
-                key={key}
-                onMouseEnter={() => handleMouseEnterMenu(key)}
-                className="nav-item-wrapper"
-              >
-                <Link
-                  href={menu.href}
-                  onClick={(e) => {
-                    if (menu.href === '#' || !menu.href) {
-                      e.preventDefault();
-                    }
-                  }}
-                  className={`nav-item-link ${isActive ? 'active' : ''}`}
-                >
-                  {menu.title}
-                </Link>
-
-                {/* Desktop Mega Menu Dropdown Panel aligned exactly to this nav link's left */}
-                {isDropdownOpen && (
+                return (
                   <div
-                    onMouseEnter={() => {
-                      if (leaveTimeoutRef.current) {
-                        clearTimeout(leaveTimeoutRef.current);
-                        leaveTimeoutRef.current = null;
-                      }
-                    }}
-                    className="mega-menu-dropdown"
+                    key={key}
+                    onMouseEnter={() => handleMouseEnterMenu(key)}
+                    className="nav-item-wrapper"
                   >
-                    {/* Primary Column (Level 1) */}
-                    <div className="mega-menu-primary-col">
-                      {menu.items.map((item, idx) => {
-                        const isSelected = activeSubitemIndex === idx;
+                    <Link
+                      href={menu.href}
+                      onClick={(e) => {
+                        if (menu.href === '#' || !menu.href) {
+                          e.preventDefault();
+                        }
+                      }}
+                      className={`nav-item-link ${isActive ? 'active' : ''}`}
+                    >
+                      {menu.title}
+                    </Link>
 
-                        return (
-                          <div
-                            key={idx}
-                            onMouseEnter={() => {
-                              setActiveSubitemIndex(idx);
-                              setActiveTertiaryIndex(0);
-                            }}
-                            className={`mega-menu-item ${isSelected ? 'active' : ''}`}
-                          >
-                            <Link
-                              href={item.href}
-                              onClick={(e) => {
-                                if (item.href === '#' || !item.href) {
-                                  e.preventDefault();
-                                } else {
-                                  setActiveMenu(null);
-                                }
-                              }}
-                              className="mega-menu-item-link"
-                            >
-                              {item.name}
-                            </Link>
+                    {/* Desktop Mega Menu Dropdown Panel aligned exactly to this nav link's left */}
+                    {isDropdownOpen && (
+                      <div
+                        onMouseEnter={() => {
+                          if (leaveTimeoutRef.current) {
+                            clearTimeout(leaveTimeoutRef.current);
+                            leaveTimeoutRef.current = null;
+                          }
+                        }}
+                        className="mega-menu-dropdown"
+                      >
+                        {/* Primary Column (Level 1) */}
+                        <div className="mega-menu-primary-col">
+                          {menu.items.map((item, idx) => {
+                            const isSelected = activeSubitemIndex === idx;
 
-                            {item.children && item.children.length > 0 && (
-                              <ChevronRight size={16} color={isSelected ? '#ffffff' : '#555555'} />
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    {/* Secondary Submenu Column (Level 2) */}
-                    {hasSubChildren && (
-                      <div className="mega-menu-secondary-col">
-                        {currentSubitem.children.map((child, cIdx) => {
-                          const hasNestedChildren = child.children && child.children.length > 0;
-                          const isSubSelected = activeTertiaryIndex === cIdx;
-
-                          if (hasNestedChildren) {
                             return (
                               <div
-                                key={cIdx}
-                                onMouseEnter={() => setActiveTertiaryIndex(cIdx)}
-                                className={`mega-menu-subitem ${isSubSelected ? 'active' : ''}`}
+                                key={idx}
+                                onMouseEnter={() => {
+                                  setActiveSubitemIndex(idx);
+                                  setActiveTertiaryIndex(0);
+                                }}
+                                className={`mega-menu-item ${isSelected ? 'active' : ''}`}
                               >
                                 <Link
+                                  href={item.href}
+                                  onClick={(e) => {
+                                    if (item.href === '#' || !item.href) {
+                                      e.preventDefault();
+                                    } else {
+                                      setActiveMenu(null);
+                                    }
+                                  }}
+                                  className="mega-menu-item-link"
+                                >
+                                  {item.name}
+                                </Link>
+
+                                {item.children && item.children.length > 0 && (
+                                  <ChevronRight size={16} color={isSelected ? '#ffffff' : '#555555'} />
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+
+                        {/* Secondary Submenu Column (Level 2) */}
+                        {hasSubChildren && (
+                          <div className="mega-menu-secondary-col">
+                            {currentSubitem.children.map((child, cIdx) => {
+                              const hasNestedChildren = child.children && child.children.length > 0;
+                              const isSubSelected = activeTertiaryIndex === cIdx;
+
+                              if (hasNestedChildren) {
+                                return (
+                                  <div
+                                    key={cIdx}
+                                    onMouseEnter={() => setActiveTertiaryIndex(cIdx)}
+                                    className={`mega-menu-subitem ${isSubSelected ? 'active' : ''}`}
+                                  >
+                                    <Link
+                                      href={child.href}
+                                      onClick={(e) => {
+                                        if (child.href === '#' || !child.href) {
+                                          e.preventDefault();
+                                        } else {
+                                          setActiveMenu(null);
+                                        }
+                                      }}
+                                      className="mega-submenu-link"
+                                    >
+                                      {child.name}
+                                    </Link>
+                                    <ChevronRight size={15} color={isSubSelected ? '#ffffff' : '#666666'} />
+                                  </div>
+                                );
+                              }
+
+                              return (
+                                <Link
+                                  key={cIdx}
                                   href={child.href}
                                   onClick={(e) => {
                                     if (child.href === '#' || !child.href) {
@@ -401,141 +441,130 @@ export default function Header() {
                                       setActiveMenu(null);
                                     }
                                   }}
-                                  className="mega-submenu-link"
+                                  className="mega-submenu-link-standalone"
                                 >
                                   {child.name}
                                 </Link>
-                                <ChevronRight size={15} color={isSubSelected ? '#ffffff' : '#666666'} />
-                              </div>
-                            );
-                          }
+                              );
+                            })}
+                          </div>
+                        )}
 
-                          return (
-                            <Link
-                              key={cIdx}
-                              href={child.href}
-                              onClick={(e) => {
-                                if (child.href === '#' || !child.href) {
-                                  e.preventDefault();
-                                } else {
-                                  setActiveMenu(null);
-                                }
-                              }}
-                              className="mega-submenu-link-standalone"
-                            >
-                              {child.name}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
-
-                    {/* Tertiary Column (Level 3 - e.g. RTJ Variants) */}
-                    {hasTertiaryChildren && (
-                      <div className="mega-menu-tertiary-col">
-                        {currentTertiaryItem.children.map((tert, tIdx) => (
-                          <Link
-                            key={tIdx}
-                            href={tert.href}
-                            onClick={(e) => {
-                              if (tert.href === '#' || !tert.href) {
-                                e.preventDefault();
-                              } else {
-                                setActiveMenu(null);
-                              }
-                            }}
-                            className="mega-tertiary-link"
-                          >
-                            {tert.name}
-                          </Link>
-                        ))}
+                        {/* Tertiary Column (Level 3 - e.g. RTJ Variants) */}
+                        {hasTertiaryChildren && (
+                          <div className="mega-menu-tertiary-col">
+                            {currentTertiaryItem.children.map((tert, tIdx) => (
+                              <Link
+                                key={tIdx}
+                                href={tert.href}
+                                onClick={(e) => {
+                                  if (tert.href === '#' || !tert.href) {
+                                    e.preventDefault();
+                                  } else {
+                                    setActiveMenu(null);
+                                  }
+                                }}
+                                className="mega-tertiary-link"
+                              >
+                                {tert.name}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
-                )}
-              </div>
-            );
-          })}
-
-
-        </nav>
-
-        {/* Mobile / Tablet Hamburger Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="mobile-nav-toggle"
-          aria-label="Toggle Navigation"
-        >
-          {mobileMenuOpen ? <X size={28} color="#1d2744" /> : <Menu size={28} color="#1d2744" />}
-        </button>
-
-        {/* Brand Logo */}
-        <Link href="/" className="header-logo-link">
-          <img
-            src="/images/logo/txco-logo-new.avif"
-            alt="TXCO Sealing Products Logo"
-            className="header-logo-img"
-          />
-        </Link>
-      </div>
-
-      {/* Mobile Menu Drawer */}
-      {mobileMenuOpen && (
-        <div className="mobile-menu-drawer">
-          <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Industries
-          </Link>
-          <Link href="/products" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Products
-          </Link>
-          <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Services
-          </Link>
-          <Link href="/resources" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Resources
-          </Link>
-          <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            About Us
-          </Link>
-
-          <div style={{ marginTop: '1.2rem', paddingTop: '1.2rem', borderTop: '1px solid #e2e8f0' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.8rem', color: '#052C58', fontWeight: 600, fontSize: '0.9rem' }}>
-              <Globe size={16} />
-              <span>Select Language</span>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem' }}>
-              {languagesList.map((lang) => {
-                const isSelected = selectedLanguage === lang;
-                return (
-                  <button
-                    key={lang}
-                    type="button"
-                    onClick={() => {
-                      setSelectedLanguage(lang);
-                      applyLanguage(lang);
-                      setMobileMenuOpen(false);
-                    }}
-                    style={{
-                      padding: '0.55rem 0.8rem',
-                      borderRadius: '6px',
-                      border: isSelected ? '1px solid #052C58' : '1px solid #e2e8f0',
-                      backgroundColor: isSelected ? '#052C58' : '#ffffff',
-                      color: isSelected ? '#ffffff' : '#334155',
-                      fontSize: '0.85rem',
-                      fontWeight: isSelected ? 600 : 500,
-                      cursor: 'pointer',
-                      textAlign: 'center',
-                      transition: 'all 0.15s ease',
-                    }}
-                  >
-                    {lang}
-                  </button>
                 );
               })}
-            </div>
+            </nav>
+
+            {/* Mobile / Tablet Hamburger Toggle */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="mobile-nav-toggle"
+              aria-label="Toggle Navigation"
+            >
+              {mobileMenuOpen ? (
+                <X size={28} color={isScrolled ? '#ffffff' : '#1d2744'} />
+              ) : (
+                <Menu size={28} color={isScrolled ? '#ffffff' : '#1d2744'} />
+              )}
+            </button>
+
+            {/* Brand Logo with Smooth Sticky Crossfade */}
+            <Link href="/" className="header-logo-link">
+              <img
+                src="/images/logo/txco-logo-new.avif"
+                alt="TXCO Sealing Products Logo"
+                className={`header-logo-img header-logo-default ${isScrolled ? 'logo-hidden' : ''}`}
+              />
+              <img
+                src="/images/logo/txco-footer-logo.avif"
+                alt="TXCO Sealing Products Logo"
+                className={`header-logo-img header-logo-white ${isScrolled ? 'logo-visible' : ''}`}
+              />
+            </Link>
           </div>
+
+          {/* Mobile Menu Drawer */}
+          {mobileMenuOpen && (
+            <div className="mobile-menu-drawer">
+              <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+                Industries
+              </Link>
+              <Link href="/products" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+                Products
+              </Link>
+              <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+                Services
+              </Link>
+              <Link href="/resources" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+                Resources
+              </Link>
+              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+                About Us
+              </Link>
+
+              <div style={{ marginTop: '1.2rem', paddingTop: '1.2rem', borderTop: '1px solid #e2e8f0' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.8rem', color: '#052C58', fontWeight: 600, fontSize: '0.9rem' }}>
+                  <Globe size={16} />
+                  <span>Select Language</span>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem' }}>
+                  {languagesList.map((lang) => {
+                    const isSelected = selectedLanguage === lang;
+                    return (
+                      <button
+                        key={lang}
+                        type="button"
+                        onClick={() => {
+                          setSelectedLanguage(lang);
+                          applyLanguage(lang);
+                          setMobileMenuOpen(false);
+                        }}
+                        style={{
+                          padding: '0.55rem 0.8rem',
+                          borderRadius: '6px',
+                          border: isSelected ? '1px solid #052C58' : '1px solid #e2e8f0',
+                          backgroundColor: isSelected ? '#052C58' : '#ffffff',
+                          color: isSelected ? '#ffffff' : '#334155',
+                          fontSize: '0.85rem',
+                          fontWeight: isSelected ? 600 : 500,
+                          cursor: 'pointer',
+                          textAlign: 'center',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        {lang}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </header>
   );
 }

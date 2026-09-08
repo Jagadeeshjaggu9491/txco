@@ -15,6 +15,102 @@ if (typeof window !== 'undefined') {
 }
 import { TableFigureIcon } from '@/components/products/EngineeringProductDiagrams';
 
+// Helper to render markdown bold **text** as <strong>text</strong>
+function renderFormattedText(text) {
+  if (!text) return null;
+  if (typeof text !== 'string') return text;
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
+
+function renderEngineeringTable(tableData, anchorId) {
+  if (!tableData) return null;
+  return (
+    <div id={anchorId} className="product-details-table-wrapper">
+      <table className="product-details-table">
+        <thead>
+          <tr>
+            {tableData.headers.map((th, thIdx) => (
+              <th key={thIdx}>{th}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.rows.map((row, rIdx) => {
+            const hasFigureCol = tableData.headers.some((h) =>
+              h.toUpperCase().includes('FIGURE')
+            );
+
+            if (Array.isArray(row.cells)) {
+              return (
+                <tr key={rIdx}>
+                  {row.cells.map((cell, cIdx) => (
+                    <td
+                      key={cIdx}
+                      className={cIdx === 0 ? 'product-details-table-first-col' : ''}
+                    >
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              );
+            }
+
+            if (hasFigureCol) {
+              return (
+                <tr key={rIdx}>
+                  <td className="product-details-table-first-col">{row.code}</td>
+                  <td className="product-details-table-figure-col">
+                    <TableFigureIcon type={row.figureType || 'membrane'} />
+                  </td>
+                  <td>{row.description}</td>
+                  {row.thickness !== undefined && <td>{row.thickness}</td>}
+                  {row.reweld !== undefined && <td>{row.reweld}</td>}
+                  {row.radial !== undefined && <td>{row.radial}</td>}
+                </tr>
+              );
+            }
+
+            const values = [
+              row.code,
+              row.description,
+              row.thickness,
+              row.reweld,
+              row.radial,
+            ].filter((v, idx) => idx < tableData.headers.length);
+
+            return (
+              <tr key={rIdx}>
+                {values.map((val, vIdx) => (
+                  <td
+                    key={vIdx}
+                    className={vIdx === 0 ? 'product-details-table-first-col' : ''}
+                  >
+                    {val || '—'}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+
+      {tableData.footnote && (
+        <div className="product-details-table-footnote">
+          {tableData.footnote.split('\n').map((line, lIdx) => (
+            <div key={lIdx}>{line}</div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // Smart helper to highlight lead-in line as an h5 title and remaining text as description
 function splitPointItem(item) {
   if (typeof item === 'object' && item !== null) {
@@ -134,36 +230,47 @@ function getFeaturedProductImage(productId, pData, subcategory) {
   if (productId && NEW_PRODUCT_IMAGES[productId]) {
     return NEW_PRODUCT_IMAGES[productId];
   }
-  const title = ((pData?.title || '') + ' ' + (subcategory?.subcategoryTitle || '')).toLowerCase();
 
-  if (title.includes('rubber-coated') || title.includes('rubber coated')) {
+  // If product data explicitly specifies an image (e.g. Planiflex, Spiral Wound, etc.)
+  if (pData?.image && !pData.image.includes('place-holder')) {
+    return pData.image;
+  }
+
+  const pTitle = (pData?.title || '').toLowerCase();
+  const subTitle = (subcategory?.subcategoryTitle || '').toLowerCase();
+  const isNonMetallic = subTitle.includes('non-metallic');
+
+  if (pTitle.includes('planiflex') || pTitle.includes('compressed') || pTitle.includes('asbestos-free')) {
+    return '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif';
+  }
+  if (pTitle.includes('rubber-coated') || pTitle.includes('rubber coated')) {
     return '/images/products/new/Rubber-Coated RTJ Gaskets.png';
   }
-  if (title.includes('ptfe-insert') || title.includes('ptfe insert')) {
+  if (pTitle.includes('ptfe-insert') || pTitle.includes('ptfe insert')) {
     return '/images/products/new/PTFE-Insert RTJ Gaskets.png';
   }
-  if (title.includes('protective-coated') || title.includes('protective coated')) {
+  if (pTitle.includes('protective-coated') || pTitle.includes('protective coated')) {
     return '/images/products/new/Protective-Coated RTJ Gaskets.png';
   }
-  if (title.includes('lens ring') || title.includes('lens-ring') || title.includes('din 2696')) {
+  if (pTitle.includes('lens ring') || pTitle.includes('lens-ring') || pTitle.includes('din 2696')) {
     return '/images/products/new/Lens Rings (DIN 2696).png';
   }
-  if (title.includes('blind rtj') || title.includes('blind gasket') || title.includes('spectacle blind')) {
+  if (pTitle.includes('blind rtj') || pTitle.includes('blind gasket') || pTitle.includes('spectacle blind')) {
     return '/images/products/new/Blind RTJ Gaskets.png';
   }
-  if (title.includes('serrated') || title.includes('soft-material') || title.includes('soft material')) {
+  if (pTitle.includes('serrated') || pTitle.includes('soft-material') || pTitle.includes('soft material')) {
     return '/images/products/new/Soft_Material_Serrated_RTJ_Gaskets_Banner.png';
   }
-  if (title.includes('srx') || title.includes('sbx') || title.includes('ix gasket')) {
+  if (pTitle.includes('srx') || pTitle.includes('sbx') || pTitle.includes('ix gasket')) {
     return '/images/products/new/SRX_SBX_Gaskets_Banner.png';
   }
-  if (title.includes('rx') || title.includes('bx') || title.includes('bonnet ring')) {
+  if (pTitle.includes('rx') || pTitle.includes('bx') || pTitle.includes('bonnet ring')) {
     return '/images/products/new/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner.png';
   }
-  if (title.includes('custom machined') || title.includes('delta gasket') || title.includes('bridgeman') || title.includes('weld-lip') || title.includes('weld lip')) {
+  if (pTitle.includes('custom machined') || pTitle.includes('delta gasket') || pTitle.includes('bridgeman') || pTitle.includes('weld-lip') || pTitle.includes('weld lip')) {
     return '/images/products/new/Custom_Machined_Metallic_Ring_Seals_Banner.png';
   }
-  if (title.includes('ring type joint') || title.includes('rtj') || title.includes('metallic gasket')) {
+  if (!isNonMetallic && (pTitle.includes('ring type joint') || pTitle.includes('rtj') || subTitle === 'metallic gaskets')) {
     return '/images/products/new/Ring Type Joint (RTJ) Gaskets (R – Oval & Octagonal).png';
   }
 
@@ -233,6 +340,46 @@ export default function ProductDetailsLayout({ subcategoryData }) {
     productData,
     subcategoryData
   );
+
+  const scrollToTechnicalData = () => {
+    if (typeof window === 'undefined') return;
+    const el =
+      document.getElementById('technical-data') ||
+      document.querySelector('.product-details-table-wrapper') ||
+      document.getElementById('product-dimensions') ||
+      document.querySelector('.product-details-full-width-content');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const scrollToDimensions = () => {
+    if (typeof window === 'undefined') return;
+    const el =
+      document.getElementById('product-dimensions') ||
+      document.getElementById('technical-data') ||
+      document.querySelector('.product-details-table-wrapper') ||
+      document.querySelector('.product-details-full-width-content');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // Section 0 is the primary overview section
+  const sec0 = productData?.sections?.[0];
+  const remainingSections = (productData?.sections || []).slice(1);
+
+  // Intro paragraphs for the top left column
+  const sec0Paragraphs = sec0?.paragraphs || [];
+  // If sec0 has bullets or subParagraphs, show first 2 paragraphs in upper column
+  const topOverviewParagraphs =
+    sec0?.bullets?.length || sec0?.subParagraphs?.length
+      ? sec0Paragraphs.slice(0, 2)
+      : sec0Paragraphs;
+  const lowerSec0Paragraphs =
+    sec0?.bullets?.length || sec0?.subParagraphs?.length
+      ? sec0Paragraphs.slice(2)
+      : [];
 
   // Initial Page Mount Intro Animation for Header
   useEffect(() => {
@@ -418,9 +565,9 @@ export default function ProductDetailsLayout({ subcategoryData }) {
               </div>
             </div>
 
-            {/* 65% Left Content / 35% Right Sticky Image Layout */}
+            {/* 2-Column Overview Layout matching client screenshot */}
             <div className="product-details-2col-layout">
-              {/* Left Column (65% width) */}
+              {/* Left Column (58-60% width) */}
               <div
                 ref={contentRef}
                 className="product-details-col-left"
@@ -443,173 +590,95 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                   </span>
                 </div>
 
-                {/* Main Product Title matching attached UI screenshot */}
+                {/* Main Product Title */}
                 <h1 className="product-details-main-heading">
                   {productData?.title || subcategoryData?.subcategoryTitle}
                 </h1>
 
-                {productData.sections &&
-                  productData.sections.map((sec, idx) => (
-                    <div key={idx} className="product-details-section-block">
-                      {/* Header Bar with Light Lavender Blue Background */}
-                      <div className="product-details-banner-header">
-                        <h2 className="product-details-banner-title">
-                          {sec.heading}
-                        </h2>
-                      </div>
+                {/* Technical Quick Jump Buttons (Matching Screenshot) */}
+                {/* <div className="product-details-tech-actions">
+                  <button
+                    type="button"
+                    className="product-details-tech-btn"
+                    onClick={scrollToTechnicalData}
+                    aria-label="Technical Data"
+                  >
+                    <span>
+                      {productData.techDataButtonText ||
+                        `TECHNICAL DATA OF ${productData?.title || subcategoryData?.subcategoryTitle || 'PRODUCT'}`}
+                    </span>
+                    <span className="product-details-tech-btn-arrow">&rarr;</span>
+                  </button>
 
-                      {/* Paragraphs */}
-                      {sec.paragraphs &&
-                        sec.paragraphs.map((pText, pIdx) => (
-                          <p
-                            key={pIdx}
-                            className="product-details-paragraph"
-                          >
-                            {pText}
-                          </p>
-                        ))}
+                  <button
+                    type="button"
+                    className="product-details-tech-btn"
+                    onClick={scrollToDimensions}
+                    aria-label="Sheet Dimensions & Dimensional Tolerances"
+                  >
+                    <span>
+                      {productData.dimensionsButtonText ||
+                        'SHEET DIMENSIONS AND DIMENSIONAL TOLERANCES'}
+                    </span>
+                    <span className="product-details-tech-btn-arrow">&rarr;</span>
+                  </button>
+                </div> */}
 
-                      {/* Product Assembly & Detail Image */}
-                      {sec.showAssemblyDiagram && (
-                        <div className="product-details-image-box d-none">
-                          <img
-                            src={
-                              sec.image ||
-                              productData?.image ||
-                              ((subcategoryData?.subcategoryTitle?.toLowerCase().includes('flange') || subcategoryData?.parentCategoryTitle?.toLowerCase().includes('flange'))
-                                ? '/images/product-detials-images/flanges-product-detials-place-holder-img.png'
-                                : (subcategoryData?.subcategoryTitle?.toLowerCase().includes('valve') || subcategoryData?.parentCategoryTitle?.toLowerCase().includes('valve'))
-                                  ? '/images/product-detials-images/valve-components-product-detials-place-holder-img.png'
-                                  : '/images/product-detials-images/gaskets-product-detials-place-holder-img.png')
-                            }
-                            alt={sec.heading || productData?.title || 'Product Details Technical Drawing'}
-                            className="product-details-image"
-                          />
-                        </div>
+                {/* Overview Paragraphs */}
+                {topOverviewParagraphs.map((pText, pIdx) => (
+                  <p key={pIdx} className="product-details-paragraph">
+                    {renderFormattedText(pText)}
+                  </p>
+                ))}
+
+                {/* Bullet Points / Models List (Matching Screenshot) */}
+                {sec0?.bullets && sec0.bullets.length > 0 ? (
+                  <>
+                    <p className="product-details-models-lead">
+                      {renderFormattedText(
+                        sec0.bulletsIntro ||
+                        `The ${productData?.title || subcategoryData?.subcategoryTitle} line includes the following models:`
                       )}
-
-                      {/* Bullet Points Intro and Box Grid */}
-                      {sec.bulletsIntro && (
-                        <p className="product-details-bullets-intro">
-                          {sec.bulletsIntro}
-                        </p>
-                      )}
-
-                      {sec.bullets && (
-                        <div className="product-details-points-grid">
-                          {sec.bullets.map((bItem, bIdx) => {
-                            const { title, desc } = sec.bulletsAsHeadings
-                              ? { title: typeof bItem === 'string' ? bItem : bItem.title, desc: '' }
-                              : splitPointItem(bItem);
-
-                            return (
-                              <div key={bIdx} className="product-details-point-card">
-                                {title && (
-                                  <h5 className="product-details-point-title">
-                                    {title}
-                                  </h5>
-                                )}
-                                {desc && (
-                                  <p className="product-details-point-desc">
-                                    {desc}
-                                  </p>
-                                )}
-                              </div>
-                            );
-                          })}
-                        </div>
-                      )}
-
-                      {/* Sub Paragraphs */}
-                      {sec.subParagraphs &&
-                        sec.subParagraphs.map((spText, spIdx) => (
-                          <p
-                            key={spIdx}
-                            className="product-details-paragraph"
-                          >
-                            {spText}
-                          </p>
-                        ))}
-
-                      {/* Engineering Specification Table */}
-                      {sec.table && (
-                        <div className="product-details-table-wrapper">
-                          <table className="product-details-table">
-                            <thead>
-                              <tr>
-                                {sec.table.headers.map((th, thIdx) => (
-                                  <th key={thIdx}>
-                                    {th}
-                                  </th>
-                                ))}
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {sec.table.rows.map((row, rIdx) => {
-                                const hasFigureCol = sec.table.headers.some(h => h.toUpperCase().includes('FIGURE'));
-
-                                if (Array.isArray(row.cells)) {
-                                  return (
-                                    <tr key={rIdx}>
-                                      {row.cells.map((cell, cIdx) => (
-                                        <td key={cIdx} className={cIdx === 0 ? 'product-details-table-first-col' : ''}>
-                                          {cell}
-                                        </td>
-                                      ))}
-                                    </tr>
-                                  );
-                                }
-
-                                if (hasFigureCol) {
-                                  return (
-                                    <tr key={rIdx}>
-                                      <td className="product-details-table-first-col">{row.code}</td>
-                                      <td className="product-details-table-figure-col">
-                                        <TableFigureIcon type={row.figureType || 'membrane'} />
-                                      </td>
-                                      <td>{row.description}</td>
-                                      {row.thickness !== undefined && <td>{row.thickness}</td>}
-                                      {row.reweld !== undefined && <td>{row.reweld}</td>}
-                                      {row.radial !== undefined && <td>{row.radial}</td>}
-                                    </tr>
-                                  );
-                                }
-
-                                const values = [
-                                  row.code,
-                                  row.description,
-                                  row.thickness,
-                                  row.reweld,
-                                  row.radial,
-                                ].filter((v, idx) => idx < sec.table.headers.length);
-
-                                return (
-                                  <tr key={rIdx}>
-                                    {values.map((val, vIdx) => (
-                                      <td key={vIdx} className={vIdx === 0 ? 'product-details-table-first-col' : ''}>
-                                        {val || '—'}
-                                      </td>
-                                    ))}
-                                  </tr>
-                                );
-                              })}
-                            </tbody>
-                          </table>
-
-                          {sec.table.footnote && (
-                            <div className="product-details-table-footnote">
-                              {sec.table.footnote.split('\n').map((line, lIdx) => (
-                                <div key={lIdx}>{line}</div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                    </p>
+                    <ul className="product-details-client-bullets">
+                      {sec0.bullets.map((bItem, bIdx) => {
+                        const { title, desc } = splitPointItem(bItem);
+                        return (
+                          <li key={bIdx}>
+                            <strong>{title}</strong>
+                            {desc ? ` – ${desc}` : ''}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </>
+                ) : remainingSections.length > 0 && remainingSections.some((s) => s.bullets?.length || s.heading) ? (
+                  <>
+                    <p className="product-details-models-lead">
+                      The <strong>{productData?.title || subcategoryData?.subcategoryTitle} line</strong> includes the following models:
+                    </p>
+                    <ul className="product-details-client-bullets">
+                      {remainingSections.map((sec, sIdx) => {
+                        const firstBullet = sec.bullets?.[0] ? splitPointItem(sec.bullets[0]) : null;
+                        return (
+                          <li key={sIdx}>
+                            <strong>{sec.heading}</strong>
+                            {firstBullet?.desc
+                              ? ` – ${firstBullet.desc}`
+                              : firstBullet?.title
+                                ? ` – ${firstBullet.title}`
+                                : sec.paragraphs?.[0]
+                                  ? ` – ${sec.paragraphs[0]}`
+                                  : ''}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </>
+                ) : null}
               </div>
 
-              {/* Right Column (35% width) - Sticky to screen */}
+              {/* Right Column (40-42% width) - Side-by-side with overview */}
               <div className="product-details-col-right">
                 {featuredProductImage && (
                   <div className="product-details-sticky-img-box">
@@ -621,6 +690,116 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                   </div>
                 )}
               </div>
+            </div>
+
+            {/* Full Width Lower Content Area (Matching Screenshot) */}
+            <div className="product-details-full-width-content">
+              {/* Lower Sec0 Paragraphs (if any) */}
+              {lowerSec0Paragraphs.map((pText, pIdx) => (
+                <p key={`lower-p-${pIdx}`} className="product-details-paragraph">
+                  {renderFormattedText(pText)}
+                </p>
+              ))}
+
+              {/* Sec0 Sub Paragraphs (e.g. Planiflex compressed fiber sheets details) */}
+              {sec0?.subParagraphs &&
+                sec0.subParagraphs.map((spText, spIdx) => (
+                  <p key={`sp-${spIdx}`} className="product-details-paragraph">
+                    {renderFormattedText(spText)}
+                  </p>
+                ))}
+
+              {/* Sec0 Table (if any) */}
+              {sec0?.table && renderEngineeringTable(sec0.table, 'technical-data')}
+
+              {/* Sec0 Assembly Diagram (if any) */}
+              {sec0?.showAssemblyDiagram && (
+                <div className="product-details-image-box d-none">
+                  <img
+                    src={
+                      sec0.image ||
+                      productData?.image ||
+                      ((subcategoryData?.subcategoryTitle?.toLowerCase().includes('flange') || subcategoryData?.parentCategoryTitle?.toLowerCase().includes('flange'))
+                        ? '/images/product-detials-images/flanges-product-detials-place-holder-img.png'
+                        : (subcategoryData?.subcategoryTitle?.toLowerCase().includes('valve') || subcategoryData?.parentCategoryTitle?.toLowerCase().includes('valve'))
+                          ? '/images/product-detials-images/valve-components-product-detials-place-holder-img.png'
+                          : '/images/product-detials-images/gaskets-product-detials-place-holder-img.png')
+                    }
+                    alt={sec0.heading || productData?.title || 'Product Details Technical Drawing'}
+                    className="product-details-image"
+                  />
+                </div>
+              )}
+
+              {/* Subsequent Section Blocks */}
+              {remainingSections.map((sec, idx) => (
+                <div key={`rem-sec-${idx}`} id={idx === 0 ? 'product-dimensions' : undefined} className="product-details-section-block">
+                  {/* Header Bar with User Styled Cool Grey Background */}
+                  <div className="product-details-banner-header">
+                    <h2 className="product-details-banner-title">
+                      {sec.heading}
+                    </h2>
+                  </div>
+
+                  {/* Paragraphs */}
+                  {sec.paragraphs &&
+                    sec.paragraphs.map((pText, pIdx) => (
+                      <p
+                        key={pIdx}
+                        className="product-details-paragraph"
+                      >
+                        {renderFormattedText(pText)}
+                      </p>
+                    ))}
+
+                  {/* Bullets Intro */}
+                  {sec.bulletsIntro && (
+                    <p className="product-details-bullets-intro">
+                      {renderFormattedText(sec.bulletsIntro)}
+                    </p>
+                  )}
+
+                  {/* Bullets List / Points */}
+                  {sec.bullets && (
+                    <div className="product-details-points-grid">
+                      {sec.bullets.map((bItem, bIdx) => {
+                        const { title, desc } = sec.bulletsAsHeadings
+                          ? { title: typeof bItem === 'string' ? bItem : bItem.title, desc: '' }
+                          : splitPointItem(bItem);
+
+                        return (
+                          <div key={bIdx} className="product-details-point-card">
+                            {title && (
+                              <h5 className="product-details-point-title">
+                                {title}
+                              </h5>
+                            )}
+                            {desc && (
+                              <p className="product-details-point-desc">
+                                {desc}
+                              </p>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {/* Sub Paragraphs */}
+                  {sec.subParagraphs &&
+                    sec.subParagraphs.map((spText, spIdx) => (
+                      <p
+                        key={spIdx}
+                        className="product-details-paragraph"
+                      >
+                        {renderFormattedText(spText)}
+                      </p>
+                    ))}
+
+                  {/* Engineering Specification Table */}
+                  {sec.table && renderEngineeringTable(sec.table, idx === 0 ? 'technical-data' : undefined)}
+                </div>
+              ))}
             </div>
           </div>
         </section>

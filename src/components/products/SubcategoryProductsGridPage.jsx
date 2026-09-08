@@ -87,7 +87,7 @@ export default function SubcategoryProductsGridPage({
         <section
           ref={containerRef}
           className="txco-section txco-section-light"
-          style={{ backgroundColor: '#ffffff', padding: '3.5rem 2rem 5.5rem 2rem' }}
+          style={{ padding: '3.5rem 2rem 5.5rem 2rem' }}
         >
           <div className="txco-container">
             {/* Breadcrumb Navigation back to Parent Category */}
