@@ -226,7 +226,7 @@ export const subcategoriesByCategory = {
         types: 'PEEK, PCTFE, Devlon V, Virgin/Filled PTFE Ball & Gate Seats',
         description:
           'CNC-machined bubble-tight seat rings in PEEK, PCTFE, Devlon V, Virgin/Filled PTFE, and metallic base rings.',
-        image: '/images/product-detials-images/valve-components-product-detials-place-holder-img.png',
+        image: '/images/product-detials-images/Seat-for-Ball-and-Gate-Valve.avif',
         href: '/products/valve-components/details?product=valve-seats-inserts',
       },
     ],

@@ -534,7 +534,7 @@ export const productCategoriesHierarchy = [
             href: '/products/valve-components/details?product=valve-seats-inserts',
             standards: 'API 6D, ASME B16.34, Cryogenic to +260°C',
             types: 'PEEK, PCTFE, Devlon V, Virgin/Filled PTFE Ball & Gate Seats',
-            image: '/images/product-detials-images/valve-components-product-detials-place-holder-img.png',
+            image: '/images/product-detials-images/Seat-for-Ball-and-Gate-Valve.avif',
             description: 'CNC-machined bubble-tight seat rings in PEEK, PCTFE, Devlon V, Virgin/Filled PTFE, and metallic base rings.',
           },
         ],

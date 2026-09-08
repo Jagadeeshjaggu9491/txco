@@ -86,11 +86,7 @@ export default function OurProductsOverview() {
     <section ref={sectionRef} className="products-overview-section">
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         {/* Top Badge */}
-        <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
-          <span ref={badgeRef} className="section-badge">
-            OUR PRODUCTS
-          </span>
-        </div>
+
 
         {/* Heading Title */}
         <h2
@@ -126,52 +122,33 @@ export default function OurProductsOverview() {
             >
               <div
                 ref={addToCardsRef}
-                className="product-overview-card"
+                className="category-overview-card"
                 style={{ width: '100%' }}
               >
-                {/* Product Image Preview Box */}
-                <div className="product-img-box">
+                {/* Top Image Preview Box with Ice Blue Background and Ghost Watermark */}
+                <div className="category-img-box">
+                  <span className="category-ghost-text">
+                    {item.title?.split(' ')[0] || 'TXCO'}
+                  </span>
                   <img
                     src={item.image}
                     alt={item.title}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      padding: '0',
-                    }}
                     onError={(e) => {
                       e.currentTarget.src = item.fallbackImage;
                     }}
                   />
                 </div>
 
-                {/* Card Content & Arrow Button */}
-                <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem', marginTop: '1.2rem' }}>
-                  <div style={{ flexGrow: 1 }}>
-                    <h3 className="product-card-title">
-                      {item.title}
-                    </h3>
-                    <p className="product-card-desc">
-                      {item.description}
-                    </p>
+                {/* Card Bottom Details with Hover Action Ribbon & Title */}
+                <div className="category-card-body">
+                  <div className="category-card-action-bar">
+                    <span className="category-badge-ribbon">Go to category</span>
+                    <span className="category-tooltip-pill">{item.title}</span>
                   </div>
 
-                  <div className="product-arrow-badge">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#ffffff"
-                      strokeWidth="2.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="4" y1="12" x2="20" y2="12" />
-                      <polyline points="13 5 20 12 13 19" />
-                    </svg>
-                  </div>
+                  <h3 className="category-card-title">
+                    {item.title}
+                  </h3>
                 </div>
               </div>
             </Link>

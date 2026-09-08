@@ -70,20 +70,7 @@
   margin: 0 auto 3.5rem auto;
 }
 
-.certifications-header-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #114680;
-  text-transform: uppercase;
-  background-color: rgba(17, 70, 128, 0.07);
-  padding: 0.4rem 1rem;
-  border-radius: 50px;
-  margin-bottom: 1rem;
-}
+
 
 .certifications-section-title {
   font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
@@ -358,6 +345,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -381,6 +369,7 @@
     opacity: 0;
     transform: translateY(20px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);

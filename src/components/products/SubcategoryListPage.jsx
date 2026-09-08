@@ -121,75 +121,110 @@ export default function SubcategoryListPage({ categoryData }) {
               }}
               className="products-flex-container"
             >
-              {categoryData.items.map((item) => (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  ref={addToCardsRef}
-                  className="product-card-flex-item"
-                  style={{
-                    flex: '0 0 calc(33.333% - 1.35rem)',
-                    maxWidth: 'calc(33.333% - 1.35rem)',
-                    textDecoration: 'none',
-                    color: 'inherit',
-                    display: 'flex',
-                  }}
-                >
-                  <div className="product-overview-card" style={{ width: '100%', minHeight: '340px' }}>
-                    {/* Top Product Image Preview Box */}
-                    <div className="product-img-box" style={{ height: '200px' }}>
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover',
-                          padding: '0',
-                        }}
-                        onError={(e) => {
-                          e.currentTarget.src = '/images/home-products.png';
-                        }}
-                      />
-                    </div>
+              {categoryData.items.map((item) => {
+                const isProduct = Boolean(
+                  item.href?.includes('/details') ||
+                  categoryData.isProducts ||
+                  categoryData.id !== 'gaskets'
+                );
 
-                    {/* Card Bottom Details */}
-                    <div className="product-card-body-content">
-                      <h3 className="product-card-title">
-                        {item.title}
-                      </h3>
-
-                      {item.types ? (
-                        <div className="product-card-types-box">
-                          <span className="product-card-types-label">Types / Variants</span>
-                          <p className="product-card-types-value">
-                            {item.types}
-                          </p>
+                return (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    ref={addToCardsRef}
+                    className="product-card-flex-item"
+                    style={{
+                      flex: '0 0 calc(33.333% - 1.35rem)',
+                      maxWidth: 'calc(33.333% - 1.35rem)',
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      display: 'flex',
+                    }}
+                  >
+                    {isProduct ? (
+                      /* SINGLE PRODUCT CARD (Transparent background, floating image, Details ribbon) */
+                      <div className="single-product-card" style={{ width: '100%' }}>
+                        <div className="single-product-img-box">
+                          <img
+                            src={item.image || '/images/products/industrial-gaskets/ring-type-joint.png'}
+                            alt={item.title}
+                            onError={(e) => {
+                              e.currentTarget.src = '/images/home-products.png';
+                            }}
+                          />
                         </div>
-                      ) : null}
 
-                      {/* Circular Dark Navy Arrow Badge */}
-                      <div className="product-card-bottom-row">
-                        <div className="product-arrow-badge">
-                          <svg
-                            width="18"
-                            height="18"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="#ffffff"
-                            strokeWidth="2.8"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <line x1="4" y1="12" x2="20" y2="12" />
-                            <polyline points="13 5 20 12 13 19" />
-                          </svg>
+                        <div className="single-product-card-body">
+                          <div>
+                            <div className="single-product-action-bar">
+                              <span className="single-product-badge-ribbon">Details</span>
+                              <span className="single-product-tooltip-pill">{item.title}</span>
+                            </div>
+
+                            <h3 className="single-product-title">
+                              {item.title}
+                            </h3>
+
+                            {item.types ? (
+                              <div className="product-card-types-box">
+                                <span className="product-card-types-label">Types / Variants</span>
+                                <p className="product-card-types-value">
+                                  {item.types}
+                                </p>
+                              </div>
+                            ) : null}
+                          </div>
+
+                          {/* Bottom Line Accent Design */}
+                          <div className="single-product-bottom-line" />
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+                    ) : (
+                      /* CATEGORY OVERVIEW CARD (For category list e.g. Gaskets subcategories) */
+                      <div className="category-overview-card" style={{ width: '100%' }}>
+                        <div className="category-img-box">
+                          <span className="category-ghost-text">
+                            {item.title?.split(' ')[0] || 'TXCO'}
+                          </span>
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            onError={(e) => {
+                              e.currentTarget.src = '/images/home-products.png';
+                            }}
+                          />
+                        </div>
+
+                        <div className="category-card-body">
+                          <div>
+                            <div className="category-card-action-bar">
+                              <span className="category-badge-ribbon">Go to category</span>
+                              <span className="category-tooltip-pill">{item.title}</span>
+                            </div>
+
+                            <h3 className="category-card-title">
+                              {item.title}
+                            </h3>
+
+                            {item.types ? (
+                              <div className="product-card-types-box">
+                                <span className="product-card-types-label">Types / Variants</span>
+                                <p className="product-card-types-value">
+                                  {item.types}
+                                </p>
+                              </div>
+                            ) : null}
+                          </div>
+
+                          {/* Bottom Line Accent Design */}
+                          <div className="single-product-bottom-line" />
+                        </div>
+                      </div>
+                    )}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>

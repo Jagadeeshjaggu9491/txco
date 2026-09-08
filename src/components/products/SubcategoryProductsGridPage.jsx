@@ -86,8 +86,8 @@ export default function SubcategoryProductsGridPage({
         {/* Top Subcategory Products Section */}
         <section
           ref={containerRef}
-          className="txco-section txco-section-cool-grey"
-          style={{ padding: '3.5rem 2rem 5.5rem 2rem' }}
+          className="txco-section txco-section-light"
+          style={{ backgroundColor: '#ffffff', padding: '3.5rem 2rem 5.5rem 2rem' }}
         >
           <div className="txco-container">
             {/* Breadcrumb Navigation back to Parent Category */}
@@ -150,57 +150,44 @@ export default function SubcategoryProductsGridPage({
                       display: 'flex',
                     }}
                   >
-                    <div className="product-overview-card" style={{ width: '100%' }}>
-                      {/* Product Image Preview Box */}
-                      <div className="product-img-box" style={{ height: '200px' }}>
+                    <div className="single-product-card" style={{ width: '100%' }}>
+                      {/* Product Image Preview Box with Floating Product */}
+                      <div className="single-product-img-box">
                         <img
                           src={item.image || '/images/products/industrial-gaskets/ring-type-joint.png'}
                           alt={item.name || item.title}
-                          style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            padding: '0',
-                          }}
                           onError={(e) => {
                             e.currentTarget.src = '/images/home-products.png';
                           }}
                         />
                       </div>
 
-                      {/* Card Content & Circular Arrow Badge */}
-                      <div className="product-card-body-content">
-                        <h3 className="product-card-title">
-                          {item.name || item.title}
-                        </h3>
-
-                        {item.types ? (
-                          <div className="product-card-types-box">
-                            <span className="product-card-types-label">Types / Variants</span>
-                            <p className="product-card-types-value">
-                              {item.types}
-                            </p>
+                      {/* Card Bottom Details with Hover Details Ribbon, Title, Types & Bottom Line */}
+                      <div className="single-product-card-body">
+                        <div>
+                          <div className="single-product-action-bar">
+                            <span className="single-product-badge-ribbon">Details</span>
+                            <span className="single-product-tooltip-pill">
+                              {item.name || item.title}
+                            </span>
                           </div>
-                        ) : null}
 
-                        {/* Circular Dark Navy Arrow Button */}
-                        <div className="product-card-bottom-row">
-                          <div className="product-arrow-badge">
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="#ffffff"
-                              strokeWidth="2.8"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            >
-                              <line x1="4" y1="12" x2="20" y2="12" />
-                              <polyline points="13 5 20 12 13 19" />
-                            </svg>
-                          </div>
+                          <h3 className="single-product-title">
+                            {item.name || item.title}
+                          </h3>
+
+                          {item.types ? (
+                            <div className="product-card-types-box">
+                              <span className="product-card-types-label">Types / Variants</span>
+                              <p className="product-card-types-value">
+                                {item.types}
+                              </p>
+                            </div>
+                          ) : null}
                         </div>
+
+                        {/* Bottom Line Accent Design */}
+                        <div className="single-product-bottom-line" />
                       </div>
                     </div>
                   </Link>

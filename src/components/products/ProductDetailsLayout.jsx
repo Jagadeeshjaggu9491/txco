@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
-import { ChevronLeft, Play, ArrowRight, Download } from 'lucide-react';
+import { ChevronLeft, Play, ArrowRight, Download, ChevronDown } from 'lucide-react';
 import gsap from 'gsap';
 import { TableFigureIcon } from '@/components/products/EngineeringProductDiagrams';
 
@@ -105,6 +105,66 @@ function splitPointItem(item) {
   };
 }
 
+// Mapping for images from public/images/products/new
+const NEW_PRODUCT_IMAGES = {
+  'about-metallic-gaskets': '/images/products/new/Ring Type Joint (RTJ) Gaskets (R – Oval & Octagonal).png',
+  'ring-type-joint-rtj': '/images/products/new/Ring Type Joint (RTJ) Gaskets (R – Oval & Octagonal).png',
+  'rubber-coated-rtj': '/images/products/new/Rubber-Coated RTJ Gaskets.png',
+  'ptfe-insert-rtj': '/images/products/new/PTFE-Insert RTJ Gaskets.png',
+  'protective-coated-rtj': '/images/products/new/Protective-Coated RTJ Gaskets.png',
+  'bonnet-rings': '/images/products/new/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner.png',
+  'lens-rings': '/images/products/new/Lens Rings (DIN 2696).png',
+  'blind-gaskets': '/images/products/new/Blind RTJ Gaskets.png',
+  'vx-ax-gaskets': '/images/products/new/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner.png',
+  'ix-gaskets': '/images/products/new/SRX_SBX_Gaskets_Banner.png',
+  'delta-gaskets': '/images/products/new/Custom_Machined_Metallic_Ring_Seals_Banner.png',
+  'bridge-gaskets': '/images/products/new/Custom_Machined_Metallic_Ring_Seals_Banner.png',
+  'spectacle-blind-gaskets': '/images/products/new/Blind RTJ Gaskets.png',
+  'transition-rtj': '/images/products/new/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner.png',
+  'soft-material-seated-rtj': '/images/products/new/Soft_Material_Serrated_RTJ_Gaskets_Banner.png',
+  'weld-lip-seals': '/images/products/new/Custom_Machined_Metallic_Ring_Seals_Banner.png',
+};
+
+function getFeaturedProductImage(productId, pData, subcategory) {
+  if (productId && NEW_PRODUCT_IMAGES[productId]) {
+    return NEW_PRODUCT_IMAGES[productId];
+  }
+  const title = ((pData?.title || '') + ' ' + (subcategory?.subcategoryTitle || '')).toLowerCase();
+
+  if (title.includes('rubber-coated') || title.includes('rubber coated')) {
+    return '/images/products/new/Rubber-Coated RTJ Gaskets.png';
+  }
+  if (title.includes('ptfe-insert') || title.includes('ptfe insert')) {
+    return '/images/products/new/PTFE-Insert RTJ Gaskets.png';
+  }
+  if (title.includes('protective-coated') || title.includes('protective coated')) {
+    return '/images/products/new/Protective-Coated RTJ Gaskets.png';
+  }
+  if (title.includes('lens ring') || title.includes('lens-ring') || title.includes('din 2696')) {
+    return '/images/products/new/Lens Rings (DIN 2696).png';
+  }
+  if (title.includes('blind rtj') || title.includes('blind gasket') || title.includes('spectacle blind')) {
+    return '/images/products/new/Blind RTJ Gaskets.png';
+  }
+  if (title.includes('serrated') || title.includes('soft-material') || title.includes('soft material')) {
+    return '/images/products/new/Soft_Material_Serrated_RTJ_Gaskets_Banner.png';
+  }
+  if (title.includes('srx') || title.includes('sbx') || title.includes('ix gasket')) {
+    return '/images/products/new/SRX_SBX_Gaskets_Banner.png';
+  }
+  if (title.includes('rx') || title.includes('bx') || title.includes('bonnet ring')) {
+    return '/images/products/new/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner.png';
+  }
+  if (title.includes('custom machined') || title.includes('delta gasket') || title.includes('bridgeman') || title.includes('weld-lip') || title.includes('weld lip')) {
+    return '/images/products/new/Custom_Machined_Metallic_Ring_Seals_Banner.png';
+  }
+  if (title.includes('ring type joint') || title.includes('rtj') || title.includes('metallic gasket')) {
+    return '/images/products/new/Ring Type Joint (RTJ) Gaskets (R – Oval & Octagonal).png';
+  }
+
+  return pData?.newImage || pData?.image || null;
+}
+
 export default function ProductDetailsLayout({ subcategoryData }) {
   const searchParams = useSearchParams();
   const productParam = searchParams.get('product');
@@ -114,10 +174,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
     subcategoryData?.productsList?.[0]?.id;
 
   const [activeProductId, setActiveProductId] = useState(defaultProductId);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const headerBarRef = useRef(null);
-  const sidebarRef = useRef(null);
-  const sidebarNavListRef = useRef(null);
   const contentRef = useRef(null);
 
   // Synchronize active product when URL query parameter changes (e.g. clicking header navbar links)
@@ -164,7 +221,13 @@ export default function ProductDetailsLayout({ subcategoryData }) {
       ],
     };
 
-  // Initial Page Mount Intro Animation for Header and Sidebar
+  const featuredProductImage = getFeaturedProductImage(
+    activeProductId,
+    productData,
+    subcategoryData
+  );
+
+  // Initial Page Mount Intro Animation for Header
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
@@ -175,33 +238,6 @@ export default function ProductDetailsLayout({ subcategoryData }) {
           { y: -20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.55, ease: 'power3.out' }
         );
-      }
-
-      if (sidebarRef.current) {
-        tl.fromTo(
-          sidebarRef.current,
-          { x: -25, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.65, ease: 'power3.out' },
-          '-=0.35'
-        );
-      }
-
-      if (sidebarNavListRef.current) {
-        const items = sidebarNavListRef.current.querySelectorAll('.product-details-nav-item');
-        if (items.length > 0) {
-          tl.fromTo(
-            items,
-            { x: -15, opacity: 0 },
-            {
-              x: 0,
-              opacity: 1,
-              duration: 0.45,
-              stagger: 0.035,
-              ease: 'power2.out',
-            },
-            '-=0.45'
-          );
-        }
       }
     });
 
@@ -214,13 +250,13 @@ export default function ProductDetailsLayout({ subcategoryData }) {
       const ctx = gsap.context(() => {
         const tl = gsap.timeline();
 
-        // 1. Breadcrumbs & Hero Banner
         const breadcrumbs = contentRef.current.querySelector('.product-details-content-breadcrumbs');
-        const heroBanner = contentRef.current.querySelector('.product-details-hero-banner');
+        const mainHeading = contentRef.current.querySelector('.product-details-main-heading');
         const sectionBanners = contentRef.current.querySelectorAll('.product-details-banner-header');
         const paragraphs = contentRef.current.querySelectorAll('.product-details-paragraph');
         const pointCards = contentRef.current.querySelectorAll('.product-details-point-card');
         const tables = contentRef.current.querySelectorAll('.product-details-table-wrapper');
+        const stickyImg = document.querySelector('.product-details-sticky-img');
 
         if (breadcrumbs) {
           tl.fromTo(
@@ -230,12 +266,21 @@ export default function ProductDetailsLayout({ subcategoryData }) {
           );
         }
 
-        if (heroBanner) {
+        if (mainHeading) {
           tl.fromTo(
-            heroBanner,
-            { scale: 0.98, y: 20, opacity: 0 },
-            { scale: 1, y: 0, opacity: 1, duration: 0.55, ease: 'power3.out' },
+            mainHeading,
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.55, ease: 'power3.out' },
             '-=0.25'
+          );
+        }
+
+        if (stickyImg) {
+          tl.fromTo(
+            stickyImg,
+            { scale: 0.96, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.6, ease: 'power3.out' },
+            '-=0.4'
           );
         }
 
@@ -310,19 +355,31 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                 </Link>
               </div>
 
-              {/* Top Right Actions: Product Download & Sidebar Toggle */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', flexWrap: 'wrap' }}>
-                {isSidebarCollapsed && (
-                  <button
-                    type="button"
-                    onClick={() => setIsSidebarCollapsed(false)}
-                    className="product-sidebar-toggle-btn"
-                    style={{ padding: '0.55rem 0.95rem', fontSize: '0.82rem', borderRadius: '24px' }}
-                    title="Show products list sidebar"
-                  >
-                    <ChevronLeft size={15} style={{ transform: 'rotate(180deg)' }} />
-                    <span>Show Products ({totalProductsCount})</span>
-                  </button>
+              {/* Top Right Actions: Product Dropdown Selector & Download */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                {/* Product Dropdown Selector on top of content */}
+                {subcategoryData?.productsList && subcategoryData.productsList.length > 0 && (
+                  <div className="product-details-dropdown-box">
+                    <label className="product-details-dropdown-label" htmlFor="product-details-select-input">
+                      Select Product:
+                    </label>
+                    <div className="product-details-select-wrapper">
+                      <select
+                        id="product-details-select-input"
+                        value={activeProductId}
+                        onChange={(e) => handleProductSelect(e.target.value)}
+                        className="product-details-select-input"
+                        aria-label="Select Product"
+                      >
+                        {subcategoryData.productsList.map((item) => (
+                          <option key={item.id} value={item.id}>
+                            {item.title}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown size={16} className="product-details-select-arrow" />
+                    </div>
+                  </div>
                 )}
 
                 <Link
@@ -337,81 +394,14 @@ export default function ProductDetailsLayout({ subcategoryData }) {
               </div>
             </div>
 
-            {/* Split Two-Column Layout */}
-            <div className={`product-details-split-grid ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
-              {/* Left Sidebar Navigation */}
-              <aside ref={sidebarRef} className={`product-details-sidebar ${isSidebarCollapsed ? 'collapsed' : ''}`}>
-                {isSidebarCollapsed ? (
-                  /* Compact Rail Expand Button */
-                  <button
-                    type="button"
-                    onClick={() => setIsSidebarCollapsed(false)}
-                    className="product-sidebar-collapsed-btn"
-                    title="Expand products sidebar"
-                  >
-                    <ChevronLeft size={16} style={{ transform: 'rotate(180deg)' }} />
-                    <span className="product-sidebar-collapsed-text">
-                      Products ({totalProductsCount})
-                    </span>
-                  </button>
-                ) : (
-                  <>
-                    {/* Subcategory / Category Title in Sidebar */}
-                    <div className="product-sidebar-title-box">
-                      <h2 className="product-sidebar-category-title">
-                        {subcategoryData.subcategoryTitle}
-                      </h2>
-                    </div>
-
-                    {/* Subcategory Products List */}
-                    <div ref={sidebarNavListRef} className="product-details-nav-list">
-                      {subcategoryData.productsList &&
-                        subcategoryData.productsList.map((item) => {
-                          const isActive = activeProductId === item.id;
-
-                          return (
-                            <button
-                              key={item.id}
-                              onClick={() => handleProductSelect(item.id)}
-                              type="button"
-                              className={`product-details-nav-item ${isActive ? 'active' : ''}`}
-                            >
-                              <span>{item.title}</span>
-                              {isActive && (
-                                <Play
-                                  size={11}
-                                  fill="#018f5d"
-                                  color="#018f5d"
-                                  style={{ flexShrink: 0 }}
-                                />
-                              )}
-                            </button>
-                          );
-                        })}
-                    </div>
-
-                    {/* Contact Our Experts Button */}
-                    <div>
-                      <Link
-                        href="/contact"
-                        className="product-details-contact-btn"
-                      >
-                        <span>CONTACT OUR EXPERTS</span>
-                        <div className="product-details-contact-icon-circle">
-                          <ArrowRight size={13} color="#114680" strokeWidth={2.8} />
-                        </div>
-                      </Link>
-                    </div>
-                  </>
-                )}
-              </aside>
-
-              {/* Right Content Panel matching user screenshot */}
+            {/* 65% Left Content / 35% Right Sticky Image Layout */}
+            <div className="product-details-2col-layout">
+              {/* Left Column (65% width) */}
               <div
                 ref={contentRef}
-                className="product-details-content-panel"
+                className="product-details-col-left"
               >
-                {/* Content Breadcrumbs above Hero Banner */}
+                {/* Content Breadcrumbs */}
                 <div className="product-details-content-breadcrumbs">
                   <Link href="/products" className="product-details-breadcrumb-link">
                     {subcategoryData.parentCategoryTitle || 'PRODUCTS'}
@@ -429,19 +419,10 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                   </span>
                 </div>
 
-                {/* Top Hero Banner matching UI screenshot */}
-                <div
-                  className="product-details-hero-banner"
-                  style={
-                    productData?.bannerImage
-                      ? { backgroundImage: `url('${productData.bannerImage}')` }
-                      : undefined
-                  }
-                >
-                  <h1 className="product-details-hero-title">
-                    {productData?.title || subcategoryData?.subcategoryTitle}
-                  </h1>
-                </div>
+                {/* Main Product Title matching attached UI screenshot */}
+                <h1 className="product-details-main-heading">
+                  {productData?.title || subcategoryData?.subcategoryTitle}
+                </h1>
 
                 {productData.sections &&
                   productData.sections.map((sec, idx) => (
@@ -602,6 +583,19 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                       )}
                     </div>
                   ))}
+              </div>
+
+              {/* Right Column (35% width) - Sticky to screen */}
+              <div className="product-details-col-right">
+                {featuredProductImage && (
+                  <div className="product-details-sticky-img-box">
+                    <img
+                      src={encodeURI(featuredProductImage)}
+                      alt={productData?.title || subcategoryData?.subcategoryTitle || 'Product Image'}
+                      className="product-details-sticky-img"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>

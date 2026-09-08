@@ -14,9 +14,10 @@ import {
   LayoutGrid,
   ArrowLeft,
   BookOpen,
+  X,
 } from 'lucide-react';
 
-export default function CatalogueFlipbookViewer({ catalogueItem }) {
+export default function CatalogueFlipbookViewer({ catalogueItem, onClose }) {
   const pdfUrl = catalogueItem?.pdfUrl || '/images/catalogues/TXCO-Global-Corporate-Presentation.pdf';
 
   const [pdfDoc, setPdfDoc] = useState(null);
@@ -189,8 +190,12 @@ export default function CatalogueFlipbookViewer({ catalogueItem }) {
         handleNextPage();
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
         handlePrevPage();
-      } else if (e.key === 'Escape' && isFullscreen) {
-        toggleFullscreen();
+      } else if (e.key === 'Escape') {
+        if (isFullscreen) {
+          toggleFullscreen();
+        } else if (onClose) {
+          onClose();
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -233,10 +238,22 @@ export default function CatalogueFlipbookViewer({ catalogueItem }) {
       {/* 1. Top Control Toolbar */}
       <header className="flipbook-top-bar">
         {/* Exit Reader */}
-        <Link href="/catalogues" className="flipbook-back-btn">
-          <ArrowLeft size={16} />
-          <span>Exit Reader</span>
-        </Link>
+        {onClose ? (
+          <button
+            type="button"
+            onClick={onClose}
+            className="flipbook-back-btn"
+            style={{ border: 'none', cursor: 'pointer' }}
+          >
+            <ArrowLeft size={16} />
+            <span>Exit Reader</span>
+          </button>
+        ) : (
+          <Link href="/catalogues" className="flipbook-back-btn">
+            <ArrowLeft size={16} />
+            <span>Exit Reader</span>
+          </Link>
+        )}
 
         {/* Document Title */}
         <div className="flipbook-title-block">
@@ -279,15 +296,17 @@ export default function CatalogueFlipbookViewer({ catalogueItem }) {
           </button>
 
           {/* Thumbnails Drawer Toggle */}
-          <button
-            type="button"
-            onClick={() => setShowThumbnails(!showThumbnails)}
-            className="flipbook-tool-btn"
-            style={{ backgroundColor: showThumbnails ? 'rgba(56, 189, 248, 0.25)' : undefined }}
-            title="Thumbnails Drawer"
-          >
-            <LayoutGrid size={17} />
-          </button>
+          {totalPages > 1 && (
+            <button
+              type="button"
+              onClick={() => setShowThumbnails(!showThumbnails)}
+              className="flipbook-tool-btn"
+              style={{ backgroundColor: showThumbnails ? 'rgba(56, 189, 248, 0.25)' : undefined }}
+              title="Thumbnails Drawer"
+            >
+              <LayoutGrid size={17} />
+            </button>
+          )}
 
           {/* Fullscreen Toggle */}
           <button
@@ -309,34 +328,56 @@ export default function CatalogueFlipbookViewer({ catalogueItem }) {
             <Download size={15} />
             <span>Download</span>
           </a>
+
+          {/* Modal Close Button */}
+          {onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              className="flipbook-tool-btn"
+              style={{
+                marginLeft: '0.4rem',
+                backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                color: '#f87171',
+                borderColor: 'rgba(239, 68, 68, 0.3)',
+              }}
+              title="Close Viewer"
+            >
+              <X size={18} />
+            </button>
+          )}
         </div>
       </header>
 
       {/* 2. Main Flipbook Stage */}
       <main className="flipbook-stage-area">
         {/* Left Side Floating Arrow */}
-        <button
-          type="button"
-          onClick={handlePrevPage}
-          disabled={currentPage <= 1 || isFlipping}
-          className="flipbook-arrow-btn flipbook-arrow-left"
-          aria-label="Previous Page"
-        >
-          <ChevronLeft size={30} />
-        </button>
+        {totalPages > 1 && (
+          <button
+            type="button"
+            onClick={handlePrevPage}
+            disabled={currentPage <= 1 || isFlipping}
+            className="flipbook-arrow-btn flipbook-arrow-left"
+            aria-label="Previous Page"
+          >
+            <ChevronLeft size={30} />
+          </button>
+        )}
 
         {/* Right Side Floating Arrow */}
-        <button
-          type="button"
-          onClick={handleNextPage}
-          disabled={
-            (isMobile ? currentPage >= totalPages : currentPage + 1 >= totalPages) || isFlipping
-          }
-          className="flipbook-arrow-btn flipbook-arrow-right"
-          aria-label="Next Page"
-        >
-          <ChevronRight size={30} />
-        </button>
+        {totalPages > 1 && (
+          <button
+            type="button"
+            onClick={handleNextPage}
+            disabled={
+              (isMobile ? currentPage >= totalPages : currentPage + 1 >= totalPages) || isFlipping
+            }
+            className="flipbook-arrow-btn flipbook-arrow-right"
+            aria-label="Next Page"
+          >
+            <ChevronRight size={30} />
+          </button>
+        )}
 
         {/* Book Container with Perspective */}
         <div
@@ -348,25 +389,38 @@ export default function CatalogueFlipbookViewer({ catalogueItem }) {
           {loading ? (
             <div style={{ color: '#94a3b8', textAlign: 'center', padding: '3rem' }}>
               <div style={{ fontSize: '1.15rem', fontWeight: '600', marginBottom: '0.6rem' }}>
-                Loading Interactive 3D Flipbook...
+                Loading Interactive Document...
               </div>
-              <div style={{ fontSize: '0.85rem' }}>Preparing pages from PDF presentation</div>
+              <div style={{ fontSize: '0.85rem' }}>Preparing pages from verified PDF</div>
             </div>
-          ) : isMobile ? (
-            /* Single Page View for Mobile Devices */
+          ) : (isMobile || totalPages === 1) ? (
+            /* Single Page View for Mobile or 1-Page Documents */
             <div
               className="flipbook-mobile-page"
-              onClick={handleNextPage}
-              style={{ cursor: 'pointer' }}
+              onClick={totalPages > 1 ? handleNextPage : undefined}
+              style={{
+                cursor: totalPages > 1 ? 'pointer' : 'default',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
             >
               {pageImages[currentPage] ? (
                 <img
                   src={pageImages[currentPage]}
                   alt={`Page ${currentPage}`}
-                  style={{ maxWidth: '88vw', maxHeight: '72vh', objectFit: 'contain', display: 'block', backgroundColor: '#ffffff' }}
+                  style={{
+                    maxWidth: isMobile ? '88vw' : '50vw',
+                    maxHeight: '76vh',
+                    objectFit: 'contain',
+                    display: 'block',
+                    backgroundColor: '#ffffff',
+                    boxShadow: '0 15px 40px rgba(0, 0, 0, 0.45)',
+                    borderRadius: '4px',
+                  }}
                 />
               ) : (
-                <div style={{ width: '85vw', height: '65vh', backgroundColor: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b' }}>
+                <div style={{ width: isMobile ? '85vw' : '45vw', height: '70vh', backgroundColor: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', borderRadius: '4px' }}>
                   Loading Page {currentPage}...
                 </div>
               )}
@@ -486,43 +540,51 @@ export default function CatalogueFlipbookViewer({ catalogueItem }) {
       )}
 
       {/* 4. Bottom Control Bar */}
-      <footer className="flipbook-bottom-bar">
-        <button
-          type="button"
-          onClick={handlePrevPage}
-          disabled={currentPage <= 1 || isFlipping}
-          className="flipbook-tool-btn"
-          title="Previous Page"
-        >
-          <ChevronLeft size={18} />
-        </button>
+      {totalPages > 1 ? (
+        <footer className="flipbook-bottom-bar">
+          <button
+            type="button"
+            onClick={handlePrevPage}
+            disabled={currentPage <= 1 || isFlipping}
+            className="flipbook-tool-btn"
+            title="Previous Page"
+          >
+            <ChevronLeft size={18} />
+          </button>
 
-        {/* Page Indicator & Jump Input */}
-        <div className="flipbook-page-indicator">
-          <span>Page</span>
-          <input
-            type="number"
-            min={1}
-            max={totalPages || 1}
-            value={currentPage}
-            onChange={handlePageInput}
-            className="flipbook-page-input"
-          />
-          <span>of {totalPages || 1}</span>
-        </div>
+          {/* Page Indicator & Jump Input */}
+          <div className="flipbook-page-indicator">
+            <span>Page</span>
+            <input
+              type="number"
+              min={1}
+              max={totalPages || 1}
+              value={currentPage}
+              onChange={handlePageInput}
+              className="flipbook-page-input"
+            />
+            <span>of {totalPages || 1}</span>
+          </div>
 
-        <button
-          type="button"
-          onClick={handleNextPage}
-          disabled={
-            (isMobile ? currentPage >= totalPages : currentPage + 1 >= totalPages) || isFlipping
-          }
-          className="flipbook-tool-btn"
-          title="Next Page"
-        >
-          <ChevronRight size={18} />
-        </button>
-      </footer>
+          <button
+            type="button"
+            onClick={handleNextPage}
+            disabled={
+              (isMobile ? currentPage >= totalPages : currentPage + 1 >= totalPages) || isFlipping
+            }
+            className="flipbook-tool-btn"
+            title="Next Page"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </footer>
+      ) : (
+        <footer className="flipbook-bottom-bar">
+          <div className="flipbook-page-indicator">
+            <span>Official Verified Document • 1 Page</span>
+          </div>
+        </footer>
+      )}
     </div>
   );
 }

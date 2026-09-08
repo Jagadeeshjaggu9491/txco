@@ -3,9 +3,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { certificatesList } from '@/data/certificationsData';
 import CertificatePdfCard from './CertificatePdfCard';
+import CatalogueFlipbookViewer from '@/components/catalogues/CatalogueFlipbookViewer';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { X, ExternalLink, Download, ShieldCheck } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -69,10 +69,7 @@ export default function CertificationsGrid() {
       <div className="certifications-grid-container">
         {/* Section Heading & Filter Header */}
         <div className="certifications-section-header">
-          <div className="certifications-header-tag">
-            <ShieldCheck size={18} color="#114680" />
-            <span>ACCEDITED QUALITY & SAFETY</span>
-          </div>
+
           <h2 className="certifications-section-title">
             Official Quality & Compliance Certifications
           </h2>
@@ -98,66 +95,17 @@ export default function CertificationsGrid() {
         </div>
       </div>
 
-      {/* PDF Modal Viewer */}
+      {/* Interactive Flipbook / Catalogue-style PDF Reader Modal */}
       {selectedCert && (
-        <div className="cert-modal-backdrop" onClick={() => setSelectedCert(null)}>
-          <div
-            className="cert-modal-container"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="cert-modal-header">
-              <div className="cert-modal-title-block">
-                <ShieldCheck size={20} className="cert-modal-icon" />
-                <div>
-                  <h3 className="cert-modal-title">{selectedCert.title}</h3>
-                  <span className="cert-modal-subtitle">{selectedCert.standard} • {selectedCert.category}</span>
-                </div>
-              </div>
-              <button
-                type="button"
-                className="cert-modal-close-btn"
-                onClick={() => setSelectedCert(null)}
-                title="Close Viewer"
-              >
-                <X size={20} />
-              </button>
-            </div>
-
-            {/* Modal Body - PDF Iframe Viewer */}
-            <div className="cert-modal-body">
-              <iframe
-                src={`${selectedCert.pdfUrl}#toolbar=1&navpanes=0`}
-                title={selectedCert.title}
-                className="cert-pdf-iframe"
-              />
-            </div>
-
-            {/* Modal Footer */}
-            <div className="cert-modal-footer">
-              <span className="cert-modal-filename">{selectedCert.fileName}</span>
-              <div className="cert-modal-actions">
-                <a
-                  href={selectedCert.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cert-modal-btn cert-modal-btn-outline"
-                >
-                  <ExternalLink size={15} />
-                  <span>Open Full Window</span>
-                </a>
-                <a
-                  href={selectedCert.pdfUrl}
-                  download={selectedCert.fileName}
-                  className="cert-modal-btn cert-modal-btn-fill"
-                >
-                  <Download size={15} />
-                  <span>Download PDF</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CatalogueFlipbookViewer
+          catalogueItem={{
+            id: selectedCert.id,
+            title: `${selectedCert.standard} - ${selectedCert.title}`,
+            pdfUrl: selectedCert.pdfUrl,
+            fileName: selectedCert.fileName,
+          }}
+          onClose={() => setSelectedCert(null)}
+        />
       )}
     </section>
   );
