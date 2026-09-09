@@ -1,22 +1,218 @@
 /* =========================================================================
    INDUSTRY DETAILS PAGE STYLESHEET
-   Uses shared .product-details-sidebar and layout classes from product-details.css
+   Matching Client Screenshot for Sidebar and Content Layout
 ========================================================================= */
 
+.product-details-main {
+  width: 100%;
+  background-color: #ffffff;
+}
 
+.product-details-section {
+  padding: 3rem 0 6rem 0;
+  background-color: #ffffff;
+}
+
+.product-details-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header bar with breadcrumbs and Request Engineering Consultation */
+.product-details-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+  width: 100%;
+}
+
+.product-details-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #1d2744;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.15s ease;
+}
+
+.product-details-breadcrumb:hover {
+  color: #018F5D;
+}
+
+.product-details-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 0.55rem 1.15rem;
+  color: #1d2744;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.product-details-download-btn:hover {
+  border-color: #052c58;
+  color: #052c58;
+  box-shadow: 0 3px 8px rgba(5, 44, 88, 0.08);
+}
+
+.product-details-download-icon-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #1d2744;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.product-details-download-btn:hover .product-details-download-icon-circle {
+  background-color: #018F5D;
+}
+
+/* 2-Column Split Grid */
+.product-details-split-grid {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 4.5rem;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left Sidebar */
+.product-details-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 95px;
+  align-self: start;
+  z-index: 10;
+}
+
+.product-sidebar-title-box {
+  margin-bottom: 2rem;
+}
+
+.product-sidebar-category-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1d2744;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.product-details-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.product-details-nav-item {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  cursor: pointer;
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.product-details-nav-item:hover {
+  color: #1d2744;
+}
+
+.product-details-nav-item.active {
+  font-weight: 800;
+  color: #1d2744;
+}
+
+.product-details-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: #0b3b75;
+  color: #ffffff;
+  padding: 0.85rem 1.25rem;
+  border-radius: 2px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(11, 59, 117, 0.18);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.product-details-contact-btn:hover {
+  background-color: #052c58;
+  transform: translateY(-2px);
+}
+
+.product-details-contact-icon-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #018F5D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.product-details-contact-icon-circle svg {
+  stroke: #ffffff;
+  color: #ffffff;
+}
 
 /* 3. Right Content Area */
 .industry-content-area {
-  /* max-width: 900px; */
+  display: flex;
+  flex-direction: column;
 }
 
 .industry-content-heading {
   font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
-  font-size: clamp(1.8rem, 2.8vw, 2.3rem);
-  /* font-weight: 700; */
-  color: #384576;
-  line-height: 1.25;
-  margin: 0 0 1.2rem 0;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #052c58;
+  line-height: 1.2;
+  margin: 0 0 1.4rem 0;
 }
 
 .industry-content-tagline {
@@ -28,17 +224,18 @@
 }
 
 .industry-content-body-p {
-  font-size: 0.94rem;
-  color: #334155;
-  line-height: 1.7;
-  margin-bottom: 1.4rem;
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.75;
+  margin-bottom: 1.6rem;
 }
 
 .industry-content-subheading {
-  font-size: 0.95rem;
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #0f172a;
-  margin: 1.8rem 0 0.8rem 0;
+  color: #052c58;
+  margin: 2rem 0 1.1rem 0;
 }
 
 .industry-who-we-serve-box {
@@ -216,53 +413,59 @@
 
 /* 3.1 Primary Applications & Technical Specifications */
 .industry-app-box {
-  background-color: var(--bg-cool-grey, #f4f8ff);
+  background-color: #f8fafc;
   border-left: 4px solid #018f5d;
-  border-radius: 8px;
-  padding: 1.5rem 1.8rem;
+  border-radius: 4px;
+  padding: 1.3rem 1.8rem;
   margin: 2rem 0;
 }
 
 .industry-app-box .industry-content-subheading {
-  margin-top: 0;
-  margin-bottom: 0.6rem;
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
   color: #052c58;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 .industry-app-box .industry-content-body-p {
+  font-size: 0.94rem;
+  color: #475569;
+  line-height: 1.65;
   margin-bottom: 0;
 }
 
 .industry-spec-block {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 .industry-spec-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
   margin-top: 1rem;
 }
 
 .industry-spec-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 1.3rem 1.5rem;
-  box-shadow: 0 2px 8px rgba(5, 44, 88, 0.03);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  border-radius: 8px;
+  padding: 1.8rem 2.2rem;
+  box-shadow: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .industry-spec-card:hover {
-  transform: translateY(-2px);
-  border-color: #384576;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 16px rgba(5, 44, 88, 0.04);
 }
 
 .industry-spec-card-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.65rem;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.65rem;
 }
 
 .industry-spec-bullet {
@@ -271,12 +474,11 @@
   border-radius: 50%;
   background-color: #018f5d;
   flex-shrink: 0;
-  margin-top: 6px;
 }
 
 .industry-spec-name {
   font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
-  font-size: 1.02rem;
+  font-size: 1.12rem;
   font-weight: 700;
   color: #052c58;
   margin: 0;
@@ -284,15 +486,25 @@
 }
 
 .industry-spec-desc {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   color: #475569;
-  line-height: 1.65;
+  line-height: 1.7;
   margin: 0;
-  padding-left: 1.1rem;
+  padding-left: 0;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .product-details-split-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .product-details-sidebar {
+    position: static;
+    top: auto;
+  }
+
   .industry-spotlight-grid {
     grid-template-columns: repeat(2, 1fr);
   }
