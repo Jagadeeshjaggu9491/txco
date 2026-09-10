@@ -171,8 +171,7 @@ export const mainNavigationMenu = {
     title: 'About Us',
     href: '/about',
     items: [
-      // { name: 'About TXCO', href: '/about' },
-      { name: 'About TXCO', href: '/about-us-new' },
+      { name: 'About TXCO', href: '/about' },
       { name: 'Quality Policy', href: '/quality-policy' },
       { name: 'HSE Policy', href: '/hse-policy' },
       { name: 'Quality & Certifications', href: '/certifications' },
@@ -233,8 +232,7 @@ export const footerNavigationColumns = [
   {
     title: 'ABOUT US',
     links: [
-      // { name: 'About TXCO', href: '/about' },
-      { name: 'About TXCO', href: '/about-us-new' },
+      { name: 'About TXCO', href: '/about' },
       { name: 'Quality Policy', href: '/quality-policy' },
       { name: 'HSE Policy', href: '/hse-policy' },
       { name: 'Certifications', href: '/certifications' },
