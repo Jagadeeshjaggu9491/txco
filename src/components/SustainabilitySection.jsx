@@ -55,7 +55,7 @@ export default function SustainabilitySection() {
         {/* Left Column: Renewable Energy */}
         <div ref={addToColsRef} className="sustainability-col">
           <div>
-            <h2 className="sustainability-heading">
+            <h2 className="sustainability-heading heading-gradient">
               Accelerating <br /> renewable energy
             </h2>
             <p className="sustainability-text">
@@ -88,7 +88,7 @@ export default function SustainabilitySection() {
         {/* Right Column: Safety & Sustainability */}
         <div ref={addToColsRef} className="sustainability-col">
           <div>
-            <h2 className="sustainability-heading">
+            <h2 className="sustainability-heading heading-gradient">
               Committed to Safety <br /> and Sustainability
             </h2>
             <p className="sustainability-text">

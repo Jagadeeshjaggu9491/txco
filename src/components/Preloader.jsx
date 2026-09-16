@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const NUM_COLUMNS = 5;
 
@@ -10,6 +10,30 @@ export default function Preloader() {
   const [shuttersDone, setShuttersDone] = useState(false);
   const [videoFadeOut, setVideoFadeOut] = useState(false);
   const videoRef = useRef(null);
+
+  const isCompletedRef = useRef(false);
+  const isIntroEndedRef = useRef(false);
+  const isContentReadyRef = useRef(false);
+
+  const handleComplete = useCallback(() => {
+    if (isCompletedRef.current) return;
+    isCompletedRef.current = true;
+
+    setVideoFadeOut(true);
+    setTimeout(() => {
+      setLoading(false);
+      if (typeof window !== 'undefined') {
+        window.__TXCO_PRELOADER_DONE = true;
+        window.dispatchEvent(new CustomEvent('txco:preloader-done'));
+      }
+    }, 600);
+  }, []);
+
+  const checkBothReady = useCallback(() => {
+    if (isIntroEndedRef.current && isContentReadyRef.current) {
+      handleComplete();
+    }
+  }, [handleComplete]);
 
   useEffect(() => {
     // 1. Initial brief hold, then open the blue shutter columns
@@ -22,7 +46,7 @@ export default function Preloader() {
       setShuttersDone(true);
     }, 1250);
 
-    // 3. Play video AFTER blue animation completes
+    // 3. Play intro video AFTER blue shutter animation completes
     const videoPlayTimer = setTimeout(() => {
       if (videoRef.current) {
         videoRef.current.currentTime = 0;
@@ -32,7 +56,27 @@ export default function Preloader() {
       }
     }, 1300);
 
-    // 4. Safety fallback timer to ensure website opens even if video is blocked
+    // 4. Check if we need to wait for hero video (only on homepage)
+    const isHomePage = typeof window !== 'undefined' && window.location.pathname === '/';
+    if (!isHomePage) {
+      isContentReadyRef.current = true;
+    } else {
+      // Check if hero video in DOM is already ready
+      const heroVideo = document.querySelector('.hero-video-bg');
+      if (heroVideo && heroVideo.readyState >= 2) {
+        isContentReadyRef.current = true;
+      }
+    }
+
+    // 5. Listen for hero video ready event from VideoHero
+    const handleHeroReady = () => {
+      isContentReadyRef.current = true;
+      checkBothReady();
+    };
+
+    window.addEventListener('txco:hero-video-ready', handleHeroReady);
+
+    // 6. Safety fallback timer to ensure site opens even on slow network/errors
     const safetyTimer = setTimeout(() => {
       handleComplete();
     }, 7500);
@@ -42,14 +86,21 @@ export default function Preloader() {
       clearTimeout(shuttersDoneTimer);
       clearTimeout(videoPlayTimer);
       clearTimeout(safetyTimer);
+      window.removeEventListener('txco:hero-video-ready', handleHeroReady);
     };
-  }, []);
+  }, [checkBothReady, handleComplete]);
 
-  const handleComplete = () => {
-    setVideoFadeOut(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 600);
+  const handleIntroVideoEnded = () => {
+    isIntroEndedRef.current = true;
+    if (isContentReadyRef.current) {
+      handleComplete();
+    } else {
+      // Content/hero video still downloading from server: loop intro video gracefully until ready
+      if (videoRef.current && !isCompletedRef.current) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play().catch(() => {});
+      }
+    }
   };
 
   if (!loading) return null;
@@ -70,7 +121,7 @@ export default function Preloader() {
         justifyContent: 'center',
       }}
     >
-      {/* 1. INTRO VIDEO LAYER (Pure White Background & 70% Width) */}
+      {/* 1. INTRO VIDEO LAYER (Pure White Background & 50% Width) */}
       <div
         style={{
           position: 'absolute',
@@ -87,7 +138,7 @@ export default function Preloader() {
           src="/images/logo/txco-intro.mp4"
           muted
           playsInline
-          onEnded={handleComplete}
+          onEnded={handleIntroVideoEnded}
           style={{
             width: '50%',
             maxWidth: '50vw',
@@ -160,7 +211,7 @@ export default function Preloader() {
                   overflow: 'hidden',
                 }}
               >
-                {/* Vertical Gradient Border Line - fades out synchronously */}
+                {/* Vertical Gradient Border Line */}
                 {i < NUM_COLUMNS - 1 && (
                   <div
                     style={{

@@ -10,8 +10,58 @@ import { applyLanguage, getSelectedLanguage, LANGUAGE_OPTIONS } from '@/componen
 
 const languagesList = LANGUAGE_OPTIONS.map((item) => item.name);
 
+function isMenuMatchPath(menu, currentPath) {
+  if (!menu || !currentPath || currentPath === '/') return false;
+
+  // Direct match on main link (e.g. /about, /services, /products)
+  if (
+    menu.href &&
+    menu.href !== '/' &&
+    menu.href !== '#' &&
+    (currentPath === menu.href || currentPath.startsWith(menu.href + '/'))
+  ) {
+    return true;
+  }
+
+  // Check direct child items (e.g. Quality Policy [/quality-policy], HSE Policy [/hse-policy], Careers [/careers])
+  if (Array.isArray(menu.items)) {
+    const hasItemMatch = menu.items.some((item) => {
+      if (!item.href || item.href === '/' || item.href === '#') return false;
+      // Exclude utility pages like contact or catalogues from lighting up dropdown parent menus
+      if (item.href === '/contact' || item.href === '/catalogues') return false;
+      const cleanHref = item.href.split('?')[0];
+      return currentPath === cleanHref || currentPath.startsWith(cleanHref + '/');
+    });
+    if (hasItemMatch) return true;
+  }
+
+  // Check categories and nested children (e.g. Products, Industries)
+  if (Array.isArray(menu.categories)) {
+    const hasCategoryMatch = menu.categories.some((cat) => {
+      if (cat.href && cat.href !== '/' && cat.href !== '#') {
+        const cleanCatHref = cat.href.split('?')[0];
+        if (currentPath === cleanCatHref || currentPath.startsWith(cleanCatHref + '/')) {
+          return true;
+        }
+      }
+      if (Array.isArray(cat.children)) {
+        return cat.children.some((child) => {
+          if (!child.href || child.href === '/' || child.href === '#') return false;
+          const cleanChildHref = child.href.split('?')[0];
+          return currentPath === cleanChildHref || currentPath.startsWith(cleanChildHref + '/');
+        });
+      }
+      return false;
+    });
+    if (hasCategoryMatch) return true;
+  }
+
+  return false;
+}
+
 export default function Header() {
   const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -51,7 +101,6 @@ export default function Header() {
     window.addEventListener('language-changed', handleLangChange);
     return () => window.removeEventListener('language-changed', handleLangChange);
   }, []);
-
 
   const countryMenuTimeoutRef = useRef(null);
 
@@ -114,209 +163,249 @@ export default function Header() {
   const currentTertiaryItem = hasSubChildren && currentSubitem.children[activeTertiaryIndex];
   const hasTertiaryChildren = currentTertiaryItem && currentTertiaryItem.children && currentTertiaryItem.children.length > 0;
 
-  return (
-    <header className="site-header">
-      {/* Top Utility Bar */}
-      <div className="header-top-bar">
-        <div className="header-top-content">
-          <div className="header-top-links">
-            {utilityNavLinks.map((item, idx) => {
-              const isPageActive =
-                item.href === '/'
-                  ? pathname === '/'
-                  : pathname === item.href ||
-                    pathname.startsWith(item.href) ||
-                    (item.href === '/catalogues' && pathname.startsWith('/catalogue'));
-
-              return (
-                <Link
-                  key={idx}
-                  href={item.href}
-                  className={`header-top-link ${isPageActive ? 'active' : ''}`}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </div>
-
-          <div className="header-top-right" style={{ position: 'relative' }}>
-            {/* Custom Country / Region Megamenu Selector */}
+  // Helper to render the desktop mega menu dropdown
+  const renderMegaMenu = (menu) => (
+    <div
+      onMouseEnter={() => {
+        if (leaveTimeoutRef.current) {
+          clearTimeout(leaveTimeoutRef.current);
+          leaveTimeoutRef.current = null;
+        }
+      }}
+      className="mega-menu-dropdown"
+    >
+      {/* Primary Column (Level 1) */}
+      <div className="mega-menu-primary-col">
+        {menu.items.map((item, idx) => {
+          const isSelected = activeSubitemIndex === idx;
+          return (
             <div
-              className="country-dropdown-wrapper"
-              onMouseEnter={handleCountryMouseEnter}
-              onMouseLeave={handleCountryMouseLeave}
-            >
-              <button
-                type="button"
-                onClick={() => setCountryMenuOpen(!countryMenuOpen)}
-                className={`country-dropdown-btn ${countryMenuOpen ? 'active' : ''}`}
-                aria-expanded={countryMenuOpen}
-                aria-haspopup="true"
-              >
-                <Globe size={15} color="#ffffff" style={{ flexShrink: 0 }} />
-                <span>{selectedLanguage}</span>
-                <ChevronDown
-                  size={13}
-                  className={`country-dropdown-chevron ${countryMenuOpen ? 'open' : ''}`}
-                />
-              </button>
-
-              {countryMenuOpen && (
-                <div className="country-dropdown-menu">
-                  {languagesList.map((lang) => {
-                    const isSelected = selectedLanguage === lang;
-                    return (
-                      <button
-                        key={lang}
-                        type="button"
-                        className={`country-dropdown-item ${isSelected ? 'selected' : ''}`}
-                        onClick={() => {
-                          setSelectedLanguage(lang);
-                          applyLanguage(lang);
-                          setCountryMenuOpen(false);
-                        }}
-                      >
-                        <span>{lang}</span>
-                        {isSelected && <Check size={14} style={{ marginLeft: 'auto' }} />}
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-            <span className="header-divider">|</span>
-            <button
-              type="button"
-              onClick={() => setSearchOpen(!searchOpen)}
-              className="header-search-link header-search-btn"
-              style={{
-                background: 'none',
-                border: 'none',
-                padding: 0,
-                font: 'inherit',
-                cursor: 'pointer',
-                color: '#ffffff',
+              key={idx}
+              onMouseEnter={() => {
+                setActiveSubitemIndex(idx);
+                setActiveTertiaryIndex(0);
               }}
-              title="Search products and catalogues"
+              className={`mega-menu-item ${isSelected ? 'active' : ''}`}
             >
-              <Search size={16} color="#ffffff" />
-              <span>Search</span>
-            </button>
-            <span className="header-divider">|</span>
-            <Link href="/login" className="header-search-link">
-              <User size={16} color="#ffffff" />
-              <span>Login</span>
-            </Link>
-            <span className="header-divider">|</span>
-            <Link
-              href="/cart"
-              className="header-search-link"
-              style={{
-                position: 'relative',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                textDecoration: 'none',
-                color: '#ffffff',
-              }}
-            >
-              <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
-                <ShoppingCart size={17} color="#ffffff" />
-                {cartCount > 0 && (
-                  <span
-                    style={{
-                      position: 'absolute',
-                      top: '-8px',
-                      right: '-9px',
-                      backgroundColor: '#018F5D',
-                      color: '#ffffff',
-                      fontSize: '0.65rem',
-                      fontWeight: 700,
-                      minWidth: '17px',
-                      height: '17px',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      lineHeight: 1,
-                      padding: '0 2px',
-                    }}
-                  >
-                    {cartCount}
-                  </span>
-                )}
-              </div>
-              <span>Cart {cartCount > 0 ? `(${cartCount})` : ''}</span>
-            </Link>
-
-            {/* In-Header Expandable Search Bar Popover */}
-            {searchOpen && (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '100%',
-                  right: 0,
-                  marginTop: '0.5rem',
-                  backgroundColor: '#ffffff',
-                  borderRadius: '10px',
-                  boxShadow: '0 12px 30px rgba(5, 44, 88, 0.18)',
-                  border: '1.5px solid #cbd5e1',
-                  padding: '0.6rem 0.8rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.6rem',
-                  zIndex: 999,
-                  minWidth: '280px',
+              <Link
+                href={item.href}
+                onClick={(e) => {
+                  if (item.href === '#' || !item.href) {
+                    e.preventDefault();
+                  } else {
+                    setActiveMenu(null);
+                  }
                 }}
+                className="mega-menu-link"
               >
-                <Search size={16} color="#64748b" />
-                <input
-                  type="text"
-                  placeholder="Search products, RTJ, gaskets..."
-                  autoFocus
-                  style={{
-                    border: 'none',
-                    outline: 'none',
-                    fontSize: '0.86rem',
-                    width: '100%',
-                    fontFamily: 'inherit',
-                    color: '#1e293b',
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      window.location.href = `/products?q=${encodeURIComponent(e.target.value)}`;
-                    }
-                  }}
-                />
-                <button
-                  type="button"
-                  onClick={() => setSearchOpen(false)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    color: '#94a3b8',
-                    display: 'flex',
-                    alignItems: 'center',
-                    padding: '0.1rem',
-                  }}
-                >
-                  <X size={15} />
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
+                <span>{item.name}</span>
+                {item.children && item.children.length > 0 && (
+                  <ChevronRight size={14} className="chevron-icon" />
+                )}
+              </Link>
+            </div>
+          );
+        })}
       </div>
 
-      {/* Main Navigation Bar & Logo */}
-      <div className={`header-main-nav-container ${isScrolled ? 'is-sticky' : ''}`}>
-        <div className="header-main-nav-sticky-bar">
-          <div className="header-main-nav">
-            {/* Main Nav Links */}
+      {/* Subitem Column (Level 2) */}
+      {hasSubChildren && (
+        <div className="mega-menu-subitem-col">
+          {currentSubitem.children.map((child, cIdx) => {
+            const hasTertiary = child.children && child.children.length > 0;
+            const isTertiaryActive = activeTertiaryIndex === cIdx;
+
+            if (hasTertiary) {
+              return (
+                <div
+                  key={cIdx}
+                  onMouseEnter={() => setActiveTertiaryIndex(cIdx)}
+                  className={`mega-submenu-parent ${isTertiaryActive ? 'active' : ''}`}
+                >
+                  <Link
+                    href={child.href}
+                    onClick={(e) => {
+                      if (child.href === '#' || !child.href) {
+                        e.preventDefault();
+                      } else {
+                        setActiveMenu(null);
+                      }
+                    }}
+                    className="mega-submenu-link"
+                  >
+                    <span>{child.name}</span>
+                    <ChevronRight size={14} className="chevron-icon" />
+                  </Link>
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={cIdx}
+                href={child.href}
+                onClick={(e) => {
+                  if (child.href === '#' || !child.href) {
+                    e.preventDefault();
+                  } else {
+                    setActiveMenu(null);
+                  }
+                }}
+                className="mega-submenu-link-standalone"
+              >
+                {child.name}
+              </Link>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Tertiary Column (Level 3) */}
+      {hasTertiaryChildren && (
+        <div className="mega-menu-tertiary-col">
+          {currentTertiaryItem.children.map((tert, tIdx) => (
+            <Link
+              key={tIdx}
+              href={tert.href}
+              onClick={(e) => {
+                if (tert.href === '#' || !tert.href) {
+                  e.preventDefault();
+                } else {
+                  setActiveMenu(null);
+                }
+              }}
+              className="mega-tertiary-link"
+            >
+              {tert.name}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
+  return (
+    <header className={`site-header ${isHomePage ? 'header-hero-mode' : ''}`}>
+      {/* 
+        UNSCROLLED HEADER LAYOUT (Matches Attached Screenshot Exactly):
+        - Left block with Row 1 (utility) & Row 2 (main nav + customer login)
+        - Right block with txco Logo
+        - Gradient background from white to transparent
+      */}
+      <div className={`header-hero-unscrolled ${isScrolled ? 'is-scrolled-hidden' : ''}`}>
+        <div className="header-hero-container">
+          {/* Left Column */}
+          <div className="header-hero-left-col">
+            {/* Top Row: Utility Navigation */}
+            <div className="header-hero-row-top">
+              <Link
+                href="/"
+                className={`header-hero-util-link ${pathname === '/' ? 'active' : ''}`}
+              >
+                Home
+              </Link>
+              <Link
+                href="/contact"
+                className={`header-hero-util-link ${pathname === '/contact' || pathname.startsWith('/contact/') ? 'active' : ''}`}
+              >
+                Contact
+              </Link>
+              <Link
+                href="/catalogues"
+                className={`header-hero-util-link ${pathname === '/catalogues' || pathname.startsWith('/catalogues/') || pathname === '/downloads' ? 'active' : ''}`}
+              >
+                Downloads
+              </Link>
+
+              {/* Country / Language Selector */}
+              <div
+                className="country-dropdown-wrapper"
+                onMouseEnter={handleCountryMouseEnter}
+                onMouseLeave={handleCountryMouseLeave}
+              >
+                <button
+                  type="button"
+                  onClick={() => setCountryMenuOpen(!countryMenuOpen)}
+                  className={`header-hero-util-btn country-btn ${countryMenuOpen ? 'active' : ''}`}
+                  aria-expanded={countryMenuOpen}
+                  aria-haspopup="true"
+                >
+                  <Globe size={15} color="#1d2744" style={{ flexShrink: 0 }} />
+                  <span>{selectedLanguage}</span>
+                  <ChevronDown
+                    size={13}
+                    color="#1d2744"
+                    className={`country-dropdown-chevron ${countryMenuOpen ? 'open' : ''}`}
+                  />
+                </button>
+
+                {countryMenuOpen && (
+                  <div className="country-dropdown-menu">
+                    {languagesList.map((lang) => {
+                      const isSelected = selectedLanguage === lang;
+                      return (
+                        <button
+                          key={lang}
+                          type="button"
+                          className={`country-dropdown-item ${isSelected ? 'selected' : ''}`}
+                          onClick={() => {
+                            setSelectedLanguage(lang);
+                            applyLanguage(lang);
+                            setCountryMenuOpen(false);
+                          }}
+                        >
+                          <span>{lang}</span>
+                          {isSelected && <Check size={14} style={{ marginLeft: 'auto' }} />}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              <span className="header-hero-divider">|</span>
+
+              {/* Search Toggle */}
+              <div style={{ position: 'relative' }}>
+                <button
+                  type="button"
+                  onClick={() => setSearchOpen(!searchOpen)}
+                  className="header-hero-util-btn search-btn"
+                  title="Search products and catalogues"
+                >
+                  <Search size={15} color="#1d2744" />
+                  <span>Search</span>
+                </button>
+
+                {/* Popover search bar */}
+                {searchOpen && (
+                  <div className="header-hero-search-popover">
+                    <Search size={16} color="#64748b" />
+                    <input
+                      type="text"
+                      placeholder="Search products, RTJ, gaskets..."
+                      autoFocus
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          window.location.href = `/products?q=${encodeURIComponent(e.target.value)}`;
+                        }
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setSearchOpen(false)}
+                      className="search-close-btn"
+                    >
+                      <X size={15} />
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Bottom Row: Main Navigation Links */}
             <nav
-              className="header-nav-list"
+              className="header-hero-row-bottom"
               onMouseEnter={() => {
                 if (leaveTimeoutRef.current) {
                   clearTimeout(leaveTimeoutRef.current);
@@ -328,9 +417,7 @@ export default function Header() {
               {Object.keys(mainNavigationMenu).map((key) => {
                 const menu = mainNavigationMenu[key];
                 const isDropdownOpen = activeMenu === key;
-                const isPageActive =
-                  pathname === menu.href ||
-                  (menu.href !== '/' && pathname.startsWith(menu.href));
+                const isPageActive = isMenuMatchPath(menu, pathname);
                 const isActive = isDropdownOpen || isPageActive;
 
                 return (
@@ -346,225 +433,51 @@ export default function Header() {
                           e.preventDefault();
                         }
                       }}
-                      className={`nav-item-link ${isActive ? 'active' : ''}`}
+                      className={`header-hero-nav-link ${isActive ? 'active' : ''}`}
                     >
                       {menu.title}
                     </Link>
 
-                    {/* Desktop Mega Menu Dropdown Panel aligned exactly to this nav link's left */}
-                    {isDropdownOpen && (
-                      <div
-                        onMouseEnter={() => {
-                          if (leaveTimeoutRef.current) {
-                            clearTimeout(leaveTimeoutRef.current);
-                            leaveTimeoutRef.current = null;
-                          }
-                        }}
-                        className="mega-menu-dropdown"
-                      >
-                        {/* Primary Column (Level 1) */}
-                        <div className="mega-menu-primary-col">
-                          {menu.items.map((item, idx) => {
-                            const isSelected = activeSubitemIndex === idx;
-
-                            return (
-                              <div
-                                key={idx}
-                                onMouseEnter={() => {
-                                  setActiveSubitemIndex(idx);
-                                  setActiveTertiaryIndex(0);
-                                }}
-                                className={`mega-menu-item ${isSelected ? 'active' : ''}`}
-                              >
-                                <Link
-                                  href={item.href}
-                                  onClick={(e) => {
-                                    if (item.href === '#' || !item.href) {
-                                      e.preventDefault();
-                                    } else {
-                                      setActiveMenu(null);
-                                    }
-                                  }}
-                                  className="mega-menu-item-link"
-                                >
-                                  {item.name}
-                                </Link>
-
-                                {item.children && item.children.length > 0 && (
-                                  <ChevronRight size={16} color={isSelected ? '#ffffff' : '#555555'} />
-                                )}
-                              </div>
-                            );
-                          })}
-                        </div>
-
-                        {/* Secondary Submenu Column (Level 2) */}
-                        {hasSubChildren && (
-                          <div className="mega-menu-secondary-col">
-                            {currentSubitem.children.map((child, cIdx) => {
-                              const hasNestedChildren = child.children && child.children.length > 0;
-                              const isSubSelected = activeTertiaryIndex === cIdx;
-
-                              if (hasNestedChildren) {
-                                return (
-                                  <div
-                                    key={cIdx}
-                                    onMouseEnter={() => setActiveTertiaryIndex(cIdx)}
-                                    className={`mega-menu-subitem ${isSubSelected ? 'active' : ''}`}
-                                  >
-                                    <Link
-                                      href={child.href}
-                                      onClick={(e) => {
-                                        if (child.href === '#' || !child.href) {
-                                          e.preventDefault();
-                                        } else {
-                                          setActiveMenu(null);
-                                        }
-                                      }}
-                                      className="mega-submenu-link"
-                                    >
-                                      {child.name}
-                                    </Link>
-                                    <ChevronRight size={15} color={isSubSelected ? '#ffffff' : '#666666'} />
-                                  </div>
-                                );
-                              }
-
-                              return (
-                                <Link
-                                  key={cIdx}
-                                  href={child.href}
-                                  onClick={(e) => {
-                                    if (child.href === '#' || !child.href) {
-                                      e.preventDefault();
-                                    } else {
-                                      setActiveMenu(null);
-                                    }
-                                  }}
-                                  className="mega-submenu-link-standalone"
-                                >
-                                  {child.name}
-                                </Link>
-                              );
-                            })}
-                          </div>
-                        )}
-
-                        {/* Tertiary Column (Level 3 - e.g. RTJ Variants) */}
-                        {hasTertiaryChildren && (
-                          <div className="mega-menu-tertiary-col">
-                            {currentTertiaryItem.children.map((tert, tIdx) => (
-                              <Link
-                                key={tIdx}
-                                href={tert.href}
-                                onClick={(e) => {
-                                  if (tert.href === '#' || !tert.href) {
-                                    e.preventDefault();
-                                  } else {
-                                    setActiveMenu(null);
-                                  }
-                                }}
-                                className="mega-tertiary-link"
-                              >
-                                {tert.name}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    )}
+                    {isDropdownOpen && renderMegaMenu(menu)}
                   </div>
                 );
               })}
+
+              {/* Customer Login link on the right of bottom row */}
+              <Link href="/login" className="header-hero-nav-link customer-login-link">
+                Customer Login
+              </Link>
             </nav>
+          </div>
 
-            {/* Mobile / Tablet Hamburger Toggle */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="mobile-nav-toggle"
-              aria-label="Toggle Navigation"
-            >
-              {mobileMenuOpen ? (
-                <X size={28} color={isScrolled ? '#ffffff' : '#1d2744'} />
-              ) : (
-                <Menu size={28} color={isScrolled ? '#ffffff' : '#1d2744'} />
-              )}
-            </button>
+          {/* Mobile Hamburger Toggle for Unscrolled */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-nav-toggle hero-mobile-toggle"
+            aria-label="Toggle Navigation"
+          >
+            {mobileMenuOpen ? <X size={28} color="#1d2744" /> : <Menu size={28} color="#1d2744" />}
+          </button>
 
-            {/* Brand Logo with Smooth Sticky Crossfade */}
-            <Link href="/" className="header-logo-link">
+          {/* Right Column: TXCO Logo */}
+          <div className="header-hero-right-col">
+            <Link href="/" className="header-hero-logo-link">
               <img
                 src="/images/logo/txco-logo-new.avif"
                 alt="TXCO Sealing Products Logo"
-                className={`header-logo-img header-logo-default ${isScrolled ? 'logo-hidden' : ''}`}
-              />
-              <img
-                src="/images/logo/txco-footer-logo.avif"
-                alt="TXCO Sealing Products Logo"
-                className={`header-logo-img header-logo-white ${isScrolled ? 'logo-visible' : ''}`}
+                className="header-hero-logo-img"
               />
             </Link>
           </div>
-
-          {/* Mobile Menu Drawer */}
-          {mobileMenuOpen && (
-            <div className="mobile-menu-drawer">
-              <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-                Industries
-              </Link>
-              <Link href="/products" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-                Products
-              </Link>
-              <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-                Services
-              </Link>
-              <Link href="/resources" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-                Resources
-              </Link>
-              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-                About Us
-              </Link>
-
-              <div style={{ marginTop: '1.2rem', paddingTop: '1.2rem', borderTop: '1px solid #e2e8f0' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.8rem', color: '#052C58', fontWeight: 600, fontSize: '0.9rem' }}>
-                  <Globe size={16} />
-                  <span>Select Language</span>
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem' }}>
-                  {languagesList.map((lang) => {
-                    const isSelected = selectedLanguage === lang;
-                    return (
-                      <button
-                        key={lang}
-                        type="button"
-                        onClick={() => {
-                          setSelectedLanguage(lang);
-                          applyLanguage(lang);
-                          setMobileMenuOpen(false);
-                        }}
-                        style={{
-                          padding: '0.55rem 0.8rem',
-                          borderRadius: '6px',
-                          border: isSelected ? '1px solid #052C58' : '1px solid #e2e8f0',
-                          backgroundColor: isSelected ? '#052C58' : '#ffffff',
-                          color: isSelected ? '#ffffff' : '#334155',
-                          fontSize: '0.85rem',
-                          fontWeight: isSelected ? 600 : 500,
-                          cursor: 'pointer',
-                          textAlign: 'center',
-                          transition: 'all 0.15s ease',
-                        }}
-                      >
-                        {lang}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
+
+      {/* 
+        STICKY HEADER BAR:
+        - Activated when user scrolls down (window.scrollY > 42)
+        - Preserves existing header bar with #062F5C navy background, white links & white logo
+      */}
+
     </header>
   );
 }

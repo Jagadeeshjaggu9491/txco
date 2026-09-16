@@ -71,6 +71,22 @@
   margin-bottom: 1.2rem;
 }
 
+/* =========================================================================
+   Reusable Heading Linear Gradient (0% #018F5D to 100% #0D284D)
+   Figma spec: Linear gradient from 0% #018F5D to 100% #0D284D
+========================================================================= */
+.heading-gradient,
+.txco-heading-gradient,
+.gradient-heading,
+.text-gradient {
+  background: linear-gradient(90deg, #018f5d 30%, #0d284d 60%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  display: inline-block;
+}
+
 .section-title-center {
   text-align: center;
 }
@@ -88,65 +104,86 @@
   text-align: center;
 }
 
-/* Button Component Classes */
-.txco-btn {
+/* =========================================================================
+   Universal Button Component Classes (Gradient Pill Style)
+========================================================================= */
+.txco-btn,
+.txco-gradient-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1.8rem;
-  font-size: 0.88rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 10px 15px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
-  border: none;
-  border-radius: 0px !important;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  border-radius: 9999px !important;
+  border: 2px solid transparent !important;
+  background: linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(90deg, #26335d 0%, #018F5D 100%) border-box !important;
+  box-shadow: 0 4px 16px rgba(13, 40, 77, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
 }
 
-.txco-btn-primary {
-  background-color: var(--primary-navy);
-  color: var(--text-white);
-  box-shadow: var(--shadow-button);
-}
-
-.txco-btn-primary:hover {
-  background-color: var(--slate-blue);
-  transform: translateY(-2px);
-}
-
-.txco-btn-steel {
-  background-color: var(--steel-blue);
-  color: var(--text-white);
-  box-shadow: 0 4px 15px rgba(59, 70, 116, 0.25);
-}
-
-.txco-btn-steel:hover {
-  background-color: #2a3356;
-  transform: translateY(-2px);
-}
-
-.txco-btn-white {
-  background-color: var(--bg-pure-white);
-  color: var(--primary-navy);
-}
-
-.txco-btn-white:hover {
-  background-color: var(--bg-light-surface);
-  transform: translateY(-2px);
+.txco-btn span,
+.txco-gradient-btn span {
+  background: linear-gradient(90deg, #26335d 0%, #018F5D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #26335d;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .txco-btn-icon-circle {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background-color: #018F5D;
-  color: var(--steel-blue);
+  border: 1.8px solid #26335d;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.txco-btn-icon-circle svg {
+  stroke: #26335d !important;
+  transition: stroke 0.3s ease, transform 0.3s ease;
+}
+
+/* Universal Hover State for All Buttons */
+.txco-btn:hover,
+.txco-gradient-btn:hover {
+  background: linear-gradient(90deg, #26335d 0%, #018F5D 100%) padding-box,
+    linear-gradient(90deg, #26335d 0%, #018F5D 100%) border-box !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(1, 143, 93, 0.28);
+}
+
+.txco-btn:hover span,
+.txco-gradient-btn:hover span {
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.txco-btn:hover .txco-btn-icon-circle,
+.txco-gradient-btn:hover .txco-btn-icon-circle {
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.txco-btn:hover .txco-btn-icon-circle svg,
+.txco-gradient-btn:hover .txco-btn-icon-circle svg {
+  stroke: #ffffff !important;
+  transform: translateX(2px);
 }
 
 /* Reusable Card Classes */

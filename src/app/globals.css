@@ -21,6 +21,7 @@
 @import '../styles/page-hero.css';
 @import '../styles/industry-details.css';
 @import '../styles/cart.css';
+@import '../styles/products-slider.css';
 
 * {
   box-sizing: border-box;

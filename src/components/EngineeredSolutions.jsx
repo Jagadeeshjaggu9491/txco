@@ -67,13 +67,14 @@ export default function EngineeredSolutions() {
       if (borderRefs.current.length > 0) {
         tl.fromTo(
           borderRefs.current,
-          { scaleY: 0, opacity: 0 },
+          { x: -22, opacity: 0, scaleY: 0.6 },
           {
-            scaleY: 1,
+            x: 0,
             opacity: 1,
-            duration: 0.5,
+            scaleY: 1,
+            duration: 0.7,
             stagger: 0.18,
-            ease: 'power2.out',
+            ease: 'power3.out',
           },
           '-=0.55'
         );
@@ -102,55 +103,45 @@ export default function EngineeredSolutions() {
   return (
     <section ref={sectionRef} className="engineered-solutions-section">
       <div className="txco-container">
-        <h2 ref={headingRef} className="engineered-solutions-heading">
-          Engineered Solutions. Built to Perform.
-        </h2>
+        <div className="engineered-solutions-heading-wrap">
+          <h2 ref={headingRef} className="engineered-solutions-heading heading-gradient">
+            Engineered Solutions. Built to Perform.
+          </h2>
+        </div>
 
         <div className="engineered-solutions-grid">
           {columns.map((col, idx) => (
             <div key={idx} ref={addToColumnRefs} className="engineered-col-card">
-              <div className="engineered-icon-wrapper">
-                <div
-                  ref={(el) => (borderRefs.current[idx] = el)}
-                  className="engineered-vertical-line"
-                />
-                <img
-                  ref={(el) => (iconRefs.current[idx] = el)}
-                  src={col.iconSrc}
-                  alt={col.title ? col.title.replace(/<[^>]*>?/gm, '') : ''}
-                  className="engineered-icon-img"
-                />
-              </div>
+              <div className="engineered-col-header">
+                <div className="engineered-icon-wrapper">
+                  <div
+                    ref={(el) => (borderRefs.current[idx] = el)}
+                    className="engineered-vertical-line"
+                  />
+                  <img
+                    ref={(el) => (iconRefs.current[idx] = el)}
+                    src={col.iconSrc}
+                    alt={col.title ? col.title.replace(/<[^>]*>?/gm, '') : ''}
+                    className="engineered-icon-img"
+                  />
+                </div>
 
-              <div>
                 <h3
                   className="engineered-col-title"
                   dangerouslySetInnerHTML={{ __html: col.title }}
                 />
-                <ul className="engineered-items-list">
-                  {col.items.map((item, itemIdx) => (
-                    <li key={itemIdx}>
-                      <Link href={item.href} className="engineered-item-link">
-                        <span>{item.name}</span>
-                        <svg
-                          width="15"
-                          height="15"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <line x1="4" y1="12" x2="20" y2="12" />
-                          <polyline points="13 5 20 12 13 19" />
-                        </svg>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
               </div>
+
+              <ul className="engineered-items-list">
+                {col.items.map((item, itemIdx) => (
+                  <li key={itemIdx}>
+                    <Link href={item.href} className="engineered-item-link">
+                      <span>{item.name}</span>
+                      <span className="engineered-link-arrow">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

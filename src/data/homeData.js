@@ -11,7 +11,7 @@ export const bannerSectionData = {
 export const engineeredSolutionsData = [
   {
     title: 'SEALING <br /> PRODUCTS',
-    iconSrc: '/images/icons/sealing-products.png',
+    iconSrc: '/images/SEALING-PRODUCTS-icon.png',
     items: [
       { name: 'Gaskets, Kits & Seals', href: '/products/gaskets' },
       { name: 'Hoses & Expansion Joints', href: '/products/commercial-products' },
@@ -21,7 +21,7 @@ export const engineeredSolutionsData = [
   },
   {
     title: 'ENGINEERED <br /> SOLUTIONS',
-    iconSrc: '/images/icons/engine-sloutions.png',
+    iconSrc: '/images/ENGINEERED-SOLUTIONS-icon.png',
     items: [
       { name: 'Reverse Engineering', href: '/contact' },
       { name: 'Custom Gasket Engineering', href: '/products/flanges/details?product=custom-flanges' },
@@ -31,7 +31,7 @@ export const engineeredSolutionsData = [
   },
   {
     title: 'TECHNICAL <br /> SERVICES',
-    iconSrc: '/images/icons/tech-solutions.png',
+    iconSrc: '/images/TECHNICAL-SERVICES-icon.png',
     items: [
       { name: 'Field Measurement', href: '/contact' },
       { name: 'Gasket Recommendations', href: '/catalogues' },

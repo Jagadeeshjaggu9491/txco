@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon-txco.png" type="image/png" sizes="any" />
         <link rel="shortcut icon" href="/favicon-txco.png" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon-txco.png" />
+        <link rel="preload" href="/images/hero-section-video.mp4" as="video" type="video/webm" />
       </head>
       <body suppressHydrationWarning>
         <GoogleTranslate />

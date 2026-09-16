@@ -1,0 +1,344 @@
+/* =========================================================================
+   VIDEO HERO SECTION (100vh Background Video with Gradient Text & Animations)
+========================================================================= */
+
+.hero-video-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #052c58;
+}
+
+/* Background Video filling 100vh */
+.hero-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Subtle overlay to soften extreme highlights and enhance text contrast */
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.04) 50%,
+      rgba(0, 0, 0, 0.18) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Center Content Container */
+.hero-video-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  margin-top: -15vh;
+}
+
+/* User-requested Gradient Text Class using #018F5D and #0D284D */
+.hero-gradient-text {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Line 1 Gradient Text with Smooth Reveal Animation */
+.hero-gradient-line-1 {
+  display: inline-block;
+  background: linear-gradient(90deg, #018f5d 0%, #0d284d 65%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: #0D284D;
+  filter: drop-shadow(0 2px 14px rgba(255, 255, 255, 0.65));
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.hero-gradient-line-1.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Action Buttons Container */
+.hero-video-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.2rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(28px);
+  pointer-events: none;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-video-actions.is-visible,
+.hero-video-actions.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Primary Button with existing txco-btn style */
+.hero-video-actions .txco-btn.txco-btn-primary {
+  background: linear-gradient(90deg, #26335d 0%, #018F5D 100%) padding-box,
+    linear-gradient(90deg, #26335d 0%, #018F5D 100%) border-box !important;
+  box-shadow: 0 6px 20px rgba(1, 143, 93, 0.28);
+}
+
+.hero-video-actions .txco-btn.txco-btn-primary span {
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.hero-video-actions .txco-btn.txco-btn-primary .txco-btn-icon-circle {
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.hero-video-actions .txco-btn.txco-btn-primary .txco-btn-icon-circle svg {
+  stroke: #ffffff !important;
+}
+
+.hero-video-actions .txco-btn.txco-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(1, 143, 93, 0.42);
+  background: linear-gradient(90deg, #018F5D 0%, #26335d 100%) padding-box,
+    linear-gradient(90deg, #018F5D 0%, #26335d 100%) border-box !important;
+}
+
+/* Secondary Button with existing txco-btn style */
+.hero-video-actions .txco-btn.txco-btn-secondary {
+  background: linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(90deg, #26335d 0%, #018F5D 100%) border-box !important;
+  box-shadow: 0 4px 18px rgba(13, 40, 77, 0.08);
+}
+
+.hero-video-actions .txco-btn.txco-btn-secondary span {
+  background: linear-gradient(90deg, #26335d 0%, #018F5D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #26335d;
+}
+
+.hero-video-actions .txco-btn.txco-btn-secondary .txco-btn-icon-circle {
+  border-color: #26335d !important;
+}
+
+.hero-video-actions .txco-btn.txco-btn-secondary .txco-btn-icon-circle svg {
+  stroke: #26335d !important;
+  animation: heroArrowLeftRight 1.4s ease-in-out infinite;
+}
+
+.hero-video-actions .txco-btn.txco-btn-secondary:hover {
+  background: linear-gradient(90deg, #26335d 0%, #018F5D 100%) padding-box,
+    linear-gradient(90deg, #26335d 0%, #018F5D 100%) border-box !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(1, 143, 93, 0.32);
+}
+
+.hero-video-actions .txco-btn.txco-btn-secondary:hover span {
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.hero-video-actions .txco-btn.txco-btn-secondary:hover .txco-btn-icon-circle {
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.hero-video-actions .txco-btn.txco-btn-secondary:hover .txco-btn-icon-circle svg {
+  stroke: #ffffff !important;
+  animation: heroArrowLeftRight 0.85s ease-in-out infinite;
+}
+
+@keyframes heroArrowLeftRight {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+/* =========================================================================
+   BOTTOM TEXT WITH TYPING INTRO ANIMATION
+========================================================================= */
+
+.hero-video-bottom {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 1.5rem;
+  z-index: 3;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-video-bottom.is-visible,
+.hero-video-bottom.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-fold-heading {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif) !important;
+  letter-spacing: 0.015em !important;
+  line-height: 1.22 !important;
+  text-transform: uppercase;
+  text-align: center;
+  filter: drop-shadow(0 2px 14px rgba(255, 255, 255, 0.65));
+}
+
+.hero-video-bottom-text {
+  display: inline-block;
+  font-family: var(--font-family-body, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(0.88rem, 1.15vw, 1.02rem);
+  font-weight: 500;
+  line-height: 1.55;
+  color: white;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.65rem 1.6rem;
+  border-radius: 9999px;
+  box-shadow: 0 8px 30px rgba(13, 40, 77, 0.1);
+  letter-spacing: 0.01em;
+}
+
+.hero-typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #018F5D;
+  font-weight: 700;
+  animation: heroBlinkCursor 0.85s infinite ease-in-out;
+}
+
+@keyframes heroBlinkCursor {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* =========================================================================
+   INTRO ANIMATIONS: FADE TO NORMAL (ONE AFTER ONE STAGGERED)
+========================================================================= */
+
+@keyframes heroFadeInNormal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Item 1: Headline (fades in first) */
+.hero-anim-item-1 {
+  animation: heroFadeInNormal 1s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
+}
+
+/* Item 2: Primary Button (fades in second) */
+.hero-anim-item-2 {
+  animation: heroFadeInNormal 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.85s both;
+}
+
+/* Item 3: Secondary Button (fades in third) */
+.hero-anim-item-3 {
+  animation: heroFadeInNormal 0.9s cubic-bezier(0.25, 1, 0.5, 1) 1.4s both;
+}
+
+/* Item 4: Bottom Text Container (fades in fourth) */
+.hero-anim-item-4 {
+  animation: heroFadeInNormal 1s cubic-bezier(0.25, 1, 0.5, 1) 1.95s both;
+}
+
+/* =========================================================================
+   MOBILE & TABLET RESPONSIVE
+========================================================================= */
+
+@media (max-width: 768px) {
+  .hero-video-section {
+    height: 100vh;
+    min-height: 540px;
+  }
+
+  .hero-video-content {
+    margin-top: -6vh;
+    padding: 0 1.25rem;
+  }
+
+  .hero-gradient-text {
+    font-size: clamp(1.5rem, 5.5vw, 1.9rem);
+    line-height: 1.26;
+  }
+
+  .hero-video-actions {
+    margin-top: 1.5rem;
+    gap: 0.85rem;
+  }
+
+  .hero-video-actions .txco-btn {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+
+  .hero-video-bottom {
+    bottom: 1.2rem;
+    padding: 0 1rem;
+  }
+
+  .hero-video-bottom-text {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    padding: 0.55rem 1rem;
+    border-radius: 12px;
+  }
+}
