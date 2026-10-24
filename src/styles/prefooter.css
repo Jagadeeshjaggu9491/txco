@@ -1,0 +1,190 @@
+/* =========================================================================
+   PREFOOTER SECTION
+   ========================================================================= */
+
+.prefooter-section {
+  width: 100%;
+  background-color: #f4f8ff;
+  padding: 5.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.prefooter-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  align-items: stretch;
+  gap: 3.5rem;
+}
+
+/* Left Column */
+.prefooter-left-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.prefooter-title {
+  font-family: var(--font-family-base);
+  font-size: clamp(2.1rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  font-style: italic;
+  color: #1f242e;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.prefooter-description {
+  font-family: var(--font-family-base);
+  font-size: 0.96rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #4b5565;
+  margin: 0;
+  max-width: 440px;
+}
+
+/* Right Column: Cards Grid */
+.prefooter-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+.prefooter-card {
+  background-color: #ffffff;
+  border-radius: 26px;
+  padding: 2.25rem 2rem 1.85rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(22, 25, 40, 0.03);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.prefooter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(22, 25, 40, 0.07);
+}
+
+.prefooter-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.prefooter-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.1rem;
+}
+
+.prefooter-card-icon {
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.prefooter-icon-message {
+  height: 34px;
+  width: auto;
+}
+
+.prefooter-icon-txco {
+  height: 30px;
+  width: auto;
+}
+
+.prefooter-card-title {
+  font-family: var(--font-family-base);
+  font-size: 1.28rem;
+  font-weight: 800;
+  font-style: italic;
+  color: #1f242e;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.prefooter-card-text {
+  font-family: var(--font-family-base);
+  font-size: 0.93rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #4b5565;
+  margin: 0 0 2rem 0;
+}
+
+/* Action Link with Green Accent Underline */
+.prefooter-card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-decoration: none;
+  padding-bottom: 0.45rem;
+  border-bottom: 2.5px solid #018f5d;
+  margin-top: auto;
+  transition: border-bottom-color 0.25s ease;
+}
+
+.prefooter-action-text {
+  font-family: var(--font-family-base);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f242e;
+  transition: color 0.2s ease;
+}
+
+.prefooter-action-arrow {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #1f242e;
+  line-height: 1;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.prefooter-card:hover .prefooter-card-action {
+  border-bottom-color: #02b374;
+}
+
+.prefooter-card:hover .prefooter-action-arrow {
+  transform: translateX(5px);
+  color: #018f5d;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  .prefooter-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .prefooter-description {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .prefooter-section {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .prefooter-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .prefooter-card {
+    padding: 1.75rem 1.4rem 1.5rem 1.4rem;
+    border-radius: 20px;
+  }
+
+  .prefooter-title {
+    font-size: clamp(1.85rem, 6vw, 2.25rem);
+  }
+}

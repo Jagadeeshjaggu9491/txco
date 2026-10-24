@@ -5,7 +5,6 @@ import PageHero from '@/components/PageHero';
 import IndustriesWeServe from '@/components/IndustriesWeServe';
 import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
 import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
-import ContactSection from '@/components/ContactSection';
 
 export const metadata = {
   title: 'Industries We Serve | TXCO Advanced Sealing Technologies',
@@ -22,7 +21,7 @@ export default function IndustriesPage() {
         <PageHero
           title="Industries we serve "
           subtitle="Engineering high-integrity sealing, metallic gasket, flange, and bolting solutions tailored to the world's most critical industrial operating environments."
-          bgImage="/images/industry-page-banner-img.avif"
+          bgImage="/images/CHEMICAL-INDUSTRY-banner.avif"
           bgPosition="center"
         />
 
@@ -30,8 +29,7 @@ export default function IndustriesPage() {
         <IndustriesWeServe />
 
 
-        <DiscoverEngineeredSolutions />
-        <ContactSection />
+
       </main>
       <Footer />
     </>

@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ContactSection from '@/components/ContactSection';
 import PageHero from '@/components/PageHero';
 import { careersPageData } from '@/data/careersData';
 import '@/styles/careers.css';
@@ -433,9 +432,6 @@ export default function CareersPage() {
           </div>
         </div>
       )}
-
-      {/* 5. Contact Section */}
-      <ContactSection />
 
       {/* 6. Footer */}
       <Footer />

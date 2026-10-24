@@ -4,7 +4,6 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ContactSection from '@/components/ContactSection';
 import PageHero from '@/components/PageHero';
 import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
 import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
@@ -15,6 +14,7 @@ import {
   stockPressureClasses,
   stockItemsList,
 } from '@/data/stockListData';
+import { getStockItems, syncRemoteStockItems } from '@/utils/stockManager';
 import {
   Search,
   RotateCcw,
@@ -34,9 +34,35 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
   const [selectedClass, setSelectedClass] = useState('All Classes');
   const [inStockOnly, setInStockOnly] = useState(false);
   const [rfqAddedItem, setRfqAddedItem] = useState(null);
+  const [liveStockItems, setLiveStockItems] = useState(stockItemsList);
 
   const heroRef = useRef(null);
   const filterRef = useRef(null);
+
+  // Sync live stock items from stockManager and Hostinger MySQL API
+  useEffect(() => {
+    const syncStock = () => {
+      setLiveStockItems(getStockItems());
+    };
+    syncStock();
+
+    // Background fetch from Hostinger PHP MySQL API if connected
+    syncRemoteStockItems().then((items) => {
+      if (items && items.length > 0) {
+        setLiveStockItems(items);
+      }
+    });
+
+    window.addEventListener('stock-updated', syncStock);
+    window.addEventListener('txco_stock_updated', syncStock);
+    window.addEventListener('storage', syncStock);
+
+    return () => {
+      window.removeEventListener('stock-updated', syncStock);
+      window.removeEventListener('txco_stock_updated', syncStock);
+      window.removeEventListener('storage', syncStock);
+    };
+  }, []);
 
   // GSAP Intro Animation
   useEffect(() => {
@@ -62,7 +88,7 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
 
   // Filtered Items Computation
   const filteredItems = useMemo(() => {
-    return stockItemsList.filter((item) => {
+    return liveStockItems.filter((item) => {
       // Category Filter
       const matchCategory =
         selectedCategory === 'All Categories' || item.category === selectedCategory;
@@ -70,7 +96,7 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
       // Material Filter
       const matchMaterial =
         selectedMaterial === 'All Materials' ||
-        item.material.toLowerCase().includes(selectedMaterial.toLowerCase().replace(/ \/ .*/, ''));
+        (item.material && item.material.toLowerCase().includes(selectedMaterial.toLowerCase().replace(/ \/ .*/, '')));
 
       // Profile Filter
       const matchProfile =
@@ -78,7 +104,7 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
 
       // Pressure Class Filter
       const matchClass =
-        selectedClass === 'All Classes' || item.pressureClass.includes(selectedClass);
+        selectedClass === 'All Classes' || (item.pressureClass && item.pressureClass.includes(selectedClass));
 
       // In Stock Only Filter
       const matchInStock = !inStockOnly || item.status === 'In Stock';
@@ -87,13 +113,15 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
       const query = searchQuery.toLowerCase().trim();
       const matchSearch =
         !query ||
-        item.itemCode.toLowerCase().includes(query) ||
-        item.ringNumber.toLowerCase().includes(query) ||
-        item.profile.toLowerCase().includes(query) ||
-        item.material.toLowerCase().includes(query) ||
-        item.npsSize.toLowerCase().includes(query) ||
-        item.standard.toLowerCase().includes(query) ||
-        item.pressureClass.toLowerCase().includes(query);
+        (item.itemCode && item.itemCode.toLowerCase().includes(query)) ||
+        (item.product && item.product.toLowerCase().includes(query)) ||
+        (item.ringNumber && item.ringNumber.toLowerCase().includes(query)) ||
+        (item.profile && item.profile.toLowerCase().includes(query)) ||
+        (item.material && item.material.toLowerCase().includes(query)) ||
+        (item.npsSize && item.npsSize.toLowerCase().includes(query)) ||
+        (item.standard && item.standard.toLowerCase().includes(query)) ||
+        (item.pressureClass && item.pressureClass.toLowerCase().includes(query)) ||
+        (item.location && item.location.toLowerCase().includes(query));
 
       return (
         matchCategory &&
@@ -105,6 +133,7 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
       );
     });
   }, [
+    liveStockItems,
     selectedCategory,
     searchQuery,
     selectedMaterial,
@@ -303,7 +332,7 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
                         {/* Item Code & Ring # */}
                         <td>
                           <span className="stock-item-code">{item.itemCode}</span>
-                          {item.ringNumber && item.ringNumber !== 'N/A' && (
+                          {item.ringNumber && item.ringNumber !== 'N/A' && item.ringNumber !== '-' && (
                             <span className="stock-item-ring-badge">
                               Ring #{item.ringNumber}
                             </span>
@@ -312,8 +341,12 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
 
                         {/* Profile & Category */}
                         <td>
-                          <div className="stock-item-profile-name">{item.profile}</div>
-                          <div className="stock-item-standard-sub">{item.category}</div>
+                          <div className="stock-item-profile-name">{item.product || item.profile}</div>
+                          <div className="stock-item-standard-sub">
+                            {item.product && item.profile && item.product !== item.profile
+                              ? `${item.profile} • ${item.category}`
+                              : item.category}
+                          </div>
                         </td>
 
                         {/* Size & Class */}
@@ -325,7 +358,7 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
                         {/* Material & Hardness */}
                         <td>
                           <div style={{ fontWeight: '600', color: '#1e293b' }}>{item.material}</div>
-                          <div style={{ fontSize: '0.76rem', color: '#64748b' }}>{item.hardness}</div>
+                          <div style={{ fontSize: '0.76rem', color: '#64748b' }}>{item.hardness || 'Certified Standard'}</div>
                         </td>
 
                         {/* Standard */}
@@ -333,19 +366,25 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
                           <div style={{ fontSize: '0.82rem', fontWeight: '600', color: '#334155' }}>
                             {item.standard}
                           </div>
+                          {item.location && (
+                            <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: '0.15rem' }}>
+                              {item.location}
+                            </div>
+                          )}
                         </td>
 
                         {/* Stock Status Badge */}
                         <td style={{ textAlign: 'center' }}>
                           <span
-                            className={`stock-status-badge ${item.quantity > 50 ? 'in-stock' : 'low-stock'
-                              }`}
+                            className={`stock-status-badge ${
+                              Number(item.quantity) > 50 ? 'in-stock' : 'low-stock'
+                            }`}
                           >
                             <span className="stock-status-dot" />
                             <span>{item.status} ({item.quantity} pcs)</span>
                           </span>
                           <div style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '0.2rem' }}>
-                            {item.leadTime}
+                            {item.leadTime || (item.status === 'In Stock' ? 'Ready to Ship' : item.status)}
                           </div>
                         </td>
 
@@ -406,7 +445,6 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
         {/* Supporting Global Sections */}
         <IndustrialSealingProducts />
         <DiscoverEngineeredSolutions />
-        <ContactSection />
       </main>
       <Footer />
     </>

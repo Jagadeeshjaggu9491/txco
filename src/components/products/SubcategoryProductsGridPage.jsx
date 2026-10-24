@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ContactSection from '@/components/ContactSection';
 import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
 import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 import { ChevronLeft } from 'lucide-react';
@@ -81,13 +80,13 @@ export default function SubcategoryProductsGridPage({
 
   return (
     <>
-      <Header />
+      <Header heroMode={true} />
       <main style={{ backgroundColor: '#ffffff', minHeight: '80vh' }}>
         {/* Top Subcategory Products Section */}
         <section
           ref={containerRef}
-          className="txco-section txco-section-light"
-          style={{ padding: '3.5rem 2rem 5.5rem 2rem' }}
+          className="product-details-section txco-section txco-section-light"
+          style={{ padding: '2.5rem 2rem 5.5rem 2rem' }}
         >
           <div className="txco-container">
             {/* Breadcrumb Navigation back to Parent Category */}
@@ -154,10 +153,10 @@ export default function SubcategoryProductsGridPage({
                       {/* Product Image Preview Box with Floating Product */}
                       <div className="single-product-img-box">
                         <img
-                          src={item.image || '/images/products/industrial-gaskets/ring-type-joint.png'}
+                          src={item.image || '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg'}
                           alt={item.name || item.title}
                           onError={(e) => {
-                            e.currentTarget.src = '/images/home-products.png';
+                            e.currentTarget.src = '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg';
                           }}
                         />
                       </div>
@@ -200,7 +199,6 @@ export default function SubcategoryProductsGridPage({
         {/* Supporting Global Sections */}
         <IndustrialSealingProducts />
         <DiscoverEngineeredSolutions />
-        <ContactSection />
       </main>
       <Footer />
     </>

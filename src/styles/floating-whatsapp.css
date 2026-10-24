@@ -1,0 +1,99 @@
+/* ==========================================================================
+   TXCO Floating WhatsApp Widget Styles
+   Pinned to right side with pulse animation & tooltip
+   ========================================================================== */
+
+.floating-whatsapp-container {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 99990;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 12px;
+  pointer-events: auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Floating WhatsApp circular button */
+.floating-whatsapp-btn {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease, background-color 0.2s ease;
+}
+
+.floating-whatsapp-btn:hover {
+  transform: scale(1.1);
+  background: #20ba5a;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55), 0 6px 14px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+}
+
+.floating-whatsapp-btn:active {
+  transform: scale(0.96);
+}
+
+/* Radar Pulse Rings */
+.floating-whatsapp-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.65);
+  animation: waPulse 2.4s infinite cubic-bezier(0.24, 0, 0.38, 1);
+  pointer-events: none;
+}
+
+.floating-whatsapp-pulse-2 {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(37, 211, 102, 0.35);
+  animation: waPulse 2.4s infinite cubic-bezier(0.24, 0, 0.38, 1) 0.6s;
+  pointer-events: none;
+}
+
+@keyframes waPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .floating-whatsapp-container {
+    right: 18px;
+    bottom: 94px;
+  }
+
+  .floating-whatsapp-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+
+}

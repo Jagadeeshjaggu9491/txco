@@ -1,0 +1,262 @@
+/* =========================================================================
+   HERO BRAND SECTION (Factory Background with Technician Chevron + Brand CTA)
+   Matches Attached UI Design
+========================================================================= */
+
+.hero-brand-section {
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+  height: 100vh;
+  max-height: 940px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Top offset for absolute site header so content is vertically centered in visible area */
+  padding-top: clamp(80px, 9vh, 120px);
+  padding-bottom: 30px;
+  background-color: #f0f7fb;
+}
+
+/* While preloader is active, keep hero elements hidden until completion */
+.hero-brand-section.hero-waiting .hero-brand-headline,
+.hero-brand-section.hero-waiting .hero-brand-btn-wrap {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* -------------------------------------------------------------------------
+   BACKGROUND IMAGE LAYER (hero-section-video-bg.avif)
+------------------------------------------------------------------------- */
+.hero-brand-bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-brand-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/hero-section-video-bg.avif');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+/* Left soft wash overlay for optimal typography contrast */
+.hero-brand-left-wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      rgba(240, 248, 253, 0.45) 0%,
+      rgba(240, 248, 253, 0.25) 35%,
+      rgba(240, 248, 253, 0) 60%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Top white gradient flow blending seamlessly into Header */
+.hero-brand-gradient-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.6) 40%,
+      rgba(255, 255, 255, 0) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Bottom white gradient flow blending into Engineered Solutions */
+.hero-brand-gradient-bottom {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(0deg,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0.7) 45%,
+      rgba(255, 255, 255, 0) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------------------
+   MAIN CONTENT WRAPPER
+------------------------------------------------------------------------- */
+.hero-brand-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-brand-content {
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* -------------------------------------------------------------------------
+   3-LINE SLANTED BRAND HEADLINE
+------------------------------------------------------------------------- */
+.hero-brand-headline {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(2.4rem, 4.4vw, 4.1rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0 0 clamp(1.8rem, 3.2vh, 2.5rem) 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-brand-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-brand-navy {
+  color: #14233c;
+}
+
+.hero-brand-green {
+  color: #018f5d;
+}
+
+/* -------------------------------------------------------------------------
+   PILL CTA BUTTON: "TALK TO EXPERT >"
+------------------------------------------------------------------------- */
+.hero-brand-btn-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.hero-brand-expert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 2.2rem;
+  background-color: #ffffff;
+  color: #14233c;
+  border-radius: 9999px;
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 4px 18px rgba(15, 34, 56, 0.08);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-brand-expert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(1, 143, 93, 0.24);
+  border-color: #018f5d;
+  color: #018f5d;
+}
+
+.hero-brand-btn-arrow {
+  color: #018f5d;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-brand-expert-btn:hover .hero-brand-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* -------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .hero-brand-bg-img {
+    background-position: right 10% center;
+  }
+
+  .hero-brand-headline {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-brand-section {
+    min-height: 580px;
+    height: 85vh;
+    padding-top: 110px;
+  }
+
+  .hero-brand-left-wash {
+    background: linear-gradient(90deg,
+        rgba(240, 248, 253, 0.88) 0%,
+        rgba(240, 248, 253, 0.72) 55%,
+        rgba(240, 248, 253, 0.3) 100%);
+  }
+
+  .hero-brand-bg-img {
+    background-position: right 25% center;
+  }
+
+  .hero-brand-content {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-brand-section {
+    min-height: 520px;
+    height: auto;
+    padding-top: 120px;
+    padding-bottom: 70px;
+  }
+
+  .hero-brand-left-wash {
+    background: linear-gradient(180deg,
+        rgba(240, 248, 253, 0.85) 0%,
+        rgba(240, 248, 253, 0.7) 100%);
+  }
+
+  .hero-brand-headline {
+    font-size: clamp(1.9rem, 6.2vw, 2.6rem);
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-brand-expert-btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-brand-section {
+    padding-top: 110px;
+    padding-bottom: 60px;
+  }
+
+  .hero-brand-line {
+    white-space: normal;
+  }
+}

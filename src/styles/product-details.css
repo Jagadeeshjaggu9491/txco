@@ -13,8 +13,16 @@
 
 .product-details-section {
   width: 100%;
+  margin-top: 8rem !important;
+  border-top: 1px solid #80808061 !important;
   padding: 2.5rem 2rem 10rem 2rem;
   box-sizing: border-box;
+}
+
+/* Ensure Industry Details (which has its own PageHero banner) stays flush */
+.product-details-section.industry-details-section {
+  margin-top: 0 !important;
+  border-top: none !important;
 }
 
 .product-details-container {
@@ -201,7 +209,6 @@
   width: 100%;
   height: 100%;
   min-height: 100%;
-  background: var(--bg-cool-grey);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,12 +224,175 @@
   object-fit: contain;
   display: block;
   margin: auto;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.08));
+  /* filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.08)); */
   transition: transform 0.35s ease;
 }
 
 .product-details-sticky-img:hover {
   transform: scale(1.02);
+}
+
+/* ==========================================================================
+   Product Image Carousel (Bottom Dots & Left/Right Buttons Only)
+   ========================================================================== */
+.product-carousel-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-sizing: border-box;
+}
+
+.product-carousel-main {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  padding: 1.25rem 1rem;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+
+
+.product-carousel-img-stage {
+  width: 100%;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-carousel-active-img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: txcoImgFadeIn 0.3s ease-out;
+}
+
+@keyframes txcoImgFadeIn {
+  from {
+    opacity: 0.4;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.product-carousel-main:hover .product-carousel-active-img {
+  transform: scale(1.03);
+}
+
+.product-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(13, 40, 77, 0.12);
+  color: #0d284d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(13, 40, 77, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.9;
+}
+
+.product-carousel-main:hover .product-carousel-arrow {
+  opacity: 1;
+}
+
+.product-carousel-arrow:hover {
+  background: #0d284d;
+  color: #ffffff;
+  border-color: #0d284d;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 22px rgba(13, 40, 77, 0.25);
+}
+
+.product-carousel-prev {
+  left: 14px;
+}
+
+.product-carousel-next {
+  right: 14px;
+}
+
+/* Bottom Dots Only */
+.product-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+.product-carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-carousel-dot:hover {
+  background: #94a3b8;
+}
+
+.product-carousel-dot.is-active {
+  width: 26px;
+  background: #018F5D;
+  box-shadow: 0 2px 8px rgba(1, 143, 93, 0.35);
+}
+
+@media (max-width: 992px) {
+  .product-carousel-wrapper {
+    position: static;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-carousel-main {
+    min-height: 280px;
+  }
+
+  .product-carousel-img-stage {
+    height: 250px;
+  }
+
+  .product-carousel-arrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .product-carousel-prev {
+    left: 8px;
+  }
+
+  .product-carousel-next {
+    right: 8px;
+  }
 }
 
 

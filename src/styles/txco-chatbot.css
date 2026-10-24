@@ -1,0 +1,1154 @@
+/* ==========================================================================
+   TXCO Sealing Products - AI Website Chatbot Styles
+   Template Aligned: Deep Navy (#26335d / #0d284d) & Forest Green (#018F5D)
+   Pill Gradient Buttons, Official Logo & Inter Typography
+   ========================================================================== */
+
+/* Design Tokens Aligned to TXCO Master Template */
+:root {
+  --txco-chat-navy-dark: #0d284d;
+  --txco-chat-navy-primary: #26335d;
+  --txco-chat-navy-light: #114680;
+  --txco-chat-green-accent: #018F5D;
+  --txco-chat-green-hover: #017a4f;
+  --txco-chat-brand-gradient: linear-gradient(90deg, #26335d 0%, #018F5D 100%);
+  --txco-chat-brand-gradient-hover: linear-gradient(90deg, #1d2744 0%, #017a4f 100%);
+  --txco-chat-header-gradient: linear-gradient(135deg, #091a33 0%, #0d284d 55%, #018F5D 100%);
+  --txco-chat-bg-white: #ffffff;
+  --txco-chat-bg-cool: #F4F8FF;
+  --txco-chat-border: #e2e8f0;
+  --txco-chat-border-dark: rgba(13, 40, 77, 0.12);
+  --txco-chat-text-dark: #111111;
+  --txco-chat-text-heading: #052C58;
+  --txco-chat-text-body: #334155;
+  --txco-chat-text-muted: #64748b;
+  --txco-chat-shadow-window: 0 24px 50px -12px rgba(5, 44, 88, 0.28), 0 0 0 1px rgba(13, 40, 77, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   Fixed Right Side Trigger & Floating Notification
+   -------------------------------------------------------------------------- */
+.txco-chat-fixed-container {
+  position: fixed;
+  right: 24px;
+  left: auto;
+  bottom: 24px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Floating Teaser Speech Bubble (Template styled with White Card & Green Accent) */
+.txco-chat-teaser-bubble {
+  margin-bottom: 12px;
+  background: #ffffff;
+  border: 1.5px solid rgba(1, 143, 93, 0.35);
+  padding: 10px 14px 10px 12px;
+  border-radius: 16px;
+  box-shadow: 0 14px 35px rgba(5, 44, 88, 0.15), 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 300px;
+  cursor: pointer;
+  transform-origin: bottom right;
+  animation: txcoPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  position: relative;
+}
+
+.txco-chat-teaser-bubble:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--txco-chat-green-accent);
+  box-shadow: 0 18px 40px rgba(1, 143, 93, 0.2);
+}
+
+.txco-chat-teaser-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  right: 24px;
+  left: auto;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-right: 1.5px solid rgba(1, 143, 93, 0.35);
+  border-bottom: 1.5px solid rgba(1, 143, 93, 0.35);
+  transform: rotate(45deg);
+}
+
+.txco-teaser-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0d284d 0%, #018F5D 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(1, 143, 93, 0.35);
+}
+
+.txco-teaser-content {
+  flex: 1;
+}
+
+.txco-teaser-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #018f5d 0%, #0d284d 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #0d284d;
+  margin-bottom: 2px;
+}
+
+.txco-teaser-text {
+  font-size: 0.74rem;
+  color: #475569;
+  line-height: 1.35;
+}
+
+.txco-teaser-close {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.txco-teaser-close:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+/* Animated Floating Launcher Button (TXCO Brand Gradient & Pulse) */
+.txco-chat-launcher-btn {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #091a33 0%, #26335d 50%, #018F5D 100%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 28px -4px rgba(13, 40, 77, 0.45), 0 0 18px rgba(1, 143, 93, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  animation: txcoFloatBounce 4s ease-in-out infinite;
+}
+
+.txco-chat-launcher-btn:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 16px 36px -4px rgba(13, 40, 77, 0.55), 0 0 24px rgba(1, 143, 93, 0.45);
+}
+
+.txco-chat-launcher-btn:active {
+  transform: scale(0.95);
+}
+
+/* Continuous Radar Pulse Waves */
+.txco-chat-pulse-ring {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(1, 143, 93, 0.55);
+  animation: txcoRadarPulse 2.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  pointer-events: none;
+}
+
+.txco-chat-pulse-ring-delayed {
+  animation-delay: 1.3s;
+}
+
+/* Online Status Green Indicator Dot */
+.txco-chat-online-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 15px;
+  height: 15px;
+  background-color: var(--txco-chat-green-accent);
+  border: 2.5px solid #0d284d;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(1, 143, 93, 0.8);
+}
+
+/* Notification Pill Pill Tag */
+.txco-chat-launcher-tag {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: var(--txco-chat-green-accent);
+  color: #ffffff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(1, 143, 93, 0.4);
+  border: 1.5px solid #ffffff;
+  animation: txcoBadgePulse 2.2s infinite;
+}
+
+/* --------------------------------------------------------------------------
+   Chatbot Window Docked at Right
+   -------------------------------------------------------------------------- */
+.txco-chat-window {
+  position: fixed;
+  right: 24px;
+  left: auto;
+  bottom: 96px;
+  width: 420px;
+  max-width: calc(100vw - 48px);
+  height: 650px;
+  max-height: calc(100vh - 120px);
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: var(--txco-chat-shadow-window);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 99999;
+  border: 1px solid var(--txco-chat-border);
+  transform-origin: bottom right;
+  animation: txcoWindowSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Header Section (Branded with TXCO Logo & Dual Tone Gradient) */
+.txco-chat-header {
+  background: var(--txco-chat-header-gradient);
+  color: #ffffff;
+  padding: 0.95rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.txco-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+/* Clean White Card for Official TXCO Logo */
+.txco-header-logo-card {
+  background: #ffffff;
+  padding: 4px 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.txco-header-brand-logo {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.txco-header-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.txco-header-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.txco-header-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  background: rgba(1, 143, 93, 0.28);
+  color: #a7f3d0;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(1, 143, 93, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.txco-header-subtitle {
+  font-size: 0.71rem;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.txco-header-subtitle .status-circle {
+  width: 6.5px;
+  height: 6.5px;
+  border-radius: 50%;
+  background-color: var(--txco-chat-green-accent);
+  display: inline-block;
+  box-shadow: 0 0 6px #34d399;
+}
+
+.txco-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.txco-header-action-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #e2e8f0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.txco-header-action-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Messages Scrollable Body (Template Cool Surface #F4F8FF)
+   -------------------------------------------------------------------------- */
+.txco-chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.15rem;
+  background: var(--txco-chat-bg-cool);
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  scroll-behavior: smooth;
+}
+
+.txco-chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.txco-chat-body::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.txco-chat-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Message Wrapper */
+.txco-msg-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  animation: txcoFadeUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.txco-msg-row.user {
+  flex-direction: row-reverse;
+}
+
+.txco-msg-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.74rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.txco-msg-avatar.bot {
+  background: linear-gradient(135deg, #0d284d 0%, #018F5D 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(1, 143, 93, 0.3);
+}
+
+.txco-msg-avatar.user {
+  background: #26335d;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(38, 51, 93, 0.25);
+}
+
+.txco-msg-bubble {
+  max-width: 84%;
+  padding: 11px 15px;
+  border-radius: 15px;
+  font-size: 0.84rem;
+  line-height: 1.48;
+  word-break: break-word;
+  position: relative;
+}
+
+.txco-msg-bubble.bot {
+  background: #ffffff;
+  color: var(--txco-chat-text-dark);
+  border: 1px solid #e2e8f0;
+  border-top-left-radius: 4px;
+  box-shadow: 0 4px 14px rgba(5, 44, 88, 0.04);
+}
+
+.txco-msg-bubble.user {
+  background: linear-gradient(135deg, #0d284d 0%, #018F5D 100%);
+  color: #ffffff;
+  border-top-right-radius: 4px;
+  box-shadow: 0 6px 16px rgba(1, 143, 93, 0.25);
+}
+
+.txco-msg-time {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  margin-top: 5px;
+  display: block;
+}
+
+.txco-msg-bubble.user .txco-msg-time {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: right;
+}
+
+/* Typing Indicator Animation */
+.txco-typing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 12px;
+}
+
+.txco-typing-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--txco-chat-green-accent);
+  animation: txcoTypingBounce 1.4s infinite ease-in-out both;
+}
+
+.txco-typing-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.txco-typing-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+/* --------------------------------------------------------------------------
+   Universal TXCO Template Gradient Pill Buttons (.txco-gradient-btn)
+   Exact Match for common.css line 110-187
+   -------------------------------------------------------------------------- */
+.txco-quick-actions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.txco-template-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 14px;
+  border-radius: 9999px !important;
+  border: 1.8px solid transparent !important;
+  background: linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(90deg, #26335d 0%, #018F5D 100%) border-box !important;
+  box-shadow: 0 4px 14px rgba(13, 40, 77, 0.05);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.txco-template-pill-btn .txco-pill-btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: linear-gradient(90deg, #26335d 0%, #018F5D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #26335d;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.txco-template-pill-btn .txco-pill-btn-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #26335d;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+  color: #26335d;
+}
+
+.txco-template-pill-btn .txco-pill-btn-arrow svg {
+  stroke: #26335d !important;
+  transition: stroke 0.25s ease, transform 0.25s ease;
+}
+
+/* Hover State Matching Template Button Hover */
+.txco-template-pill-btn:hover {
+  background: linear-gradient(90deg, #26335d 0%, #018F5D 100%) padding-box,
+    linear-gradient(90deg, #26335d 0%, #018F5D 100%) border-box !important;
+  transform: translateX(3px) translateY(-1px);
+  box-shadow: 0 8px 22px rgba(1, 143, 93, 0.28);
+}
+
+.txco-template-pill-btn:hover .txco-pill-btn-text {
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.txco-template-pill-btn:hover .txco-pill-btn-text svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.txco-template-pill-btn:hover .txco-pill-btn-arrow {
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.txco-template-pill-btn:hover .txco-pill-btn-arrow svg {
+  stroke: #ffffff !important;
+  transform: translateX(2px);
+}
+
+/* Category Selection Grid (Pill Style) */
+.txco-category-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.txco-cat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.txco-cat-btn:hover {
+  background: #f0fdf4;
+  border-color: var(--txco-chat-green-accent);
+  color: var(--txco-chat-green-accent);
+  transform: translateX(3px);
+  box-shadow: 0 4px 12px rgba(1, 143, 93, 0.12);
+}
+
+.txco-cat-btn .cat-arrow {
+  color: #94a3b8;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.txco-cat-btn:hover .cat-arrow {
+  color: var(--txco-chat-green-accent);
+  transform: translateX(2px);
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Embedded Forms (RFQ, Upload, Contact, Vendor)
+   -------------------------------------------------------------------------- */
+.txco-embedded-form-card {
+  background: #ffffff;
+  border: 1px solid var(--txco-chat-border);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 8px;
+  box-shadow: 0 8px 24px rgba(5, 44, 88, 0.06);
+}
+
+.txco-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 9px;
+  margin-bottom: 12px;
+}
+
+.txco-form-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--txco-chat-text-heading);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.txco-form-step-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: #eef8f4;
+  color: var(--txco-chat-green-accent);
+  border: 1px solid rgba(1, 143, 93, 0.3);
+  padding: 2px 7px;
+  border-radius: 9999px;
+}
+
+.txco-form-group {
+  margin-bottom: 10px;
+}
+
+.txco-form-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 3px;
+}
+
+.txco-form-label .required-star {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.txco-form-label .optional-tag {
+  color: #94a3b8;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.txco-form-input,
+.txco-form-select,
+.txco-form-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.81rem;
+  color: #0f172a;
+  background: #ffffff;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.txco-form-input:focus,
+.txco-form-select:focus,
+.txco-form-textarea:focus {
+  border-color: var(--txco-chat-green-accent);
+  box-shadow: 0 0 0 3px rgba(1, 143, 93, 0.15);
+}
+
+.txco-form-textarea {
+  resize: vertical;
+  min-height: 55px;
+}
+
+.txco-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* File Dropzone in Form */
+.txco-file-dropzone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+  background: var(--txco-chat-bg-cool);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.txco-file-dropzone:hover {
+  border-color: var(--txco-chat-green-accent);
+  background: #f0fdf4;
+}
+
+.txco-dropzone-icon {
+  color: var(--txco-chat-green-accent);
+  margin-bottom: 4px;
+}
+
+.txco-dropzone-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.txco-dropzone-sub {
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.txco-attached-file-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-top: 8px;
+  font-size: 0.75rem;
+}
+
+.txco-attached-file-pill .file-name {
+  font-weight: 600;
+  color: #15803d;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.txco-attached-file-pill .file-remove {
+  background: none;
+  border: none;
+  color: #dc2626;
+  cursor: pointer;
+  padding: 2px;
+}
+
+/* Form Action Buttons (Template Filled Pill) */
+.txco-form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.txco-btn-submit {
+  flex: 1;
+  background: linear-gradient(90deg, #26335d 0%, #018F5D 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(1, 143, 93, 0.25);
+}
+
+.txco-btn-submit:hover {
+  background: linear-gradient(90deg, #1d2744 0%, #017a4f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(1, 143, 93, 0.35);
+}
+
+.txco-btn-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.txco-btn-cancel {
+  background: #f8fafc;
+  color: #475569;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 9999px;
+  padding: 9px 15px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.txco-btn-cancel:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* --------------------------------------------------------------------------
+   Confirmation Card / Reference ID Card
+   -------------------------------------------------------------------------- */
+.txco-confirmation-card {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.txco-confirm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #166534;
+  font-weight: 700;
+  font-size: 0.86rem;
+  margin-bottom: 6px;
+}
+
+.txco-ref-box {
+  background: #ffffff;
+  border: 1.5px dashed var(--txco-chat-green-accent);
+  border-radius: 10px;
+  padding: 9px 12px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.txco-ref-label {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.txco-ref-code {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--txco-chat-green-accent);
+  letter-spacing: 0.05em;
+  font-family: monospace;
+}
+
+.txco-confirm-text {
+  font-size: 0.78rem;
+  color: #14532d;
+  line-height: 1.45;
+  margin-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Quality & Certifications Card
+   -------------------------------------------------------------------------- */
+.txco-cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.txco-cert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 9px 11px;
+  font-size: 0.78rem;
+}
+
+.txco-cert-icon {
+  color: var(--txco-chat-green-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.txco-cert-title {
+  font-weight: 700;
+  color: var(--txco-chat-text-heading);
+}
+
+.txco-cert-desc {
+  font-size: 0.72rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Direct Contact Info Card */
+.txco-contact-card {
+  background: #ffffff;
+  border: 1px solid var(--txco-chat-border);
+  border-radius: 14px;
+  padding: 13px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.txco-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.81rem;
+  color: #1e293b;
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+  background: var(--txco-chat-bg-cool);
+}
+
+.txco-contact-item:hover {
+  background: #f0fdf4;
+  color: var(--txco-chat-green-accent);
+  transform: translateX(2px);
+}
+
+.txco-contact-item .contact-icon {
+  color: var(--txco-chat-green-accent);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Footer Input Bar
+   -------------------------------------------------------------------------- */
+.txco-chat-footer {
+  padding: 10px 14px;
+  background: #ffffff;
+  border-top: 1px solid var(--txco-chat-border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.txco-chat-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.txco-chat-input {
+  width: 100%;
+  padding: 9px 36px 9px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 9999px;
+  font-size: 0.84rem;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background: var(--txco-chat-bg-cool);
+}
+
+.txco-chat-input:focus {
+  border-color: var(--txco-chat-green-accent);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(1, 143, 93, 0.15);
+}
+
+.txco-chat-attach-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease;
+}
+
+.txco-chat-attach-btn:hover {
+  color: var(--txco-chat-green-accent);
+}
+
+.txco-chat-send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #26335d 0%, #018F5D 100%);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(1, 143, 93, 0.3);
+}
+
+.txco-chat-send-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 16px rgba(1, 143, 93, 0.4);
+}
+
+.txco-chat-send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.txco-chat-home-btn {
+  background: var(--txco-chat-bg-cool);
+  border: 1px solid var(--txco-chat-border);
+  color: #475569;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.txco-chat-home-btn:hover {
+  background: #e2e8f0;
+  color: var(--txco-chat-navy-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Keyframe Animations
+   -------------------------------------------------------------------------- */
+@keyframes txcoFloatBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes txcoRadarPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.48);
+    opacity: 0;
+  }
+}
+
+@keyframes txcoPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes txcoWindowSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes txcoFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes txcoTypingBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes txcoBadgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Mobile Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .txco-chat-fixed-container {
+    right: 14px;
+    left: auto;
+    bottom: 14px;
+  }
+
+  .txco-chat-window {
+    left: 10px;
+    right: 10px;
+    bottom: 84px;
+    width: calc(100vw - 20px);
+    max-width: none;
+    height: calc(100vh - 100px);
+    border-radius: 16px;
+  }
+
+  .txco-chat-teaser-bubble {
+    max-width: 260px;
+  }
+
+  .txco-form-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ContactSection from '@/components/ContactSection';
 import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
 import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 import { ChevronLeft } from 'lucide-react';
@@ -76,13 +75,13 @@ export default function SubcategoryListPage({ categoryData }) {
 
   return (
     <>
-      <Header />
+      <Header heroMode={true} />
       <main style={{ backgroundColor: '#ffffff', minHeight: '80vh' }}>
         {/* Top Subcategories Section */}
         <section
           ref={containerRef}
-          className="txco-section txco-section-cool-grey"
-          style={{ padding: '3.5rem 2rem 5.5rem 2rem' }}
+          className="product-details-section txco-section txco-section-cool-grey"
+          style={{ padding: '2.5rem 2rem 5.5rem 2rem' }}
         >
           <div className="txco-container">
             {/* Breadcrumb Navigation */}
@@ -147,10 +146,10 @@ export default function SubcategoryListPage({ categoryData }) {
                       <div className="single-product-card" style={{ width: '100%' }}>
                         <div className="single-product-img-box">
                           <img
-                            src={item.image || '/images/products/industrial-gaskets/ring-type-joint.png'}
+                            src={item.image || '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg'}
                             alt={item.title}
                             onError={(e) => {
-                              e.currentTarget.src = '/images/home-products.png';
+                              e.currentTarget.src = '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg';
                             }}
                           />
                         </div>
@@ -184,9 +183,7 @@ export default function SubcategoryListPage({ categoryData }) {
                       /* CATEGORY OVERVIEW CARD (For category list e.g. Gaskets subcategories) */
                       <div className="category-overview-card" style={{ width: '100%' }}>
                         <div className="category-img-box">
-                          <span className="category-ghost-text">
-                            {item.title?.split(' ')[0] || 'TXCO'}
-                          </span>
+
                           <img
                             src={item.image}
                             alt={item.title}
@@ -232,7 +229,6 @@ export default function SubcategoryListPage({ categoryData }) {
         {/* Supporting Global Sections */}
         <IndustrialSealingProducts />
         <DiscoverEngineeredSolutions />
-        <ContactSection />
       </main>
       <Footer />
     </>

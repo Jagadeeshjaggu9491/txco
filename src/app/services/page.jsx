@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import ContactSection from '@/components/ContactSection';
 import IndustrySolutions from '@/components/IndustrySolutions';
 import StickyServicesSection from '@/components/services/StickyServicesSection';
 import { servicesOverview } from '@/data/servicesData';
@@ -108,11 +107,6 @@ export default function ServicesPage() {
           title="Core Engineering & Field Disciplines"
           subtitle="Explore our specialized technical capabilities designed around industrial gaskets, forged flanges, and severe-service valve components."
         />
-
-
-
-        {/* Contact Section */}
-        <ContactSection />
       </main>
 
       <Footer />

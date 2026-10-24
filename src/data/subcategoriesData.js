@@ -22,7 +22,7 @@ export const subcategoriesByCategory = {
         types: 'R – Oval, R – Octagonal, RX, BX, SBX, SRX',
         description:
           'Precision CNC-machined solid metallic ring joints, subsea seals, and specialty high-pressure vessel gaskets.',
-        image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
         href: '/products/gaskets/metallic-gaskets',
       },
       {
@@ -32,7 +32,7 @@ export const subcategoriesByCategory = {
         types: 'Spiral Wound, Kammprofile, Metal Jacketed, Flange Isolation Kits',
         description:
           'Engineered composite sealing elements combining metal mechanical strength with compressible soft filler materials.',
-        image: '/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SEMIMETALLIC COVER PAGE.jpeg',
         href: '/products/gaskets/semi-metallic-gaskets',
       },
       {
@@ -42,7 +42,7 @@ export const subcategoriesByCategory = {
         types: 'Rubber, PTFE, ePTFE, Asbestos free, Compressed Non Asbestos',
         description:
           'Elastomeric, fluoropolymer, and CNAF compressed sheets designed for universal chemical resistance and utility service.',
-        image: '/images/product-detials-images/PTFE-Jointing-Sheets-Planiflon.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
         href: '/products/gaskets/non-metallic-gaskets',
       },
       {
@@ -52,7 +52,7 @@ export const subcategoriesByCategory = {
         types: 'Rubber, Graphite',
         description:
           'Reinforced composite gaskets containing internal steel wire or tanged cores for high blowout resistance and stiffness.',
-        image: '/images/product-detials-images/Graphite-Gasketing-Sheet.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert Graphite Gasket.png',
         href: '/products/gaskets/steel-inserted-gaskets',
       },
     ],
@@ -73,7 +73,7 @@ export const subcategoriesByCategory = {
         types: 'Metallic & Non-Metallic Equipment Plug Seals',
         description:
           'Engineered for quick installation and replacement to minimize maintenance downtime while withstanding severe pressure fluctuations, thermal cycling, and corrosive chemical environments.',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/plug gasket.png',
         href: '/products/plug-gaskets/details?product=plug-gaskets',
       },
     ],
@@ -94,7 +94,7 @@ export const subcategoriesByCategory = {
         types: 'ASME B16.5 / B16.47 Series A & B (Class 150 to 2500)',
         description:
           'Butt-weld connection flanges with long tapered hub engineered for critical high-pressure and cyclic thermal duty.',
-        image: '/images/product-detials-images/flanges-1.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/weld neck.png',
         href: '/products/flanges/details?product=weld-neck-flanges',
       },
       {
@@ -104,7 +104,7 @@ export const subcategoriesByCategory = {
         types: 'ASME B16.5 Flat Face & Raised Face (Class 150 to 1500)',
         description:
           'Cost-effective slip-over pipe flanges with dual fillet welds for low to medium pressure process piping systems.',
-        image: '/images/product-detials-images/flanges-2.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/slip on.png',
         href: '/products/flanges/details?product=slip-on-flanges',
       },
       {
@@ -114,7 +114,7 @@ export const subcategoriesByCategory = {
         types: 'Solid Forged Blanks (ASME B16.5 / B16.47 / API 6A)',
         description:
           'Solid forged blanking flanges for positive line termination, vessel inspection ports, and pressure isolation.',
-        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/blind flange.png',
         href: '/products/flanges/details?product=blind-flanges',
       },
       {
@@ -124,7 +124,7 @@ export const subcategoriesByCategory = {
         types: 'Small-Bore High-Pressure (Class 150 to 1500)',
         description:
           'Socket recess design engineered for high-pressure compact small bore pipelines in chemical plants.',
-        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/socket weld.png',
         href: '/products/flanges/details?product=socket-weld-flanges',
       },
       {
@@ -134,7 +134,7 @@ export const subcategoriesByCategory = {
         types: 'Backing Flanges with Matching Stub Ends',
         description:
           'Loose backing flanges that rotate freely on stub ends for quick bolt hole alignment in stainless systems.',
-        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/lap joint.png',
         href: '/products/flanges/details?product=lap-joint-flanges',
       },
       {
@@ -144,7 +144,7 @@ export const subcategoriesByCategory = {
         types: 'NPT / API Internal Female Threaded Connections',
         description:
           'Internal tapered thread flanges for hazardous piping environments where welding is strictly prohibited.',
-        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Threaded (Screwed) Flanges.png',
         href: '/products/flanges/details?product=threaded-screwed-flanges',
       },
       {
@@ -154,7 +154,7 @@ export const subcategoriesByCategory = {
         types: 'Differential-Pressure Flow Metering Flange Unions',
         description:
           'Equipped with radial tapped holes and jacking screws for differential pressure flow metering plates.',
-        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Orifice Flanges.png',
         href: '/products/flanges/details?product=orifice-flanges',
       },
       {
@@ -164,7 +164,7 @@ export const subcategoriesByCategory = {
         types: 'Engineered & Bespoke Flanges to Customer Drawings',
         description:
           'CNC-machined bespoke flanges, compact swivel-ring flanges, and specialized offshore subsea profiles.',
-        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/flanges.png',
         href: '/products/flanges/details?product=custom-flanges',
       },
     ],
@@ -185,7 +185,7 @@ export const subcategoriesByCategory = {
         types: 'Fully Welded Boltless CP Isolating Joints (NPS 1/2" to 60", Class 150 to 2500)',
         description:
           'Boltless monolithic dielectric joints engineered with encapsulated dual seals and high-density G10/G11 insulating rings.',
-        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
         href: '/products/monolithic-insulation-joints/details?product=monolithic-insulation-joints',
       },
     ],
@@ -206,7 +206,7 @@ export const subcategoriesByCategory = {
         types: 'FFKM, FKM, HNBR, EPDM (NORSOK M-710 RGD/AED up to 10,000 PSI)',
         description:
           'Precision molded elastomer O-rings (FFKM, FKM, HNBR, EPDM) and anti-extrusion PEEK backup rings up to 10,000 PSI.',
-        image: '/images/product-detials-images/O-Ring-for-Ball-Valve.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
         href: '/products/valve-components/details?product=precision-o-rings',
       },
       {
@@ -216,7 +216,7 @@ export const subcategoriesByCategory = {
         types: 'API 622 / ISO 15848-1 Braided Flexible Graphite & ePTFE',
         description:
           'Precision-braided flexible graphite and Inconel-reinforced packing sets for zero-emission fugitive VOC compliance.',
-        image: '/images/product-detials-images/Ball-for-Ball-Valve.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
         href: '/products/valve-components/details?product=valve-packing',
       },
       {
@@ -226,7 +226,7 @@ export const subcategoriesByCategory = {
         types: 'PEEK, PCTFE, Devlon V, Virgin/Filled PTFE Ball & Gate Seats',
         description:
           'CNC-machined bubble-tight seat rings in PEEK, PCTFE, Devlon V, Virgin/Filled PTFE, and metallic base rings.',
-        image: '/images/product-detials-images/Seat-for-Ball-and-Gate-Valve.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
         href: '/products/valve-components/details?product=valve-seats-inserts',
       },
     ],

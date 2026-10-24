@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import ContactSection from '@/components/ContactSection';
 import IndustrySolutions from '@/components/IndustrySolutions';
 import '@/styles/policy-pages.css';
 import { Shield, Hand, AlertTriangle, Leaf, Globe2, BookOpen } from 'lucide-react';
@@ -264,11 +263,6 @@ export default function HsePolicyPage() {
             </div>
           </div>
         </section>
-
-
-
-        {/* Contact Section */}
-        <ContactSection />
       </main>
 
       <Footer />

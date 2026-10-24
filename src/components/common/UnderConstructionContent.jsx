@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import ContactSection from '@/components/ContactSection';
 import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
 import { Hammer, HardHat, ArrowRight, Home, Package, PhoneCall, FileText } from 'lucide-react';
@@ -184,7 +183,6 @@ export default function UnderConstructionContent({ title = 'PAGE UNDER CONSTRUCT
         {/* Supporting Global Solutions */}
         <IndustrialSealingProducts />
         <DiscoverEngineeredSolutions />
-        <ContactSection />
       </main>
       <Footer />
     </>

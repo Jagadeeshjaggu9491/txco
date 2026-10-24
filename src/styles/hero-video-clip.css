@@ -1,0 +1,346 @@
+/* =========================================================================
+   HERO VIDEO CLIP SECTION
+   - Background Image: /images/hero-video-bg.avif
+   - Video clipped with chevron polygon:
+     polygon(17% 10%, 50% 10%, 86.5% 49%, 50.5% 90%, 18% 90%, 54.5% 49%)
+   - Video file: /images/inside-clip-path-video.mp4 (muted loop)
+   ========================================================================= */
+
+.hero-video-clip-section {
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+  height: 100vh;
+  max-height: 960px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Top offset for absolute site header */
+  padding-top: clamp(80px, 9vh, 120px);
+  padding-bottom: 30px;
+  background-color: #f0f7fb;
+}
+
+/* While preloader is active, keep hero text hidden until ready */
+.hero-video-clip-section.hero-waiting .hero-brand-headline,
+.hero-video-clip-section.hero-waiting .hero-brand-btn-wrap {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* -------------------------------------------------------------------------
+   1. BACKGROUND IMAGE LAYER
+   ------------------------------------------------------------------------- */
+.hero-clip-bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-clip-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/hero-video-bg-2.avif');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+/* Soft gradient wash on left for optimal text contrast */
+.hero-clip-left-wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      rgba(240, 248, 253, 0.65) 0%,
+      rgba(240, 248, 253, 0.45) 30%,
+      rgba(240, 248, 253, 0.15) 55%,
+      rgba(240, 248, 253, 0) 70%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Seamless top/bottom blend */
+.hero-clip-gradient-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-clip-gradient-bottom {
+  display: none;
+}
+
+/* -------------------------------------------------------------------------
+   2. RIGHT VIDEO STAGE (WITH CHEVRON CLIP-PATH)
+   Anchored to start from the bottom, reduced size to line up with round circles
+   ------------------------------------------------------------------------- */
+.hero-clip-video-stage {
+  position: absolute;
+  bottom: -10%;
+  right: 9%;
+  top: auto;
+  width: 46%;
+  height: 96%;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: auto;
+  /* Filter drop shadow creates elevation along the polygon edges */
+  filter: drop-shadow(0 18px 45px rgba(5, 44, 88, 0.18));
+  will-change: transform, opacity;
+}
+
+/* The element bearing the exact requested clip-path - 100% UNTOUCHED */
+.hero-clip-video-shape {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(17% 10%, 50% 10%, 86.5% 49%, 50.5% 90%, 18% 90%, 54.5% 49%);
+  -webkit-clip-path: polygon(17% 10%, 50% 10%, 86.5% 49%, 50.5% 90%, 18% 90%, 54.5% 49%);
+  overflow: hidden;
+  background-color: #0d284d;
+  transition: transform 0.4s ease;
+}
+
+.hero-clip-video-shape:hover {
+  transform: scale(1.015);
+}
+
+/* Video inside the polygon */
+.hero-clip-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Subtle overlay sheen on the video */
+.hero-clip-video-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      transparent 50%,
+      rgba(5, 44, 88, 0.15) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* -------------------------------------------------------------------------
+   3. LEFT CONTENT CONTAINER (TYPOGRAPHY & CTA)
+   ------------------------------------------------------------------------- */
+.hero-clip-container {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  box-sizing: border-box;
+}
+
+.hero-clip-content {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Small Tagline Badge */
+.hero-clip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  background: rgba(1, 143, 93, 0.1);
+  border: 1px solid rgba(1, 143, 93, 0.25);
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #018f5d;
+  margin-bottom: 1.25rem;
+}
+
+.hero-clip-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #018f5d;
+  box-shadow: 0 0 8px rgba(1, 143, 93, 0.7);
+  animation: heroClipDotPulse 2s infinite ease-in-out;
+}
+
+@keyframes heroClipDotPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 0.7;
+  }
+}
+
+/* Headline */
+.hero-clip-headline {
+  font-family: var(--font-family-base, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(2.4rem, 4.2vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero-clip-line {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.hero-clip-navy {
+  color: #052c58;
+}
+
+.hero-clip-green {
+  color: #018f5d;
+}
+
+/* Subtitle description */
+.hero-clip-subtitle {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+  color: #3b4674;
+  margin: 0 0 2rem 0;
+  max-width: 540px;
+}
+
+/* CTA Button */
+.hero-clip-btn-wrap {
+  will-change: transform, opacity;
+}
+
+.hero-clip-expert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 2.1rem;
+  background-color: #018f5d;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 9999px;
+  border: 1.5px solid transparent;
+  box-shadow: 0 12px 28px rgba(1, 143, 93, 0.32);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.hero-clip-expert-btn:hover {
+  background-color: #01784e;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(1, 143, 93, 0.42);
+}
+
+.hero-clip-btn-arrow {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 3.2;
+  transition: transform 0.25s ease;
+}
+
+.hero-clip-expert-btn:hover .hero-clip-btn-arrow {
+  transform: translateX(3px);
+}
+
+/* -------------------------------------------------------------------------
+   4. RESPONSIVE BREAKPOINTS
+   ------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .hero-clip-video-stage {
+    width: 50%;
+    height: 98%;
+    bottom: -10%;
+  }
+
+  .hero-clip-headline {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-video-clip-section {
+    min-height: 720px;
+    height: auto;
+    padding-top: 130px;
+    padding-bottom: 60px;
+  }
+
+  .hero-clip-video-stage {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    height: 360px;
+    margin: 2rem auto 0 auto;
+    right: auto;
+    bottom: auto;
+    top: auto;
+  }
+
+  .hero-clip-content {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-clip-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-video-clip-section {
+    min-height: 640px;
+    padding-top: 110px;
+    padding-bottom: 40px;
+  }
+
+  .hero-clip-video-stage {
+    height: 300px;
+  }
+
+  .hero-clip-headline {
+    font-size: 2.1rem;
+  }
+
+  .hero-clip-expert-btn {
+    padding: 0.85rem 1.6rem;
+    font-size: 0.88rem;
+  }
+}

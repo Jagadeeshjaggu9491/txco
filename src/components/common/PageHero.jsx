@@ -2,29 +2,88 @@
 
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import '@/styles/page-hero.css';
+
+/**
+ * Helper to format hero title with Navy + Vibrant Green styling
+ * matching the UI design (e.g. "QUALITY POLICY", "TXCO SEALING")
+ */
+function formatHeroTitle(title, highlightWord) {
+  if (!title) {
+    return (
+      <>
+        <span className="page-hero-title-navy">TXCO </span>
+        <span className="page-hero-title-green">SEALING</span>
+      </>
+    );
+  }
+
+  // If already a React element/JSX, render directly
+  if (React.isValidElement(title)) {
+    return title;
+  }
+
+  if (typeof title !== 'string') {
+    return title;
+  }
+
+  const trimmed = title.trim();
+
+  // If a specific highlight word is specified
+  if (highlightWord && trimmed.toLowerCase().includes(highlightWord.toLowerCase())) {
+    const regex = new RegExp(`(${highlightWord})`, 'gi');
+    const parts = trimmed.split(regex);
+    return (
+      <>
+        {parts.map((part, i) =>
+          part.toLowerCase() === highlightWord.toLowerCase() ? (
+            <span key={i} className="page-hero-title-green">
+              {part}
+            </span>
+          ) : (
+            <span key={i} className="page-hero-title-navy">
+              {part}
+            </span>
+          )
+        )}
+      </>
+    );
+  }
+
+  // Split into words: highlight the final word in vibrant green
+  const words = trimmed.split(/\s+/);
+  if (words.length === 1) {
+    return <span className="page-hero-title-navy">{words[0]}</span>;
+  }
+
+  const leadingWords = words.slice(0, -1).join(' ');
+  const lastWord = words[words.length - 1];
+
+  return (
+    <>
+      <span className="page-hero-title-navy">{leadingWords} </span>
+      <span className="page-hero-title-green">{lastWord}</span>
+    </>
+  );
+}
+
+const DEFAULT_BANNER = '/images/title-section/page-hero-banner-new.avif';
+const DEFAULT_SUBTITLE =
+  'Deploy, manage and troubleshoot cloud-native applications at scale without overwhelming your engineers with the complexity of Kubernetes.';
 
 /**
  * Reusable PageHero Component
- * 
- * @param {string|React.ReactNode} title - Main hero title
- * @param {string|React.ReactNode} subtitle - Description / Subtitle
- * @param {string|React.ReactNode} badge - Optional top badge pill
- * @param {string} bgImage - Path to banner image (default: '/images/banner/txco-page-banner.avif')
- * @param {string} bgPosition - CSS background-position (default: 'center bottom')
- * @param {string} minHeight - CSS min-height (default: '450px')
- * @param {string} overlayGradient - Gradient layer above/behind image
- * @param {string} className - Optional extra class
- * @param {React.ReactNode} children - Optional extra elements (e.g. CTA buttons, breadcrumb)
+ *
+ * Full image is visible at its natural aspect ratio without hardcoded height,
+ * ensuring no cropping of the metallic rings or graphic elements.
  */
 export default function PageHero({
   title,
+  highlightWord,
   subtitle,
   description,
   badge,
-  bgImage = '/images/banner/txco-page-banner.avif',
-  bgPosition = 'center bottom',
-  minHeight = '450px',
-  overlayGradient = null,
+  bgImage = DEFAULT_BANNER,
   className = '',
   children,
 }) {
@@ -33,6 +92,20 @@ export default function PageHero({
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
   const extraRef = useRef(null);
+
+  // Automatically migrate legacy dark banner to the new precision rings banner
+  const activeBg =
+    !bgImage || bgImage === '/images/banner/txco-page-banner.avif'
+      ? DEFAULT_BANNER
+      : bgImage;
+
+  // Subtitle fallback matching the UI screen
+  const subText =
+    subtitle !== undefined
+      ? subtitle
+      : description !== undefined
+      ? description
+      : DEFAULT_SUBTITLE;
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -51,7 +124,7 @@ export default function PageHero({
       if (titleRef.current) {
         tl.fromTo(
           titleRef.current,
-          { opacity: 0, y: 35 },
+          { opacity: 0, y: 30 },
           { opacity: 1, y: 0, duration: 0.7 },
           badgeRef.current ? '-=0.25' : '0'
         );
@@ -60,7 +133,7 @@ export default function PageHero({
       if (subtitleRef.current) {
         tl.fromTo(
           subtitleRef.current,
-          { opacity: 0, y: 25 },
+          { opacity: 0, y: 22 },
           { opacity: 1, y: 0, duration: 0.65 },
           '-=0.35'
         );
@@ -69,7 +142,7 @@ export default function PageHero({
       if (extraRef.current) {
         tl.fromTo(
           extraRef.current,
-          { opacity: 0, y: 20 },
+          { opacity: 0, y: 18 },
           { opacity: 1, y: 0, duration: 0.55 },
           '-=0.3'
         );
@@ -77,27 +150,21 @@ export default function PageHero({
     }, containerRef);
 
     return () => ctx.revert();
-  }, [title, subtitle, description, bgImage]);
-
-  const subText = subtitle || description;
-
-  // Background style: pure image without color gradient unless explicitly requested
-  const backgroundStyle = {
-    backgroundImage: overlayGradient
-      ? `${overlayGradient}, url('${bgImage}')`
-      : bgImage
-      ? `url('${bgImage}')`
-      : undefined,
-    backgroundPosition: bgPosition,
-    minHeight: minHeight,
-  };
+  }, [title, subtitle, description, activeBg]);
 
   return (
-    <section
-      ref={containerRef}
-      className={`page-hero-section ${className}`}
-      style={backgroundStyle}
-    >
+    <section ref={containerRef} className={`page-hero-section ${className}`}>
+      {/* Full Banner Image Layer - Natural aspect ratio, 100% visible, no height clipping */}
+      <div className="page-hero-bg-wrap" aria-hidden="true">
+        <img
+          src={activeBg}
+          alt=""
+          className="page-hero-bg-img"
+          loading="eager"
+        />
+      </div>
+
+      {/* Content Layer overlaid on the banner */}
       <div className="page-hero-container">
         <div className="page-hero-content">
           {badge && (
@@ -106,11 +173,9 @@ export default function PageHero({
             </div>
           )}
 
-          {title && (
-            <h1 ref={titleRef} className="page-hero-title">
-              {title}
-            </h1>
-          )}
+          <h1 ref={titleRef} className="page-hero-title">
+            {formatHeroTitle(title, highlightWord)}
+          </h1>
 
           {subText && (
             <p ref={subtitleRef} className="page-hero-subtitle">

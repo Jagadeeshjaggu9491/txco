@@ -21,8 +21,8 @@ export const mainProductCategories = [
     types: 'R – Oval, R – Octagonal, RX, BX, Bonnet, Lens, Delta, IX',
     description:
       'Solid metal and precision CNC-machined metallic sealing profiles designed for high-pressure API 6A/17D and ASME flanges.',
-    image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
-    fallbackImage: '/images/home-products.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
+    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ - R OVAL.png',
     href: '/products/gaskets/metallic-gaskets',
   },
   {
@@ -31,8 +31,8 @@ export const mainProductCategories = [
     types: 'Spiral Wound, Kammprofile, Metal Jacketed, Flange Isolation Kits',
     description:
       'Engineered composite sealing elements combining metallic mechanical strength with compressible soft filler materials.',
-    image: '/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif',
-    fallbackImage: '/images/home-products.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SEMIMETALLIC COVER PAGE.jpeg',
+    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND GASKET.jpeg',
     href: '/products/gaskets/semi-metallic-gaskets',
   },
   {
@@ -41,8 +41,8 @@ export const mainProductCategories = [
     types: 'Rubber, PTFE, ePTFE, Compressed Non-Asbestos (AF & Planiflex™)',
     description:
       'Elastomeric, fluoropolymer, and CNAF compressed sheets designed for universal chemical resistance and utility service.',
-    image: '/images/product-detials-images/PTFE-Jointing-Sheets-Planiflon.avif',
-    fallbackImage: '/images/home-products.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
+    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/RUBBER GASKETS.jpeg',
     href: '/products/gaskets/non-metallic-gaskets',
   },
   {
@@ -51,8 +51,8 @@ export const mainProductCategories = [
     types: 'Steel Insert - Rubber Gaskets, Steel Insert - Graphite Gaskets',
     description:
       'Reinforced composite gaskets containing internal steel wire or tanged cores for high blowout resistance and stiffness.',
-    image: '/images/product-detials-images/Graphite-Gasketing-Sheet.avif',
-    fallbackImage: '/images/home-products.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert Graphite Gasket.png',
+    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert  Rubber Gasket.png',
     href: '/products/gaskets/steel-inserted-gaskets',
   },
   {
@@ -61,8 +61,8 @@ export const mainProductCategories = [
     types: 'Metallic & Non-Metallic Equipment Plug Seals',
     description:
       'Specialized metallic and non-metallic sealing elements engineered to seal industrial equipment and piping plugs.',
-    image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
-    fallbackImage: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/plug gasket.png',
+    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/plug gasket.png',
     href: '/products/plug-gaskets',
   },
   {
@@ -71,8 +71,8 @@ export const mainProductCategories = [
     types: 'Weld Neck, Slip-On, Blind, Socket Weld, Lap Joint, Threaded, Orifice, Custom',
     description:
       'Forged and precision-machined connection flanges including Weld Neck, Slip-On, Blind, Socket Weld, and custom designs.',
-    image: '/images/product-detials-images/flanges-1.avif',
-    fallbackImage: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/falnges cover image.png',
+    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/flanges.png',
     href: '/products/flanges',
   },
   {
@@ -81,8 +81,8 @@ export const mainProductCategories = [
     types: 'Fully Welded Boltless CP Isolating Joints (NPS 1/2" to 60", Class 150 to 2500)',
     description:
       'Solid-state, fully welded structural forgings for permanent Cathodic Protection (CP) isolation in buried and aboveground pipelines.',
-    image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
-    fallbackImage: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX-ISOPRO.jpeg',
     href: '/products/monolithic-insulation-joints',
   },
   {
@@ -91,8 +91,8 @@ export const mainProductCategories = [
     types: 'Precision O-Rings, Low-Emission Gland Packing, Valve Seats & Inserts',
     description:
       'Engineered valve trims, compression packings, bonnet gaskets, and high-integrity sealing components for flow control.',
-    image: '/images/product-detials-images/Ball-for-Ball-Valve.avif',
-    fallbackImage: '/images/home-services.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
     href: '/products/valve-components',
   },
   {
@@ -198,14 +198,14 @@ export const rtjSubProducts = [
     id: 'ring-joint-gaskets',
     title: 'RING JOINT GASKETS',
     subtitle: 'R • RX • BX',
-    image: '/images/products/industrial-gaskets/ring-type-joint.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ - R OVAL.png',
     href: '/products/gaskets-kits-seals/ring-type-joint/details?tab=ring-joint-gaskets',
   },
   {
     id: 'kammprofile-rtj',
     title: 'KAMMPROFILE RING TYPE JOINT (RTJ)',
     subtitle: 'Style R • RIR • CG • CGI',
-    image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/KAMMPROFILE GASKET.jpeg',
     href: '/products/gaskets-kits-seals/ring-type-joint/details?tab=kammprofile-rtj',
   },
 ];
@@ -233,21 +233,21 @@ export const jacketedProducts = [
     id: 'metal-jacketed',
     title: 'METAL JACKETED GASKETS',
     subtitle: 'High-temperature sealing for heat exchangers and pressure vessels',
-    image: '/images/products/industrial-gaskets/kammprofile-gaskets.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/jacketed gasket.png',
     href: '/contact',
   },
   {
     id: 'corrugated-jacketed',
     title: 'CORRUGATED JACKETED GASKETS',
     subtitle: 'Resilient corrugated metal design with filler core for cyclic pressure',
-    image: '/images/products/industrial-gaskets/sprial-wound-gaskets.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/jacketed gasket.png',
     href: '/contact',
   },
   {
     id: 'flat-jacketed',
     title: 'FLAT JACKETED GASKETS',
     subtitle: 'Smooth jacket construction for narrow flange surfaces and valves',
-    image: '/images/products/industrial-gaskets/ring-type-joint.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/jacketed gasket.png',
     href: '/contact',
   },
 ];
@@ -257,28 +257,28 @@ export const specializedProducts = [
     id: 'special-custom-gaskets',
     title: 'SPECIAL & CUSTOM GASKETS',
     subtitle: 'Tailored sealing geometry for high pressure and non-standard flanges',
-    image: '/images/products/industrial-gaskets/special-custom.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
     href: '/contact',
   },
   {
     id: 'protective-coatings',
     title: 'PROTECTIVE COATINGS',
     subtitle: 'Anti-corrosion, anti-wear and thermal protective surface treatments',
-    image: '/images/products/industrial-gaskets/non-metallic-gaskets.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/PROTECTIVE COATING.png',
     href: '/contact',
   },
   {
     id: 'pipeline-insulation-kits',
     title: 'PIPELINE INSULATION KITS',
     subtitle: 'Complete electrical isolation for cathodic protection and flange preservation',
-    image: '/images/products/industrial-gaskets/flange-insulation-kits.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
     href: '/contact',
   },
   {
     id: 'custom-groove-config',
     title: 'CUSTOM GROOVE CONFIGURATIONS',
     subtitle: 'Lens, Delta, IX, Bridgeman and specialized metal profiles',
-    image: '/images/products/industrial-gaskets/ring-type-joint.png',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/TRANSISTION RING RTJ.jpeg',
     href: '/contact',
   },
 ];

@@ -1,0 +1,186 @@
+/* =========================================================================
+   BLOG VIDEO SHOWCASE SECTION
+   First content section of Blog page featuring /images/test-video.webm
+   ========================================================================= */
+
+.blog-video-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 4rem 2rem 3rem 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.blog-video-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Header Text Above Video */
+.blog-video-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.5rem auto;
+}
+
+
+
+@keyframes blogDotPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 0.65;
+  }
+}
+
+.blog-video-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: #0d284d;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.8rem 0;
+}
+
+.blog-video-title-highlight {
+  color: #018f5d;
+}
+
+.blog-video-subtitle {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0;
+}
+
+/* Video Stage Frame */
+.blog-video-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-shadow: 0 24px 60px rgba(13, 40, 77, 0.12), 0 4px 16px rgba(13, 40, 77, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay gradient at bottom for controls legibility */
+.blog-video-bottom-gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 24, 46, 0.82) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Big Center Play Button when paused */
+.blog-video-center-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(1, 143, 93, 0.92);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(1, 143, 93, 0.45);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-video-center-play-btn:hover {
+  background: #018f5d;
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 12px 36px rgba(1, 143, 93, 0.6);
+}
+
+/* Floating Controls Bar at Bottom */
+.blog-video-controls-bar {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.25rem;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.blog-video-controls-left,
+.blog-video-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.blog-video-control-btn {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all 0.2s ease;
+}
+
+.blog-video-control-btn:hover {
+  background: #018f5d;
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(1, 143, 93, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-video-section {
+    padding: 2.5rem 1.25rem 2rem 1.25rem;
+  }
+
+  .blog-video-stage {
+    border-radius: 14px;
+  }
+
+  .blog-video-controls-bar {
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.75rem;
+  }
+
+  .blog-video-control-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.74rem;
+  }
+}

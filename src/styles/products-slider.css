@@ -1,222 +1,285 @@
 /* =========================================================================
-   OUR PRODUCTS CATEGORIES SLIDER (Homepage Component)
+   SEALING SOLUTIONS FOR EVERY INDUSTRY (Product Categories Slider)
+   Matches Attached UI Design Exactly
 ========================================================================= */
 
-.products-slider-section {
+.sealing-solutions-section {
   width: 100%;
-  background-color: #f3f7fb;
-  padding: 5.5rem 2rem 6rem 2rem;
+  background-color: #ffffff;
+  padding: 5.5rem 1.5rem 4.5rem 1.5rem;
   position: relative;
   overflow: hidden;
 }
 
-.products-slider-container {
-  max-width: 1360px;
-  margin: 0 auto;
+.sealing-solutions-container {
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.products-slider-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2.8rem;
-  gap: 1.5rem;
-}
-
-.products-slider-heading {
+/* Heading: Bold Italic Left-Aligned */
+.sealing-solutions-title {
   font-family: var(--font-family-heading, 'Inter', sans-serif);
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  margin: 0;
-  line-height: 1.2;
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 3.2vw, 2.85rem);
+  color: #1e2430;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-align: left;
+  margin-bottom: 3.5rem;
 }
 
-/* Custom Navigation Arrow Buttons */
-.products-slider-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
+/* Slider Outer Wrapper with Left & Right Nav Arrows */
+.sealing-slider-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 3.2rem;
 }
 
-.products-slider-btn {
+.sealing-products-swiper {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Navigation Arrow Buttons on Left & Right Sides */
+.sealing-slider-arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1.5px solid rgba(13, 40, 77, 0.15);
-  background: #ffffff;
-  color: #0D284D;
-  display: inline-flex;
+  background-color: #ffffff;
+  border: 1.6px solid #cbd5e1;
+  color: #1e2430;
+  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 8px rgba(13, 40, 77, 0.05);
+  z-index: 10;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   outline: none;
 }
 
-.products-slider-btn:hover {
-  background: #018F5D;
+.sealing-slider-arrow.prev {
+  left: 0;
+}
+
+.sealing-slider-arrow.next {
+  right: 0;
+}
+
+.sealing-slider-arrow:hover {
+  background-color: #018f5d;
+  border-color: #018f5d;
   color: #ffffff;
-  border-color: #018F5D;
-  transform: scale(1.06);
-  box-shadow: 0 4px 14px rgba(1, 143, 93, 0.28);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 20px rgba(1, 143, 93, 0.28);
 }
 
-.products-slider-btn:disabled,
-.products-slider-btn.swiper-button-disabled {
-  opacity: 0.4;
+.sealing-slider-arrow.swiper-button-disabled {
+  opacity: 0.35;
   cursor: not-allowed;
-  transform: none;
-  background: #ffffff;
-  color: #94a3b8;
-  border-color: rgba(13, 40, 77, 0.1);
+  pointer-events: none;
 }
 
-/* Product Card */
-.product-category-card {
+/* Single Product Item */
+.sealing-product-item {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  background: #ffffff;
-  border: 1px solid rgba(203, 213, 225, 0.7);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  align-items: center;
+  text-align: center;
+}
+
+.sealing-product-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   text-decoration: none;
-  height: 100%;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+  color: inherit;
+  cursor: pointer;
 }
 
-.product-category-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
-  border-color: rgba(1, 143, 93, 0.35);
-}
-
-/* Card Top Visual Area */
-.product-card-visual {
-  position: relative;
-  height: 245px;
-  background: linear-gradient(135deg, #ebf3fa 0%, #f0f6fc 100%);
+/* Image container with white / transparent background */
+.sealing-product-img-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 210px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  padding: 1.2rem;
+  background: transparent;
+  padding: 0.5rem;
 }
 
-/* Ghost Vertical Watermark matching UI design */
-.product-card-watermark {
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  gap: 6px;
-  pointer-events: none;
-  z-index: 1;
+.sealing-product-img {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.watermark-col {
-  writing-mode: vertical-lr;
-  text-transform: uppercase;
-  font-family: 'Inter', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: rgba(148, 163, 184, 0.38);
-  user-select: none;
-  line-height: 1;
+.sealing-product-item:hover .sealing-product-img {
+  transform: scale(1.06) translateY(-4px);
 }
 
-/* Product Image in Center-Right */
-.product-card-img-wrap {
-  position: relative;
-  z-index: 2;
+/* Category Title below image: revealed on hover */
+.sealing-product-caption {
   width: 100%;
-  height: 100%;
+  min-height: 44px;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding-right: 0.5rem;
+  justify-content: center;
+  padding: 0 0.5rem;
 }
 
-.product-card-img {
-  max-height: 195px;
-  max-width: 82%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.06));
-}
-
-.product-category-card:hover .product-card-img {
-  transform: scale(1.06);
-}
-
-/* Card Bottom Pure White Bar */
-.product-card-bottom {
-  background: #ffffff;
-  padding: 1.2rem 1.5rem;
-  border-top: 1px solid #f1f5f9;
-}
-
-.product-card-title {
-  font-family: 'Inter', sans-serif;
+.sealing-product-title {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
   font-size: 0.94rem;
-  font-weight: 700;
-  color: #1e3a5f;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: #1e2430;
+  line-height: 1.35;
   margin: 0;
-  transition: color 0.25s ease;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
 }
 
-.product-category-card:hover .product-card-title {
-  color: #018F5D;
+.sealing-product-item:hover .sealing-product-title {
+  opacity: 1;
+  transform: translateY(0);
+  color: #018f5d;
 }
 
-@media (max-width: 768px) {
-  .products-slider-section {
-    padding: 3.5rem 1rem 4rem 1rem;
+/* Touch devices fallback so title is readable without hover */
+@media (hover: none) {
+  .sealing-product-title {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bottom Navigation Dots (Bullets) */
+.sealing-slider-pagination {
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 3.2rem;
+  gap: 0.55rem;
+}
+
+.sealing-slider-pagination .swiper-pagination-bullet {
+  width: 9px;
+  height: 9px;
+  background-color: #0056be;
+  opacity: 1;
+  border-radius: 9999px;
+  margin: 0 !important;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sealing-slider-pagination .swiper-pagination-bullet-active {
+  background-color: #018f5d;
+  width: 26px;
+  border-radius: 9999px;
+}
+
+/* Centered Explore Pill Button */
+.sealing-slider-explore-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.sealing-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 2.4rem;
+  background-color: #ffffff;
+  color: #3b4455;
+  border: 1.6px solid #cbd5e1;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.sealing-explore-btn:hover {
+  border-color: #018f5d;
+  color: #018f5d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(1, 143, 93, 0.2);
+}
+
+.sealing-explore-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.sealing-explore-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .sealing-slider-wrapper {
+    padding: 0 2.5rem;
   }
 
-  .products-slider-header {
+  .sealing-solutions-title {
+    margin-bottom: 2.5rem;
+  }
+
+  .sealing-slider-arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .sealing-product-img-box {
+    max-width: 170px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sealing-solutions-section {
+    padding: 4rem 1rem 5rem 1rem;
+  }
+
+  .sealing-slider-wrapper {
+    padding: 0;
+  }
+
+  /* Float arrows or place them nicely on mobile */
+  .sealing-slider-arrow {
+    display: none;
+  }
+
+  .sealing-solutions-title {
+    font-size: 1.9rem;
     margin-bottom: 2rem;
   }
 
-  .product-card-visual {
-    height: 210px;
+  .sealing-product-img-box {
+    max-width: 140px;
   }
 
-  .watermark-col {
-    font-size: 1.35rem;
+  .sealing-slider-pagination {
+    margin-bottom: 2.2rem;
   }
-
-  .product-card-img {
-    max-height: 165px;
-  }
-}
-
-/* Swiper Slide Layout for Category Overview Cards */
-.products-categories-swiper {
-  width: 100%;
-  padding: 10px 4px 1.5rem 4px;
-}
-
-.products-categories-swiper .swiper-wrapper {
-  align-items: stretch;
-}
-
-.products-categories-swiper .swiper-slide {
-  height: auto;
-  display: flex;
-}
-
-.products-categories-swiper .product-card-flex-item {
-  width: 100%;
-  height: 100%;
-  display: flex;
 }

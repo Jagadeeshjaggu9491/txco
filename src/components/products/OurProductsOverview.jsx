@@ -127,9 +127,7 @@ export default function OurProductsOverview() {
               >
                 {/* Top Image Preview Box with Ice Blue Background and Ghost Watermark */}
                 <div className="category-img-box">
-                  <span className="category-ghost-text">
-                    {item.title?.split(' ')[0] || 'TXCO'}
-                  </span>
+
                   <img
                     src={item.image}
                     alt={item.title}

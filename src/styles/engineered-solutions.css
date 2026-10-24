@@ -1,0 +1,214 @@
+/* =========================================================================
+   ENGINEERED SOLUTIONS SECTION (REDESIGNED BRAND STYLE)
+   ========================================================================= */
+
+.engineered-solutions-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 5.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.engineered-solutions-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2.5rem, 5vw, 4.8rem);
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================================
+   LEFT: 3 STACKED PILL CARDS
+   ========================================================================= */
+.engineered-cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  width: 100%;
+  max-width: 600px;
+  flex-shrink: 0;
+}
+
+.engineered-pill-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 1.75rem 1.15rem 2rem;
+  border-radius: 20px;
+  background-color: #f5f7fb;
+  color: #2b303b;
+  text-decoration: none;
+  min-height: 96px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.engineered-pill-card:hover {
+  background-color: #edf2f9;
+  transform: translateX(4px);
+}
+
+/* Active State (Green background with pure white text) */
+.engineered-pill-card.engineered-card-active {
+  background-color: #018f5d;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(1, 143, 93, 0.28);
+  transform: translateX(6px);
+}
+
+.engineered-pill-card.engineered-card-active:hover {
+  background-color: #02a069;
+  transform: translateX(8px);
+}
+
+/* Card Text Styling */
+.engineered-card-title {
+  font-family: var(--font-family-base);
+  font-size: clamp(1.3rem, 1.5vw, 1.55rem);
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  transition: color 0.25s ease;
+}
+
+/* Card Thumbnail Image */
+.engineered-card-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.engineered-card-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.engineered-pill-card:hover .engineered-card-img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.26));
+}
+
+/* =========================================================================
+   RIGHT: LARGE INSPECTION PHOTO
+   ========================================================================= */
+.engineered-photo-col {
+  width: 100%;
+  max-width: 480px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.engineered-feature-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  max-height: 440px;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 14px 38px rgba(13, 40, 77, 0.12);
+  display: block;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.engineered-feature-photo:hover {
+  transform: scale(1.015);
+  box-shadow: 0 18px 44px rgba(13, 40, 77, 0.16);
+}
+
+/* =========================================================================
+   FAR RIGHT: BACKGROUND WATERMARK (txco-mark-left)
+   ========================================================================= */
+.engineered-watermark-wrapper {
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(300px, 32vw, 520px);
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+  opacity: 0.95;
+}
+
+.engineered-watermark-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================= */
+@media (max-width: 960px) {
+  .engineered-solutions-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .engineered-solutions-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .engineered-cards-col {
+    max-width: 520px;
+  }
+
+  .engineered-photo-col {
+    max-width: 520px;
+  }
+
+  .engineered-watermark-wrapper {
+    right: -100px;
+    width: 320px;
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 640px) {
+  .engineered-solutions-section {
+    padding: 3rem 1.2rem;
+  }
+
+  .engineered-pill-card {
+    padding: 1rem 1.4rem;
+    min-height: 84px;
+    border-radius: 16px;
+  }
+
+  .engineered-card-title {
+    font-size: 1.22rem;
+  }
+
+  .engineered-card-img-wrap {
+    width: 85px;
+    height: 60px;
+  }
+
+  .engineered-feature-photo {
+    border-radius: 20px;
+  }
+}

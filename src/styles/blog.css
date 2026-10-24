@@ -321,8 +321,11 @@
 ========================================================================= */
 .blog-details-section {
   width: 100%;
+  margin-top: 8rem;
+  border-top: 1px solid #80808061;
   background-color: var(--bg-pure-white, #ffffff);
   padding: 3.5rem 2rem 6rem 2rem;
+  box-sizing: border-box;
 }
 
 .blog-details-container {

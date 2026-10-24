@@ -1,0 +1,267 @@
+/* =========================================================================
+   OFFERINGS AT A GLANCE & SEALING SOLUTIONS SECTION
+   - Section with top and bottom padding
+   - Full-width band with background color (100% viewport width)
+   - Centered row (max-width: 1400px) with negative vertical margin navy card
+   - Right brochure image and text
+   ========================================================================= */
+
+.offerings-glance-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 6rem 0;
+  position: relative;
+  overflow: visible;
+}
+
+/* Full-width div with background color spanning edge to edge */
+.offerings-fullwidth-band {
+  width: 100%;
+  background-color: #f2f7fd;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 290px;
+}
+
+/* Centered row container: max-width 1400px */
+.offerings-row-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* =========================================================================
+   LEFT: DARK NAVY CARD (Negative vertical margin breaking out of the band)
+   ========================================================================= */
+.offerings-navy-card {
+  width: 480px;
+  max-width: 44%;
+  flex-shrink: 0;
+  background-color: #0d284d;
+  border-radius: 26px;
+  padding: 3.5rem 3.2rem;
+  margin-top: -4.5rem;
+  margin-bottom: -4.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(13, 40, 77, 0.22);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Background Brand Watermark (txco-mark-right-white.png) */
+.offerings-navy-watermark-wrapper {
+  position: absolute;
+  right: -5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 88%;
+  height: 155%;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.offerings-navy-watermark-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right center;
+  display: block;
+}
+
+/* Navy Card Content */
+.offerings-navy-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.offerings-navy-title {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(2rem, 2.5vw, 2.45rem);
+  font-weight: 800;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.25rem 0;
+}
+
+.offerings-navy-desc {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.98rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #d0dbe9;
+  margin: 0 0 2.2rem 0;
+  max-width: 380px;
+}
+
+/* =========================================================================
+   RIGHT: BROCHURE & INFO COLUMN
+   ========================================================================= */
+.offerings-brochure-container {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  padding: 2.5rem 0 2.5rem 3.5rem;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.offerings-brochure-img-col {
+  flex-shrink: 0;
+}
+
+.offerings-brochure-img {
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 10px 24px rgba(12, 35, 64, 0.16);
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offerings-brochure-img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(13, 40, 77, 0.22);
+}
+
+.offerings-brochure-text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 380px;
+}
+
+.offerings-brochure-title {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(1.6rem, 2.2vw, 2.05rem);
+  font-weight: 800;
+  font-style: italic;
+  color: #122238;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.85rem 0;
+}
+
+.offerings-brochure-desc {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.96rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0 0 1.85rem 0;
+}
+
+/* =========================================================================
+   PILL BUTTONS (CONTACT US & DOWNLOAD)
+   ========================================================================= */
+.offerings-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: #018f5d;
+  color: #ffffff;
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  padding: 0.72rem 1.85rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(1, 143, 93, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.offerings-btn-chevron {
+  display: inline-block;
+  transition: transform 0.25s ease;
+  stroke: #ffffff;
+  flex-shrink: 0;
+}
+
+.offerings-pill-btn:hover {
+  background-color: #02a86e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(1, 143, 93, 0.45);
+  color: #ffffff;
+}
+
+.offerings-pill-btn:hover .offerings-btn-chevron {
+  transform: translateX(3px);
+}
+
+/* =========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================= */
+@media (max-width: 1100px) {
+  .offerings-glance-section {
+    padding: 3.5rem 0;
+  }
+
+  .offerings-row-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .offerings-navy-card {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 24px;
+  }
+
+  .offerings-brochure-container {
+    padding: 0;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .offerings-glance-section {
+    padding: 2.5rem 0;
+  }
+
+  .offerings-row-container {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .offerings-navy-card {
+    padding: 2.4rem 1.75rem;
+  }
+
+  .offerings-brochure-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.8rem;
+  }
+
+  .offerings-brochure-img {
+    width: 150px;
+  }
+}

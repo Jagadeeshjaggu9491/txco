@@ -5,9 +5,8 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import ContactSection from '@/components/ContactSection';
 import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
-import { ChevronLeft, ChevronRight, ArrowRight, Play } from 'lucide-react';
+import { ChevronLeft, ArrowRight, Play } from 'lucide-react';
 import gsap from 'gsap';
 import '@/styles/industry-details.css';
 
@@ -107,12 +106,12 @@ export default function IndustryDetailsLayout({ industryData }) {
         <PageHero
           title={industryData.heroTitle || `${industryData.title.toUpperCase()} SOLUTIONS`}
           subtitle={industryData.subtitle}
-          bgImage={industryData.bannerImage || '/images/industry-page-banner-img.avif'}
+          bgImage={industryData.bannerImage || '/images/CHEMICAL-INDUSTRY-banner.avif'}
           bgPosition="center"
         />
 
         {/* Main Two-Column Industry Layout using product-details classes */}
-        <section className="product-details-section">
+        <section className="product-details-section industry-details-section">
           <div className="product-details-container">
             {/* Top Navigation Bar: Breadcrumb on Left, Consultation CTA on Right */}
             <div ref={headerBarRef} className="product-details-header-bar">
@@ -264,68 +263,8 @@ export default function IndustryDetailsLayout({ industryData }) {
           </div>
         </section>
 
-        {/* Bottom Product Spotlight Section */}
-        {industryData.productSpotlight && industryData.productSpotlight.length > 0 && (
-          <section className="industry-spotlight-section">
-            <div className="industry-spotlight-container">
-              <div className="industry-spotlight-header">
-                <h2 className="industry-spotlight-title">Product Spotlight</h2>
-                <div className="industry-spotlight-nav-controls">
-                  <button
-                    type="button"
-                    className="industry-spotlight-nav-btn"
-                    aria-label="Previous Products"
-                  >
-                    <ChevronLeft size={18} strokeWidth={2.4} />
-                  </button>
-                  <button
-                    type="button"
-                    className="industry-spotlight-nav-btn"
-                    aria-label="Next Products"
-                  >
-                    <ChevronRight size={18} strokeWidth={2.4} />
-                  </button>
-                </div>
-              </div>
-
-              <div className="industry-spotlight-grid">
-                {industryData.productSpotlight.map((prod) => (
-                  <Link
-                    key={prod.id}
-                    href={prod.href || '/products'}
-                    className="industry-spotlight-card"
-                  >
-                    <div className="industry-spotlight-img-box">
-                      <img
-                        src={prod.image}
-                        alt={prod.title}
-                        className="industry-spotlight-img"
-                        onError={(e) => {
-                          e.currentTarget.src = '/images/home-products.png';
-                        }}
-                      />
-                    </div>
-
-                    <div className="industry-spotlight-card-body">
-                      <div>
-                        <h4 className="industry-spotlight-card-title">{prod.title}</h4>
-                        <p className="industry-spotlight-card-specs">{prod.specs}</p>
-                      </div>
-
-                      <div className="industry-spotlight-card-arrow">
-                        <ArrowRight size={14} strokeWidth={2.5} />
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
         {/* Supporting Global Solutions */}
         <DiscoverEngineeredSolutions />
-        <ContactSection />
       </main>
       <Footer />
     </>

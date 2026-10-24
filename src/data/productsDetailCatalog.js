@@ -32,8 +32,20 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'about-metallic-gaskets': {
         title: 'METALLIC GASKETS',
-        image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
-        bannerImage: '/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BONNET RING.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/LENS RING.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/PTFE INSERTED RTJ.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/RUBBER COATED RTJ.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BRIDGEMAN GASKET.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/IX GASKET.jpg',
+          '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/vx-ax gaskets.jpg',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
         downloadTitle: 'Metallic Gaskets Catalog',
         sections: [
           {
@@ -83,8 +95,16 @@ export const subcategoryDetailCatalog = {
 
       'ring-type-joint-rtj': {
         title: 'RING TYPE JOINT (RTJ) GASKETS',
-        image: '/images/product-detials-images/Ring-Type-Joint-RT-J.avif',
-        bannerImage: '/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ - R OVAL.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ - R OVAL.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ- R OCTOGONAL.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ- RX.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ -BX.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/RTJ/PROTECTIVE COATING.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
         downloadTitle: 'Ring Type Joint (RTJ)',
         sections: [
           {
@@ -143,8 +163,8 @@ export const subcategoryDetailCatalog = {
 
       'rubber-coated-rtj': {
         title: 'RUBBER-COATED RING TYPE JOINTS',
-        image: '/images/products/rubber-coated-rtj-gaskets.png',
-        bannerImage: '/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/RUBBER COATED RTJ.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/RUBBER COATED RTJ.jpeg',
         downloadTitle: 'Rubber-Coated RTJ Catalog',
         sections: [
           {
@@ -165,8 +185,8 @@ export const subcategoryDetailCatalog = {
 
       'ptfe-insert-rtj': {
         title: 'PTFE-INSERT RING TYPE JOINT GASKETS',
-        image: '/images/products/ptfe-insert-rtj-gaskets.png',
-        bannerImage: '/images/product-detials-images/PTFE-Insert-RTJ-Gaskets-banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/PTFE INSERTED RTJ.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/PTFE INSERTED RTJ.jpeg',
         downloadTitle: 'PTFE-Insert RTJ Catalog',
         sections: [
           {
@@ -188,8 +208,8 @@ export const subcategoryDetailCatalog = {
 
       'protective-coated-rtj': {
         title: 'PROTECTIVE COATINGS',
-        image: '/images/products/protective-coated-rtj-gaskets.png',
-        bannerImage: '/images/product-detials-images/Protective-Coated-RTJ-Gaskets-banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/PTFE COATED RTJ.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/PTFE COATED RTJ.jpeg',
         downloadTitle: 'Protective-Coated RTJ Catalog',
         sections: [
           {
@@ -209,8 +229,8 @@ export const subcategoryDetailCatalog = {
 
       'bonnet-rings': {
         title: 'BONNET GASKETS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
-        bannerImage: '/images/product-detials-images/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BONNET RING.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BONNET RING.jpeg',
         downloadTitle: 'Bonnet Rings Catalog',
         sections: [
           {
@@ -233,8 +253,8 @@ export const subcategoryDetailCatalog = {
 
       'lens-rings': {
         title: 'LENS GASKETS',
-        image: '/images/products/lens-rings-din-2696.png',
-        bannerImage: '/images/product-detials-images/Lens-Rings-banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/LENS RING.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/LENS RING.jpeg',
         downloadTitle: 'Lens Rings Catalog',
         sections: [
           {
@@ -257,8 +277,8 @@ export const subcategoryDetailCatalog = {
 
       'blind-gaskets': {
         title: 'BLIND FLANGE METALLIC GASKETS',
-        image: '/images/products/blind-rtj-gaskets.png',
-        bannerImage: '/images/product-detials-images/Blind-RTJ-Gaskets-banner-img.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
         downloadTitle: 'Blind Gaskets Catalog',
         sections: [
           {
@@ -279,8 +299,8 @@ export const subcategoryDetailCatalog = {
 
       'vx-ax-gaskets': {
         title: 'VX–AX GASKETS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
-        bannerImage: '/images/product-detials-images/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/vx-ax gaskets.jpg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/vx-ax gaskets.jpg',
         downloadTitle: 'VX-AX Gaskets Catalog',
         sections: [
           {
@@ -302,8 +322,8 @@ export const subcategoryDetailCatalog = {
 
       'ix-gaskets': {
         title: 'IX RING TYPE JOINT GASKETS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
-        bannerImage: '/images/product-detials-images/SRX_SBX_Gaskets_Banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/IX GASKET.jpg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/IX GASKET.jpg',
         downloadTitle: 'IX Gaskets Catalog',
         sections: [
           {
@@ -325,8 +345,8 @@ export const subcategoryDetailCatalog = {
 
       'delta-gaskets': {
         title: 'DELTA GASKETS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
-        bannerImage: '/images/product-detials-images/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
         downloadTitle: 'Delta Gaskets Catalog',
         sections: [
           {
@@ -348,8 +368,8 @@ export const subcategoryDetailCatalog = {
 
       'bridge-gaskets': {
         title: 'BRIDGEMAN GASKETS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
-        bannerImage: '/images/product-detials-images/SRX_SBX_Gaskets_Banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BRIDGEMAN GASKET.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BRIDGEMAN GASKET.jpeg',
         downloadTitle: 'Bridgeman Gaskets Catalog',
         sections: [
           {
@@ -371,8 +391,8 @@ export const subcategoryDetailCatalog = {
 
       'spectacle-blind-gaskets': {
         title: 'SPECTACLE BLINDS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
-        bannerImage: '/images/product-detials-images/Blind-RTJ-Gaskets-banner-img.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
         downloadTitle: 'Spectacle Blinds & Spades Catalog',
         sections: [
           {
@@ -395,8 +415,8 @@ export const subcategoryDetailCatalog = {
 
       'transition-rtj': {
         title: 'TRANSITION RING TYPE JOINTS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
-        bannerImage: '/images/product-detials-images/Ring-Type-Joint-(RTJ)-Gaskets-banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/TRANSISTION RING RTJ.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/TRANSISTION RING RTJ.jpeg',
         downloadTitle: 'Transition RTJ Catalog',
         sections: [
           {
@@ -418,8 +438,8 @@ export const subcategoryDetailCatalog = {
 
       'soft-material-seated-rtj': {
         title: 'SOFT MATERIAL SERRATED RTJ GASKETS',
-        image: '/images/products/soft-material-serrated-rtj-gaskets.png',
-        bannerImage: '/images/product-detials-images/Soft_Material_Serrated_RTJ_Gaskets_Banner-image.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/2.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/2.png',
         downloadTitle: 'Soft-Material-Seated RTJ Catalog',
         sections: [
           {
@@ -441,8 +461,8 @@ export const subcategoryDetailCatalog = {
 
       'weld-lip-seals': {
         title: 'TXCO WELD RING GASKETS',
-        image: '/images/product-detials-images/Welded-Lip-Seals.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
         downloadTitle: 'Weld Ring Gaskets',
         sections: [
           {
@@ -510,8 +530,8 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'about-semi-metallic-gaskets': {
         title: 'SEMI METALLIC GASKETS',
-        image: '/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif',
-        bannerImage: '/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SEMIMETALLIC COVER PAGE.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SEMIMETALLIC COVER PAGE.jpeg',
         downloadTitle: 'Semi-Metallic Gaskets Catalog',
         sections: [
           {
@@ -572,8 +592,16 @@ export const subcategoryDetailCatalog = {
 
       'spiral-wound-gaskets': {
         title: 'SPIRAL WOUND GASKETS',
-        image: '/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND GASKET.jpeg',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND GASKET.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND STYLE CG.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND STYLE CGI.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND STYLE CGI(BOLT HOLE TYPE).jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND STYLE R.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND STYLE RIR.jpeg',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SEMIMETALLIC COVER PAGE.jpeg',
         downloadTitle: 'Spiral Wound Gaskets Catalog',
         sections: [
           {
@@ -640,8 +668,8 @@ export const subcategoryDetailCatalog = {
 
       'kammprofile-gaskets': {
         title: 'KAMMPROFILE GASKETS',
-        image: '/images/product-detials-images/Planisteel-Camprofile.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/KAMMPROFILE GASKET.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/KAMMPROFILE GASKET.jpeg',
         downloadTitle: 'Kammprofile Gaskets Catalog',
         sections: [
           {
@@ -688,8 +716,8 @@ export const subcategoryDetailCatalog = {
 
       'metal-jacketed-gaskets': {
         title: 'METAL JACKETED GASKETS',
-        image: '/images/product-detials-images/Metal-jacketed-gaskets-Planisteel MJ.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/jacketed gasket.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/jacketed gasket.png',
         downloadTitle: 'Metal Jacketed Gaskets Catalog',
         sections: [
           {
@@ -743,8 +771,15 @@ export const subcategoryDetailCatalog = {
 
       'flange-isolation-kits': {
         title: 'FLANGE ISOLATION KITS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX-ISOPRO.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TXCO CREAMPRO.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX TYPE- D.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX TYPE-N.jpeg',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
         downloadTitle: 'Flange Isolation Kits Catalog',
         sections: [
           {
@@ -849,8 +884,8 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'about-non-metallic-gaskets': {
         title: 'NON METALLIC GASKETS',
-        image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
         downloadTitle: 'Non-Metallic Gaskets Catalog',
         sections: [
           {
@@ -867,8 +902,8 @@ export const subcategoryDetailCatalog = {
 
       'rubber-gaskets': {
         title: 'RUBBER GASKETS',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/RUBBER GASKETS.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/RUBBER GASKETS.jpeg',
         downloadTitle: 'Rubber Gaskets Catalog',
         sections: [
           {
@@ -898,8 +933,8 @@ export const subcategoryDetailCatalog = {
 
       'ptfe-gaskets': {
         title: 'PTFE GASKETS',
-        image: '/images/product-detials-images/PTFE-Jointing-Sheets-Planiflon.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
         downloadTitle: 'PTFE Gaskets Catalog',
         sections: [
           {
@@ -925,8 +960,8 @@ export const subcategoryDetailCatalog = {
 
       'eptfe-gaskets': {
         title: 'EXPANDED PTFE (ePTFE) GASKETS',
-        image: '/images/product-detials-images/PTFE-Jointing-Sheets-Planiflon.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/EPTFE GASKETS.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/EPTFE GASKETS.png',
         downloadTitle: 'ePTFE Gaskets Catalog',
         sections: [
           {
@@ -956,8 +991,17 @@ export const subcategoryDetailCatalog = {
 
       'asbestos-free-gaskets': {
         title: 'PLANIFLEX™ COMPRESSED FIBER GASKETS',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF120.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF120.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF110.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF139.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF155 GF.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF159.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO  AF-160 ACID.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF170.png',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF120.png',
         downloadTitle: 'Planiflex™ Sheet Catalog',
         techDataButtonText: 'TECHNICAL DATA OF PLANIFLEX™ COMPRESSED FIBER SHEETS',
         dimensionsButtonText: 'SHEET DIMENSIONS AND DIMENSIONAL TOLERANCES',
@@ -1012,8 +1056,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-af-110': {
         title: 'TXCO AF-110',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF110.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF110.png',
         downloadTitle: 'TXCO AF-110 Data Sheet',
         sections: [
           {
@@ -1036,8 +1080,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-af-120': {
         title: 'TXCO AF-120',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF120.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF120.png',
         downloadTitle: 'TXCO AF-120 Data Sheet',
         sections: [
           {
@@ -1082,8 +1126,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-af-139': {
         title: 'TXCO AF-139',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF139.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF139.png',
         downloadTitle: 'TXCO AF-139 Data Sheet',
         sections: [
           {
@@ -1128,8 +1172,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-af-154': {
         title: 'TXCO AF-154',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF155 GF.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF155 GF.png',
         downloadTitle: 'TXCO AF-154 Data Sheet',
         sections: [
           {
@@ -1174,8 +1218,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-af-155-gf': {
         title: 'TXCO AF-155 GF',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF155 GF.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF155 GF.png',
         downloadTitle: 'TXCO AF-155 GF Data Sheet',
         sections: [
           {
@@ -1221,8 +1265,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-af-159': {
         title: 'TXCO AF-159',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF159.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF159.png',
         downloadTitle: 'TXCO AF-159 Data Sheet',
         sections: [
           {
@@ -1267,8 +1311,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-af-160': {
         title: 'TXCO AF-160 ACID',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO  AF-160 ACID.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO  AF-160 ACID.png',
         downloadTitle: 'TXCO AF-160 Acid Data Sheet',
         sections: [
           {
@@ -1313,8 +1357,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-af-170': {
         title: 'TXCO AF-170',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF170.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF170.png',
         downloadTitle: 'TXCO AF-170 Data Sheet',
         sections: [
           {
@@ -1360,8 +1404,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-af-190': {
         title: 'TXCO AF-190',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF170.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF170.png',
         downloadTitle: 'TXCO AF-190 Data Sheet',
         sections: [
           {
@@ -1406,8 +1450,16 @@ export const subcategoryDetailCatalog = {
 
       'non-asbestos-gaskets': {
         title: 'COMPRESSED FIBER GASKETS (STYLE SERIES)',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE55.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE55.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE11.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE39.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE51.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE54 SUPER.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE59 OIL.png',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE55.png',
         downloadTitle: 'Style Series Catalog',
         sections: [
           {
@@ -1437,8 +1489,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-style-11': {
         title: 'TXCO STYLE 11',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE11.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE11.png',
         downloadTitle: 'TXCO Style 11 Data Sheet',
         sections: [
           {
@@ -1482,8 +1534,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-style-20': {
         title: 'TXCO STYLE 20',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE11.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE11.png',
         downloadTitle: 'TXCO Style 20 Data Sheet',
         sections: [
           {
@@ -1528,8 +1580,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-style-39': {
         title: 'TXCO STYLE 39',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE39.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE39.png',
         downloadTitle: 'TXCO Style 39 Data Sheet',
         sections: [
           {
@@ -1573,8 +1625,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-style-51': {
         title: 'TXCO STYLE 51',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE51.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE51.png',
         downloadTitle: 'TXCO Style 51 Data Sheet',
         sections: [
           {
@@ -1618,8 +1670,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-style-54': {
         title: 'TXCO STYLE 54 SUPER',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE54 SUPER.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE54 SUPER.png',
         downloadTitle: 'TXCO Style 54 Data Sheet',
         sections: [
           {
@@ -1662,8 +1714,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-style-55': {
         title: 'TXCO STYLE 55 UNIVERSAL',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE55.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE55.png',
         downloadTitle: 'TXCO Style 55 Data Sheet',
         sections: [
           {
@@ -1706,8 +1758,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-style-59': {
         title: 'TXCO STYLE 59 OIL',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE59 OIL.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE59 OIL.png',
         downloadTitle: 'TXCO Style 59 Oil Data Sheet',
         sections: [
           {
@@ -1751,8 +1803,8 @@ export const subcategoryDetailCatalog = {
 
       'txco-style-60': {
         title: 'TXCO STYLE 60 ACID',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO  AF-160 ACID.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO  AF-160 ACID.png',
         downloadTitle: 'TXCO Style 60 Acid Data Sheet',
         sections: [
           {
@@ -1812,8 +1864,12 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'about-steel-inserted-gaskets': {
         title: 'STEEL-INSERTED GASKETS',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert  Rubber Gasket.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert  Rubber Gasket.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert Graphite Gasket.png',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert  Rubber Gasket.png',
         downloadTitle: 'Steel-Inserted Gaskets Catalog',
         sections: [
           {
@@ -1831,8 +1887,8 @@ export const subcategoryDetailCatalog = {
       },
       'rubber-inserted': {
         title: 'STEEL INSERT - RUBBER GASKETS',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert  Rubber Gasket.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert  Rubber Gasket.png',
         downloadTitle: 'Steel-Inserted Rubber Gaskets',
         sections: [
           {
@@ -1853,8 +1909,8 @@ export const subcategoryDetailCatalog = {
       },
       'graphite-inserted': {
         title: 'STEEL INSERT - GRAPHITE GASKETS',
-        image: '/images/product-detials-images/Graphite-Gasketing-Sheet.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert Graphite Gasket.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert Graphite Gasket.png',
         downloadTitle: 'Steel-Inserted Graphite Gaskets',
         sections: [
           {
@@ -1889,8 +1945,8 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'plug-gaskets': {
         title: 'PLUG GASKETS',
-        image: '/images/product-detials-images/Special-Metal-Gaskets.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/plug gasket.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/plug gasket.png',
         downloadTitle: 'Plug Gaskets Catalog',
         sections: [
           {
@@ -1933,8 +1989,19 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'about-flanges': {
         title: 'TXCO INDUSTRIAL FLANGES',
-        image: '/images/product-detials-images/flanges-1.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/falnges cover image.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/falnges cover image.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/weld neck.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/slip on.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/blind flange.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/socket weld.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/lap joint.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Threaded (Screwed) Flanges.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Orifice Flanges.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/flanges.png',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/falnges cover image.png',
         downloadTitle: 'Industrial Flanges Catalog',
         sections: [
           {
@@ -1995,8 +2062,8 @@ export const subcategoryDetailCatalog = {
 
       'weld-neck-flanges': {
         title: 'WELD NECK FLANGES',
-        image: '/images/product-detials-images/flanges-1.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/weld neck.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/weld neck.png',
         downloadTitle: 'Weld Neck Flanges Catalog',
         sections: [
           {
@@ -2022,8 +2089,8 @@ export const subcategoryDetailCatalog = {
 
       'slip-on-flanges': {
         title: 'SLIP-ON FLANGES',
-        image: '/images/product-detials-images/flanges-2.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/slip on.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/slip on.png',
         downloadTitle: 'Slip-On Flanges Catalog',
         sections: [
           {
@@ -2048,8 +2115,8 @@ export const subcategoryDetailCatalog = {
 
       'blind-flanges': {
         title: 'BLIND FLANGES',
-        image: '/images/product-detials-images/flanges-1.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/blind flange.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/blind flange.png',
         downloadTitle: 'Blind Flanges Catalog',
         sections: [
           {
@@ -2075,8 +2142,8 @@ export const subcategoryDetailCatalog = {
 
       'socket-weld-flanges': {
         title: 'SOCKET WELD FLANGES',
-        image: '/images/product-detials-images/flanges-2.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/socket weld.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/socket weld.png',
         downloadTitle: 'Socket Weld Flanges Catalog',
         sections: [
           {
@@ -2102,8 +2169,8 @@ export const subcategoryDetailCatalog = {
 
       'lap-joint-flanges': {
         title: 'LAP JOINT FLANGES',
-        image: '/images/product-detials-images/flanges-1.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/lap joint.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/lap joint.png',
         downloadTitle: 'Lap Joint Flanges Catalog',
         sections: [
           {
@@ -2129,8 +2196,8 @@ export const subcategoryDetailCatalog = {
 
       'threaded-screwed-flanges': {
         title: 'THREADED (SCREWED) FLANGES',
-        image: '/images/product-detials-images/flanges-2.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Threaded (Screwed) Flanges.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Threaded (Screwed) Flanges.png',
         downloadTitle: 'Threaded Flanges Catalog',
         sections: [
           {
@@ -2155,8 +2222,8 @@ export const subcategoryDetailCatalog = {
 
       'orifice-flanges': {
         title: 'ORIFICE FLANGES',
-        image: '/images/product-detials-images/flanges-1.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Orifice Flanges.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Orifice Flanges.png',
         downloadTitle: 'Orifice Flanges Catalog',
         sections: [
           {
@@ -2182,8 +2249,8 @@ export const subcategoryDetailCatalog = {
 
       'custom-flanges': {
         title: 'ENGINEERED & CUSTOM FLANGES',
-        image: '/images/product-detials-images/flanges-2.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/flanges.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/flanges.png',
         downloadTitle: 'Custom Flanges Catalog',
         sections: [
           {
@@ -2212,8 +2279,13 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'monolithic-insulation-joints': {
         title: 'MONOLITHIC INSULATION JOINTS',
-        image: '/images/product-detials-images/product-details-page-banner.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX-ISOPRO.jpeg',
+          '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TXCO CREAMPRO.jpeg',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
         downloadTitle: 'Monolithic Insulation Joints Catalog',
         sections: [
           {
@@ -2295,8 +2367,8 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'about-valve-components': {
         title: 'VALVE COMPONENTS',
-        image: '/images/product-detials-images/Seat-for-Ball-and-Gate-Valve.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
         downloadTitle: 'Valve Components Catalog',
         sections: [
           {
@@ -2340,8 +2412,12 @@ export const subcategoryDetailCatalog = {
       },
       'precision-o-rings': {
         title: 'PRECISION O-RINGS & BACKUP RINGS',
-        image: '/images/product-detials-images/O-Ring-for-Ball-Valve.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
         downloadTitle: 'Precision O-Rings Catalog',
         sections: [
           {
@@ -2366,8 +2442,8 @@ export const subcategoryDetailCatalog = {
       },
       'valve-packing': {
         title: 'LOW-EMISSION GLAND PACKING',
-        image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
         downloadTitle: 'Low-Emission Packing Catalog',
         sections: [
           {
@@ -2392,8 +2468,8 @@ export const subcategoryDetailCatalog = {
       },
       'valve-seats-inserts': {
         title: 'VALVE SEATS & INSERTS',
-        image: '/images/product-detials-images/Seat-for-Ball-and-Gate-Valve.avif',
-        bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
         downloadTitle: 'Valve Seats & Inserts Catalog',
         sections: [
           {
@@ -2432,7 +2508,7 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'commercial-products-item': {
         title: 'COMMERCIAL PRODUCTS',
-        image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+        image: '/images/product-detials-images/Expanding-Gates-and-Through-Conduit-Gates.avif',
         bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
         downloadTitle: 'Commercial Products Catalog',
         sections: [

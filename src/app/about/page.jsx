@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import ContactSection from '@/components/ContactSection';
 import IndustrySolutions from '@/components/IndustrySolutions';
 import AboutBrochure from '@/components/about/AboutBrochure';
 import { aboutNewPageData } from '@/data/aboutNewData';
@@ -355,9 +354,6 @@ export default function AboutPage() {
 
         {/* 6. Company Overview Brochure */}
         {/* <AboutBrochure /> */}
-
-        {/* 7. Contact Section */}
-        <ContactSection />
       </main>
 
       <Footer />

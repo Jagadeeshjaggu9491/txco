@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ContactSection from '@/components/ContactSection';
 import { ChevronLeft, Play, ArrowRight, Download, ChevronDown } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,6 +13,7 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 import { TableFigureIcon } from '@/components/products/EngineeringProductDiagrams';
+import ProductImageCarousel from '@/components/products/ProductImageCarousel';
 
 // Helper to render markdown bold **text** as <strong>text</strong>
 function renderFormattedText(text) {
@@ -206,24 +206,355 @@ function splitPointItem(item) {
   };
 }
 
-// Mapping for images from public/images/products/new
+// Mapping for authentic high-resolution images from public/images/TXCO PHOTOS FOR WEBSITE
 const NEW_PRODUCT_IMAGES = {
-  'about-metallic-gaskets': '/images/products/new/Ring Type Joint (RTJ) Gaskets (R – Oval & Octagonal).png',
-  'ring-type-joint-rtj': '/images/products/new/Ring Type Joint (RTJ) Gaskets (R – Oval & Octagonal).png',
-  'rubber-coated-rtj': '/images/products/new/Rubber-Coated RTJ Gaskets.png',
-  'ptfe-insert-rtj': '/images/products/new/PTFE-Insert RTJ Gaskets.png',
-  'protective-coated-rtj': '/images/products/new/Protective-Coated RTJ Gaskets.png',
-  'bonnet-rings': '/images/products/new/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner.png',
-  'lens-rings': '/images/products/new/Lens Rings (DIN 2696).png',
-  'blind-gaskets': '/images/products/new/Blind RTJ Gaskets.png',
-  'vx-ax-gaskets': '/images/products/new/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner.png',
-  'ix-gaskets': '/images/products/new/SRX_SBX_Gaskets_Banner.png',
-  'delta-gaskets': '/images/products/new/Custom_Machined_Metallic_Ring_Seals_Banner.png',
-  'bridge-gaskets': '/images/products/new/Custom_Machined_Metallic_Ring_Seals_Banner.png',
-  'spectacle-blind-gaskets': '/images/products/new/Blind RTJ Gaskets.png',
-  'transition-rtj': '/images/products/new/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner.png',
-  'soft-material-seated-rtj': '/images/products/new/Soft_Material_Serrated_RTJ_Gaskets_Banner.png',
-  'weld-lip-seals': '/images/products/new/Custom_Machined_Metallic_Ring_Seals_Banner.png',
+  // Metallic Gaskets
+  'about-metallic-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
+  'ring-type-joint-rtj': '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ - R OVAL.png',
+  'rubber-coated-rtj': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/RUBBER COATED RTJ.jpeg',
+  'ptfe-insert-rtj': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/PTFE INSERTED RTJ.jpeg',
+  'protective-coated-rtj': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/PTFE COATED RTJ.jpeg',
+  'bonnet-rings': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BONNET RING.jpeg',
+  'lens-rings': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/LENS RING.jpeg',
+  'blind-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
+  'vx-ax-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/vx-ax gaskets.jpg',
+  'ix-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/IX GASKET.jpg',
+  'delta-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
+  'bridge-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BRIDGEMAN GASKET.jpeg',
+  'spectacle-blind-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
+  'transition-rtj': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/TRANSISTION RING RTJ.jpeg',
+  'soft-material-seated-rtj': '/images/TXCO PHOTOS FOR WEBSITE/RTJ/2.png',
+  'weld-lip-seals': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
+
+  // Semi-Metallic Gaskets
+  'about-semi-metallic-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SEMIMETALLIC COVER PAGE.jpeg',
+  'spiral-wound-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND GASKET.jpeg',
+  'kammprofile-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/KAMMPROFILE GASKET.jpeg',
+  'metal-jacketed-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/jacketed gasket.png',
+  'flange-isolation-kits': '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+
+  // Non-Metallic Gaskets
+  'about-non-metallic-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
+  'rubber-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/RUBBER GASKETS.jpeg',
+  'ptfe-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
+  'eptfe-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/EPTFE GASKETS.png',
+  'asbestos-free-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF120.png',
+  'txco-af-110': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF110.png',
+  'txco-af-120': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF120.png',
+  'txco-af-139': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF139.png',
+  'txco-af-154': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF155 GF.png',
+  'txco-af-155-gf': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF155 GF.png',
+  'txco-af-159': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF159.png',
+  'txco-af-160': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO  AF-160 ACID.png',
+  'txco-af-170': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF170.png',
+  'txco-af-190': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF170.png',
+  'non-asbestos-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE55.png',
+  'txco-style-11': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE11.png',
+  'txco-style-20': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE11.png',
+  'txco-style-39': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE39.png',
+  'txco-style-51': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE51.png',
+  'txco-style-54': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE54 SUPER.png',
+  'txco-style-55': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE55.png',
+  'txco-style-59': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE59 OIL.png',
+  'txco-style-60': '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO  AF-160 ACID.png',
+
+  // Steel-Inserted Gaskets
+  'about-steel-inserted-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert  Rubber Gasket.png',
+  'rubber-inserted': '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert  Rubber Gasket.png',
+  'graphite-inserted': '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert Graphite Gasket.png',
+
+  // Plug Gaskets
+  'plug-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/plug gasket.png',
+
+  // Flanges
+  'about-flanges': '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/falnges cover image.png',
+  'weld-neck-flanges': '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/weld neck.png',
+  'slip-on-flanges': '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/slip on.png',
+  'blind-flanges': '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/blind flange.png',
+  'socket-weld-flanges': '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/socket weld.png',
+  'lap-joint-flanges': '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/lap joint.png',
+  'threaded-screwed-flanges': '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Threaded (Screwed) Flanges.png',
+  'orifice-flanges': '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Orifice Flanges.png',
+  'custom-flanges': '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/flanges.png',
+
+  // Monolithic Insulation Joints
+  'monolithic-insulation-joints': '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+
+  // Valve Components
+  'about-valve-components': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
+  'precision-o-rings': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+  'valve-packing': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+  'valve-seats-inserts': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
+
+  // Commercial Products
+  'commercial-products-item': '/images/product-detials-images/Expanding-Gates-and-Through-Conduit-Gates.avif',
+};
+
+// Multi-Image Product Gallery Mappings from client provided photos
+const PRODUCT_GALLERY_IMAGES = {
+  // 1. Semi-Metallic Gaskets - Flange Isolation Kits (5 authentic images)
+  'flange-isolation-kits': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+      label: 'Flange Isolation Kit Overview',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX-ISOPRO.jpeg',
+      label: 'TX-ISOPRO™ High-Performance Kit',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TXCO CREAMPRO.jpeg',
+      label: 'TXCO CreamPro™ Isolation Kit',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX TYPE- D.jpeg',
+      label: 'TX Type-D (RTJ Flanges)',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX TYPE-N.jpeg',
+      label: 'TX Type-N (Raised Face & Flat Face)',
+    },
+  ],
+
+  // 2. Semi-Metallic Gaskets - Spiral Wound Gaskets (6 authentic images)
+  'spiral-wound-gaskets': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND GASKET.jpeg',
+      label: 'Spiral Wound Gasket Overview',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND STYLE CG.jpeg',
+      label: 'Style CG (Outer Centering Ring)',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND STYLE CGI.jpeg',
+      label: 'Style CGI (Inner & Outer Rings)',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND STYLE CGI(BOLT HOLE TYPE).jpeg',
+      label: 'Style CGI (Bolt Hole Type)',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND STYLE R.jpeg',
+      label: 'Style R (Basic Winding Element)',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND STYLE RIR.jpeg',
+      label: 'Style RIR (With Internal Ring)',
+    },
+  ],
+
+  // 3. Metallic Gaskets - Ring Type Joint (RTJ) (6 authentic images)
+  'ring-type-joint-rtj': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ - R OVAL.png',
+      label: 'Style R (Oval Profile)',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ- R OCTOGONAL.png',
+      label: 'Style R (Octagonal Profile)',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ- RX.png',
+      label: 'Style RX (Pressure-Energized)',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ -BX.png',
+      label: 'Style BX (High-Pressure up to 20,000 psi)',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/PROTECTIVE COATING.png',
+      label: 'Protective Coated RTJ Profile',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
+      label: 'Ring Type Joint Overview',
+    },
+  ],
+
+  // 4. Non-Metallic Gaskets - Non-Asbestos Gaskets / CNAF (6 authentic images)
+  'non-asbestos-gaskets': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE55.png',
+      label: 'TXCO Style 55 High Performance',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE11.png',
+      label: 'TXCO Style 11 General Service',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE39.png',
+      label: 'TXCO Style 39 Medium Duty',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE51.png',
+      label: 'TXCO Style 51 High Pressure',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE54 SUPER.png',
+      label: 'TXCO Style 54 Super Heavy Duty',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE59 OIL.png',
+      label: 'TXCO Style 59 Oil & Fuel Resistant',
+    },
+  ],
+
+  // 5. Non-Metallic Gaskets - Asbestos-Free Gaskets (7 authentic images)
+  'asbestos-free-gaskets': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF120.png',
+      label: 'TXCO AF-120 Premium Grade',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF110.png',
+      label: 'TXCO AF-110 Standard Grade',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF139.png',
+      label: 'TXCO AF-139 Steam & Chemical Grade',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF155 GF.png',
+      label: 'TXCO AF-155 Glass Fiber Reinforced',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF159.png',
+      label: 'TXCO AF-159 High Temperature',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO  AF-160 ACID.png',
+      label: 'TXCO AF-160 Acid Resistant',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF170.png',
+      label: 'TXCO AF-170 Severe Duty',
+    },
+  ],
+
+  // 6. Flanges - About Flanges (9 authentic images)
+  'about-flanges': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/falnges cover image.png',
+      label: 'Flanges Engineering Overview',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/weld neck.png',
+      label: 'Weld Neck Flange',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/slip on.png',
+      label: 'Slip-On Flange',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/blind flange.png',
+      label: 'Blind Flange',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/socket weld.png',
+      label: 'Socket Weld Flange',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/lap joint.png',
+      label: 'Lap Joint Flange',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Threaded (Screwed) Flanges.png',
+      label: 'Threaded Screwed Flange',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Orifice Flanges.png',
+      label: 'Orifice Flange',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/flanges.png',
+      label: 'Custom Forged Flanges',
+    },
+  ],
+
+  // 7. Valve Components - Precision O-Rings (2 authentic images)
+  'precision-o-rings': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+      label: 'Precision O-Rings',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
+      label: 'High-Performance Elastomer O-Rings',
+    },
+  ],
+
+  // 8. Monolithic Insulation Joints (3 authentic images)
+  'monolithic-insulation-joints': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+      label: 'Monolithic Insulation Joint Overview',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX-ISOPRO.jpeg',
+      label: 'Dielectric Isolation Assembly',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TXCO CREAMPRO.jpeg',
+      label: 'CreamPro™ High Pressure Seal',
+    },
+  ],
+
+  // 9. Steel Inserted Gaskets (2 authentic images)
+  'about-steel-inserted-gaskets': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert  Rubber Gasket.png',
+      label: 'Steel-Inserted Rubber Gasket',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert Graphite Gasket.png',
+      label: 'Steel-Inserted Graphite Gasket',
+    },
+  ],
+
+  // 10. About Metallic Gaskets (10 authentic images)
+  'about-metallic-gaskets': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
+      label: 'Metallic Gaskets Overview',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BONNET RING.jpeg',
+      label: 'Bonnet Ring Gasket',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/LENS RING.jpeg',
+      label: 'Lens Ring Gasket',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/PTFE INSERTED RTJ.jpeg',
+      label: 'PTFE-Inserted RTJ',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/RUBBER COATED RTJ.jpeg',
+      label: 'Rubber-Coated RTJ',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
+      label: 'Delta Gasket',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BRIDGEMAN GASKET.jpeg',
+      label: 'Bridgeman Gasket',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
+      label: 'Blind Gasket',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/IX GASKET.jpg',
+      label: 'IX Compact Flange Gasket',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/vx-ax gaskets.jpg',
+      label: 'VX–AX Subsea Gasket',
+    },
+  ],
 };
 
 function getFeaturedProductImage(productId, pData, subcategory) {
@@ -231,50 +562,28 @@ function getFeaturedProductImage(productId, pData, subcategory) {
     return NEW_PRODUCT_IMAGES[productId];
   }
 
-  // If product data explicitly specifies an image (e.g. Planiflex, Spiral Wound, etc.)
+  // If product data explicitly specifies an image
   if (pData?.image && !pData.image.includes('place-holder')) {
     return pData.image;
   }
 
-  const pTitle = (pData?.title || '').toLowerCase();
-  const subTitle = (subcategory?.subcategoryTitle || '').toLowerCase();
-  const isNonMetallic = subTitle.includes('non-metallic');
-
-  if (pTitle.includes('planiflex') || pTitle.includes('compressed') || pTitle.includes('asbestos-free')) {
-    return '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif';
-  }
-  if (pTitle.includes('rubber-coated') || pTitle.includes('rubber coated')) {
-    return '/images/products/new/Rubber-Coated RTJ Gaskets.png';
-  }
-  if (pTitle.includes('ptfe-insert') || pTitle.includes('ptfe insert')) {
-    return '/images/products/new/PTFE-Insert RTJ Gaskets.png';
-  }
-  if (pTitle.includes('protective-coated') || pTitle.includes('protective coated')) {
-    return '/images/products/new/Protective-Coated RTJ Gaskets.png';
-  }
-  if (pTitle.includes('lens ring') || pTitle.includes('lens-ring') || pTitle.includes('din 2696')) {
-    return '/images/products/new/Lens Rings (DIN 2696).png';
-  }
-  if (pTitle.includes('blind rtj') || pTitle.includes('blind gasket') || pTitle.includes('spectacle blind')) {
-    return '/images/products/new/Blind RTJ Gaskets.png';
-  }
-  if (pTitle.includes('serrated') || pTitle.includes('soft-material') || pTitle.includes('soft material')) {
-    return '/images/products/new/Soft_Material_Serrated_RTJ_Gaskets_Banner.png';
-  }
-  if (pTitle.includes('srx') || pTitle.includes('sbx') || pTitle.includes('ix gasket')) {
-    return '/images/products/new/SRX_SBX_Gaskets_Banner.png';
-  }
-  if (pTitle.includes('rx') || pTitle.includes('bx') || pTitle.includes('bonnet ring')) {
-    return '/images/products/new/RX_BX_Pressure_Energized_RTJ_Gaskets_Banner.png';
-  }
-  if (pTitle.includes('custom machined') || pTitle.includes('delta gasket') || pTitle.includes('bridgeman') || pTitle.includes('weld-lip') || pTitle.includes('weld lip')) {
-    return '/images/products/new/Custom_Machined_Metallic_Ring_Seals_Banner.png';
-  }
-  if (!isNonMetallic && (pTitle.includes('ring type joint') || pTitle.includes('rtj') || subTitle === 'metallic gaskets')) {
-    return '/images/products/new/Ring Type Joint (RTJ) Gaskets (R – Oval & Octagonal).png';
-  }
-
   return pData?.newImage || pData?.image || null;
+}
+
+function getProductGalleryImages(productId, pData, subcategory) {
+  // 1. If productData explicitly provides an images array
+  if (Array.isArray(pData?.images) && pData.images.length > 0) {
+    return pData.images;
+  }
+
+  // 2. If mapped in PRODUCT_GALLERY_IMAGES dictionary
+  if (productId && PRODUCT_GALLERY_IMAGES[productId] && PRODUCT_GALLERY_IMAGES[productId].length > 0) {
+    return PRODUCT_GALLERY_IMAGES[productId];
+  }
+
+  // 3. Fallback to featured single image
+  const single = getFeaturedProductImage(productId, pData, subcategory);
+  return single ? [single] : [];
 }
 
 export default function ProductDetailsLayout({ subcategoryData }) {
@@ -336,6 +645,12 @@ export default function ProductDetailsLayout({ subcategoryData }) {
     };
 
   const featuredProductImage = getFeaturedProductImage(
+    activeProductId,
+    productData,
+    subcategoryData
+  );
+
+  const galleryImages = getProductGalleryImages(
     activeProductId,
     productData,
     subcategoryData
@@ -509,7 +824,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
 
   return (
     <>
-      <Header />
+      <Header heroMode={true} />
       <main className="product-details-main">
         <section className="product-details-section">
           <div className="product-details-container">
@@ -680,15 +995,11 @@ export default function ProductDetailsLayout({ subcategoryData }) {
 
               {/* Right Column (40-42% width) - Side-by-side with overview */}
               <div className="product-details-col-right">
-                {featuredProductImage && (
-                  <div className="product-details-sticky-img-box">
-                    <img
-                      src={encodeURI(featuredProductImage)}
-                      alt={productData?.title || subcategoryData?.subcategoryTitle || 'Product Image'}
-                      className="product-details-sticky-img"
-                    />
-                  </div>
-                )}
+                <ProductImageCarousel
+                  images={galleryImages}
+                  productTitle={productData?.title || subcategoryData?.subcategoryTitle}
+                  subcategoryTitle={subcategoryData?.subcategoryTitle}
+                />
               </div>
             </div>
 
@@ -720,10 +1031,10 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                       sec0.image ||
                       productData?.image ||
                       ((subcategoryData?.subcategoryTitle?.toLowerCase().includes('flange') || subcategoryData?.parentCategoryTitle?.toLowerCase().includes('flange'))
-                        ? '/images/product-detials-images/flanges-product-detials-place-holder-img.png'
+                        ? '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/falnges cover image.png'
                         : (subcategoryData?.subcategoryTitle?.toLowerCase().includes('valve') || subcategoryData?.parentCategoryTitle?.toLowerCase().includes('valve'))
-                          ? '/images/product-detials-images/valve-components-product-detials-place-holder-img.png'
-                          : '/images/product-detials-images/gaskets-product-detials-place-holder-img.png')
+                          ? '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg'
+                          : '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg')
                     }
                     alt={sec0.heading || productData?.title || 'Product Details Technical Drawing'}
                     className="product-details-image"
@@ -803,9 +1114,6 @@ export default function ProductDetailsLayout({ subcategoryData }) {
             </div>
           </div>
         </section>
-
-        {/* Global Contact Section */}
-        <ContactSection />
       </main>
       <Footer />
     </>

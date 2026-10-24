@@ -1,98 +1,115 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { engineeredSolutionsData } from '@/data/homeData';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const solutionCategories = [
+  {
+    id: 'sealing-products',
+    line1: 'SEALING',
+    line2: 'PRODUCTS',
+    image: '/images/SEALING-PRODUCTS-img.avif',
+    alt: 'TXCO Sealing Products Ring Gasket',
+    href: '/products',
+  },
+  {
+    id: 'engineered-solutions',
+    line1: 'ENGINEERED',
+    line2: 'SOLUTIONS',
+    image: '/images/ENGINEERED-SOLUTIONS-img.avif',
+    alt: 'TXCO Engineered Flange and Gasket Solutions',
+    href: '/industries',
+  },
+  {
+    id: 'technical-services',
+    line1: 'TECHNICAL',
+    line2: 'SERVICES',
+    image: '/images/TECHNICAL-SERVICES-img.avif',
+    alt: 'TXCO Field Support and Technical Services',
+    href: '/services',
+  },
+];
+
 export default function EngineeredSolutions() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const sectionRef = useRef(null);
-  const headingRef = useRef(null);
-  const columnsRef = useRef([]);
-  const borderRefs = useRef([]);
-  const iconRefs = useRef([]);
+  const cardsRef = useRef([]);
+  const photoRef = useRef(null);
+  const watermarkRef = useRef(null);
 
-  columnsRef.current = [];
-  borderRefs.current = [];
-  iconRefs.current = [];
-
-  const addToColumnRefs = (el) => {
-    if (el && !columnsRef.current.includes(el)) {
-      columnsRef.current.push(el);
+  cardsRef.current = [];
+  const addToCardsRef = (el) => {
+    if (el && !cardsRef.current.includes(el)) {
+      cardsRef.current.push(el);
     }
   };
-
-  const columns = engineeredSolutionsData;
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-
-      if (headingRef.current) {
-        tl.fromTo(
-          headingRef.current,
-          { y: 35, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }
-        );
-      }
-
-      if (columnsRef.current.length > 0) {
-        tl.fromTo(
-          columnsRef.current,
-          { y: 60, opacity: 0 },
+      // Cards entrance
+      if (cardsRef.current.length > 0) {
+        gsap.fromTo(
+          cardsRef.current,
+          { x: -50, opacity: 0 },
           {
-            y: 0,
+            x: 0,
             opacity: 1,
             duration: 0.85,
-            stagger: 0.22,
+            stagger: 0.15,
             ease: 'power3.out',
-          },
-          '-=0.3'
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              once: true,
+            },
+          }
         );
       }
 
-      if (borderRefs.current.length > 0) {
-        tl.fromTo(
-          borderRefs.current,
-          { x: -22, opacity: 0, scaleY: 0.6 },
+      // Photo entrance
+      if (photoRef.current) {
+        gsap.fromTo(
+          photoRef.current,
+          { scale: 0.94, opacity: 0 },
           {
-            x: 0,
-            opacity: 1,
-            scaleY: 1,
-            duration: 0.7,
-            stagger: 0.18,
-            ease: 'power3.out',
-          },
-          '-=0.55'
-        );
-      }
-
-      if (iconRefs.current.length > 0) {
-        tl.fromTo(
-          iconRefs.current,
-          { x: -35, opacity: 0, scale: 0.8 },
-          {
-            x: 0,
-            opacity: 1,
             scale: 1,
-            duration: 0.75,
-            stagger: 0.18,
-            ease: 'back.out(1.4)',
-          },
-          '-=0.45'
+            opacity: 1,
+            duration: 0.95,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Watermark entrance
+      if (watermarkRef.current) {
+        gsap.fromTo(
+          watermarkRef.current,
+          { opacity: 0, x: 30 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              once: true,
+            },
+          }
         );
       }
     }, sectionRef);
@@ -102,48 +119,54 @@ export default function EngineeredSolutions() {
 
   return (
     <section ref={sectionRef} className="engineered-solutions-section">
-      <div className="txco-container">
-        <div className="engineered-solutions-heading-wrap">
-          <h2 ref={headingRef} className="engineered-solutions-heading heading-gradient">
-            Engineered Solutions. Built to Perform.
-          </h2>
-        </div>
+      {/* Background Left-Pointing Chevron Watermark */}
+      <div ref={watermarkRef} className="engineered-watermark-wrapper" aria-hidden="true">
+        <img
+          src="/images/logo/txco-mark-left.png"
+          alt=""
+          className="engineered-watermark-img"
+        />
+      </div>
 
-        <div className="engineered-solutions-grid">
-          {columns.map((col, idx) => (
-            <div key={idx} ref={addToColumnRefs} className="engineered-col-card">
-              <div className="engineered-col-header">
-                <div className="engineered-icon-wrapper">
-                  <div
-                    ref={(el) => (borderRefs.current[idx] = el)}
-                    className="engineered-vertical-line"
-                  />
-                  <img
-                    ref={(el) => (iconRefs.current[idx] = el)}
-                    src={col.iconSrc}
-                    alt={col.title ? col.title.replace(/<[^>]*>?/gm, '') : ''}
-                    className="engineered-icon-img"
-                  />
+      <div className="engineered-solutions-container">
+        {/* Left Column: 3 Category Cards */}
+        <div className="engineered-cards-col">
+          {solutionCategories.map((cat, idx) => {
+            const isActive = activeIndex === idx;
+            return (
+              <Link
+                key={cat.id}
+                href={cat.href}
+                ref={addToCardsRef}
+                onMouseEnter={() => setActiveIndex(idx)}
+                onClick={() => setActiveIndex(idx)}
+                className={`engineered-pill-card ${isActive ? 'engineered-card-active' : ''}`}
+                aria-current={isActive ? 'true' : undefined}
+              >
+                <div className="engineered-card-title">
+                  <span>{cat.line1}</span>
+                  <span>{cat.line2}</span>
                 </div>
 
-                <h3
-                  className="engineered-col-title"
-                  dangerouslySetInnerHTML={{ __html: col.title }}
-                />
-              </div>
+                <div className="engineered-card-img-wrap">
+                  <img
+                    src={cat.image}
+                    alt={cat.alt}
+                    className="engineered-card-img"
+                  />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
 
-              <ul className="engineered-items-list">
-                {col.items.map((item, itemIdx) => (
-                  <li key={itemIdx}>
-                    <Link href={item.href} className="engineered-item-link">
-                      <span>{item.name}</span>
-                      <span className="engineered-link-arrow">→</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        {/* Right Column: Feature Photo */}
+        <div ref={photoRef} className="engineered-photo-col">
+          <img
+            src="/images/Gasket-Inspection.avif"
+            alt="TXCO Quality Engineers Inspecting Precision Gasket"
+            className="engineered-feature-photo"
+          />
         </div>
       </div>
     </section>

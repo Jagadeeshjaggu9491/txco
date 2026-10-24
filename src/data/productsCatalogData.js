@@ -25,7 +25,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=ring-type-joint-rtj',
             standards: 'API Spec 6A, API 17D, ASME B16.20',
             types: 'R – Oval, R – Octagonal, RX, BX, SBX, SRX',
-            image: '/images/products/ring-type-joint-rtj-oval-octagonal.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ - R OVAL.png',
             description: 'Style R (Oval & Octagonal), RX (pressure-energized), and BX (up to 20,000 psi) high-integrity metallic sealing rings.',
           },
           {
@@ -35,7 +35,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=rubber-coated-rtj',
             standards: 'API Spec 6A / Hydrotest Preservation',
             types: '',
-            image: '/images/products/rubber-coated-rtj-gaskets.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/RUBBER COATED RTJ.jpeg',
             description: 'Elastomer coated RTJ core protecting expensive flange groove faces during hydrostatic pressure testing.',
           },
           {
@@ -45,7 +45,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=ptfe-insert-rtj',
             standards: 'API 6A / ASME B16.20',
             types: '',
-            image: '/images/products/ptfe-insert-rtj-gaskets.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/PTFE INSERTED RTJ.jpeg',
             description: 'PTFE insert ring shielding the inner groove gap against turbulent flow erosion and aggressive acid attack.',
           },
           {
@@ -55,7 +55,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=protective-coated-rtj',
             standards: 'API 6A Electroplating Standards',
             types: '',
-            image: '/images/products/protective-coated-rtj-gaskets.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/PTFE COATED RTJ.jpeg',
             description: 'Zinc, Cadmium, Silver, or Xylan-coated RTJ rings preventing galvanic oxidation and high-temp galling.',
           },
           {
@@ -65,7 +65,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=bonnet-rings',
             standards: 'API 6D, API 600, ASME B16.34',
             types: '',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BONNET RING.jpeg',
             description: 'Specialized metallic octagonal/oval bonnet cavity rings for high-pressure gate and globe valves.',
           },
           {
@@ -75,7 +75,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=lens-rings',
             standards: 'DIN 2696, High-Pressure Piping',
             types: '',
-            image: '/images/products/lens-rings-din-2696.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/LENS RING.jpeg',
             description: 'Convex spherical cross-section metallic rings for high-temperature synthesis loops and autoclaves.',
           },
           {
@@ -85,7 +85,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=blind-gaskets',
             standards: 'ASME B16.48, Line Blanks',
             types: '',
-            image: '/images/products/blind-rtj-gaskets.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
             description: 'Solid paddle blinds and spacers for positive pipeline positive isolation and hydrotest blanking.',
           },
           {
@@ -95,7 +95,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=vx-ax-gaskets',
             standards: 'API 16A, Subsea Drilling & Wellheads',
             types: '',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/vx-ax gaskets.jpg',
             description: 'Pressure-energized subsea wellhead and riser connector metal gaskets with face-to-face hub contact.',
           },
           {
@@ -105,7 +105,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=ix-gaskets',
             standards: 'NORSOK L-005 Compact Flanges',
             types: '',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/IX GASKET.jpg',
             description: 'High-integrity metallic seal rings with bevelled inner/outer lips designed for compact offshore flanges.',
           },
           {
@@ -115,7 +115,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=delta-gaskets',
             standards: 'API 17D Subsea Equipment',
             types: '',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
             description: 'Triangular cross-section pressure-energized metallic rings for ultra-high pressure vessels (up to 3000 bar).',
           },
           {
@@ -125,7 +125,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=bridge-gaskets',
             standards: 'Bridgeman Autoclave Closure Specs',
             types: '',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BRIDGEMAN GASKET.jpeg',
             description: 'Self-sealing Bridgeman-type metallic pressure-seal rings for high-pressure boiler feed reactors.',
           },
           {
@@ -135,7 +135,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=spectacle-blind-gaskets',
             standards: 'ASME B16.48, Class 150 - 2500',
             types: '',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
             description: 'Combined spade and spacer metallic sealing assemblies for rapid operational maintenance shut-offs.',
           },
           {
@@ -145,7 +145,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=transition-rtj',
             standards: 'API Spec 6A Custom Combinations',
             types: '',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/TRANSISTION RING RTJ.jpeg',
             description: 'Combination RTJ rings mating two flanges of different pressure classes or mismatched groove profiles.',
           },
           {
@@ -155,7 +155,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=soft-material-seated-rtj',
             standards: 'ASME B16.20 / API 6A Modified',
             types: '',
-            image: '/images/products/soft-material-serrated-rtj-gaskets.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/2.png',
             description: 'Metallic RTJ core with soft PTFE or elastomer seating inserts for damaged or scratched flange grooves.',
           },
           {
@@ -165,7 +165,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/metallic-gaskets/details?product=weld-lip-seals',
             standards: 'DIN 2695, ASME Sec VIII',
             types: '',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
             description: 'Welded metallic seal rings providing hermetic zero-leakage containment for lethal or radioactive services.',
           },
         ],
@@ -193,7 +193,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/semi-metallic-gaskets/details?product=spiral-wound-gaskets',
             standards: 'ASME B16.20, EN 1514-2, Class 150 - 2500',
             types: 'Style R, Style RIR, Style CG, Style CGI, Style CGI with Bolt Holes Full-Face',
-            image: '/images/product-detials-images/Spiral-Wound-Gaskets-Planisteel-SW.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SPIRAL WOUND/SPIRAL WOUND GASKET.jpeg',
             description: 'Chevron-profiled metallic strip co-wound with flexible graphite, PTFE, or mica filler for extreme pressure cycling.',
           },
           {
@@ -203,7 +203,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/semi-metallic-gaskets/details?product=kammprofile-gaskets',
             standards: 'DIN 2697, EN 1514-6, ASME B16.20',
             types: 'Type Z, Type ZA, Type ZI',
-            image: '/images/product-detials-images/Planisteel-Camprofile.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/KAMMPROFILE GASKET.jpeg',
             description: 'Grooved metallic core with soft graphite or PTFE facing layers for high thermal cycling and heat exchangers.',
           },
           {
@@ -213,7 +213,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/semi-metallic-gaskets/details?product=metal-jacketed-gaskets',
             standards: 'ASME B16.20, TEMA Standards',
             types: 'Corrugated Metal Jacketed, Flat Metal Jacketed, Double Jacketed, Heat Exchanger',
-            image: '/images/product-detials-images/Metal-jacketed-gaskets-Planisteel MJ.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/jacketed gasket.png',
             description: 'Metallic outer shell enclosing compressible non-asbestos or graphite core for heat exchanger pass partitions.',
           },
           {
@@ -223,7 +223,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/semi-metallic-gaskets/details?product=flange-isolation-kits',
             standards: 'API 6FB Fire-Safe, NACE SP0169, ISO 15589-1',
             types: 'TX-ISOPRO™, TX-CERAMPRO™, TX Type D, TX TYPE -N',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
             description: 'TX-ISOPRO™, TX-CERAMPRO™ high-dielectric isolation kits providing cathodic protection and fire-safe sealing up to 1000°C.',
           },
         ],
@@ -251,7 +251,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/non-metallic-gaskets/details?product=rubber-gaskets',
             standards: 'ASTM D2000, FDA 21 CFR 177.2600',
             types: 'Neoprene, Nitrile (NBR), EPDM, Silicone, Viton® (FKM), Natural Rubber, SBR, Butyl',
-            image: '/images/product-detials-images/Compressed-fiber-gaskets-Planiflex.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/RUBBER GASKETS.jpeg',
             description: 'Full-face and ring gaskets fabricated from EPDM, Nitrile (NBR), Neoprene, FKM/Viton®, and Silicone.',
           },
           {
@@ -261,7 +261,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/non-metallic-gaskets/details?product=ptfe-gaskets',
             standards: 'ASTM D4894, FDA Compliant',
             types: 'Virgin PTFE, Expanded PTFE, Modified PTFE, Filled PTFE, PTFE Envelope, PTFE Ring, PTFE Full-Face, PTFE Envelope with Insert',
-            image: '/images/product-detials-images/PTFE-Jointing-Sheets-Planiflon.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
             description: 'Virgin, filled, and modified PTFE gaskets providing universal chemical inertness across pH 0–14.',
           },
           {
@@ -271,7 +271,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/non-metallic-gaskets/details?product=eptfe-gaskets',
             standards: 'Multi-Directionally Expanded PTFE',
             types: 'Expanded PTFE – Sheet, Joint Sealant, Cut Gaskets, Custom Profiles',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/EPTFE GASKETS.png',
             description: 'Expanded PTFE sheet and joint sealant with high tensile strength that eliminates cold-flow creep.',
           },
           {
@@ -281,7 +281,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/non-metallic-gaskets/details?product=asbestos-free-gaskets',
             standards: 'Eco-compliant High-Density Gasket Materials',
             types: 'TXCO AF-110, TXCO AF-120, TXCO AF-139, TXCO AF-154, TXCO AF-155 GF, TXCO AF-159, TXCO AF-160, TXCO AF-170, TXCO AF-190',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/Asbestos Free/TXCO AF120.png',
             description: 'Environmentally safe synthetic fiber sheets engineered for hydrocarbons, steam, and industrial water services.',
           },
           {
@@ -291,7 +291,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/non-metallic-gaskets/details?product=non-asbestos-gaskets',
             standards: 'BS 7531, ASTM F104 (CNAF)',
             types: 'TXCO Style 11, TXCO Style 20, TXCO Style 39, TXCO Style 51, TXCO Style 54, TXCO Style 55, TXCO Style 59 Oil, TXCO Style 60 Acid',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/CNAF/TXCO STYLE55.png',
             description: 'Compressed non-asbestos fiber (CNAF) bonded with high-grade synthetic elastomeric binders.',
           },
         ],
@@ -319,7 +319,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/steel-inserted-gaskets/details?product=rubber-inserted',
             standards: 'Steel Wire / Mesh Reinforced Elastomers',
             types: 'Rubber',
-            image: '/images/product-detials-images/Gasketing-sheet-Planix-Megatherm.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert  Rubber Gasket.png',
             description: 'Steel-reinforced elastomeric gaskets offering dimensional stability for large diameter flanges and water mains.',
           },
           {
@@ -329,7 +329,7 @@ export const productCategoriesHierarchy = [
             href: '/products/gaskets/steel-inserted-gaskets/details?product=graphite-inserted',
             standards: 'Tanged / Foil 316SS Reinforced Graphite',
             types: 'Graphite',
-            image: '/images/product-detials-images/Graphite-Gasketing-Sheet.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/Steel Insert Graphite Gasket.png',
             description: 'Flexible graphite sheet mechanically bonded to a 316 stainless steel tanged or smooth foil core for high-temperature steam.',
           },
         ],
@@ -357,7 +357,7 @@ export const productCategoriesHierarchy = [
             href: '/products/plug-gaskets/details?product=plug-gaskets',
             standards: 'ASME / API Equipment Standards',
             types: 'Metallic & Non-Metallic Equipment Plug Seals',
-            image: '/images/product-detials-images/gaskets-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/plug gasket.png',
             description: 'Specialized metallic and non-metallic sealing elements engineered to seal industrial equipment and piping plugs.',
           },
         ],
@@ -386,7 +386,7 @@ export const productCategoriesHierarchy = [
             href: '/products/flanges/details?product=weld-neck-flanges',
             standards: 'ASME B16.5, ASME B16.47 Series A & B',
             types: '',
-            image: '/images/product-detials-images/flanges-1.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/weld neck.png',
             description: 'Long tapered hub butt-weld connection flanges for high-stress cyclic thermal service and severe bending loads.',
           },
           {
@@ -396,7 +396,7 @@ export const productCategoriesHierarchy = [
             href: '/products/flanges/details?product=slip-on-flanges',
             standards: 'ASME B16.5, Class 150 - 1500',
             types: '',
-            image: '/images/product-detials-images/flanges-2.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/slip on.png',
             description: 'Economical slip-over pipe flanges with dual fillet welds for general utility and process piping systems.',
           },
           {
@@ -406,7 +406,7 @@ export const productCategoriesHierarchy = [
             href: '/products/flanges/details?product=blind-flanges',
             standards: 'ASME B16.5, ASME B16.47, API 6B',
             types: '',
-            image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/blind flange.png',
             description: 'Solid forged blanking discs for positive piping termination, pressure testing, and vessel manway covers.',
           },
           {
@@ -416,7 +416,7 @@ export const productCategoriesHierarchy = [
             href: '/products/flanges/details?product=socket-weld-flanges',
             standards: 'ASME B16.5, Class 150 - 1500',
             types: '',
-            image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/socket weld.png',
             description: 'Recessed socket hub flanges for small diameter, high-pressure steam and toxic chemical piping lines.',
           },
           {
@@ -426,7 +426,7 @@ export const productCategoriesHierarchy = [
             href: '/products/flanges/details?product=lap-joint-flanges',
             standards: 'ASME B16.5, MSS SP-43 Stub Ends',
             types: '',
-            image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/lap joint.png',
             description: 'Loose rotating backing flanges paired with stub ends for systems requiring frequent bolt disassembly.',
           },
           {
@@ -436,7 +436,7 @@ export const productCategoriesHierarchy = [
             href: '/products/flanges/details?product=threaded-screwed-flanges',
             standards: 'ASME B16.5, NPT Threads',
             types: '',
-            image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Threaded (Screwed) Flanges.png',
             description: 'Internal tapered thread flanges for hazardous piping environments where hot welding is prohibited.',
           },
           {
@@ -446,7 +446,7 @@ export const productCategoriesHierarchy = [
             href: '/products/flanges/details?product=orifice-flanges',
             standards: 'ASME B16.36, Differential Flow Measurement',
             types: '',
-            image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/Orifice Flanges.png',
             description: 'Equipped with radial tapped holes and jacking screws for installing differential pressure metering orifice plates.',
           },
           {
@@ -456,7 +456,7 @@ export const productCategoriesHierarchy = [
             href: '/products/flanges/details?product=custom-flanges',
             standards: 'Customer Drawings / TEMA / API 17D',
             types: 'Manufactured as per customer drawings, specifications and application requirements',
-            image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/flanges.png',
             description: 'CNC-machined bespoke flanges, compact swivel-ring flanges, and specialized offshore subsea profiles.',
           },
         ],
@@ -485,7 +485,7 @@ export const productCategoriesHierarchy = [
             href: '/products/monolithic-insulation-joints/details?product=monolithic-insulation-joints',
             standards: 'ASME B31.4, ASME B31.8, API 6D, NACE SP0169, ISO 15589-1',
             types: 'Fully Welded Boltless CP Isolating Joints (NPS 1/2" to 60", Class 150 to 2500)',
-            image: '/images/product-detials-images/flanges-product-detials-place-holder-img.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
             description: 'Forged boltless dielectric isolation joints engineered with encapsulated dual seals and high-density G10/G11 insulating rings.',
           },
         ],
@@ -514,7 +514,7 @@ export const productCategoriesHierarchy = [
             href: '/products/valve-components/details?product=precision-o-rings',
             standards: 'NORSOK M-710, ISO 23936-2, AED / RGD Certified',
             types: 'FFKM, FKM, HNBR, EPDM (NORSOK M-710 RGD/AED up to 10,000 PSI)',
-            image: '/images/product-detials-images/O-Ring-for-Ball-Valve.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
             description: 'Precision molded elastomer O-rings (FFKM, FKM, HNBR, EPDM) and anti-extrusion PEEK backup rings up to 10,000 PSI.',
           },
           {
@@ -524,7 +524,7 @@ export const productCategoriesHierarchy = [
             href: '/products/valve-components/details?product=valve-packing',
             standards: 'API 622, ISO 15848-1 Class A, TA-Luft',
             types: 'API 622 / ISO 15848-1 Braided Flexible Graphite & ePTFE',
-            image: '/images/product-detials-images/Ball-for-Ball-Valve.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
             description: 'Precision-braided flexible graphite and Inconel-reinforced packing sets for zero-emission fugitive VOC compliance.',
           },
           {
@@ -534,7 +534,7 @@ export const productCategoriesHierarchy = [
             href: '/products/valve-components/details?product=valve-seats-inserts',
             standards: 'API 6D, ASME B16.34, Cryogenic to +260°C',
             types: 'PEEK, PCTFE, Devlon V, Virgin/Filled PTFE Ball & Gate Seats',
-            image: '/images/product-detials-images/Seat-for-Ball-and-Gate-Valve.avif',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
             description: 'CNC-machined bubble-tight seat rings in PEEK, PCTFE, Devlon V, Virgin/Filled PTFE, and metallic base rings.',
           },
         ],

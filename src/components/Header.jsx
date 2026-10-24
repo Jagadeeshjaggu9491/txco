@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Globe, Search, Menu, X, ChevronRight, User, ShoppingCart, ChevronDown, Check } from 'lucide-react';
 import { utilityNavLinks, mainNavigationMenu } from '@/data/navigationData';
 import { getCartCount } from '@/utils/cartManager';
+import { getCurrentUser } from '@/utils/authManager';
 import { applyLanguage, getSelectedLanguage, LANGUAGE_OPTIONS } from '@/components/GoogleTranslate';
 
 const languagesList = LANGUAGE_OPTIONS.map((item) => item.name);
@@ -59,9 +60,44 @@ function isMenuMatchPath(menu, currentPath) {
   return false;
 }
 
-export default function Header() {
+const HERO_PAGES = [
+  '/',
+  '/about',
+  '/industries',
+  '/services',
+  '/contact',
+  '/careers',
+  '/quality-policy',
+  '/hse-policy',
+  '/catalogues',
+  '/cart',
+  '/certifications',
+  '/blog',
+  '/news',
+  '/faqs',
+  '/resources',
+  '/stock-list',
+  '/products',
+  '/login',
+  '/register',
+];
+
+export default function Header({ heroMode }) {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
+
+  // Header hero overlay mode: floating transparent header over hero sections
+  const isHeroMode =
+    heroMode !== undefined
+      ? Boolean(heroMode)
+      : isHomePage ||
+        HERO_PAGES.some(
+          (route) =>
+            (pathname === route || pathname.startsWith(route + '/')) &&
+            !pathname.startsWith('/admin') &&
+            !pathname.startsWith('/portal')
+        );
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -70,22 +106,19 @@ export default function Header() {
   const [selectedLanguage, setSelectedLanguage] = useState('English');
   const [countryMenuOpen, setCountryMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [authUser, setAuthUser] = useState(null);
 
-  // Monitor scroll for sticky main nav bar
+  // Synchronize authenticated user
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 42) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    const syncAuth = () => setAuthUser(getCurrentUser());
+    syncAuth();
+    window.addEventListener('auth-changed', syncAuth);
+    window.addEventListener('storage', syncAuth);
+
+    return () => {
+      window.removeEventListener('auth-changed', syncAuth);
+      window.removeEventListener('storage', syncAuth);
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Synchronize language state on client load and updates
@@ -285,14 +318,9 @@ export default function Header() {
   );
 
   return (
-    <header className={`site-header ${isHomePage ? 'header-hero-mode' : ''}`}>
-      {/* 
-        UNSCROLLED HEADER LAYOUT (Matches Attached Screenshot Exactly):
-        - Left block with Row 1 (utility) & Row 2 (main nav + customer login)
-        - Right block with txco Logo
-        - Gradient background from white to transparent
-      */}
-      <div className={`header-hero-unscrolled ${isScrolled ? 'is-scrolled-hidden' : ''}`}>
+    <header className={`site-header ${isHeroMode ? 'header-hero-mode' : ''}`}>
+      {/* Main Header Layout */}
+      <div className="header-hero-unscrolled">
         <div className="header-hero-container">
           {/* Left Column */}
           <div className="header-hero-left-col">
@@ -401,6 +429,22 @@ export default function Header() {
                   </div>
                 )}
               </div>
+              <span className="header-hero-divider">|</span>
+
+              {/* Cart Button */}
+              <Link
+                href="/cart"
+                className={`header-hero-util-btn cart-btn ${pathname === '/cart' ? 'active' : ''}`}
+                title="View Shopping Cart"
+              >
+                <div className="header-cart-icon-wrapper">
+                  <ShoppingCart size={15} />
+                  {cartCount > 0 && (
+                    <span className="header-cart-badge">{cartCount}</span>
+                  )}
+                </div>
+                <span>Cart{cartCount > 0 ? ` (${cartCount})` : ''}</span>
+              </Link>
             </div>
 
             {/* Bottom Row: Main Navigation Links */}
@@ -443,9 +487,12 @@ export default function Header() {
                 );
               })}
 
-              {/* Customer Login link on the right of bottom row */}
-              <Link href="/login" className="header-hero-nav-link customer-login-link">
-                Customer Login
+              {/* Customer Login / Portal link on the right of bottom row */}
+              <Link
+                href={authUser ? (authUser.role === 'admin' ? '/admin/stock' : '/portal') : '/login'}
+                className="header-hero-nav-link customer-login-link"
+              >
+                {authUser ? (authUser.role === 'admin' ? `Admin: ${authUser.name?.split(' ')[0]}` : `Portal: ${authUser.name?.split(' ')[0] || 'User'}`) : 'Customer Login'}
               </Link>
             </nav>
           </div>
@@ -472,11 +519,94 @@ export default function Header() {
         </div>
       </div>
 
-      {/* 
-        STICKY HEADER BAR:
-        - Activated when user scrolls down (window.scrollY > 42)
-        - Preserves existing header bar with #062F5C navy background, white links & white logo
-      */}
+
+      {/* Mobile Menu Drawer */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu-drawer">
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+            Home
+          </Link>
+          <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+            Industries
+          </Link>
+          <Link href="/products" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+            Products
+          </Link>
+          <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+            Services
+          </Link>
+          <Link href="/resources" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+            Resources
+          </Link>
+          <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+            About Us
+          </Link>
+          <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+            Contact
+          </Link>
+          <Link href="/catalogues" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
+            Downloads
+          </Link>
+          <Link
+            href={authUser ? (authUser.role === 'admin' ? '/admin/stock' : '/portal') : '/login'}
+            onClick={() => setMobileMenuOpen(false)}
+            className="mobile-menu-link"
+          >
+            {authUser ? (authUser.role === 'admin' ? `Admin: ${authUser.name?.split(' ')[0]}` : `Portal: ${authUser.name?.split(' ')[0] || 'User'}`) : 'Customer Login'}
+          </Link>
+          <Link
+            href="/cart"
+            onClick={() => setMobileMenuOpen(false)}
+            className="mobile-menu-link"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}
+          >
+            <div className="header-cart-icon-wrapper">
+              <ShoppingCart size={19} color="#052C58" />
+              {cartCount > 0 && (
+                <span className="header-cart-badge">{cartCount}</span>
+              )}
+            </div>
+            <span>Cart {cartCount > 0 ? `(${cartCount})` : ''}</span>
+          </Link>
+
+          <div style={{ marginTop: '1.2rem', paddingTop: '1.2rem', borderTop: '1px solid #e2e8f0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.8rem', color: '#052C58', fontWeight: 600, fontSize: '0.9rem' }}>
+              <Globe size={16} />
+              <span>Select Language</span>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem' }}>
+              {languagesList.map((lang) => {
+                const isSelected = selectedLanguage === lang;
+                return (
+                  <button
+                    key={lang}
+                    type="button"
+                    onClick={() => {
+                      setSelectedLanguage(lang);
+                      applyLanguage(lang);
+                      setMobileMenuOpen(false);
+                    }}
+                    style={{
+                      padding: '0.55rem 0.8rem',
+                      borderRadius: '6px',
+                      border: isSelected ? '1px solid #052C58' : '1px solid #e2e8f0',
+                      backgroundColor: isSelected ? '#052C58' : '#ffffff',
+                      color: isSelected ? '#ffffff' : '#334155',
+                      fontSize: '0.85rem',
+                      fontWeight: isSelected ? 600 : 500,
+                      cursor: 'pointer',
+                      textAlign: 'center',
+                      transition: 'all 0.15s ease',
+                    }}
+                  >
+                    {lang}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
 
     </header>
   );

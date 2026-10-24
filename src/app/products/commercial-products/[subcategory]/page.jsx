@@ -4,9 +4,19 @@ import { productCategoriesHierarchy } from '@/data/productsCatalogData';
 
 export async function generateStaticParams() {
   const commCategory = productCategoriesHierarchy.find((c) => c.slug === 'commercial-products');
-  return commCategory.subcategories.map((sub) => ({
+  const subs = (commCategory?.subcategories || []).map((sub) => ({
     subcategory: sub.slug,
   }));
+  const items = [
+    'expanding-gates',
+    'through-conduit-gates',
+    'gate-valves',
+    'ball-valves',
+    'globe-valves',
+    'check-valves',
+  ].map((slug) => ({ subcategory: slug }));
+
+  return [...subs, ...items];
 }
 
 export default async function CommercialSubcategoryProductsPage({ params }) {
@@ -14,7 +24,11 @@ export default async function CommercialSubcategoryProductsPage({ params }) {
   const commCategory = productCategoriesHierarchy.find((c) => c.slug === 'commercial-products');
   const subcategoryData =
     commCategory?.subcategories.find((s) => s.slug === subcategory) ||
-    commCategory?.subcategories[0];
+    commCategory?.subcategories[0] || {
+      name: 'Commercial Products',
+      slug: subcategory || 'commercial-products',
+      products: [],
+    };
 
   return (
     <SubcategoryProductsGridPage

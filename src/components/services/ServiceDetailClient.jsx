@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import ContactSection from '@/components/ContactSection';
 import { servicesList } from '@/data/servicesData';
 import '@/styles/services.css';
 import { ChevronLeft, Play, ArrowRight } from 'lucide-react';
@@ -156,9 +155,6 @@ export default function ServiceDetailClient({ service }) {
             </div>
           </div>
         </section>
-
-        {/* Contact Section */}
-        <ContactSection />
       </main>
 
       <Footer />

@@ -2,7 +2,6 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ContactSection from '@/components/ContactSection';
 import { blogPostsList } from '@/data/blogData';
 import BlogDetailArticle from '@/components/blog/BlogDetailArticle';
 
@@ -26,10 +25,9 @@ export default async function BlogDetailsPage({ params }) {
 
   return (
     <>
-      <Header />
+      <Header heroMode={true} />
       <main>
         <BlogDetailArticle post={post} relatedPosts={relatedPosts} />
-        <ContactSection />
       </main>
       <Footer />
     </>

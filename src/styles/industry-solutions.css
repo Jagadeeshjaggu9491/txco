@@ -1,0 +1,516 @@
+/* =========================================================================
+   INDUSTRY SOLUTIONS SECTION - MODERN TABS & SHOWCASE + DUAL FEATURE CARDS
+   ========================================================================= */
+
+.industry-solutions-section {
+  width: 100%;
+  max-width: 100%;
+  background-color: #ffffff;
+  padding: 5rem 0 6rem 0;
+  color: #14233c;
+  position: relative;
+  overflow-x: clip;
+}
+
+.ind-sol-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================================
+   BACKGROUND BRAND WATERMARKS: One Left-Top, Another Right-Bottom
+   Contained strictly inside 100% width container to prevent horizontal scroll
+   ========================================================================= */
+.ind-sol-watermarks-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ind-sol-watermark-wrapper {
+  position: absolute;
+  width: clamp(280px, 30vw, 500px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.8;
+}
+
+.ind-sol-watermark-left-top {
+  left: -50px;
+  top: 40px;
+}
+
+.ind-sol-watermark-right-bottom {
+  right: -50px;
+  bottom: 40px;
+}
+
+.ind-sol-watermark-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* -------------------------------------------------------------------------
+   Section Header
+------------------------------------------------------------------------- */
+.ind-sol-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2.25rem;
+  text-align: left;
+}
+
+.ind-sol-heading {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  font-style: italic;
+  color: #0f2238;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.85rem;
+}
+
+.ind-sol-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #556477;
+  max-width: 760px;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* GSAP Pin Spacer Fix: Strictly lock to max-width 1400px centered */
+.pin-spacer,
+.industry-solutions-section .pin-spacer {
+  max-width: 1400px !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+/* -------------------------------------------------------------------------
+   Pinned Scroll Track Container
+------------------------------------------------------------------------- */
+.ind-sol-pin-container {
+  width: 100%;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.ind-sol-sticky-panel {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------
+   Tabs Bar (Navy Capsule)
+------------------------------------------------------------------------- */
+.ind-sol-tabs-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-bottom: 3.25rem;
+}
+
+.ind-sol-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0c2340;
+  border-radius: 9999px;
+  padding: 6px 8px;
+  box-shadow: 0 6px 24px rgba(12, 35, 64, 0.16);
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+}
+
+.ind-sol-tabs-bar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+.ind-sol-tab-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #d1dde9;
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  text-align: center;
+  position: relative;
+  user-select: none;
+  flex: 1;
+}
+
+.ind-sol-tab-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.ind-sol-tab-btn.active {
+  background-color: #018F5D;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(1, 143, 93, 0.38);
+}
+
+/* -------------------------------------------------------------------------
+   Showcase Content (Active Tab Image & Product Links)
+------------------------------------------------------------------------- */
+.ind-sol-showcase {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  min-height: 380px;
+}
+
+.ind-sol-image-col {
+  width: 100%;
+}
+
+.ind-sol-image-frame {
+  width: 100%;
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(12, 35, 64, 0.08);
+  background-color: #e9eef5;
+  position: relative;
+}
+
+.ind-sol-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ind-sol-image-frame:hover .ind-sol-main-img {
+  transform: scale(1.025);
+}
+
+.ind-sol-info-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.ind-sol-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #1e2e42;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  max-width: 580px;
+}
+
+.ind-sol-links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 1.5rem;
+  width: 100%;
+}
+
+.ind-sol-link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid #018F5D;
+  transition: all 0.25s ease;
+  group: true;
+}
+
+.ind-sol-link-text {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #122238;
+  transition: color 0.25s ease;
+}
+
+.ind-sol-link-arrow {
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #122238;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), color 0.25s ease;
+  display: inline-block;
+  margin-left: 0.75rem;
+}
+
+.ind-sol-link-item:hover {
+  border-bottom-color: #02b074;
+}
+
+.ind-sol-link-item:hover .ind-sol-link-text {
+  color: #018F5D;
+}
+
+.ind-sol-link-item:hover .ind-sol-link-arrow {
+  transform: translateX(5px);
+  color: #018F5D;
+}
+
+/* -------------------------------------------------------------------------
+   Bottom Dual Feature Cards (Reverse Engineering Services & Innovations)
+------------------------------------------------------------------------- */
+.ind-sol-dual-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.25rem;
+  margin-top: 5.5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.ind-sol-card {
+  border-radius: 28px;
+  background: linear-gradient(180deg, #dcf4fb 0%, #cdf0f7 32%, #9ce2d1 72%, #72d1bd 100%);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.ind-sol-card-content {
+  width: 100%;
+  padding: 3rem 3rem 1.5rem 3rem;
+  box-sizing: border-box;
+}
+
+.ind-sol-card-title {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(1.65rem, 2.2vw, 2.15rem);
+  font-weight: 800;
+  font-style: italic;
+  color: #112238;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.ind-sol-card-desc {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: #1e3046;
+  font-weight: 400;
+  margin: 0;
+  max-width: 95%;
+}
+
+.ind-sol-card-img-wrap {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.ind-sol-card-img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  margin: 0;
+  vertical-align: bottom;
+}
+
+/* -------------------------------------------------------------------------
+   Responsive Breakpoints
+------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .ind-sol-showcase {
+    gap: 2.5rem;
+  }
+
+  .ind-sol-links-grid {
+    column-gap: 2rem;
+  }
+
+  .ind-sol-watermark-wrapper {
+    width: clamp(220px, 25vw, 340px);
+    opacity: 0.7;
+  }
+
+  .ind-sol-watermark-left-top {
+    left: -70px;
+    top: 30px;
+  }
+
+  .ind-sol-watermark-right-bottom {
+    right: -70px;
+    bottom: 30px;
+  }
+
+  .ind-sol-card {
+    padding: 0;
+    min-height: 440px;
+  }
+
+  .ind-sol-card-content {
+    padding: 2.5rem 2.25rem 1.25rem 2.25rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .industry-solutions-section {
+    padding: 4rem 0 4.5rem 0;
+  }
+
+  .ind-sol-tabs-bar {
+    justify-content: flex-start;
+    padding: 6px;
+    gap: 4px;
+  }
+
+  .ind-sol-tab-btn {
+    flex: none;
+    padding: 9px 18px;
+    font-size: 0.9rem;
+  }
+
+  .ind-sol-showcase {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .ind-sol-image-frame {
+    height: 320px;
+  }
+
+  .ind-sol-description {
+    margin-bottom: 2rem;
+  }
+
+  .ind-sol-watermark-wrapper {
+    width: 200px;
+    opacity: 0.45;
+  }
+
+  .ind-sol-watermark-left-top {
+    left: -90px;
+    top: 20px;
+  }
+
+  .ind-sol-watermark-right-bottom {
+    right: -90px;
+    bottom: 20px;
+  }
+
+  .ind-sol-dual-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .ind-sol-card {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ind-sol-watermarks-container {
+    display: none;
+  }
+
+  .ind-sol-container {
+    padding: 0 1.25rem;
+  }
+
+  .ind-sol-heading {
+    font-size: 1.85rem;
+  }
+
+  .ind-sol-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .ind-sol-tabs-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .ind-sol-tab-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .ind-sol-image-frame {
+    height: 240px;
+    border-radius: 16px;
+  }
+
+  .ind-sol-links-grid {
+    grid-template-columns: 1fr;
+    row-gap: 1.25rem;
+  }
+
+  .ind-sol-card {
+    padding: 0;
+    border-radius: 22px;
+  }
+
+  .ind-sol-card-content {
+    padding: 2rem 1.5rem 1rem 1.5rem;
+  }
+
+  .ind-sol-card-title {
+    font-size: 1.6rem;
+  }
+
+  .ind-sol-card-desc {
+    font-size: 0.9rem;
+  }
+
+  .ind-sol-card-img {
+    width: 100%;
+    height: auto;
+  }
+}

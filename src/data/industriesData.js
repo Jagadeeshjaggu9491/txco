@@ -13,7 +13,7 @@ export const industriesList = [
     heroTitle: 'CHEMICAL INDUSTRY SOLUTIONS',
     subtitle:
       'High-integrity sealing solutions, PTFE composites, and exotic alloy gaskets engineered for aggressive media, toxic chemicals, and stringent emission standards.',
-    bannerImage: '/images/industry-page-banner-img.avif',
+    bannerImage: '/images/CHEMICAL-INDUSTRY-banner.avif',
     segments: [
       {
         id: 'pharmaceutical-fda',
@@ -232,7 +232,7 @@ export const industriesList = [
     heroTitle: 'ENERGY & OIL & GAS SOLUTIONS',
     subtitle:
       'API 6A, API 17D, and ASME certified high-pressure gaskets, compact flange rings, and fire-safe flange insulation kits engineered for extreme subsea, transmission, and downstream refining.',
-    bannerImage: '/images/industry-page-banner-img.avif',
+    bannerImage: '/images/CHEMICAL-INDUSTRY-banner.avif',
     segments: [
       {
         id: 'upstream-offshore',
@@ -422,7 +422,7 @@ export const industriesList = [
     heroTitle: 'MANUFACTURING & HEAVY INDUSTRY SOLUTIONS',
     subtitle:
       'Durable sealing materials, sanitary fluoropolymers, and heavy hydraulic gaskets engineered for food & beverage processing, blast furnaces, rolling mills, and extreme hydraulic power units.',
-    bannerImage: '/images/industry-page-banner-img.avif',
+    bannerImage: '/images/CHEMICAL-INDUSTRY-banner.avif',
     segments: [
       {
         id: 'food-beverage',
@@ -560,7 +560,7 @@ export const industriesList = [
     heroTitle: 'METALS & MINING INDUSTRY SOLUTIONS',
     subtitle:
       'High-Pressure Acid Leach (HPAL) titanium autoclave seals, slurry transmission pipeline isolation, and erosion-resistant metallurgy engineered for extreme abrasive hydrometallurgical extraction.',
-    bannerImage: '/images/industry-page-banner-img.avif',
+    bannerImage: '/images/CHEMICAL-INDUSTRY-banner.avif',
     segments: [
       {
         id: 'hpal-slurry',

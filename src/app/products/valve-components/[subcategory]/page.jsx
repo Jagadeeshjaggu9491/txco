@@ -4,9 +4,16 @@ import { productCategoriesHierarchy } from '@/data/productsCatalogData';
 
 export async function generateStaticParams() {
   const valveCategory = productCategoriesHierarchy.find((c) => c.slug === 'valve-components');
-  return valveCategory.subcategories.map((sub) => ({
+  const subs = (valveCategory?.subcategories || []).map((sub) => ({
     subcategory: sub.slug,
   }));
+  const items = [
+    'precision-o-rings',
+    'valve-packing',
+    'valve-seats-inserts',
+  ].map((slug) => ({ subcategory: slug }));
+
+  return [...subs, ...items];
 }
 
 export default async function ValveSubcategoryProductsPage({ params }) {
@@ -14,7 +21,11 @@ export default async function ValveSubcategoryProductsPage({ params }) {
   const valveCategory = productCategoriesHierarchy.find((c) => c.slug === 'valve-components');
   const subcategoryData =
     valveCategory?.subcategories.find((s) => s.slug === subcategory) ||
-    valveCategory?.subcategories[0];
+    valveCategory?.subcategories[0] || {
+      name: 'Valve Components',
+      slug: subcategory || 'valve-components',
+      products: [],
+    };
 
   return (
     <SubcategoryProductsGridPage

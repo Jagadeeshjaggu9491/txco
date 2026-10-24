@@ -271,3 +271,105 @@
     padding: 2.2rem 1.5rem;
   }
 }
+
+/* 3-Step Registration Wizard */
+.auth-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  z-index: 2;
+  position: relative;
+}
+
+.auth-step-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: all 0.25s ease;
+}
+
+.auth-step-circle.active {
+  background: #052C58;
+  color: #ffffff;
+  border-color: #052C58;
+  box-shadow: 0 0 0 3px rgba(5, 44, 88, 0.18);
+}
+
+.auth-step-circle.completed {
+  background: #018F5D;
+  color: #ffffff;
+  border-color: #018F5D;
+}
+
+.auth-step-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.auth-step-label.active {
+  color: #052C58;
+  font-weight: 700;
+}
+
+.auth-step-label.completed {
+  color: #018F5D;
+}
+
+.auth-step-connector {
+  flex: 1;
+  height: 2px;
+  background: #e2e8f0;
+  margin: 0 0.5rem -1rem 0.5rem;
+  z-index: 1;
+  transition: background-color 0.25s ease;
+}
+
+.auth-step-connector.completed {
+  background: #018F5D;
+}
+
+.auth-otp-input-field {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  text-align: center;
+  color: #052C58;
+  background: #f8fafc;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.auth-otp-input-field:focus {
+  background: #ffffff;
+  border-color: #018F5D;
+  box-shadow: 0 0 0 4px rgba(1, 143, 93, 0.15);
+}

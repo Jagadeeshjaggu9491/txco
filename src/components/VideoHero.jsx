@@ -96,9 +96,10 @@ export default function VideoHero() {
         preload="auto"
         onCanPlay={notifyVideoReady}
         onLoadedData={notifyVideoReady}
+        onCanPlayThrough={notifyVideoReady}
         className="hero-video-bg"
       >
-        <source src="/images/hero-section-video.mp4" type="video/webm" />
+        <source src="/images/hero-section-video.mp4" type="video/mp4" />
       </video>
 
       {/* Subtle overlay */}

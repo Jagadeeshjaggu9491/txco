@@ -1,269 +1,567 @@
 /* =========================================================================
-   INDUSTRIES WE SERVE SECTION (Matches Attached UI Design)
+   MERGED INDUSTRIES WE SERVE & SUSTAINABILITY SECTION
+   Max Width: 1400px Container
+   Matches Attached UI Design Exactly
 ========================================================================= */
 
-.industries-serve-section {
+.industries-sustainability-section {
   width: 100%;
-  padding: 5.5rem 2rem 5rem 2rem;
-  background-color: #f8fafc;
-  border-top-left-radius: 54px;
-  border-top-right-radius: 54px;
-  display: flex;
-  justify-content: center;
+  max-width: 100%;
+  background-color: #ffffff;
+  padding: 6rem 1.5rem 5rem 1.5rem;
   position: relative;
   overflow: hidden;
+  overflow-x: clip;
 }
 
-/* Background image with opacity layer */
-.industries-serve-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/industries/Industries-background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.38;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.industries-serve-container {
+.industries-sustainability-container {
   width: 100%;
-  max-width: 1360px;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
-  background: transparent;
-  padding: 0;
-  border: none;
-  box-shadow: none;
-}
-
-/* Header */
-.industries-serve-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
-
-.industries-serve-title {
-  font-family: var(--font-family-heading, 'Inter', sans-serif);
-  font-size: clamp(2.2rem, 3.4vw, 2.9rem);
-  margin-bottom: 1.1rem;
-}
-
-.industries-title-green {
-  color: #018F5D;
-}
-
-.industries-title-navy {
-  color: #0D284D;
-}
-
-.industries-serve-desc {
-  font-family: var(--font-family-base, 'Inter', sans-serif);
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: #475569;
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-/* 4 Columns x 2 Rows Grid */
-.industries-serve-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4rem;
-  margin-bottom: 3.5rem;
-}
-
-/* Card - Squircle with large 72px rounded corners */
-.industries-serve-card {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 72px;
-  overflow: hidden;
-  background-color: #e2e8f0;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-  display: block;
-  text-decoration: none;
-}
-
-.industries-serve-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
-}
-
-.industries-card-img-wrapper {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  border-radius: 72px;
-}
-
-.industries-card-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.industries-serve-card:hover .industries-card-bg-img {
-  transform: scale(1.07);
-}
-
-/* Card Badge Tab - Asymmetric bottom tab matching screenshot (width ~86%, top-right curved) */
-.industries-card-badge {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 86%;
-  height: 15%;
-  min-height: 64px;
-  padding: 0 1.8rem;
-  border-top-right-radius: 46px;
-  border-bottom-left-radius: 72px;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: left;
-  color: #ffffff;
-  font-size: clamp(1.02rem, 1.35vw, 1.24rem);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  transition: filter 0.3s ease, background-color 0.3s ease;
   z-index: 2;
 }
 
-/* Navy Badge */
-.industries-card-badge.badge-navy {
-  background-color: #38426f;
+/* =========================================================================
+   BACKGROUND BRAND WATERMARKS: One Left-Top, Another Right-Bottom
+   Contained strictly inside 100% width container to prevent horizontal scroll
+   ========================================================================= */
+.industries-watermarks-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
 }
 
-/* Green Badge */
-.industries-card-badge.badge-green {
-  background-color: #018F5D;
+.industries-watermark-wrapper {
+  position: absolute;
+  width: clamp(280px, 30vw, 500px);
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+  opacity: 0.8;
 }
 
-.industries-serve-card:hover .industries-card-badge {
-  filter: brightness(1.1);
+.industries-watermark-left-top {
+  left: -50px;
+  top: 40px;
 }
 
-/* Bottom CTA Button */
-.industries-serve-cta {
+.industries-watermark-right-bottom {
+  right: -50px;
+  bottom: 40px;
+}
+
+.industries-watermark-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* -------------------------------------------------------------------------
+   Part 1: Industries We Serve (Top Part)
+------------------------------------------------------------------------- */
+.industries-part {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Header - Left Aligned */
+.industries-header {
+  text-align: left;
+  margin-bottom: 3.5rem;
+}
+
+.industries-main-title {
+  font-family: var(--font-family-heading, 'Inter', sans-serif);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 3.2vw, 2.85rem);
+  color: #1e2430;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.9rem;
+}
+
+.industries-main-desc {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(0.95rem, 1.1vw, 1.02rem);
+  line-height: 1.65;
+  color: #556275;
+  max-width: 760px;
+  margin: 0;
+}
+
+/* 4 Circular Cards Grid */
+.industries-circles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.2rem;
+  margin-bottom: 3rem;
+  justify-items: center;
+}
+
+/* Circle Card */
+.industry-circle-card {
+  position: relative;
+  width: 100%;
+  max-width: 270px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #e2e8f0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.industry-circle-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.22);
+}
+
+.industry-circle-img-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.industry-circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.industry-circle-card:hover .industry-circle-img {
+  transform: scale(1.08);
+}
+
+.industry-circle-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(180deg,
+      transparent 38%,
+      rgba(10, 20, 35, 0.55) 72%,
+      rgba(10, 20, 35, 0.85) 100%);
+  transition: background 0.4s ease;
+}
+
+.industry-circle-card:hover .industry-circle-overlay {
+  background: linear-gradient(180deg,
+      transparent 32%,
+      rgba(10, 20, 35, 0.6) 68%,
+      rgba(1, 143, 93, 0.85) 100%);
+}
+
+.industry-circle-title {
+  position: absolute;
+  bottom: 12%;
+  left: 0;
+  width: 100%;
+  padding: 0 1rem;
+  text-align: center;
+  color: #ffffff;
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(0.94rem, 1.15vw, 1.08rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.industry-circle-card:hover .industry-circle-title {
+  transform: translateY(-2px);
+}
+
+/* Explore Pill Button */
+.industries-explore-wrap {
   display: flex;
   justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 5.5rem;
 }
 
-.industries-view-all-btn {
+.industries-explore-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.85rem 2.4rem;
+  padding: 0.7rem 2.4rem;
   background-color: #ffffff;
-  color: #0D284D;
-  border: 1.8px solid #0D284D;
+  color: #3b4455;
+  border: 1.6px solid #cbd5e1;
   border-radius: 9999px;
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  font-style: italic;
+  letter-spacing: 0.05em;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 10px rgba(13, 40, 77, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
-.industries-btn-arrow {
-  color: #018F5D;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.industries-view-all-btn:hover {
-  background-color: #018F5D;
-  border-color: #018F5D;
-  color: #ffffff;
+.industries-explore-btn:hover {
+  border-color: #018f5d;
+  color: #018f5d;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(1, 143, 93, 0.28);
+  box-shadow: 0 8px 22px rgba(1, 143, 93, 0.2);
 }
 
-.industries-view-all-btn:hover .industries-btn-arrow {
-  color: #ffffff;
+.industries-explore-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.industries-explore-btn:hover svg {
   transform: translateX(4px);
 }
 
-/* Responsive */
+
+/* -------------------------------------------------------------------------
+   Part 2: Sustainability Dual Cards (Bottom Part)
+------------------------------------------------------------------------- */
+.sustainability-part {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.sustainability-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+  align-items: start;
+  justify-content: center;
+  justify-items: center;
+}
+
+.sustainability-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 560px;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 16px 44px rgba(15, 23, 42, 0.08);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+}
+
+.sustainability-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 54px rgba(15, 23, 42, 0.14);
+}
+
+/* Asymmetric Architectural Shapes */
+.card-accelerating {
+  border-top-left-radius: 170px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #D8F4FF;
+}
+
+.card-committed {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 170px;
+  background-color: #D8F4FF;
+  margin-top: 5rem;
+  /* Downward stagger offset on desktop matching UI */
+}
+
+/* Background image & Screen blend gradients */
+.sustainability-card-bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sustainability-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sustainability-card:hover .sustainability-bg-img {
+  transform: scale(1.05);
+}
+
+.card-accelerating .overlay-accelerating {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      #D8F4FF 0%,
+      #018F5D 100%);
+  mix-blend-mode: screen;
+}
+
+.card-committed .overlay-committed {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      #D8F4FF 0%,
+      #0D284D 100%);
+  mix-blend-mode: screen;
+}
+
+/* Content layer inside card */
+.sustainability-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 4.8rem 3.8rem 3.8rem 3.8rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.sustainability-card-title {
+  font-family: var(--font-family-heading, 'Inter', sans-serif);
+  font-size: clamp(2.1rem, 2.7vw, 2.6rem);
+  font-weight: 600;
+  color: #243358;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.6rem;
+}
+
+.sustainability-card-desc {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(0.96rem, 1.08vw, 1.04rem);
+  line-height: 1.68;
+  color: #283447;
+  max-width: 520px;
+  margin-bottom: 2.8rem;
+}
+
+.sustainability-inline-link {
+  color: #1e293b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.sustainability-inline-link:hover {
+  color: #018f5d;
+}
+
+.sustainability-card-action {
+  margin-top: auto;
+}
+
+/* Navy Pill CTA Button with Icon Circle */
+.sustainability-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.95rem;
+  background-color: #384069;
+  color: #ffffff;
+  padding: 0.85rem 1.6rem 0.85rem 1.9rem;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(36, 50, 90, 0.24);
+}
+
+.sustainability-pill-btn:hover {
+  background-color: #018f5d;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(1, 143, 93, 0.35);
+}
+
+.sustainability-btn-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.sustainability-pill-btn:hover .sustainability-btn-icon {
+  background-color: rgba(255, 255, 255, 0.32);
+  transform: translateX(3px);
+}
+
+
+/* -------------------------------------------------------------------------
+   Responsive Breakpoints
+------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
-  .industries-serve-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.4rem;
+  .sustainability-cards-grid {
+    gap: 2.2rem;
+  }
+
+  .sustainability-card-content {
+    padding: 4rem 2.8rem 3rem 2.8rem;
+  }
+
+  .card-accelerating {
+    border-top-left-radius: 130px;
+  }
+
+  .card-committed {
+    border-bottom-right-radius: 130px;
+    margin-top: 4rem;
+  }
+
+  .industries-circles-grid {
+    gap: 1.6rem;
+  }
+
+  .industries-watermark-wrapper {
+    width: clamp(220px, 25vw, 340px);
+    opacity: 0.75;
+  }
+
+  .industries-watermark-left-top {
+    left: -70px;
+    top: 30px;
+  }
+
+  .industries-watermark-right-bottom {
+    right: -70px;
+    bottom: 30px;
   }
 }
 
-@media (max-width: 900px) {
-  .industries-serve-container {
-    padding: 3.5rem 2rem;
-    border-radius: 32px;
+@media (max-width: 960px) {
+  .industries-sustainability-section {
+    padding: 4.5rem 1.25rem 4rem 1.25rem;
   }
 
-  .industries-serve-grid {
+  .industries-circles-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .industries-serve-card {
-    border-radius: 48px;
+  .sustainability-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    justify-items: center;
   }
 
-  .industries-card-img-wrapper {
-    border-radius: 48px;
+  .card-committed {
+    margin-top: 0;
+    border-bottom-right-radius: 120px;
   }
 
-  .industries-card-badge {
-    border-bottom-left-radius: 48px;
-    border-top-right-radius: 36px;
+  .card-accelerating {
+    border-top-left-radius: 120px;
+  }
+
+  .sustainability-card {
+    min-height: 480px;
+  }
+
+  .industries-watermark-wrapper {
+    width: 200px;
+    opacity: 0.45;
+  }
+
+  .industries-watermark-left-top {
+    left: -90px;
+    top: 20px;
+  }
+
+  .industries-watermark-right-bottom {
+    right: -90px;
+    bottom: 20px;
   }
 }
 
-@media (max-width: 600px) {
-  .industries-serve-section {
-    padding: 2.5rem 1rem;
-    border-top-left-radius: 36px;
-    border-top-right-radius: 36px;
+@media (max-width: 640px) {
+  .industries-sustainability-section {
+    padding: 3.5rem 1rem 3rem 1rem;
   }
 
-  .industries-serve-container {
-    padding: 2.5rem 1.25rem;
+  .industries-watermarks-container,
+  .industries-watermark-wrapper {
+    display: none;
   }
 
-  .industries-serve-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .industries-header {
+    margin-bottom: 2.5rem;
   }
 
-  .industries-serve-card {
-    border-radius: 40px;
-    max-width: 340px;
-    margin: 0 auto;
+  .industries-main-title {
+    font-size: 2rem;
+  }
+
+  .industries-circles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .industry-circle-card {
+    max-width: 170px;
+  }
+
+  .industry-circle-title {
+    font-size: 0.88rem;
+    bottom: 10%;
+  }
+
+  .industries-explore-wrap {
+    margin-bottom: 3.8rem;
+  }
+
+  .sustainability-card-content {
+    padding: 3rem 1.75rem 2.5rem 1.75rem;
+  }
+
+  .card-accelerating {
+    border-top-left-radius: 80px;
+  }
+
+  .card-committed {
+    border-bottom-right-radius: 80px;
+  }
+
+  .sustainability-card-title {
+    font-size: 1.85rem;
+  }
+
+  .sustainability-pill-btn {
     width: 100%;
-  }
-
-  .industries-card-img-wrapper {
-    border-radius: 40px;
-  }
-
-  .industries-card-badge {
-    width: 88%;
-    min-height: 52px;
-    border-bottom-left-radius: 40px;
-    border-top-right-radius: 32px;
-    font-size: 0.94rem;
-    padding: 0 1.2rem;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    padding: 0.8rem 1.4rem;
   }
 }

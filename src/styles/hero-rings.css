@@ -1,0 +1,319 @@
+/* =========================================================================
+   HERO RINGS SECTION (Precision Gasket Showcase with Overlapping Rings)
+========================================================================= */
+
+.hero-rings-section {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  height: 100vh;
+  max-height: 900px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Offsets for absolute header (~110px) so content is truly centered in the visible viewport */
+  padding-top: clamp(80px, 9vh, 120px);
+  padding-bottom: 20px;
+  background-color: #ffffff;
+}
+
+/* While loading animation is active, keep hero elements hidden until completion */
+.hero-rings-section.hero-waiting .hero-rings-chevron-box,
+.hero-rings-section.hero-waiting .hero-rings-headline,
+.hero-rings-section.hero-waiting .hero-ring-item {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Background image layer */
+.hero-rings-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/hero/hero-bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Top white gradient flow */
+.hero-rings-gradient-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.88) 40%, rgba(255, 255, 255, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Bottom white gradient flow */
+.hero-rings-gradient-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(0deg, #ffffff 0%, rgba(255, 255, 255, 0.88) 40%, rgba(255, 255, 255, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Main content wrapper - truly centered horizontally with balanced gap */
+.hero-rings-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 3vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2.5rem, 5vw, 5.5rem);
+}
+
+/* -------------------------------------------------------------------------
+   LEFT COLUMN: BRAND LOCKUP (Chevron + 3-line Slanted Headline)
+------------------------------------------------------------------------- */
+.hero-rings-left {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.hero-rings-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 1.6vw, 1.8rem);
+}
+
+.hero-rings-chevron-box {
+  flex-shrink: 0;
+  width: clamp(38px, 3.2vw, 54px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-rings-chevron-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(1, 143, 93, 0.25));
+}
+
+.hero-rings-headline {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(2.1rem, 3.7vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-rings-text-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-color-navy {
+  color: #0f2648;
+}
+
+.hero-color-green {
+  color: #018f5d;
+}
+
+/* -------------------------------------------------------------------------
+   RIGHT COLUMN: 5 OVERLAPPING RINGS
+------------------------------------------------------------------------- */
+.hero-rings-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.hero-rings-stack {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  filter: drop-shadow(0 16px 36px rgba(13, 40, 77, 0.12));
+}
+
+.hero-ring-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  will-change: transform, opacity;
+}
+
+.hero-ring-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  pointer-events: auto;
+  user-select: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.hero-ring-item:hover .hero-ring-img {
+  transform: translateY(-8px) scale(1.035);
+}
+
+/* Individual Ring Heights, Overlaps and Stacking Layers (scaled down to fit comfortably inside frame) */
+.hero-ring-1 {
+  z-index: 1;
+  height: clamp(155px, 14vw, 230px);
+}
+
+.hero-ring-5 {
+  z-index: 2;
+  height: clamp(175px, 16vw, 260px);
+  margin-left: clamp(-80px, -7.5vw, -115px);
+}
+
+.hero-ring-4 {
+  z-index: 3;
+  height: clamp(195px, 18vw, 290px);
+  margin-left: clamp(-95px, -8.8vw, -135px);
+}
+
+.hero-ring-3 {
+  z-index: 4;
+  height: clamp(220px, 20.5vw, 325px);
+  margin-left: clamp(-110px, -10vw, -155px);
+}
+
+.hero-ring-2 {
+  z-index: 5;
+  height: clamp(245px, 23vw, 360px);
+  margin-left: clamp(-125px, -11.5vw, -175px);
+}
+
+/* -------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .hero-rings-container {
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+
+  .hero-rings-right {
+    padding-right: 0.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-rings-section {
+    height: auto;
+    min-height: 620px;
+    padding: 4.5rem 1.5rem 3.5rem 1.5rem;
+  }
+
+  .hero-rings-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .hero-rings-left {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .hero-rings-brand-lockup {
+    justify-content: center;
+  }
+
+  .hero-rings-right {
+    width: 100%;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .hero-rings-stack {
+    justify-content: center;
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .hero-ring-1 {
+    height: clamp(120px, 18vw, 170px);
+  }
+
+  .hero-ring-5 {
+    height: clamp(135px, 20vw, 195px);
+    margin-left: clamp(-60px, -9vw, -90px);
+  }
+
+  .hero-ring-4 {
+    height: clamp(150px, 22vw, 215px);
+    margin-left: clamp(-70px, -10vw, -100px);
+  }
+
+  .hero-ring-3 {
+    height: clamp(165px, 24vw, 240px);
+    margin-left: clamp(-80px, -11vw, -115px);
+  }
+
+  .hero-ring-2 {
+    height: clamp(185px, 27vw, 270px);
+    margin-left: clamp(-90px, -12.5vw, -130px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-rings-section {
+    min-height: 520px;
+    padding: 3.5rem 1rem 3rem 1rem;
+  }
+
+  .hero-rings-chevron-box {
+    width: 32px;
+  }
+
+  .hero-rings-headline {
+    font-size: clamp(1.7rem, 6.5vw, 2.3rem);
+    line-height: 1.1;
+  }
+
+  .hero-ring-1 {
+    height: 105px;
+  }
+
+  .hero-ring-5 {
+    height: 118px;
+    margin-left: -52px;
+  }
+
+  .hero-ring-4 {
+    height: 130px;
+    margin-left: -60px;
+  }
+
+  .hero-ring-3 {
+    height: 145px;
+    margin-left: -68px;
+  }
+
+  .hero-ring-2 {
+    height: 160px;
+    margin-left: -76px;
+  }
+}
