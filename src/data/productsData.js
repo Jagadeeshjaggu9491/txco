@@ -8,7 +8,7 @@ export {
 export const productsHeroData = {
   title: 'TXCO SEALING',
   subtitle:
-    'Deploy, manage and troubleshoot cloud-native applications at scale without overwhelming your engineers with the complexity of Kubernetes.',
+    'TXCO Sealing Products Private Limited manufactures mission-critical industrial gaskets, precision-forged flanges, monolithic insulation joints and severe-service valve components engineered to deliver complete end-to-end pipeline joint integrity across global oil & gas, petrochemical, nuclear, and power infrastructure.',
   description:
     'Engineered industrial sealing solutions for critical applications, high pressure, extreme temperatures, and demanding operating environments.',
   heroImage: '/images/home-products.png',
@@ -38,7 +38,7 @@ export const mainProductCategories = [
   {
     id: 'non-metallic-gaskets',
     title: 'NON-METALLIC GASKETS',
-    types: 'Rubber, PTFE, ePTFE, Compressed Non-Asbestos (AF & Planiflex™)',
+    types: 'Rubber, PTFE, ePTFE, Asbestos Free Gaskets, Compressed Non Asbestos',
     description:
       'Elastomeric, fluoropolymer, and CNAF compressed sheets designed for universal chemical resistance and utility service.',
     image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
@@ -70,7 +70,7 @@ export const mainProductCategories = [
     title: 'FLANGES',
     types: 'Weld Neck, Slip-On, Blind, Socket Weld, Lap Joint, Threaded, Orifice, Custom',
     description:
-      'Forged and precision-machined connection flanges including Weld Neck, Slip-On, Blind, Socket Weld, and custom designs.',
+      'Forged and precision-machined connection flanges in stainless steel, duplex, super duplex, and nickel alloys meeting ASME, API, and DIN standards.',
     image: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/falnges cover image.png',
     fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/flanges.png',
     href: '/products/flanges',
@@ -81,8 +81,8 @@ export const mainProductCategories = [
     types: 'Fully Welded Boltless CP Isolating Joints (NPS 1/2" to 60", Class 150 to 2500)',
     description:
       'Solid-state, fully welded structural forgings for permanent Cathodic Protection (CP) isolation in buried and aboveground pipelines.',
-    image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
-    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX-ISOPRO.jpeg',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/Insulation-Joints.avif',
+    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/Insulation-Joints.avif',
     href: '/products/monolithic-insulation-joints',
   },
   {
@@ -110,47 +110,60 @@ export const mainProductCategories = [
 export const industrialSealingProducts = {
   heading: 'INDUSTRIAL SEALING PRODUCTS',
   mainDescription:
-    'At TXCO Sealing Products, we are a leading manufacturer of high-performance industrial sealing solutions, with a commitment to delivering custom-engineered products that meet the rigorous demands of the industries we serve. We specialize in designing, manufacturing and supplying a comprehensive range of precision sealing components for critical applications across the oil & gas, petrochemical, power and heavy-engineering sectors. Headquartered in the industrial hub of Hyderabad, India, our highly automated and integrated operations meet the most demanding national and international standards in design, engineering, manufacture and testing.',
+    'TXCO Sealing Products Private Limited manufactures mission-critical industrial gaskets, precision-forged flanges, monolithic insulation joints and severe-service valve components engineered to deliver complete end-to-end pipeline joint integrity across global oil & gas, petrochemical, nuclear, and power infrastructure.',
   cards: [
     {
-      id: 'gaskets',
-      title: 'GASKETS',
+      id: 'metallic-gaskets',
+      title: 'METALLIC GASKETS',
       description:
-        'Precision-engineered sealing solutions for demanding industrial applications. Our gasket range includes Ring Type Joints, Spiral Wound Gaskets, Kammprofile Gaskets, Non-Metallic Gaskets, Gasket Sheets and Flange Insulation Kits. Designed for reliable sealing performance across high-pressure, high-temperature and critical service environments.',
-      label: 'PRODUCTS:',
+        'TXCO Sealing Products Private Limited manufactures and supplies metallic gaskets for critical applications in the oil & gas, petrochemical, refining, chemical and power industries. Our metallic gaskets are designed for demanding services requiring high pressure and temperature resistance, mechanical strength and chemical compatibility.',
+      label: 'PRODUCTS & VARIANTS:',
       productsList: [
-        'Metallic Gaskets (RTJ, Bonnet, Lens, Blind, Delta, IX, etc.)',
-        'Semi-Metallic Gaskets (Spiral Wound, Kammprofile, Metal Jacketed)',
-        'Non-Metallic Gaskets (Rubber, PTFE, ePTFE, CNAF)',
-        'Steel-Inserted Gaskets (Rubber-Inserted, Graphite-Inserted)',
-        'Flanges (Weld Neck, Slip-On, Blind, Orifice, Custom)',
-        'Valve Components (Packing, Gaskets, Trims, Sealing)',
+        'Ring Type Joint (RTJ) Gaskets (R – Oval, R – Octagonal, RX, BX, SBX, SRX)',
+        'Rubber-Coated RTJ Gaskets',
+        'PTFE-Insert RTJ Gaskets',
+        'Protective-Coated RTJ Gaskets',
+        'Bonnet Rings',
+        'Lens Rings',
+        'Blind Gaskets',
+        'VX–AX Gaskets',
+        'IX Gaskets',
+        'Delta Gaskets',
+        'Bridgeman Gaskets',
+        'Spectacle Blind Gaskets',
+        'Transition RTJ Gaskets',
+        'Soft-Material-Serrated RTJ Gaskets',
+        'Weld-Lip Seals',
       ],
     },
     {
-      id: 'jacketed-solutions',
-      title: 'JACKETED SOLUTIONS',
+      id: 'semi-metallic-gaskets',
+      title: 'SEMI-METALLIC GASKETS',
       description:
-        'Reliable sealing solutions designed for demanding temperature, pressure and process conditions. Our Metal Jacketed Gaskets combine metallic construction with suitable filler materials to provide dependable sealing performance. Available in corrugated and flat jacket configurations for a range of industrial applications.',
-      label: 'PRODUCTS:',
+        'Semi-metallic gaskets combine metallic strength with compressible sealing materials to provide reliable performance under demanding pressure, temperature and process conditions. TXCO offers Spiral Wound, Kammprofile and Metal Jacketed Gaskets, along with Flange Isolation Kits for sealing and electrical isolation.',
+      label: 'PRODUCTS & VARIANTS:',
       productsList: [
-        'Metal Jacketed Gaskets',
-        'Corrugated Jacketed Gaskets',
-        'Flat Jacketed Gaskets',
+        'Spiral Wound Gaskets (Style R, Style RIR, Style CG, Style CGI, Style CGI with Bolt Holes)',
+        'Kammprofile Gaskets (Type Z, Type ZA, Type ZI)',
+        'Metal Jacketed Gaskets (Corrugated Metal Jacketed, Flat Metal Jacketed, Double Jacketed, Heat Exchanger)',
+        'Flange Isolation Kits (TX-ISOPRO™, TX-CERAMPRO™, TX Type D, TX TYPE -N)',
       ],
     },
     {
-      id: 'specialized-custom-solutions',
-      title: 'SPECIALIZED & CUSTOM SOLUTIONS',
+      id: 'non-metallic-flanges-components',
+      title: 'NON-METALLIC GASKETS, FLANGES & VALVE COMPONENTS',
       description:
-        'Engineered sealing and protection solutions for applications where standard products are not enough. TXCO provides specialty gaskets and customized configurations, including Lens, Delta, IX and Bridgeman designs, along with protective coatings, pipeline insulation solutions and custom groove configurations.',
-      label: 'SOLUTIONS:',
+        'Non-metallic gaskets conform to flange surfaces and minor irregularities, creating a reliable barrier against leakage. TXCO also manufactures precision-forged industrial flanges, monolithic insulation joints, and severe-service valve components adhering strictly to ASME, API, and ISO standards.',
+      label: 'PRODUCTS & VARIANTS:',
       productsList: [
-        'Special & Custom Gaskets',
-        'Protective Coatings',
-        'Pipeline Insulation Kits',
-        'Custom Groove Configurations',
-        'Specialty Gaskets',
+        'Rubber Gaskets (Neoprene, Nitrile NBR, EPDM, Silicone, Viton FKM, Natural Rubber, SBR, Butyl)',
+        'PTFE & ePTFE Gaskets (Virgin, Expanded, Modified, Filled, Envelope, Full-Face)',
+        'Asbestos Free Gaskets (TXCO AF-110, AF-120, AF-139, AF-154, AF-155 GF, AF-159, AF-160, AF-170, AF-190)',
+        'Compressed Non Asbestos (TXCO Style 11, Style 20, Style 39, Style 51, Style 54, Style 55, Style 59 Oil, Style 60 Acid)',
+        'Steel-Inserted Gaskets (Rubber, Graphite) & Equipment Plug Gaskets',
+        'Industrial Flanges (Weld Neck, Slip-On, Blind, Socket Weld, Lap Joint, Threaded, Orifice, Custom)',
+        'Monolithic Insulation Joints (NPS 2" to 60", Class 150 to 2500)',
+        'Valve Components (Precision O-Rings, Low-Emission Gland Packing, Valve Seats & Inserts)',
       ],
     },
   ],
@@ -186,8 +199,8 @@ export const engineeredSolutionsData = {
   ],
   banner: {
     text:
-      'From high-performance gaskets, hoses and fasteners to custom-engineered sealing solutions, TXCO helps customers solve demanding applications with reliable products, technical expertise and responsive support.',
-    phone: '+91 6302 152 938',
+      'TXCO combines precision manufacturing, material expertise, standards-based production and sealing knowledge to provide flange and sealing solutions for demanding industrial applications.',
+    phone: '+91 9553125566',
     email: 'info@txco.co',
     image: '/images/contact-img.png',
   },

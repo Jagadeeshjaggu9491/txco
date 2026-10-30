@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
+import { submitContactEnquiry } from '@/utils/enquiryManager';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -67,6 +68,8 @@ export default function ContactPage() {
     error: null,
   });
 
+  const [submittedRefId, setSubmittedRefId] = useState('');
+
   // Active FAQ Accordion State
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
@@ -128,18 +131,28 @@ export default function ContactPage() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.fullName || !formData.email || !formData.message) {
-      setFormStatus({ isSubmitting: false, isSubmitted: false, error: 'Please fill in all required fields.' });
+      setFormStatus({ isSubmitting: false, isSubmitted: false, error: 'Please fill in all required fields (Full Name, Business Email, and Message).' });
       return;
     }
 
     setFormStatus({ isSubmitting: true, isSubmitted: false, error: null });
 
-    setTimeout(() => {
+    try {
+      const result = await submitContactEnquiry(formData);
+
+      setSubmittedRefId(result.referenceId || result.reference_id || '');
       setFormStatus({ isSubmitting: false, isSubmitted: true, error: null });
-    }, 900);
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+      setFormStatus({
+        isSubmitting: false,
+        isSubmitted: false,
+        error: err.message || 'Transmission failed. Please email info@txcosealing.com directly.',
+      });
+    }
   };
 
   const toggleFaq = (idx) => {
@@ -294,9 +307,13 @@ export default function ContactPage() {
                     <h3 style={{ fontSize: '1.5rem', fontWeight: '700', color: '#166534', margin: 0 }}>
                       Thank You! Your Inquiry Has Been Received.
                     </h3>
-                    <p style={{ fontSize: '0.98rem', color: '#15803d', maxWidth: '520px', lineHeight: '1.6' }}>
-                      A technical sales engineer from TXCO Sealing Products has been assigned to your request and will
-                      contact you within 2–4 business hours at <strong>{formData.email}</strong>.
+                    {submittedRefId && (
+                      <div style={{ backgroundColor: '#ffffff', border: '1px solid #bbf7d0', padding: '6px 16px', borderRadius: '8px', color: '#052C58', fontWeight: '700', fontSize: '0.9rem', letterSpacing: '0.5px' }}>
+                        Reference ID: <span style={{ fontFamily: 'monospace' }}>{submittedRefId}</span>
+                      </div>
+                    )}
+                    <p style={{ fontSize: '0.98rem', color: '#15803d', maxWidth: '540px', lineHeight: '1.6', margin: 0 }}>
+                      A confirmation email has been dispatched to <strong>{formData.email}</strong>. Our engineering and estimating team has received your submission and will contact you within 2–4 business hours.
                     </p>
                     <button
                       type="button"
@@ -571,10 +588,10 @@ export default function ContactPage() {
                     Call our direct engineering support desk right now for immediate dimensional validation and rapid quoting.
                   </p>
                   <a
-                    href="tel:+916302152938"
+                    href="tel:+919553125566"
                     className="txco-btn txco-btn-white"
                   >
-                    <span>+91 6302 152 938</span>
+                    <span>+91 9553125566</span>
                     <div className="txco-btn-icon-circle">
                       <svg
                         width="14"

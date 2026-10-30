@@ -67,7 +67,7 @@ export default function InvoiceModal({ isOpen, onClose, poData, invoiceItem }) {
                 <div className="inv-meta-strong">TXCO / Asian Sealing Products Pvt Ltd</div>
                 <div className="inv-meta-text">A-3(2) SIPCOT Industrial Park, Pillaipakkam,</div>
                 <div className="inv-meta-text">Sriperumbudur, Kanchipuram, TamilNadu - 602105, India</div>
-                <div className="inv-meta-text">Phone: +91 75400 75400 &bull; export@txco.com</div>
+                <div className="inv-meta-text">Phone: +91 9553125566 &bull; export@txco.com</div>
               </div>
 
               <div className="invoice-col-right">

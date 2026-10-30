@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1793093716376,
+    "referenceId": "TXCO-RFQ-2026-3787",
+    "type": "RFQ",
+    "status": "New",
+    "createdAt": "2026-10-27T09:35:16.376Z",
+    "contact": {
+      "name": "Nasser Al-Husseini",
+      "company": "Kuwait Oil Company",
+      "email": "n.husseini@koc.com.kw",
+      "phone": "+965 2398 0000",
+      "country": "Kuwait",
+      "city": "Ahmadi"
+    },
+    "technical": {
+      "productCategory": "API Ring Joint Gaskets",
+      "description": "Wellhead Christmas tree maintenance spare gaskets.",
+      "standard": "API Spec 6A",
+      "dimensions": "Style BX 152 5000 PSI",
+      "material": "Soft Iron / Zinc Plated",
+      "pressure": "5,000 PSI",
+      "quantity": "80 pcs",
+      "deliveryDate": "3 weeks",
+      "notes": "N/A"
+    },
+    "file": {
+      "name": "KOC_Spare_Requirements_PO.pdf",
+      "size": "Uploaded via Web Chatbot"
+    },
+    "vendor": {
+      "category": "N/A",
+      "portalRef": "N/A"
+    }
+  }
+]

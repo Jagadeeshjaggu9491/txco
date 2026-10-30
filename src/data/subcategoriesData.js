@@ -85,7 +85,7 @@ export const subcategoriesByCategory = {
     parentTitle: 'PRODUCTS',
     parentHref: '/products',
     description:
-      'Forged and precision-machined industrial flanges in carbon steel, stainless steel, duplex, and nickel alloys.',
+      'Forged and precision-machined industrial flanges in stainless steel, duplex, super duplex, nickel alloys, and special alloys.',
     items: [
       {
         id: 'weld-neck-flanges',
@@ -185,7 +185,7 @@ export const subcategoriesByCategory = {
         types: 'Fully Welded Boltless CP Isolating Joints (NPS 1/2" to 60", Class 150 to 2500)',
         description:
           'Boltless monolithic dielectric joints engineered with encapsulated dual seals and high-density G10/G11 insulating rings.',
-        image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/Insulation-Joints.avif',
         href: '/products/monolithic-insulation-joints/details?product=monolithic-insulation-joints',
       },
     ],

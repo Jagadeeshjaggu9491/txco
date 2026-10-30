@@ -63,6 +63,7 @@ import {
   PackageCheck,
   FileText,
   Award,
+  MessageSquare,
 } from 'lucide-react';
 import {
   getStoredPurchaseOrders,
@@ -74,6 +75,7 @@ import {
 } from '@/data/portalData';
 import InvoiceModal from '@/components/portal/InvoiceModal';
 import TestCertificateModal from '@/components/portal/TestCertificateModal';
+import EnquiriesHub from '@/components/admin/EnquiriesHub';
 import '@/styles/admin-dashboard.css';
 import '@/styles/client-portal.css';
 
@@ -82,7 +84,7 @@ export default function AdminStockDashboard() {
 
   // Auth & Navigation States
   const [currentUser, setCurrentUser] = useState(null);
-  const [activeTab, setActiveTab] = useState('stock'); // 'stock' | 'pos' | 'certificates' | 'users'
+  const [activeTab, setActiveTab] = useState('stock'); // 'stock' | 'pos' | 'certificates' | 'enquiries' | 'users'
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Inventory Data
@@ -978,6 +980,21 @@ export default function AdminStockDashboard() {
           <button
             type="button"
             onClick={() => {
+              setActiveTab('enquiries');
+              setSidebarOpen(false);
+            }}
+            className={`admin-nav-item ${activeTab === 'enquiries' ? 'active' : ''}`}
+          >
+            <div className="admin-nav-item-content">
+              <MessageSquare size={18} />
+              <span>Customer Inquiries</span>
+            </div>
+            <span className="admin-nav-pill" style={{ backgroundColor: '#018F5D', color: '#ffffff' }}>Live</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
               setActiveTab('users');
               setSidebarOpen(false);
             }}
@@ -1088,6 +1105,7 @@ export default function AdminStockDashboard() {
                 {activeTab === 'stock' && 'Stock & Inventory Management'}
                 {activeTab === 'pos' && 'Customer Purchase Orders & Stages'}
                 {activeTab === 'certificates' && 'EN 10204-3.1 Test Certificates'}
+                {activeTab === 'enquiries' && 'Customer Enquiries & RFQ Hub'}
                 {activeTab === 'users' && 'Registered Customer Accounts'}
               </span>
             </div>
@@ -1920,6 +1938,13 @@ export default function AdminStockDashboard() {
                 </table>
               </div>
             </div>
+          )}
+
+          {/* ===============================================================
+              TAB 4: CUSTOMER ENQUIRIES & RFQs (Contact Page & Chatbot)
+              =============================================================== */}
+          {activeTab === 'enquiries' && (
+            <EnquiriesHub onToast={(msg) => setToastMessage(msg)} />
           )}
 
 

@@ -1,13 +1,32 @@
 import { NextResponse } from 'next/server';
+import { sendEnquiryNotificationAndThankYou } from '@/utils/mailService';
+import fs from 'fs';
+import path from 'path';
 
-/**
- * TXCO Chatbot Enquiry API Route
- * Handles Phase 1 enquiries: RFQs, drawing uploads, vendor registrations, and callback requests.
- * Complies with Phase 1 Development Specification Section 14 & 15.
- */
+export const dynamic = 'force-static';
 
-// In-memory record store for local dev / runtime persistence
-const storedEnquiries = [];
+// Local storage backup file path (persists between server reloads)
+const DATA_FILE = path.join(process.cwd(), 'src', 'data', 'chatbotEnquiriesStore.json');
+
+function readStoredChatbotEnquiries() {
+  try {
+    if (fs.existsSync(DATA_FILE)) {
+      const raw = fs.readFileSync(DATA_FILE, 'utf-8');
+      return JSON.parse(raw);
+    }
+  } catch (err) {
+    console.error('Error reading chatbot enquiries store:', err);
+  }
+  return [];
+}
+
+function writeStoredChatbotEnquiries(enquiries) {
+  try {
+    fs.writeFileSync(DATA_FILE, JSON.stringify(enquiries, null, 2), 'utf-8');
+  } catch (err) {
+    console.error('Error writing chatbot enquiries store:', err);
+  }
+}
 
 export async function POST(request) {
   try {
@@ -72,6 +91,7 @@ export async function POST(request) {
     const referenceId = body.referenceId || `${prefix}-${year}-${randomSuffix}`;
 
     const enquiryRecord = {
+      id: Date.now(),
       referenceId,
       type,
       status: 'New',
@@ -107,8 +127,79 @@ export async function POST(request) {
       },
     };
 
-    storedEnquiries.push(enquiryRecord);
-    console.log(`[TXCO Chatbot Enquiry Received] ID: ${referenceId} | Type: ${type} | Client: ${contactName} (${companyName})`);
+    // 1. Save to local persistent file store
+    const existing = readStoredChatbotEnquiries();
+    existing.unshift(enquiryRecord);
+    writeStoredChatbotEnquiries(existing);
+
+    // 2. Try syncing with Hostinger PHP Backend (db.php / MySQL)
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'https://txco-dark.iadesigns.in/backend/api';
+    try {
+      const phpEndpoint = `${backendUrl}/enquiries/chatbot.php`;
+      await fetch(phpEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          referenceId,
+          type,
+          contactName,
+          companyName,
+          email,
+          phone,
+          country,
+          city,
+          productCategory,
+          description,
+          standard,
+          dimensions,
+          material,
+          pressure,
+          quantity,
+          deliveryDate,
+          notes,
+          fileName,
+          fileSize,
+          vendorCategory,
+          customerPortalRef,
+        }),
+        signal: AbortSignal.timeout(4000),
+      }).catch((e) => {
+        console.warn('[Sync to Hostinger chatbot.php Warning]', e.message);
+      });
+    } catch (phpErr) {
+      console.warn('[Sync to Hostinger chatbot.php failed]', phpErr.message);
+    }
+
+    // 3. Send automated emails:
+    //    - Thank you to user
+    //    - Notification to banuakash99@gmail.com and info@txcosealing.com
+    const emailResult = await sendEnquiryNotificationAndThankYou({
+      source: 'chatbot',
+      type: `${type} (Chatbot)`,
+      referenceId,
+      data: {
+        contactName,
+        companyName,
+        email,
+        phone,
+        country,
+        city,
+        productCategory,
+        description: description || notes,
+        standard,
+        dimensions,
+        material,
+        pressure,
+        quantity,
+        deliveryDate,
+        fileName,
+        fileSize,
+      },
+    });
+
+    console.log(
+      `[TXCO Chatbot Enquiry] Received: ${referenceId} from ${contactName} (${companyName}). Emails: user=${emailResult.userEmailSent}, maintenance=${emailResult.adminEmailSent}`
+    );
 
     return NextResponse.json({
       success: true,
@@ -116,6 +207,7 @@ export async function POST(request) {
       message:
         'Thank you for contacting TXCO Sealing Products. Your enquiry has been submitted to our team for review. A TXCO representative will review the information and follow up.',
       record: enquiryRecord,
+      emailStatus: emailResult,
     });
   } catch (error) {
     console.error('[TXCO Chatbot API Error]', error);
@@ -124,6 +216,22 @@ export async function POST(request) {
         success: false,
         error: 'Failed to process enquiry. Please email info@txcosealing.com directly.',
       },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET(request) {
+  try {
+    const enquiries = readStoredChatbotEnquiries();
+    return NextResponse.json({
+      success: true,
+      count: enquiries.length,
+      enquiries,
+    });
+  } catch (err) {
+    return NextResponse.json(
+      { success: false, error: err.message },
       { status: 500 }
     );
   }

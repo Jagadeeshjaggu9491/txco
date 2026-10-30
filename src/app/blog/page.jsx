@@ -4,7 +4,7 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BlogHero from '@/components/blog/BlogHero';
-import BlogVideoSection from '@/components/blog/BlogVideoSection';
+import GasketSelectionGuide from '@/components/blog/GasketSelectionGuide';
 import BlogList from '@/components/blog/BlogList';
 
 export default function BlogPage() {
@@ -15,8 +15,8 @@ export default function BlogPage() {
         {/* Top Hero Banner */}
         <BlogHero />
 
-        {/* First Section: Video Showcase Section */}
-        <BlogVideoSection />
+        {/* First Section: Interactive Gasket Selection Guide & Sizing Tool */}
+        <GasketSelectionGuide />
 
         {/* Second Section: Articles List & Categories */}
         <BlogList />

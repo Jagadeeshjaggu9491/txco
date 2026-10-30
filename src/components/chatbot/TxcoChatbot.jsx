@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+import { submitChatbotEnquiry } from '@/utils/enquiryManager';
 import {
   MessageSquare,
   X,
@@ -33,7 +34,7 @@ const TXCO_INFO = {
   company: 'TXCO Sealing Products Private Limited',
   website: 'www.txcosealing.com',
   email: 'info@txcosealing.com',
-  phone: '+91 95531 25566',
+  phone: '+91 9553125566',
   location: 'Ghatkesar, Hyderabad, Telangana, India – 500088',
 };
 
@@ -222,16 +223,12 @@ export default function TxcoChatbot() {
     const refId = `TXCO-RFQ-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
 
     try {
-      await fetch('/api/chatbot/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'RFQ',
-          referenceId: refId,
-          ...rfqData,
-          fileName: attachedFile?.name,
-          fileSize: attachedFile ? `${(attachedFile.size / 1024).toFixed(1)} KB` : null,
-        }),
+      await submitChatbotEnquiry({
+        type: 'RFQ',
+        referenceId: refId,
+        ...rfqData,
+        fileName: attachedFile?.name,
+        fileSize: attachedFile ? `${(attachedFile.size / 1024).toFixed(1)} KB` : null,
       });
 
       // Save to local storage cache for visitor visibility
@@ -271,22 +268,18 @@ export default function TxcoChatbot() {
     const refId = `TXCO-VR-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
 
     try {
-      await fetch('/api/chatbot/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'VENDOR_REGISTRATION',
-          referenceId: refId,
-          contactName: vendorData.name,
-          companyName: vendorData.company,
-          email: vendorData.email,
-          phone: vendorData.phone,
-          country: vendorData.country,
-          vendorCategory: vendorData.category,
-          customerPortalRef: vendorData.reference,
-          notes: vendorData.message,
-          fileName: attachedFile?.name,
-        }),
+      await submitChatbotEnquiry({
+        type: 'VENDOR_REGISTRATION',
+        referenceId: refId,
+        contactName: vendorData.name,
+        companyName: vendorData.company,
+        email: vendorData.email,
+        phone: vendorData.phone,
+        country: vendorData.country,
+        vendorCategory: vendorData.category,
+        customerPortalRef: vendorData.reference,
+        notes: vendorData.message,
+        fileName: attachedFile?.name,
       });
       setSubmittingForm(false);
       addUserMessage(`Submitted Vendor Registration for ${vendorData.company}`);
@@ -318,31 +311,27 @@ export default function TxcoChatbot() {
     const refId = `TXCO-CB-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
 
     try {
-      await fetch('/api/chatbot/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'CALLBACK',
-          referenceId: refId,
-          contactName: contactData.name,
-          companyName: contactData.company || 'N/A',
-          email: contactData.email,
-          phone: contactData.phone || 'N/A',
-          notes: contactData.message,
-          productCategory: contactData.category,
-        }),
+      await submitChatbotEnquiry({
+        type: 'CALLBACK',
+        referenceId: refId,
+        contactName: contactData.name,
+        companyName: contactData.company || 'N/A',
+        email: contactData.email,
+        phone: contactData.phone || 'N/A',
+        notes: contactData.message,
+        productCategory: contactData.category,
       });
       setSubmittingForm(false);
       addUserMessage(`Requested contact from TXCO team`);
       addBotMessage(
-        `Thank you ${contactData.name}! Your request has been routed to our Ghatkesar, Hyderabad team under Reference **${refId}**. An engineering or sales representative will reach out shortly.\n\nDirect Phone: +91 95531 25566\nEmail: info@txcosealing.com`,
+        `Thank you ${contactData.name}! Your request has been routed to our Ghatkesar, Hyderabad team under Reference **${refId}**. An engineering or sales representative will reach out shortly.\n\nDirect Phone: +91 9553125566\nEmail: info@txcosealing.com`,
         400,
         'menu'
       );
     } catch (err) {
       setSubmittingForm(false);
       addBotMessage(
-        `Thank you! You can reach us directly at info@txcosealing.com or call +91 95531 25566.`,
+        `Thank you! You can reach us directly at info@txcosealing.com or call +91 9553125566.`,
         400,
         'menu'
       );
@@ -379,20 +368,16 @@ export default function TxcoChatbot() {
     const refId = `TXCO-DRW-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
 
     try {
-      await fetch('/api/chatbot/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'DRAWING',
-          referenceId: refId,
-          contactName: rfqData.contactName,
-          companyName: rfqData.companyName || 'Independent Enquiry',
-          email: rfqData.email,
-          phone: rfqData.phone || 'N/A',
-          notes: rfqData.notes,
-          fileName: attachedFile.name,
-          fileSize: `${(attachedFile.size / 1024).toFixed(1)} KB`,
-        }),
+      await submitChatbotEnquiry({
+        type: 'DRAWING',
+        referenceId: refId,
+        contactName: rfqData.contactName,
+        companyName: rfqData.companyName || 'Independent Enquiry',
+        email: rfqData.email,
+        phone: rfqData.phone || 'N/A',
+        notes: rfqData.notes,
+        fileName: attachedFile.name,
+        fileSize: `${(attachedFile.size / 1024).toFixed(1)} KB`,
       });
       setSubmittingForm(false);
       addUserMessage(`Uploaded technical document: ${attachedFile.name}`);

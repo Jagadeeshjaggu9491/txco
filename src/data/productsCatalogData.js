@@ -370,7 +370,7 @@ export const productCategoriesHierarchy = [
     slug: 'flanges',
     href: '/products/flanges',
     description:
-      'Forged and precision-machined industrial flanges in carbon steel, stainless steel, duplex, and nickel alloys meeting ASME, API, and DIN standards.',
+      'Forged and precision-machined industrial flanges in stainless steel, duplex, super duplex, and nickel alloys meeting ASME, API, and DIN standards.',
     subcategories: [
       {
         id: 'flanges-all',
@@ -485,7 +485,7 @@ export const productCategoriesHierarchy = [
             href: '/products/monolithic-insulation-joints/details?product=monolithic-insulation-joints',
             standards: 'ASME B31.4, ASME B31.8, API 6D, NACE SP0169, ISO 15589-1',
             types: 'Fully Welded Boltless CP Isolating Joints (NPS 1/2" to 60", Class 150 to 2500)',
-            image: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/Insulation-Joints.avif',
             description: 'Forged boltless dielectric isolation joints engineered with encapsulated dual seals and high-density G10/G11 insulating rings.',
           },
         ],

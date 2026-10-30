@@ -10,27 +10,27 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// 4 Industry Circles matching the UI design
+// 4 Industry Circles matching the PDF industry sectors
 export const defaultIndustriesList = [
   {
-    title: 'Renewable Energy',
-    image: '/images/industries/Renewable-Energy.png',
-    href: '/industries/energy',
+    title: 'Chemical',
+    image: '/images/industries/Chemical.png',
+    href: '/industries/chemical',
   },
   {
-    title: 'Power Generation',
-    image: '/images/industries/Manufacturing-1.png',
-    href: '/industries/energy',
-  },
-  {
-    title: 'Oil & Gas',
+    title: 'Energy & Oil & Gas',
     image: '/images/industries/Oil-and-Gas-Sunset.jpg',
     href: '/industries/energy',
   },
   {
-    title: 'EPC',
-    image: '/images/industries/Water-and-Wastewater.png',
-    href: '/industries',
+    title: 'Manufacturing',
+    image: '/images/industries/Manufacturing-1.png',
+    href: '/industries/manufacturing',
+  },
+  {
+    title: 'Metals & Mining',
+    image: '/images/industries/Metals-and-Mining.png',
+    href: '/industries/metals-mining',
   },
 ];
 

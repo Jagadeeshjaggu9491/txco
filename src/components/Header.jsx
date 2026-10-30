@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Search, Menu, X, ChevronRight, User, ShoppingCart, ChevronDown, Check } from 'lucide-react';
+import { Globe, Search, Menu, X, ChevronRight, User, ShoppingCart, ChevronDown, Check, Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import { utilityNavLinks, mainNavigationMenu } from '@/data/navigationData';
 import { getCartCount } from '@/utils/cartManager';
 import { getCurrentUser } from '@/utils/authManager';
@@ -99,6 +99,10 @@ export default function Header({ heroMode }) {
         );
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const [mobileSearchQuery, setMobileSearchQuery] = useState('');
+  const [mobileExpanded, setMobileExpanded] = useState({});
+  const [mobileSubExpanded, setMobileSubExpanded] = useState({});
   const [searchOpen, setSearchOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeSubitemIndex, setActiveSubitemIndex] = useState(0);
@@ -107,6 +111,38 @@ export default function Header({ heroMode }) {
   const [countryMenuOpen, setCountryMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [authUser, setAuthUser] = useState(null);
+
+  const toggleMobileSection = (key) => {
+    setMobileExpanded((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  const toggleMobileSubSection = (subKey) => {
+    setMobileSubExpanded((prev) => ({
+      ...prev,
+      [subKey]: !prev[subKey],
+    }));
+  };
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  // Close mobile menus on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMobileSearchOpen(false);
+  }, [pathname]);
 
   // Synchronize authenticated user
   useEffect(() => {
@@ -318,10 +354,11 @@ export default function Header({ heroMode }) {
   );
 
   return (
-    <header className={`site-header ${isHeroMode ? 'header-hero-mode' : ''}`}>
+    <header className={`site-header ${isHeroMode ? 'header-hero-mode' : ''} ${mobileMenuOpen ? 'mobile-drawer-open' : ''}`}>
       {/* Main Header Layout */}
       <div className="header-hero-unscrolled">
-        <div className="header-hero-container">
+        {/* Desktop Header Layout */}
+        <div className="header-hero-container desktop-header-only">
           {/* Left Column */}
           <div className="header-hero-left-col">
             {/* Top Row: Utility Navigation */}
@@ -497,15 +534,6 @@ export default function Header({ heroMode }) {
             </nav>
           </div>
 
-          {/* Mobile Hamburger Toggle for Unscrolled */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="mobile-nav-toggle hero-mobile-toggle"
-            aria-label="Toggle Navigation"
-          >
-            {mobileMenuOpen ? <X size={28} color="#1d2744" /> : <Menu size={28} color="#1d2744" />}
-          </button>
-
           {/* Right Column: TXCO Logo */}
           <div className="header-hero-right-col">
             <Link href="/" className="header-hero-logo-link">
@@ -517,64 +545,327 @@ export default function Header({ heroMode }) {
             </Link>
           </div>
         </div>
+
+        {/* Dedicated Mobile Header Bar */}
+        <div className="mobile-header-bar">
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mobile-logo-link">
+            <img
+              src="/images/logo/txco-logo-new.avif"
+              alt="TXCO Sealing Products Logo"
+              className="mobile-logo-img"
+            />
+          </Link>
+
+          <div className="mobile-header-actions">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileSearchOpen(!mobileSearchOpen);
+                if (mobileMenuOpen) setMobileMenuOpen(false);
+              }}
+              className={`mobile-header-icon-btn ${mobileSearchOpen ? 'active' : ''}`}
+              aria-label="Search products"
+            >
+              <Search size={21} color="#1d2744" />
+            </button>
+
+            <Link
+              href="/cart"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mobile-header-icon-btn mobile-cart-icon-btn"
+              aria-label="Shopping Cart"
+            >
+              <ShoppingCart size={21} color="#1d2744" />
+              {cartCount > 0 && <span className="mobile-cart-badge">{cartCount}</span>}
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(!mobileMenuOpen);
+                if (mobileSearchOpen) setMobileSearchOpen(false);
+              }}
+              className="mobile-header-icon-btn mobile-hamburger-btn"
+              aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+            >
+              {mobileMenuOpen ? <X size={26} color="#1d2744" /> : <Menu size={26} color="#1d2744" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Dropdown Search Input Bar (when tapped from top bar) */}
+        {mobileSearchOpen && (
+          <div className="mobile-header-search-bar">
+            <Search size={18} color="#64748b" />
+            <input
+              type="text"
+              placeholder="Search products, RTJ, gaskets..."
+              value={mobileSearchQuery}
+              onChange={(e) => setMobileSearchQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && mobileSearchQuery.trim()) {
+                  window.location.href = `/products?q=${encodeURIComponent(mobileSearchQuery.trim())}`;
+                  setMobileSearchOpen(false);
+                }
+              }}
+              autoFocus
+            />
+            {mobileSearchQuery.trim() && (
+              <button
+                type="button"
+                onClick={() => {
+                  window.location.href = `/products?q=${encodeURIComponent(mobileSearchQuery.trim())}`;
+                  setMobileSearchOpen(false);
+                }}
+                className="mobile-search-go-btn"
+              >
+                Go
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => setMobileSearchOpen(false)}
+              className="mobile-search-close-btn"
+              aria-label="Close search"
+            >
+              <X size={18} color="#64748b" />
+            </button>
+          </div>
+        )}
       </div>
 
-
-      {/* Mobile Menu Drawer */}
+      {/* Full Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="mobile-menu-drawer">
-          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Home
-          </Link>
-          <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Industries
-          </Link>
-          <Link href="/products" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Products
-          </Link>
-          <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Services
-          </Link>
-          <Link href="/resources" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Resources
-          </Link>
-          <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            About Us
-          </Link>
-          <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Contact
-          </Link>
-          <Link href="/catalogues" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-link">
-            Downloads
-          </Link>
-          <Link
-            href={authUser ? (authUser.role === 'admin' ? '/admin/stock' : '/portal') : '/login'}
-            onClick={() => setMobileMenuOpen(false)}
-            className="mobile-menu-link"
-          >
-            {authUser ? (authUser.role === 'admin' ? `Admin: ${authUser.name?.split(' ')[0]}` : `Portal: ${authUser.name?.split(' ')[0] || 'User'}`) : 'Customer Login'}
-          </Link>
-          <Link
-            href="/cart"
-            onClick={() => setMobileMenuOpen(false)}
-            className="mobile-menu-link"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}
-          >
-            <div className="header-cart-icon-wrapper">
-              <ShoppingCart size={19} color="#052C58" />
-              {cartCount > 0 && (
-                <span className="header-cart-badge">{cartCount}</span>
-              )}
-            </div>
-            <span>Cart {cartCount > 0 ? `(${cartCount})` : ''}</span>
-          </Link>
+          {/* Mobile Search Bar inside Drawer */}
+          <div className="mobile-drawer-search">
+            <Search size={18} color="#64748b" className="drawer-search-icon" />
+            <input
+              type="text"
+              placeholder="Search products, RTJ, gaskets..."
+              value={mobileSearchQuery}
+              onChange={(e) => setMobileSearchQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && mobileSearchQuery.trim()) {
+                  window.location.href = `/products?q=${encodeURIComponent(mobileSearchQuery.trim())}`;
+                  setMobileMenuOpen(false);
+                }
+              }}
+            />
+            {mobileSearchQuery.trim() && (
+              <button
+                type="button"
+                onClick={() => {
+                  window.location.href = `/products?q=${encodeURIComponent(mobileSearchQuery.trim())}`;
+                  setMobileMenuOpen(false);
+                }}
+                className="drawer-search-btn"
+              >
+                Go
+              </button>
+            )}
+          </div>
 
-          <div style={{ marginTop: '1.2rem', paddingTop: '1.2rem', borderTop: '1px solid #e2e8f0' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.8rem', color: '#052C58', fontWeight: 600, fontSize: '0.9rem' }}>
+          {/* Navigation Links with Multi-Level Expandable Accordions */}
+          <div className="mobile-drawer-nav">
+            {/* Home */}
+            <div className="mobile-nav-item">
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`mobile-nav-link-direct ${pathname === '/' ? 'active' : ''}`}
+              >
+                <span>Home</span>
+              </Link>
+            </div>
+
+            {/* Main Navigation Menu with Expandable Accordions */}
+            {Object.keys(mainNavigationMenu).map((key) => {
+              const menu = mainNavigationMenu[key];
+              const isSectionOpen = Boolean(mobileExpanded[key]);
+              const isPageActive = isMenuMatchPath(menu, pathname);
+
+              return (
+                <div key={key} className={`mobile-nav-item accordion-item ${isSectionOpen ? 'open' : ''}`}>
+                  <button
+                    type="button"
+                    onClick={() => toggleMobileSection(key)}
+                    className={`mobile-accordion-toggle ${isPageActive ? 'page-active' : ''} ${isSectionOpen ? 'open' : ''}`}
+                    aria-expanded={isSectionOpen}
+                  >
+                    <span>{menu.title}</span>
+                    <ChevronDown
+                      size={18}
+                      className={`mobile-chevron ${isSectionOpen ? 'rotated' : ''}`}
+                    />
+                  </button>
+
+                  {isSectionOpen && (
+                    <div className="mobile-accordion-content">
+                      {/* Top Action: View Overview Page */}
+                      <Link
+                        href={menu.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="mobile-overview-link"
+                      >
+                        <span>View All {menu.title}</span>
+                        <ArrowRight size={14} />
+                      </Link>
+
+                      {/* Sub-items (Direct or Nested) */}
+                      {menu.items.map((subItem, sIdx) => {
+                        const subKey = `${key}-${sIdx}`;
+                        const hasChildren = Array.isArray(subItem.children) && subItem.children.length > 0;
+                        const isSubOpen = Boolean(mobileSubExpanded[subKey]);
+
+                        if (hasChildren) {
+                          return (
+                            <div key={sIdx} className={`mobile-sub-accordion ${isSubOpen ? 'open' : ''}`}>
+                              <button
+                                type="button"
+                                onClick={() => toggleMobileSubSection(subKey)}
+                                className={`mobile-sub-toggle ${isSubOpen ? 'open' : ''}`}
+                                aria-expanded={isSubOpen}
+                              >
+                                <span>{subItem.name}</span>
+                                <ChevronDown
+                                  size={16}
+                                  className={`mobile-sub-chevron ${isSubOpen ? 'rotated' : ''}`}
+                                />
+                              </button>
+
+                              {isSubOpen && (
+                                <div className="mobile-sub-content">
+                                  {subItem.href && subItem.href !== '#' && (
+                                    <Link
+                                      href={subItem.href}
+                                      onClick={() => setMobileMenuOpen(false)}
+                                      className="mobile-sub-overview-link"
+                                    >
+                                      <span>All {subItem.name}</span>
+                                      <ArrowRight size={13} />
+                                    </Link>
+                                  )}
+                                  {subItem.children.map((child, cIdx) => (
+                                    <Link
+                                      key={cIdx}
+                                      href={child.href}
+                                      onClick={() => setMobileMenuOpen(false)}
+                                      className="mobile-child-link"
+                                    >
+                                      {child.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        }
+
+                        // Direct sub-item (no children)
+                        return (
+                          <Link
+                            key={sIdx}
+                            href={subItem.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="mobile-sub-link-direct"
+                          >
+                            {subItem.name}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            {/* Downloads / Catalogues */}
+            <div className="mobile-nav-item">
+              <Link
+                href="/catalogues"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`mobile-nav-link-direct ${pathname === '/catalogues' || pathname.startsWith('/catalogues/') ? 'active' : ''}`}
+              >
+                <span>Downloads & Catalogues</span>
+              </Link>
+            </div>
+
+            {/* Contact */}
+            <div className="mobile-nav-item">
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`mobile-nav-link-direct ${pathname === '/contact' || pathname.startsWith('/contact/') ? 'active' : ''}`}
+              >
+                <span>Contact Us</span>
+              </Link>
+            </div>
+
+            {/* Customer Login / Portal */}
+            <div className="mobile-nav-item">
+              <Link
+                href={authUser ? (authUser.role === 'admin' ? '/admin/stock' : '/portal') : '/login'}
+                onClick={() => setMobileMenuOpen(false)}
+                className="mobile-nav-link-direct customer-link"
+              >
+                <User size={18} color="#018F5D" />
+                <span>
+                  {authUser
+                    ? authUser.role === 'admin'
+                      ? `Admin: ${authUser.name?.split(' ')[0]}`
+                      : `Portal: ${authUser.name?.split(' ')[0] || 'User'}`
+                    : 'Customer Login / Portal'}
+                </span>
+              </Link>
+            </div>
+
+            {/* Shopping Cart */}
+            <div className="mobile-nav-item">
+              <Link
+                href="/cart"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`mobile-nav-link-direct cart-link ${pathname === '/cart' ? 'active' : ''}`}
+              >
+                <div className="mobile-cart-icon-wrapper">
+                  <ShoppingCart size={18} color="#052C58" />
+                  {cartCount > 0 && <span className="mobile-cart-badge">{cartCount}</span>}
+                </div>
+                <span>Shopping Cart {cartCount > 0 ? `(${cartCount})` : ''}</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Quick Direct Support Action Buttons */}
+          <div className="mobile-drawer-support">
+            <div className="mobile-support-header">DIRECT ENGINEERING HOTLINE</div>
+            <div className="mobile-support-buttons">
+              <a
+                href="https://wa.me/919553125566"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-support-btn whatsapp-btn"
+              >
+                <MessageCircle size={17} />
+                <span>WhatsApp: +91 9553125566</span>
+              </a>
+              <a
+                href="tel:+919553125566"
+                className="mobile-support-btn phone-btn"
+              >
+                <Phone size={17} />
+                <span>Call: +91 9553125566</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Language Selector */}
+          <div className="mobile-drawer-lang">
+            <div className="mobile-lang-header">
               <Globe size={16} />
               <span>Select Language</span>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem' }}>
+            <div className="mobile-lang-grid">
               {languagesList.map((lang) => {
                 const isSelected = selectedLanguage === lang;
                 return (
@@ -586,20 +877,10 @@ export default function Header({ heroMode }) {
                       applyLanguage(lang);
                       setMobileMenuOpen(false);
                     }}
-                    style={{
-                      padding: '0.55rem 0.8rem',
-                      borderRadius: '6px',
-                      border: isSelected ? '1px solid #052C58' : '1px solid #e2e8f0',
-                      backgroundColor: isSelected ? '#052C58' : '#ffffff',
-                      color: isSelected ? '#ffffff' : '#334155',
-                      fontSize: '0.85rem',
-                      fontWeight: isSelected ? 600 : 500,
-                      cursor: 'pointer',
-                      textAlign: 'center',
-                      transition: 'all 0.15s ease',
-                    }}
+                    className={`mobile-lang-pill ${isSelected ? 'active' : ''}`}
                   >
-                    {lang}
+                    <span>{lang}</span>
+                    {isSelected && <Check size={13} />}
                   </button>
                 );
               })}

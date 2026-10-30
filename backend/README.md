@@ -10,16 +10,20 @@ This directory contains the production-ready PHP backend for **TXCO**, pre-confi
 backend/
 ├── .htaccess                 # CORS headers and HTTP OPTIONS preflight handler
 ├── config/
-│   └── db.php                # PDO MySQL connection (pre-configured for u547609561_txco)
+│   ├── db.php                # PDO MySQL connection (pre-configured for u547609561_txco)
+│   └── mailer.php            # Central email dispatcher (Hostinger SMTP + native mail fallback)
 ├── api/
 │   ├── auth/
 │   │   ├── register.php      # Customer account creation
 │   │   ├── login.php         # 2-step credential validation endpoint
 │   │   └── send_otp.php      # Email OTP sender via txco@iadesigns.in
+│   ├── enquiries/
+│   │   ├── contact.php       # Contact form enquiries + automated customer & admin emails
+│   │   └── chatbot.php       # Chatbot RFQs & technical inquiries + automated customer & admin emails
 │   └── admin/
 │       ├── stock.php         # Live stock inventory CRUD (GET, POST, PUT, DELETE)
 │       └── users.php         # Registered users list for Admin Dashboard
-├── schema.sql                # Complete SQL table schema & initial 15 stock items
+├── schema.sql                # Complete SQL table schema (users, stock, contact_enquiries, chatbot_enquiries)
 └── README.md
 ```
 
@@ -41,6 +45,8 @@ backend/
 2. Open `public_html/`.
 3. Upload the entire `backend/` folder into `public_html/`.
 4. Your endpoints will be live at:
+   - `https://iadesigns.in/backend/api/enquiries/contact.php` (Contact form + emails)
+   - `https://iadesigns.in/backend/api/enquiries/chatbot.php` (Chatbot RFQs + emails)
    - `https://iadesigns.in/backend/api/admin/stock.php`
    - `https://iadesigns.in/backend/api/admin/users.php`
    - `https://iadesigns.in/backend/api/auth/login.php`

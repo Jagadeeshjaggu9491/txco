@@ -96,7 +96,7 @@ export const industrySolutionsData = [
     image: '/images/Products-img.avif',
     imageLeft: false,
     description:
-      'As a manufacturer of industrial fasteners, gaskets, and custom-made hoses, we build each of our product lines on the same foundation: steadfast commitment to industry-leading expertise and stringent testing for durability and longevity.',
+      'TXCO Sealing Products Private Limited manufactures mission-critical industrial gaskets, precision-forged flanges, monolithic insulation joints and severe-service valve components engineered to deliver complete end-to-end pipeline joint integrity across global oil & gas, petrochemical, nuclear, and power infrastructure.',
     buttonText: 'EXPLORE PRODUCTS',
     href: '/products',
   },
@@ -161,24 +161,24 @@ export const customerTestimonialsData = [
 
 export const contactSectionData = {
   description:
-    'From high-performance gaskets, hoses and fasteners to custom-engineered sealing solutions, TXCO helps customers solve demanding applications with reliable products, technical expertise and responsive support.',
-  phone: '+91 6302 152 938',
+    'TXCO combines precision manufacturing, material expertise, standards-based production and sealing knowledge to provide flange and sealing solutions for demanding industrial applications.',
+  phone: '+91 9553125566',
   email: 'info@txco.co',
   image: '/images/contact-img.png',
 };
 
 export const customManufacturerData = {
-  title: 'CUSTOM GASKET, BOLT & SEAL MANUFACTURER',
+  title: 'ENGINEERING ABSOLUTE RELIABILITY',
   cards: [
     {
-      title: 'Our Legacy',
+      title: 'Total Pipeline Integrity',
       description:
-        "As one of the largest privately held custom gasket, fastener, and hose manufacturers and distributors in the world, TXCO is the partner you can trust to deliver quality products whenever you need them — at consistently fair pricing. Since 1947, we've been providing industry-leading safety sealing and attachment solutions that help keep communities safe and drive progress across the world.",
+        'Where extreme pressure, thermal shock, and volatile chemical media leave zero margin for error, precision is more than a specification—it is an absolute engineering duty. TXCO Sealing Products Private Limited manufactures mission-critical industrial gaskets, precision-forged flanges, monolithic insulation joints and severe-service valve components engineered to deliver complete end-to-end pipeline joint integrity across global oil & gas, petrochemical, nuclear, and power infrastructure.',
     },
     {
-      title: 'Your Innovation Partner',
+      title: 'Zero Leaks, Zero Compromise, Zero Harm',
       description:
-        "We believe progress is built on partnership. That's why we're available 24/7 with the fastest response time in the industry. We seamlessly handle high-volume and quick-turn needs for both standard components and one-of-a-kind engineered solutions. Learn how we're setting the standard for quality and ingenuity.",
+        'Operating at the intersection of advanced metallurgy, fluid containment science, and micro-inch metrology, our product line strictly adheres to ASME, API and all applicable parameters. We enforce strict hardness differentials to ensure plastic seal deformation while protecting expensive flange faces, guaranteeing fugitive-emission compliance under extreme cyclic loads.',
     },
   ],
 };

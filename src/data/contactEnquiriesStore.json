@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1793102518606,
+    "reference_id": "TXCO-CNT-2026-1916",
+    "full_name": "Bhanu Prakash",
+    "email": "bp1351458@gmail.com",
+    "phone": "+916302388294",
+    "company": "PER A CAUSE ",
+    "industry": "Oil & Gas",
+    "inquiry_type": "General Inquiry",
+    "message": "testing message",
+    "attachment_name": null,
+    "status": "New",
+    "created_at": "2026-10-27T12:01:58.606Z"
+  },
+  {
+    "id": 1793100657222,
+    "reference_id": "TXCO-CNT-2026-9051",
+    "full_name": "Bhanu Prakash",
+    "email": "bp1351458@gmail.com",
+    "phone": "+916302388294",
+    "company": "PER A CAUSE ",
+    "industry": "Oil & Gas",
+    "inquiry_type": "Request for Quote (RFQ)",
+    "message": "testing message",
+    "attachment_name": null,
+    "status": "New",
+    "created_at": "2026-10-27T11:30:57.222Z"
+  },
+  {
+    "id": 1793093826092,
+    "reference_id": "TXCO-CNT-2026-9330",
+    "full_name": "Test Verification Client",
+    "email": "banuakash99@gmail.com",
+    "phone": "+91 9553125566",
+    "company": "Verification Corp",
+    "industry": "Oil & Gas",
+    "inquiry_type": "Request for Quote (RFQ)",
+    "message": "This is a test to verify email dispatch to user and maintenance team.",
+    "attachment_name": null,
+    "status": "New",
+    "created_at": "2026-10-27T09:37:06.092Z"
+  },
+  {
+    "id": 1793093709966,
+    "reference_id": "TXCO-CNT-2026-7608",
+    "full_name": "Vikramaditya Roy",
+    "email": "v.roy@tatasteel.com",
+    "phone": "+91 98310 11223",
+    "company": "Tata Steel Jamshedpur",
+    "industry": "Heavy Engineering & Manufacturing",
+    "inquiry_type": "Request for Quote (RFQ)",
+    "message": "Require 200 pcs of Spiral Wound Gasket Class 300 6 inch CS/316L/Graphite with Inner and Outer Rings.",
+    "attachment_name": "TataSteel_Tender_Gasket_Specs.pdf",
+    "status": "In Review",
+    "created_at": "2026-10-27T09:35:09.966Z",
+    "updated_at": "2026-10-27T09:35:25.904Z"
+  }
+]

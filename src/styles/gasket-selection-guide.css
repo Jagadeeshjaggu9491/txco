@@ -1,0 +1,407 @@
+/* =========================================================================
+   TXCO RTJ GASKET CALCULATOR & SELECTION GUIDE (LIGHT THEME)
+   Clean, modern engineering aesthetic matching the TXCO website theme
+   ========================================================================= */
+
+.rtj-calc-section {
+  width: 100%;
+  background: #f8fafc;
+  padding: 4.5rem 1.5rem 5rem 1.5rem;
+  box-sizing: border-box;
+  position: relative;
+  color: #1e293b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rtj-calc-container {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Header */
+.rtj-calc-header {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 3rem auto;
+}
+
+.rtj-calc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 6px 14px;
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  border-radius: 9999px;
+  color: #0369a1;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.rtj-calc-title {
+  font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  color: #052c58;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+}
+
+.rtj-calc-title-highlight {
+  color: #0284c7;
+}
+
+.rtj-calc-subtitle {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =========================================================================
+   MAIN CALCULATOR WIDGET (LIGHT THEME MATCHING CLIENT SCREENSHOT)
+   ========================================================================= */
+
+.rtj-calculator-widget {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  box-shadow: 0 12px 36px rgba(5, 44, 88, 0.07), 0 2px 8px rgba(0, 0, 0, 0.03);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .rtj-calculator-widget {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left Panel: Parameters */
+.rtj-widget-left {
+  padding: 2.5rem;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .rtj-widget-left {
+    padding: 1.75rem;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+}
+
+.rtj-widget-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #052c58;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 2rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.rtj-widget-panel-title svg {
+  color: #0284c7;
+}
+
+/* Parameter Grid (2 Columns) */
+.rtj-controls-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 640px) {
+  .rtj-controls-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.rtj-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rtj-field-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.rtj-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.rtj-light-select {
+  width: 100%;
+  appearance: none;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 11px 36px 11px 14px;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.rtj-light-select:focus {
+  background: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.rtj-light-select option {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 8px;
+}
+
+.rtj-select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+}
+
+/* Checkboxes Row */
+.rtj-checkboxes-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1.25rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.rtj-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  user-select: none;
+}
+
+.rtj-checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #0284c7;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Right Panel: Calculated Result */
+.rtj-widget-right {
+  padding: 2.5rem;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .rtj-widget-right {
+    padding: 1.75rem;
+  }
+}
+
+.rtj-result-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rtj-result-heading {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.rtj-verified-spec-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 4px 10px;
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  border-radius: 6px;
+  color: #0284c7;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Big Ring Display Row */
+.rtj-ring-display-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.rtj-ring-title-sub {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+}
+
+.rtj-ring-big-code {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #052c58;
+  line-height: 1;
+}
+
+.rtj-groove-standard-col {
+  text-align: right;
+}
+
+.rtj-groove-standard-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.rtj-groove-standard-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #052c58;
+}
+
+/* Dimension Rows Table */
+.rtj-specs-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.rtj-spec-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+}
+
+.rtj-spec-label {
+  color: #475569;
+  font-weight: 500;
+}
+
+.rtj-spec-value {
+  color: #0f172a;
+  font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.rtj-spec-value.highlight-amber {
+  color: #b45309;
+}
+
+.rtj-spec-value.highlight-cyan {
+  color: #0284c7;
+}
+
+/* Action Buttons */
+.rtj-actions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rtj-whatsapp-btn {
+  width: 100%;
+  background: #22c55e;
+  color: #ffffff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.28);
+}
+
+.rtj-whatsapp-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(34, 197, 94, 0.38);
+}
+
+.rtj-rfq-btn {
+  width: 100%;
+  background: #ffffff;
+  color: #052c58;
+  border: 1px solid #cbd5e1;
+  padding: 13px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rtj-rfq-btn:hover {
+  background: #f1f5f9;
+  border-color: #052c58;
+}

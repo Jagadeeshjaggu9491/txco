@@ -263,8 +263,8 @@ export default function FaqsAccordion() {
               <div style={{ marginBottom: '1.8rem' }}>
                 <div className="faq-contact-item">
                   <Phone size={18} color="var(--slate-blue, #114680)" />
-                  <a href="tel:+916302152938" style={{ color: '#1e293b', textDecoration: 'none' }}>
-                    +91 6302 152 938
+                  <a href="tel:+919553125566" style={{ color: '#1e293b', textDecoration: 'none' }}>
+                    +91 9553125566
                   </a>
                 </div>
 

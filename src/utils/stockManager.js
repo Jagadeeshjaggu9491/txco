@@ -15,7 +15,7 @@ export function getApiBaseUrl() {
       return `${window.location.origin}/backend/api`;
     }
   }
-  return 'https://txco.iadesigns.in/backend/api';
+  return 'https://txco-dark.iadesigns.in/backend/api';
 }
 
 const API_BASE_URL = getApiBaseUrl();

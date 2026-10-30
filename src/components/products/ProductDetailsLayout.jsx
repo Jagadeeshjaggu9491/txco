@@ -54,7 +54,7 @@ function renderEngineeringTable(tableData, anchorId) {
                       key={cIdx}
                       className={cIdx === 0 ? 'product-details-table-first-col' : ''}
                     >
-                      {cell}
+                      {typeof cell === 'string' ? renderFormattedText(cell) : cell}
                     </td>
                   ))}
                 </tr>
@@ -278,7 +278,7 @@ const NEW_PRODUCT_IMAGES = {
   'custom-flanges': '/images/TXCO PHOTOS FOR WEBSITE/FLANGES/flanges.png',
 
   // Monolithic Insulation Joints
-  'monolithic-insulation-joints': '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+  'monolithic-insulation-joints': '/images/TXCO PHOTOS FOR WEBSITE/Insulation-Joints.avif',
 
   // Valve Components
   'about-valve-components': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
@@ -484,19 +484,11 @@ const PRODUCT_GALLERY_IMAGES = {
     },
   ],
 
-  // 8. Monolithic Insulation Joints (3 authentic images)
+  // 8. Monolithic Insulation Joints
   'monolithic-insulation-joints': [
     {
-      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/FLANGE ISOLATION KIT.jpeg',
+      src: '/images/TXCO PHOTOS FOR WEBSITE/Insulation-Joints.avif',
       label: 'Monolithic Insulation Joint Overview',
-    },
-    {
-      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TX-ISOPRO.jpeg',
-      label: 'Dielectric Isolation Assembly',
-    },
-    {
-      src: '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/FLANGE ISOLATION KIT/TXCO CREAMPRO.jpeg',
-      label: 'CreamPro™ High Pressure Seal',
     },
   ],
 
@@ -824,7 +816,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
 
   return (
     <>
-      <Header heroMode={true} />
+      <Header />
       <main className="product-details-main">
         <section className="product-details-section">
           <div className="product-details-container">
@@ -1012,7 +1004,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                 </p>
               ))}
 
-              {/* Sec0 Sub Paragraphs (e.g. Planiflex compressed fiber sheets details) */}
+              {/* Sec0 Sub Paragraphs */}
               {sec0?.subParagraphs &&
                 sec0.subParagraphs.map((spText, spIdx) => (
                   <p key={`sp-${spIdx}`} className="product-details-paragraph">
@@ -1070,30 +1062,78 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                     </p>
                   )}
 
-                  {/* Bullets List / Points */}
-                  {sec.bullets && (
-                    <div className="product-details-points-grid">
-                      {sec.bullets.map((bItem, bIdx) => {
-                        const { title, desc } = sec.bulletsAsHeadings
-                          ? { title: typeof bItem === 'string' ? bItem : bItem.title, desc: '' }
-                          : splitPointItem(bItem);
-
-                        return (
-                          <div key={bIdx} className="product-details-point-card">
-                            {title && (
-                              <h5 className="product-details-point-title">
-                                {title}
-                              </h5>
-                            )}
-                            {desc && (
-                              <p className="product-details-point-desc">
-                                {desc}
-                              </p>
-                            )}
+                  {/* Bullets List / Points with Image Showcase if sec.image exists */}
+                  {sec.image ? (
+                    <div className="product-details-type-showcase">
+                      <div className="product-details-type-image-col">
+                        <div className="product-details-type-image-card">
+                          <div className="product-details-type-img-wrapper">
+                            <img
+                              src={sec.image}
+                              alt={sec.imageAlt || sec.heading}
+                              className="product-details-type-img"
+                              loading="lazy"
+                            />
                           </div>
-                        );
-                      })}
+                          {sec.imageCaption && (
+                            <div className="product-details-type-badge">
+                              <span>{sec.imageCaption}</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div className="product-details-type-content-col">
+                        {sec.bullets && (
+                          <div className="product-details-points-grid product-details-type-points">
+                            {sec.bullets.map((bItem, bIdx) => {
+                              const { title, desc } = sec.bulletsAsHeadings
+                                ? { title: typeof bItem === 'string' ? bItem : bItem.title, desc: '' }
+                                : splitPointItem(bItem);
+
+                              return (
+                                <div key={bIdx} className="product-details-point-card">
+                                  {title && (
+                                    <h5 className="product-details-point-title">
+                                      {title}
+                                    </h5>
+                                  )}
+                                  {desc && (
+                                    <p className="product-details-point-desc">
+                                      {desc}
+                                    </p>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
                     </div>
+                  ) : (
+                    sec.bullets && (
+                      <div className="product-details-points-grid">
+                        {sec.bullets.map((bItem, bIdx) => {
+                          const { title, desc } = sec.bulletsAsHeadings
+                            ? { title: typeof bItem === 'string' ? bItem : bItem.title, desc: '' }
+                            : splitPointItem(bItem);
+
+                          return (
+                            <div key={bIdx} className="product-details-point-card">
+                              {title && (
+                                <h5 className="product-details-point-title">
+                                  {title}
+                                </h5>
+                              )}
+                              {desc && (
+                                <p className="product-details-point-desc">
+                                  {desc}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )
                   )}
 
                   {/* Sub Paragraphs */}

@@ -64,3 +64,62 @@ VALUES
 ('TX-RTJ-R37-316', 'Style R Oval / Octagonal RTJ Gasket', 'Metallic Gaskets', 'Style R Octagonal RTJ', 'SS 316 / 316L', 'Class 900', '3\"', 'R-37', 310, 'In Stock', 'Warehouse A - Bay 13', 'ASME B16.20'),
 ('TX-SWG-CG-150', 'Style CG Flexible Graphite Spiral Wound', 'Semi-Metallic Gaskets', 'Style CGI Spiral Wound', 'SS 316 / 316L', 'Class 150', '2\"', '-', 960, 'In Stock', 'Warehouse A - Bay 02', 'ASME B16.20')
 ON DUPLICATE KEY UPDATE `item_code` = `item_code`;
+
+-- ============================================================================
+-- 5. Contact Page Enquiries Table
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS `contact_enquiries` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `reference_id` VARCHAR(60) NOT NULL UNIQUE,
+  `full_name` VARCHAR(150) NOT NULL,
+  `email` VARCHAR(191) NOT NULL,
+  `phone` VARCHAR(50) DEFAULT NULL,
+  `company` VARCHAR(150) DEFAULT NULL,
+  `industry` VARCHAR(100) DEFAULT 'Oil & Gas',
+  `inquiry_type` VARCHAR(100) DEFAULT 'Request for Quote (RFQ)',
+  `message` TEXT NOT NULL,
+  `attachment_name` VARCHAR(255) DEFAULT NULL,
+  `status` ENUM('New', 'In Review', 'Quoted', 'Closed') DEFAULT 'New',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX `idx_contact_email` (`email`),
+  INDEX `idx_contact_status` (`status`),
+  INDEX `idx_contact_created` (`created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================================================
+-- 6. Chatbot Enquiries Table (RFQs, Drawings, Vendor Registrations, Callbacks)
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS `chatbot_enquiries` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `reference_id` VARCHAR(60) NOT NULL UNIQUE,
+  `enquiry_type` VARCHAR(50) NOT NULL DEFAULT 'RFQ',
+  `contact_name` VARCHAR(150) NOT NULL,
+  `company_name` VARCHAR(150) NOT NULL,
+  `email` VARCHAR(191) NOT NULL,
+  `phone` VARCHAR(50) DEFAULT NULL,
+  `country` VARCHAR(100) DEFAULT 'India',
+  `city` VARCHAR(100) DEFAULT NULL,
+  `product_category` VARCHAR(150) DEFAULT NULL,
+  `description` TEXT DEFAULT NULL,
+  `standard` VARCHAR(100) DEFAULT NULL,
+  `dimensions` VARCHAR(100) DEFAULT NULL,
+  `material` VARCHAR(100) DEFAULT NULL,
+  `pressure` VARCHAR(100) DEFAULT NULL,
+  `quantity` VARCHAR(100) DEFAULT NULL,
+  `delivery_date` VARCHAR(100) DEFAULT NULL,
+  `notes` TEXT DEFAULT NULL,
+  `file_name` VARCHAR(255) DEFAULT NULL,
+  `file_size` VARCHAR(50) DEFAULT NULL,
+  `vendor_category` VARCHAR(100) DEFAULT NULL,
+  `customer_portal_ref` VARCHAR(100) DEFAULT NULL,
+  `status` ENUM('New', 'In Review', 'Quoted', 'Closed') DEFAULT 'New',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX `idx_chatbot_ref` (`reference_id`),
+  INDEX `idx_chatbot_email` (`email`),
+  INDEX `idx_chatbot_type` (`enquiry_type`),
+  INDEX `idx_chatbot_status` (`status`),
+  INDEX `idx_chatbot_created` (`created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+

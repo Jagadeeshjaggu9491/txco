@@ -1244,3 +1244,121 @@
 .admin-btn-preview-link:hover {
   color: #0369a1;
 }
+
+/* ==========================================================================
+   ENQUIRIES HUB STYLES
+   ========================================================================== */
+.enq-subtab-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.enq-subtab-btn:hover {
+  color: #0f172a;
+}
+
+.enq-subtab-btn.active {
+  background: #ffffff;
+  color: #052C58;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.enq-status-select {
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.enq-status-select.badge-new {
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.enq-status-select.badge-review {
+  background: #fffbeb;
+  color: #b45309;
+  border-color: #fde68a;
+}
+
+.enq-status-select.badge-quoted {
+  background: #f0fdf4;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+.enq-status-select.badge-closed {
+  background: #f1f5f9;
+  color: #64748b;
+  border-color: #cbd5e1;
+}
+
+.admin-action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  color: #475569;
+}
+
+.admin-action-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.admin-action-btn.view:hover {
+  color: #0284c7;
+  border-color: #bae6fd;
+  background: #f0f9ff;
+}
+
+.admin-action-btn.reply {
+  color: #018F5D;
+}
+
+.admin-action-btn.reply:hover {
+  color: #166534;
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+}
+
+.admin-action-btn.delete {
+  color: #ef4444;
+}
+
+.admin-action-btn.delete:hover {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}

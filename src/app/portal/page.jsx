@@ -148,14 +148,7 @@ export default function ClientPortalPage() {
                 className="portal-logo-img"
               />
             </Link>
-            <button
-              type="button"
-              className="portal-theme-btn"
-              onClick={() => setDarkMode(!darkMode)}
-              title="Toggle Light / Dark Mode"
-            >
-              {darkMode ? <Sun size={17} /> : <Sun size={17} />}
-            </button>
+
           </div>
 
           {/* Navigation Pill Buttons */}

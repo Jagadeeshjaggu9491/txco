@@ -19,8 +19,8 @@ export const directChannelsData = [
     title: 'Call Our Specialists',
     description:
       'Speak directly with our technical sales engineers for immediate product availability, pricing, or emergency support.',
-    mainActionText: '+91 6302 152 938',
-    actionHref: 'tel:+916302152938',
+    mainActionText: '+91 9553125566',
+    actionHref: 'tel:+919553125566',
     subText: 'Mon - Sat: 9:00 AM – 7:00 PM IST (24/7 Hotline for Outages)',
   },
   {
@@ -99,7 +99,7 @@ export const globalHubsData = [
     badge: 'Global HQ',
     title: 'Hyderabad, India',
     description: 'Central Manufacturing Facility, Hydro-testing Labs & Global Engineering Office.',
-    contact: 'HQ Hotline: +91 6302 152 938',
+    contact: 'HQ Hotline: +91 9553125566',
   },
   {
     badge: null,
@@ -146,7 +146,7 @@ export const contactFaqsData = [
 
 export const facilityMapData = {
   address: 'TXCO Sealing Products, LLC — Hyderabad Industrial Zone, India',
-  phone: '+91 6302 152 938',
+  phone: '+91 9553125566',
   email: 'info@txco.co',
   mapUrl: 'https://maps.google.com/?q=Hyderabad,Telangana,India',
   embedSrc:

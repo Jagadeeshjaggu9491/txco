@@ -69,7 +69,7 @@ function formatHeroTitle(title, highlightWord) {
 
 const DEFAULT_BANNER = '/images/title-section/page-hero-banner-new.avif';
 const DEFAULT_SUBTITLE =
-  'Deploy, manage and troubleshoot cloud-native applications at scale without overwhelming your engineers with the complexity of Kubernetes.';
+  'TXCO Sealing Products Private Limited combines precision manufacturing, material expertise, standards-based production and sealing knowledge to provide dependable sealing and flange solutions for demanding industrial applications.';
 
 /**
  * Reusable PageHero Component
