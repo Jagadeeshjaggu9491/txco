@@ -101,8 +101,8 @@ export const mainProductCategories = [
     types: 'Industrial Bolting, Heavy Hex Studs, Nuts & Pipeline Hardware',
     description:
       'Complete commercial supply range including ASTM heavy hex stud bolts, nuts, flange protectors, and pipeline consumables.',
-    image: '/images/commercial-products-coming-soon.jpg',
-    fallbackImage: '/images/commercial-products-coming-soon.jpg',
+    image: '/images/commercial-products-coming-soon.avif',
+    fallbackImage: '/images/commercial-products-coming-soon.avif',
     href: '/products/commercial-products',
   },
 ];
@@ -133,7 +133,7 @@ export const industrialSealingProducts = {
         'Spectacle Blind Gaskets',
         'Transition RTJ Gaskets',
         'Soft-Material-Serrated RTJ Gaskets',
-        'Weld-Lip Seals',
+        'TXCO Weld Ring Gaskets',
       ],
     },
     {

@@ -405,3 +405,138 @@
   background: #f1f5f9;
   border-color: #052c58;
 }
+
+/* =========================================================================
+   MATERIAL GRADES & CONTROLLED HARDNESS REFERENCE TABLE STYLES
+   ========================================================================= */
+
+.rtj-hardness-table-section {
+  margin-top: 3.5rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 2.25rem 2.5rem;
+  box-shadow: 0 8px 30px rgba(5, 44, 88, 0.05);
+}
+
+.rtj-hardness-table-header {
+  margin-bottom: 1.5rem;
+}
+
+.rtj-hardness-table-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #052c58;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem 0;
+}
+
+.rtj-hardness-table-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.rtj-hardness-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.rtj-hardness-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.rtj-hardness-table th {
+  background: #f1f5f9;
+  color: #052c58;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 2px solid #cbd5e1;
+  white-space: nowrap;
+}
+
+.rtj-hardness-table td {
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  transition: background-color 0.15s ease;
+}
+
+.rtj-hardness-table tbody tr:hover td {
+  background-color: #f8fafc;
+}
+
+.rtj-hardness-table tbody tr.rtj-row-active td {
+  background-color: #eff6ff;
+  border-bottom-color: #bfdbfe;
+}
+
+.rtj-metal-name strong {
+  color: #052c58;
+  font-weight: 700;
+}
+
+.rtj-metal-uns {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  color: #0284c7;
+  font-weight: 600;
+}
+
+.rtj-metal-hardness {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.rtj-select-grade-btn {
+  background: #f1f5f9;
+  color: #052c58;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.rtj-select-grade-btn:hover {
+  background: #e2e8f0;
+  border-color: #052c58;
+}
+
+.rtj-select-grade-btn.active {
+  background: #018F5D;
+  color: #ffffff;
+  border-color: #018F5D;
+  box-shadow: 0 2px 6px rgba(1, 143, 93, 0.25);
+}
+
+@media (max-width: 768px) {
+  .rtj-hardness-table-section {
+    padding: 1.5rem 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .rtj-hardness-table-title {
+    font-size: 1.15rem;
+  }
+
+  .rtj-hardness-table th,
+  .rtj-hardness-table td {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.82rem;
+  }
+}

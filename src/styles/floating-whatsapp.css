@@ -86,8 +86,8 @@
 /* Responsive adjustments */
 @media (max-width: 640px) {
   .floating-whatsapp-container {
-    right: 18px;
-    bottom: 94px;
+    left: 18px;
+    bottom: 14px;
   }
 
   .floating-whatsapp-btn {

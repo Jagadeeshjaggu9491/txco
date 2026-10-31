@@ -289,16 +289,16 @@ const NEW_PRODUCT_IMAGES = {
   'sleeves': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/Sleeves.jpg',
 
   // Commercial Products
-  'commercial-products-item': '/images/commercial-products-coming-soon.jpg',
-  'commercial-products': '/images/commercial-products-coming-soon.jpg',
-  'commercial-supply': '/images/commercial-products-coming-soon.jpg',
+  'commercial-products-item': '/images/commercial-products-coming-soon.avif',
+  'commercial-products': '/images/commercial-products-coming-soon.avif',
+  'commercial-supply': '/images/commercial-products-coming-soon.avif',
 };
 
 // Multi-Image Product Gallery Mappings from client provided photos
 const PRODUCT_GALLERY_IMAGES = {
   'commercial-products-item': [
     {
-      src: '/images/commercial-products-coming-soon.jpg',
+      src: '/images/commercial-products-coming-soon.avif',
       label: 'Commercial Products Coming Soon',
     },
   ],
@@ -483,7 +483,7 @@ const PRODUCT_GALLERY_IMAGES = {
   ],
 
   // 7. Valve Components - Precision O-Rings (2 authentic images)
-    'o-rings-and-gland-packing': [
+  'o-rings-and-gland-packing': [
     {
       src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
       label: 'Precision O-Rings',
@@ -974,16 +974,17 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                     <ul className="product-details-client-bullets">
                       {sec0.bullets.map((bItem, bIdx) => {
                         const { title, desc } = splitPointItem(bItem);
+                        const separator = typeof bItem === 'string' && bItem.includes(':') ? ': ' : ' – ';
                         return (
                           <li key={bIdx}>
                             <strong>{title}</strong>
-                            {desc ? ` – ${desc}` : ''}
+                            {desc ? `${separator}${desc}` : ''}
                           </li>
                         );
                       })}
                     </ul>
                   </>
-                ) : remainingSections.length > 0 && remainingSections.some((s) => s.bullets?.length || s.heading) ? (
+                ) : remainingSections.length > 0 && !productData?.hideModelsLead && remainingSections.some((s) => s.bullets?.length || s.heading) ? (
                   <>
                     <p className="product-details-models-lead">
                       The <strong>{productData?.title || subcategoryData?.subcategoryTitle} line</strong> includes the following models:

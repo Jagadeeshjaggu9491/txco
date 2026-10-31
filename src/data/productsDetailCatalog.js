@@ -156,7 +156,7 @@ export const subcategoryDetailCatalog = {
                 },
                 {
                   code: '15',
-                  cells: ['15', 'Weld-Lip Seals', 'Membrane (DIN 2695), profiled solid lip, and hollow-lip seal-welded joints'],
+                  cells: ['15', 'TXCO Weld Ring Gaskets', 'Dual-Ring Metallic Sealing Assembly (Lip Seal Weld Rings) for critical hermetic connections'],
                 },
               ],
               footnote: 'Custom materials, non-standard dimensions, and exotic alloys are available upon request.',
@@ -173,6 +173,7 @@ export const subcategoryDetailCatalog = {
           '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ- R OCTOGONAL.png',
           '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ- RX.png',
           '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ -BX.png',
+          '/images/products/srx-sbx-gaskets.png',
           '/images/TXCO PHOTOS FOR WEBSITE/RTJ/PROTECTIVE COATING.png',
           '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
         ],
@@ -182,7 +183,7 @@ export const subcategoryDetailCatalog = {
           {
             heading: 'RING TYPE JOINT (RTJ) GASKETS',
             paragraphs: [
-              'Ring Type Joint (RTJ) Gaskets are metallic sealing solutions designed for high-pressure, high-temperature and demanding flange connections. They provide a reliable metal-to-metal seal and are available in R, RX and BX profiles, selected according to flange design, pressure class and service conditions.',
+              'Ring Type Joint (RTJ) Gaskets are metallic sealing solutions designed for high-pressure, high-temperature and demanding flange connections. They provide a reliable metal-to-metal seal and are available in R, RX, BX, SBX, and SRX profiles, selected according to flange design, pressure class and service conditions.',
               'At TXCO Sealing Products Private Limited, RTJ gaskets are a key part of our sealing portfolio for critical oil & gas, petrochemical, refining, chemical and power applications. Our range covers various materials, sizes and pressure ratings, with products aligned to ASME B16.20 and API 6A requirements for dependable sealing performance.',
             ],
             bulletsIntro: 'The Ring Type Joint (RTJ) Gaskets product range includes the following primary profiles:',
@@ -191,8 +192,89 @@ export const subcategoryDetailCatalog = {
               'Type R – Octagonal: Concentrated point-contact sealing for modern octagonal flat-bottom grooves.',
               'Type RX: Self-energizing modified octagonal profile for high-pressure API 6B flanges up to 5,000 PSI.',
               'Type BX: Extreme-pressure pressure-balanced profile for API 6BX flanges up to 20,000 PSI.',
-              'Type SBX / SRX: Pressure-balanced subsea profiles per API 17D with cross-venting holes.',
+              'Type SBX: Pressure-balanced subsea octagonal profile with radial vent holes per API 17D.',
+              'Type SRX: Pressure-balanced subsea modified octagonal profile per API 17D.',
             ],
+            table: {
+              headers: [
+                'PROFILE / TYPE',
+                'CROSS-SECTION & GEOMETRY',
+                'SEALING MECHANISM',
+                'COMPATIBLE GROOVES & FLANGES',
+                'PRESSURE RATING',
+                'STANDARDS & APPLICATIONS',
+              ],
+              rows: [
+                {
+                  code: 'R Oval',
+                  cells: [
+                    'R Oval (Type R – Oval)',
+                    'Oval-shaped cross-section designed for line-contact sealing.',
+                    'Line-contact seal; initial plastic yield deforms into mating groove radius.',
+                    'Compatible with both round-bottom (oval) and flat-bottom (octagonal) RTJ grooves (ASME B16.5, ASME B16.47, API 6A).',
+                    'ASME Class 150 – 2500 (up to 5,000 PSI)',
+                    'ASME B16.20 & API 6A; legacy equipment, refining, and conventional low-to-medium pressure piping.',
+                  ],
+                },
+                {
+                  code: 'R Octagonal',
+                  cells: [
+                    'R Octagonal (Type R – Octagonal)',
+                    'Octagonal cross-section with 23° beveled sealing facets for point-contact.',
+                    'Concentrated high-stress point contact providing higher sealing efficiency than oval profile.',
+                    'Designed specifically for standard octagonal flat-bottom RTJ grooves (ASME B16.5, ASME B16.47, API 6A Type 6B).',
+                    'ASME Class 150 – 2500 (API 2,000 to 5,000 PSI)',
+                    'ASME B16.20 & API 6A; widely used across oil & gas, petrochemical, refining, and demanding industrial piping.',
+                  ],
+                },
+                {
+                  code: 'RX',
+                  cells: [
+                    'RX (Type RX)',
+                    'Modified octagonal cross-section with asymmetric profile and pressure-energized lips.',
+                    'Self-energizing; internal process pressure forces the gasket outer lip tighter against groove walls.',
+                    'Interchangeable with Type R grooves in ASME B16.20 & API 6A Type 6B flanges (creates higher standoff; not interchangeable with BX).',
+                    'Up to 5,000 PSI (ASME Class 720 – 5000 / API 2,000 – 5,000 PSI)',
+                    'API Spec 6A & ASME B16.20; high-pressure valves, wellheads, Christmas trees, and vibrating process piping.',
+                  ],
+                },
+                {
+                  code: 'BX',
+                  cells: [
+                    'BX (Type BX)',
+                    'Heavy-duty octagonal profile incorporating an axial pressure-equalizing hole for uniform pressure distribution.',
+                    'Pressure-energized metal-to-metal seal; achieves complete face-to-face flange contact when torqued.',
+                    'Designed exclusively for compatible API Spec 6A Type 6BX grooved flanges (not interchangeable with Type R or RX).',
+                    'Extreme pressures up to 20,000 PSI (API 5,000 to 20,000 PSI)',
+                    'API Spec 6A & API 17D; critical wellheads, Christmas trees, subsea manifolds, BOP stacks, and extreme-pressure systems.',
+                  ],
+                },
+                {
+                  code: 'SBX',
+                  cells: [
+                    'SBX (Type SBX)',
+                    'Heavy-duty subsea octagonal profile with radial pressure-equalizing vent holes conforming to API Spec 17D.',
+                    'Pressure-balanced self-energizing seal; radial vent holes prevent seawater entrapment during underwater flange make-up.',
+                    'Exclusively for API Spec 17D / API 6A Type 6BX subsea grooved flanges.',
+                    'Extreme pressures up to 20,000 PSI (API 5,000 to 20,000 PSI)',
+                    'API Spec 17D & API 6A; subsea wellheads, deepwater tie-backs, and underwater Christmas trees.',
+                  ],
+                },
+                {
+                  code: 'SRX',
+                  cells: [
+                    'SRX (Type SRX)',
+                    'Modified octagonal subsea profile with radial pressure-equalizing vent holes conforming to API Spec 17D.',
+                    'Pressure-balanced self-energizing seal; prevents hydrostatic fluid lock when bolting subsea joints.',
+                    'API Spec 17D / API 6A Type 6B subsea grooved flanges.',
+                    'Up to 5,000 PSI (API 2,000 to 5,000 PSI)',
+                    'API Spec 17D & API 6A; offshore subsea wellheads, manifold connections, and riser piping.',
+                  ],
+                },
+              ],
+              footnote:
+                'All TXCO RTJ gaskets are manufactured and inspected in accordance with ASME B16.20 and API Spec 6A / API 17D requirements. Strict hardness verification (Soft Iron ≤ 90 HB, Low Carbon Steel ≤ 120 HB, 304/316 SS ≤ 160 HB) ensures optimal plastic yield without damaging mating flange grooves.',
+            },
             showAssemblyDiagram: true,
             diagramType: 'rtj-assembly',
           },
@@ -251,79 +333,17 @@ export const subcategoryDetailCatalog = {
             ],
           },
           {
-            heading: 'RING TYPE JOINT (RTJ) GASKETS – PROFILE & SPECIFICATION MATRIX',
-            paragraphs: [
-              'TXCO manufactures and inspects Ring Type Joint (RTJ) metallic gaskets in strict alignment with ASME B16.20 and API Spec 6A / API 17D standards. Selection of the appropriate RTJ profile depends on operating pressure class, groove geometry, and service environment:',
+            heading: 'TYPE SBX & SRX (SUBSEA)',
+            image: '/images/products/srx-sbx-gaskets.png',
+            imageAlt: 'TXCO Type SBX and SRX Subsea Pressure-Balanced RTJ Gaskets',
+            imageCaption: 'Type SBX / SRX Profiles (API 17D Pressure-Balanced Subsea)',
+            bullets: [
+              'Subsea Pressure-Balanced Venting: Incorporates cross-drilled vent holes that allow water and trapped fluid to vent during underwater make-up.',
+              'API Spec 17D Certification: Engineered specifically for subsea wellhead, tree, manifold, and deepwater riser connections.',
+              'Flange Matching: Type SRX is dimensionally compatible with API 6B flanges; Type SBX is exclusively for API 6BX flanges.',
+              'Corrosion-Resistant Metallurgy: Typically manufactured in Inconel 625, Inconel 718, Super Duplex S31803/S32750, or 316L SS.',
+              'Pressure Capabilities: Pressure-energized performance rated up to 5,000 PSI (SRX) and up to 20,000 PSI (SBX).',
             ],
-            table: {
-              headers: [
-                'PROFILE / TYPE',
-                'CROSS-SECTION & GEOMETRY',
-                'SEALING MECHANISM',
-                'COMPATIBLE GROOVES & FLANGES',
-                'PRESSURE RATING',
-                'STANDARDS & APPLICATIONS',
-              ],
-              rows: [
-                {
-                  code: 'Type R – Oval',
-                  cells: [
-                    'Type R – Oval',
-                    'Oval-shaped cross-section designed for line-contact sealing.',
-                    'Line-contact seal; initial plastic yield deforms into mating groove radius.',
-                    'Compatible with both round-bottom (oval) and flat-bottom (octagonal) RTJ grooves (ASME B16.5, ASME B16.47, API 6A).',
-                    'ASME Class 150 – 2500 (up to 5,000 PSI)',
-                    'ASME B16.20 & API 6A; legacy equipment, refining, and conventional low-to-medium pressure piping.',
-                  ],
-                },
-                {
-                  code: 'Type R – Octagonal',
-                  cells: [
-                    'Type R – Octagonal',
-                    'Octagonal cross-section with 23° beveled sealing facets for point-contact.',
-                    'Concentrated high-stress point contact providing higher sealing efficiency than oval profile.',
-                    'Designed specifically for standard octagonal flat-bottom RTJ grooves (ASME B16.5, ASME B16.47, API 6A Type 6B).',
-                    'ASME Class 150 – 2500 (API 2,000 to 5,000 PSI)',
-                    'ASME B16.20 & API 6A; widely used across oil & gas, petrochemical, refining, and demanding industrial piping.',
-                  ],
-                },
-                {
-                  code: 'Type RX',
-                  cells: [
-                    'Type RX',
-                    'Modified octagonal cross-section with asymmetric profile and pressure-energized geometry.',
-                    'Self-energizing; internal process pressure forces the gasket outer lip tighter against groove walls.',
-                    'Interchangeable with Type R grooves in ASME B16.20 & API 6A Type 6B flanges (creates higher standoff; not interchangeable with BX).',
-                    'Up to 5,000 PSI (ASME Class 720 – 5000 / API 2,000 – 5,000 PSI)',
-                    'API Spec 6A & ASME B16.20; high-pressure valves, wellheads, Christmas trees, and vibrating process piping.',
-                  ],
-                },
-                {
-                  code: 'Type BX',
-                  cells: [
-                    'Type BX',
-                    'Heavy-duty octagonal profile incorporating an axial pressure-equalizing hole for uniform pressure distribution.',
-                    'Pressure-energized metal-to-metal seal; achieves complete face-to-face flange contact when torqued.',
-                    'Designed exclusively for compatible API Spec 6A Type 6BX grooved flanges (not interchangeable with Type R or RX).',
-                    'Extreme pressures up to 20,000 PSI (API 5,000 to 20,000 PSI)',
-                    'API Spec 6A & API 17D; critical wellheads, Christmas trees, subsea manifolds, BOP stacks, and extreme-pressure systems.',
-                  ],
-                },
-                {
-                  code: 'Type SBX / SRX',
-                  cells: [
-                    'Type SBX / SRX',
-                    'Pressure-balanced subsea profiles incorporating radial vent holes conforming to API Spec 17D.',
-                    'Pressure-balanced self-energizing seal; radial vent holes prevent seawater entrapment during underwater make-up.',
-                    'API Spec 17D / API 6A subsea flanges (Type 6B for SRX, Type 6BX for SBX).',
-                    'Up to 5,000 PSI (SRX) / Up to 20,000 PSI (SBX)',
-                    'API Spec 17D & API 6A; offshore subsea wellheads, deepwater tie-backs, and underwater Christmas trees.',
-                  ],
-                },
-              ],
-              footnote:
-                'All TXCO RTJ gaskets are manufactured and inspected in accordance with ASME B16.20 and API Spec 6A / API 17D requirements. Strict hardness verification (Soft Iron ≤ 90 HB, Low Carbon Steel ≤ 120 HB, 304/316 SS ≤ 160 HB) ensures optimal plastic yield without damaging mating flange grooves.',
-            },
           },
         ],
       },
@@ -633,25 +653,24 @@ export const subcategoryDetailCatalog = {
           '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/weld-ring-gaskets.png',
         ],
         bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/weld-ring-gaskets.png',
-        downloadTitle: 'Weld Ring Gaskets',
+        downloadTitle: 'TXCO Weld Ring Gaskets Catalog',
+        hideModelsLead: true,
         sections: [
           {
             heading: 'TXCO WELD RING GASKETS',
             paragraphs: [
-              'Dual-Ring Metallic Sealing for Critical & Semi-Permanent Flange Connections',
+              '**Dual-Ring Metallic Sealing for Critical & Semi-Permanent Flange Connections**',
               'TXCO Weld Ring Gaskets—also known as lip seal weld rings—utilize a matched pair of precision metallic rings to establish a fused, 100% leak-proof joint. During installation, each individual ring is first welded directly to its respective flange face. Once the flange connection is aligned and bolted, the outer edges of the two mating rings are seal-welded together along their outer periphery to complete the hermetic seal.',
             ],
-            showAssemblyDiagram: true,
-            diagramType: 'weld-lip',
-          },
-          {
-            heading: 'OPERATIONAL FEATURES & ADVANTAGES',
+            bulletsIntro: 'Operational Features & Advantages',
             bullets: [
               'Dual-Weld Hermetic Seal: Combines inner structural flange welds with an outer circumferential seal weld, creating a continuous metal barrier that completely eliminates leakage pathways.',
               'Severe-Service Alternative: Engineered for extreme pressure, thermal cycling, and hazardous media applications where standard elastomeric or soft sheet gaskets risk blowout or degradation.',
               'Decoupled Stress Distribution: Flange bolts handle the mechanical line loads and structural tension, allowing the weld rings to focus purely on zero-leakage fluid containment.',
               'Semi-Detachable Maintenance Profile: Ideal for piping systems requiring infrequent maintenance. When servicing is necessary, the joint is opened by removing the flange bolts and mechanically cutting the outer peripheral weld seam without damaging the underlying flange face.',
             ],
+            showAssemblyDiagram: true,
+            diagramType: 'weld-lip',
           },
           {
             heading: 'TECHNICAL SUMMARY',
@@ -659,23 +678,18 @@ export const subcategoryDetailCatalog = {
               headers: ['Feature', 'Engineering Standard'],
               rows: [
                 {
-                  code: 'Design Type',
-                  description: 'Symmetrical Dual-Ring Metallic Assembly',
+                  cells: ['Design Type', 'Symmetrical Dual-Ring Metallic Assembly'],
                 },
                 {
-                  code: 'Joint Category',
-                  description: 'Semi-Permanent / Semi-Detachable',
+                  cells: ['Joint Category', 'Semi-Permanent / Semi-Detachable'],
                 },
                 {
-                  code: 'Primary Joining Method',
-                  description: 'Outer Edge Seal Welding (GTAW / TIG)',
+                  cells: ['Primary Joining Method', 'Outer Edge Seal Welding (GTAW / TIG)'],
                 },
                 {
-                  code: 'Recommended Service',
-                  description: 'High-Temperature Steam, Lethal Media, Infrequent Overhaul Lines',
+                  cells: ['Recommended Service', 'High-Temperature Steam, Lethal Media, Infrequent Overhaul Lines'],
                 },
               ],
-              footnote: 'Precision CNC-machined to matching flange metallurgy and pressure ratings.',
             },
           },
         ],
@@ -2221,55 +2235,55 @@ export const subcategoryDetailCatalog = {
         ],
       },
     },
-      'o-rings-and-gland-packing': {
-        title: 'O-RINGS AND GLAND PACKING',
-        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-        images: [
-          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
-          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
-        ],
-        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-        downloadTitle: 'O-Rings & Gland Packing Catalog',
-        sections: [
-          {
-            heading: 'PRECISION O-RINGS & ANTI-EXTRUSION BACKUP RINGS',
-            paragraphs: [
-              'Molded from high-performance elastomers (FKM, HNBR, EPDM) and chemically inert Perfluoroelastomers (FFKM), TXCO O-rings provide primary static and dynamic sealing for valve stems, body joints, and internal cartridges. Certified for Rapid Gas Decompression (RGD / AED) under NORSOK M-710, they resist micro-blistering during rapid depressurization up to 10,000 PSI. Paired with PEEK or PTFE backup rings, they eliminate seal extrusion under severe differential pressures.',
+    'o-rings-and-gland-packing': {
+      title: 'O-RINGS AND GLAND PACKING',
+      image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+      images: [
+        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
+      ],
+      bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+      downloadTitle: 'O-Rings & Gland Packing Catalog',
+      sections: [
+        {
+          heading: 'PRECISION O-RINGS & ANTI-EXTRUSION BACKUP RINGS',
+          paragraphs: [
+            'Molded from high-performance elastomers (FKM, HNBR, EPDM) and chemically inert Perfluoroelastomers (FFKM), TXCO O-rings provide primary static and dynamic sealing for valve stems, body joints, and internal cartridges. Certified for Rapid Gas Decompression (RGD / AED) under NORSOK M-710, they resist micro-blistering during rapid depressurization up to 10,000 PSI. Paired with PEEK or PTFE backup rings, they eliminate seal extrusion under severe differential pressures.',
+          ],
+          table: {
+            headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
+            rows: [
+              {
+                code: 'Precision O-Rings',
+                description: 'FFKM, FKM, HNBR, EPDM',
+                thickness: '-50°C to +315°C',
+                reweld: 'Up to 10,000 PSI',
+                radial: 'NORSOK M-710, ISO 23936-2',
+              },
             ],
-            table: {
-              headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
-              rows: [
-                {
-                  code: 'Precision O-Rings',
-                  description: 'FFKM, FKM, HNBR, EPDM',
-                  thickness: '-50°C to +315°C',
-                  reweld: 'Up to 10,000 PSI',
-                  radial: 'NORSOK M-710, ISO 23936-2',
-                },
-              ],
-            },
           },
-          {
-            heading: 'API 622 / ISO 15848-1 LOW-EMISSION GLAND PACKING',
-            paragraphs: [
-              'Functioning as the dynamic stem seal for rotating and reciprocating valves, TXCO gland packings are precision-braided from expanded flexible graphite, Inconel-wire reinforcement, carbon yarn, and modified ePTFE. Their self-lubricating, high-density construction maintains continuous radial contact against stuffing box walls, minimizing actuator breakout torque while exceeding strict fugitive emissions standards (API 622, TA-Luft, ISO 15848-1 Class A).',
+        },
+        {
+          heading: 'API 622 / ISO 15848-1 LOW-EMISSION GLAND PACKING',
+          paragraphs: [
+            'Functioning as the dynamic stem seal for rotating and reciprocating valves, TXCO gland packings are precision-braided from expanded flexible graphite, Inconel-wire reinforcement, carbon yarn, and modified ePTFE. Their self-lubricating, high-density construction maintains continuous radial contact against stuffing box walls, minimizing actuator breakout torque while exceeding strict fugitive emissions standards (API 622, TA-Luft, ISO 15848-1 Class A).',
+          ],
+          table: {
+            headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
+            rows: [
+              {
+                code: 'Gland Packing',
+                description: 'ePTFE, Graphite, Inconel Wire',
+                thickness: '-200°C to +650°C',
+                reweld: 'Class 150 – 2500',
+                radial: 'API 622, ISO 15848-1, TA-Luft',
+              },
             ],
-            table: {
-              headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
-              rows: [
-                {
-                  code: 'Gland Packing',
-                  description: 'ePTFE, Graphite, Inconel Wire',
-                  thickness: '-200°C to +650°C',
-                  reweld: 'Class 150 – 2500',
-                  radial: 'API 622, ISO 15848-1, TA-Luft',
-                },
-              ],
-            },
           },
-        ],
-      },
+        },
+      ],
+    },
   },
 
   // ==========================================
@@ -2849,7 +2863,7 @@ export const subcategoryDetailCatalog = {
     subcategoryTitle: 'Valve Components',
     productsList: [
       { id: 'about-valve-components', title: 'ABOUT VALVE COMPONENTS', downloadTitle: 'Valve Components Catalog' },
-      
+
       { id: 'valve-seats-inserts', title: 'VALVE SEATS & INSERTS', downloadTitle: 'Valve Seats & Inserts Catalog' },
       { id: 'sleeves', title: 'SLEEVES', downloadTitle: 'Sleeves Catalog' },
     ],
@@ -3015,8 +3029,8 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'commercial-products-item': {
         title: 'COMMERCIAL PRODUCTS',
-        image: '/images/commercial-products-coming-soon.jpg',
-        images: ['/images/commercial-products-coming-soon.jpg'],
+        image: '/images/commercial-products-coming-soon.avif',
+        images: ['/images/commercial-products-coming-soon.avif'],
         bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
         downloadTitle: 'Commercial Products Catalog',
         sections: [

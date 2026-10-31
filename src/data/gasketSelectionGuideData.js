@@ -824,18 +824,29 @@ export const bxTypeDimensions = {
 
 
 
-// Metallurgy and Material Hardness Data
+// Metallurgy and Material Hardness Reference Data (per ASME B16.20 / API Spec 6A & 17D Controlled Hardness Table)
 export const metallurgyOptions = [
-  { id: '316l', name: 'AISI 316L Stainless Steel', uns: 'S31603', maxBrinell: '160 HB', maxRockwell: '83 HRB', naceCompliant: true, code: 'S316L' },
-  { id: '304l', name: 'AISI 304 / 304L Stainless Steel', uns: 'S30403', maxBrinell: '160 HB', maxRockwell: '83 HRB', naceCompliant: false, code: 'S304L' },
-  { id: 'soft_iron', name: 'Soft Iron (Armco D)', uns: '—', maxBrinell: '90 HB', maxRockwell: '56 HRB', naceCompliant: false, code: 'D' },
-  { id: 'low_carbon', name: 'Low Carbon Steel (S)', uns: '—', maxBrinell: '120 HB', maxRockwell: '68 HRB', naceCompliant: false, code: 'S' },
-  { id: 'f5_chrome', name: '4-6% Chrome 1/2% Moly (F5)', uns: 'K42544', maxBrinell: '130 HB', maxRockwell: '75 HRB', naceCompliant: true, code: 'F5' },
-  { id: '347', name: 'AISI 347 Stabilized Stainless', uns: 'S34700', maxBrinell: '160 HB', maxRockwell: '83 HRB', naceCompliant: true, code: 'S347' },
-  { id: 'inconel_625', name: 'Alloy 625 (Inconel 625)', uns: 'N06625', maxBrinell: '250 HB', maxRockwell: '100 HRB', naceCompliant: true, code: '625' },
-  { id: 'incoloy_825', name: 'Alloy 825 (Incoloy 825)', uns: 'N08825', maxBrinell: '200 HB', maxRockwell: '92 HRB', naceCompliant: true, code: '825' },
-  { id: 'super_duplex', name: 'Super Duplex 2507', uns: 'S32750', maxBrinell: '250 HB', maxRockwell: '28 HRC', naceCompliant: true, code: '2507' },
+  { id: 'soft_iron', name: 'Soft Iron', uns: '—', maxBrinell: '90 HB', maxRockwell: '56 HRB', naceCompliant: false, code: 'D' },
+  { id: 'low_carbon', name: 'Low Carbon Steel', uns: '—', maxBrinell: '120 HB', maxRockwell: '68 HRB', naceCompliant: false, code: 'S' },
+  { id: 'chrome_moly', name: '4-6% Chrome 1/2% Moly', uns: 'K42544', maxBrinell: '130 HB', maxRockwell: '75 HRB', naceCompliant: true, code: 'F5' },
+  { id: '304_ss', name: 'Type 304 Stainless Steel', uns: 'S30400', maxBrinell: '160 HB', maxRockwell: '83 HRB', naceCompliant: false, code: 'S304' },
+  { id: '316_ss', name: 'Type 316 Stainless Steel', uns: 'S31600', maxBrinell: '160 HB', maxRockwell: '83 HRB', naceCompliant: true, code: 'S316' },
+  { id: '347_ss', name: 'Type 347 Stainless Steel', uns: 'S34700', maxBrinell: '160 HB', maxRockwell: '83 HRB', naceCompliant: true, code: 'S347' },
+  { id: '410_ss', name: 'Type 410 Stainless Steel', uns: 'S41000', maxBrinell: '170 HB', maxRockwell: '86 HRB', naceCompliant: false, code: 'S410' },
   { id: 'titanium_gr2', name: 'Titanium Grade 2', uns: 'R50400', maxBrinell: '215 HB', maxRockwell: '94 HRB', naceCompliant: true, code: 'Ti Gr.2' },
+  { id: 'alloy_600', name: 'Alloy 600', uns: 'N06600', maxBrinell: '200 HB', maxRockwell: '92 HRB', naceCompliant: true, code: 'Inconel 600' },
+  { id: 'alloy_625', name: 'Alloy 625', uns: 'N06625', maxBrinell: '200 HB', maxRockwell: '92 HRB', naceCompliant: true, code: 'Inconel 625' },
+  { id: 'alloy_800', name: 'Alloy 800', uns: 'N08800', maxBrinell: '200 HB', maxRockwell: '92 HRB', naceCompliant: true, code: 'Incoloy 800' },
+  { id: 'alloy_825', name: 'Alloy 825', uns: 'N08825', maxBrinell: '200 HB', maxRockwell: '92 HRB', naceCompliant: true, code: 'Incoloy 825' },
+  { id: 'hastelloy', name: 'Hastelloy', uns: 'N10001', maxBrinell: '200 HB', maxRockwell: '—', naceCompliant: true, code: 'Hastelloy' },
+  { id: 'alloy_c276', name: 'Alloy C276', uns: 'N10276', maxBrinell: '200 HB', maxRockwell: '92 HRB', naceCompliant: true, code: 'C276' },
+  { id: 'smo_254', name: 'SMO 254', uns: 'S32154', maxBrinell: '180 HB', maxRockwell: '89 HRB', naceCompliant: true, code: '254 SMO' },
+  { id: 'zeron_100', name: 'Zeron 100', uns: '—', maxBrinell: '200 HB', maxRockwell: '—', naceCompliant: true, code: 'Zeron 100' },
+  { id: 'super_duplex', name: 'Super Duplex', uns: 'S31803', maxBrinell: '200 HB', maxRockwell: '92 HRB', naceCompliant: true, code: 'S31803' },
+  { id: '321_ss', name: '321 Stainless Steel', uns: '—', maxBrinell: '160 HB', maxRockwell: '83 HRB', naceCompliant: true, code: 'S321' },
+  { id: 'monel_400', name: 'MONEL 400', uns: '—', maxBrinell: '130 HB', maxRockwell: '72 HRB', naceCompliant: true, code: 'Monel 400' },
+  { id: '309_ss', name: '309 Stainless Steel', uns: '—', maxBrinell: '160 HB', maxRockwell: '83 HRB', naceCompliant: false, code: 'S309' },
+  { id: 'alloy_20', name: 'Alloy 20', uns: '—', maxBrinell: '160 HB', maxRockwell: '83 HRB', naceCompliant: true, code: 'Alloy 20' },
 ];
 
 // Helper to get formatted display size with DN equivalent

@@ -51,7 +51,6 @@ export const inquiryTypesList = [
   'Request for Quote (RFQ)',
   'Custom Gasket Engineering',
   'Industrial Fasteners & Bolting',
-  'Hoses & Expansion Joints',
   '24/7 Field Support & Measurement',
   'General Inquiry',
 ];

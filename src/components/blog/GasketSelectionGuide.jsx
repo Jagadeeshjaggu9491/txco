@@ -31,7 +31,7 @@ export default function GasketSelectionGuide() {
   const [calcClass, setCalcClass] = useState('cl1500'); // Default to Class 1500# to mirror screenshot!
   const [calcGasketType, setCalcGasketType] = useState('r_octagonal');
   const [calcSize, setCalcSize] = useState('3"');       // Default to 3" to mirror R-35!
-  const [calcMetallurgy, setCalcMetallurgy] = useState('316l'); // Default to AISI 316L!
+  const [calcMetallurgy, setCalcMetallurgy] = useState('316_ss'); // Default to Type 316 Stainless Steel
   const [naceCompliant, setNaceCompliant] = useState(true);
   const [fireSafe, setFireSafe] = useState(true);
   const [softSeated, setSoftSeated] = useState(false);
@@ -486,9 +486,17 @@ export default function GasketSelectionGuide() {
                   </div>
 
                   <div className="rtj-spec-row">
-                    <span className="rtj-spec-label">Hardness Limit:</span>
+                    <span className="rtj-spec-label">Alloy Metallurgy:</span>
                     <span className="rtj-spec-value">
-                      {selectedMetal.maxBrinell} / {selectedMetal.maxRockwell} Max
+                      {selectedMetal.name} {selectedMetal.uns !== '—' ? `(${selectedMetal.uns})` : ''}
+                    </span>
+                  </div>
+
+                  <div className="rtj-spec-row">
+                    <span className="rtj-spec-label">Max Hardness Limit:</span>
+                    <span className="rtj-spec-value">
+                      {selectedMetal.maxBrinell}
+                      {selectedMetal.maxRockwell && selectedMetal.maxRockwell !== '—' ? ` / ${selectedMetal.maxRockwell}` : ''} Max
                     </span>
                   </div>
                 </div>
@@ -516,6 +524,58 @@ export default function GasketSelectionGuide() {
                 <span>+ ADD TO RAPID RFQ</span>
               </Link>
             </div>
+          </div>
+        </div>
+
+        {/* ===================================================================
+            MATERIAL GRADES & CONTROLLED HARDNESS REFERENCE TABLE
+           =================================================================== */}
+        <div className="rtj-hardness-table-section">
+          <div className="rtj-hardness-table-header">
+            <h3 className="rtj-hardness-table-title">
+              MATERIAL GRADES &amp; CONTROLLED HARDNESS REFERENCE TABLE
+            </h3>
+            <p className="rtj-hardness-table-subtitle">
+              Strict controlled hardness limits per ASME B16.20 and API Spec 6A / 17D. Gasket metallurgy must always maintain lower surface hardness than mating flange grooves to force plastic deformation and bubble-tight containment without marking flange facings.
+            </p>
+          </div>
+
+          <div className="rtj-hardness-table-wrapper">
+            <table className="rtj-hardness-table">
+              <thead>
+                <tr>
+                  <th>MATERIAL</th>
+                  <th>UNS NO.</th>
+                  <th>MAX. BRINELL HARDNESS</th>
+                  <th>MAX. ROCKWELL HARDNESS</th>
+                  <th style={{ textAlign: 'center' }}>CALCULATOR STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                {metallurgyOptions.map((metal) => {
+                  const isSelected = calcMetallurgy === metal.id;
+                  return (
+                    <tr key={metal.id} className={isSelected ? 'rtj-row-active' : ''}>
+                      <td className="rtj-metal-name">
+                        <strong>{metal.name}</strong>
+                      </td>
+                      <td className="rtj-metal-uns">{metal.uns}</td>
+                      <td className="rtj-metal-hardness">{metal.maxBrinell}</td>
+                      <td className="rtj-metal-hardness">{metal.maxRockwell}</td>
+                      <td className="rtj-metal-action" style={{ textAlign: 'center' }}>
+                        <button
+                          type="button"
+                          onClick={() => setCalcMetallurgy(metal.id)}
+                          className={`rtj-select-grade-btn ${isSelected ? 'active' : ''}`}
+                        >
+                          {isSelected ? '✓ Active in Calc' : 'Select Grade'}
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

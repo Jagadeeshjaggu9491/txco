@@ -23,7 +23,7 @@ export const cataloguesList = [
     standards: 'API 6A • API 17D • ASME B16.20',
     edition: '2026 Engineering Edition',
     description:
-      'Complete dimension tables, groove details, tolerances, material hardness limits, and pressure-temperature ratings for Style R, RX, BX, Weld-Lip, Lens, and Delta gaskets.',
+      'Complete dimension tables, groove details, tolerances, material hardness limits, and pressure-temperature ratings for Style R, RX, BX, Weld Ring Gaskets, Lens, and Delta gaskets.',
     image: '/images/resources/trusted-partner-red.png',
     pdfUrl: DEFAULT_CATALOGUE_PDF,
     featured: true,

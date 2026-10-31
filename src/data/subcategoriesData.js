@@ -199,7 +199,7 @@ export const subcategoriesByCategory = {
     description:
       'Precision machined internal valve trims, compression packings, bonnet gaskets, and high-integrity sealing elements.',
     items: [
-      
+
       {
         id: 'valve-seats-inserts',
         title: 'VALVE SEATS & INSERTS',
@@ -238,7 +238,7 @@ export const subcategoriesByCategory = {
         types: 'Industrial Bolting, Heavy Hex Studs, Nuts & Pipeline Hardware',
         description:
           'Heavy hex stud bolts, nuts, anti-seize torque lubricants, flange protectors, and standard pipeline hardware.',
-        image: '/images/commercial-products-coming-soon.jpg',
+        image: '/images/commercial-products-coming-soon.avif',
         href: '/products/commercial-products/details?product=commercial-products-item',
       },
     ],
