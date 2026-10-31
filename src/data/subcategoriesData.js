@@ -39,7 +39,7 @@ export const subcategoriesByCategory = {
         id: 'non-metallic-gaskets',
         title: 'NON-METALLIC GASKETS',
         subtitle: 'Rubber • PTFE • ePTFE • Non-Asbestos',
-        types: 'Rubber, PTFE, ePTFE, Asbestos free, Compressed Non Asbestos',
+        types: 'Rubber, PTFE, ePTFE, Asbestos free, Compressed Non Asbestos, O-Rings and Gland Packing',
         description:
           'Elastomeric, fluoropolymer, and CNAF compressed sheets designed for universal chemical resistance and utility service.',
         image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
@@ -199,26 +199,7 @@ export const subcategoriesByCategory = {
     description:
       'Precision machined internal valve trims, compression packings, bonnet gaskets, and high-integrity sealing elements.',
     items: [
-      {
-        id: 'precision-o-rings',
-        title: 'PRECISION O-RINGS & BACKUP RINGS',
-        subtitle: 'NORSOK M-710 • AED / RGD Certified',
-        types: 'FFKM, FKM, HNBR, EPDM (NORSOK M-710 RGD/AED up to 10,000 PSI)',
-        description:
-          'Precision molded elastomer O-rings (FFKM, FKM, HNBR, EPDM) and anti-extrusion PEEK backup rings up to 10,000 PSI.',
-        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-        href: '/products/valve-components/details?product=precision-o-rings',
-      },
-      {
-        id: 'valve-packing',
-        title: 'LOW-EMISSION GLAND PACKING',
-        subtitle: 'API 622 • ISO 15848-1 Class A • TA-Luft',
-        types: 'API 622 / ISO 15848-1 Braided Flexible Graphite & ePTFE',
-        description:
-          'Precision-braided flexible graphite and Inconel-reinforced packing sets for zero-emission fugitive VOC compliance.',
-        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
-        href: '/products/valve-components/details?product=valve-packing',
-      },
+      
       {
         id: 'valve-seats-inserts',
         title: 'VALVE SEATS & INSERTS',
@@ -228,6 +209,16 @@ export const subcategoriesByCategory = {
           'CNC-machined bubble-tight seat rings in PEEK, PCTFE, Devlon V, Virgin/Filled PTFE, and metallic base rings.',
         image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
         href: '/products/valve-components/details?product=valve-seats-inserts',
+      },
+      {
+        id: 'sleeves',
+        title: 'SLEEVES',
+        subtitle: 'Centrifugal Casting • Forging • Precision Machined',
+        types: 'Pump Shaft Protection Sleeves, Wear Sleeves, API 610/682 Sleeves',
+        description:
+          'Precision-engineered sleeves manufactured using advanced centrifugal casting, forging and machining to protect rotating equipment against erosion, fretting and abrasion.',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/Sleeves.jpg',
+        href: '/products/valve-components/details?product=sleeves',
       },
     ],
   },
@@ -247,7 +238,7 @@ export const subcategoriesByCategory = {
         types: 'Industrial Bolting, Heavy Hex Studs, Nuts & Pipeline Hardware',
         description:
           'Heavy hex stud bolts, nuts, anti-seize torque lubricants, flange protectors, and standard pipeline hardware.',
-        image: '/images/product-detials-images/Expanding-Gates-and-Through-Conduit-Gates.avif',
+        image: '/images/commercial-products-coming-soon.jpg',
         href: '/products/commercial-products/details?product=commercial-products-item',
       },
     ],

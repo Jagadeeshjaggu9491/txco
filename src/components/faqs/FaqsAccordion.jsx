@@ -270,9 +270,7 @@ export default function FaqsAccordion() {
 
                 <div className="faq-contact-item">
                   <Mail size={18} color="var(--slate-blue, #114680)" />
-                  <a href="mailto:info@txco.co" style={{ color: '#1e293b', textDecoration: 'none' }}>
-                    info@txco.co
-                  </a>
+                  <a href="mailto:info@txcosealing.com" style={{ color: '#1e293b', textDecoration: 'none' }}>info@txcosealing.com</a>
                 </div>
 
                 <div className="faq-contact-item">

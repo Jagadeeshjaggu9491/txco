@@ -163,7 +163,7 @@ export const contactSectionData = {
   description:
     'TXCO combines precision manufacturing, material expertise, standards-based production and sealing knowledge to provide flange and sealing solutions for demanding industrial applications.',
   phone: '+91 9553125566',
-  email: 'info@txco.co',
+  email: 'info@txcosealing.com',
   image: '/images/contact-img.png',
 };
 

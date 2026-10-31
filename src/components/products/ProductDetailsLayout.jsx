@@ -224,7 +224,7 @@ const NEW_PRODUCT_IMAGES = {
   'spectacle-blind-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/BLIND GASKET.jpeg',
   'transition-rtj': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/TRANSISTION RING RTJ.jpeg',
   'soft-material-seated-rtj': '/images/TXCO PHOTOS FOR WEBSITE/RTJ/2.png',
-  'weld-lip-seals': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
+  'weld-lip-seals': '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/weld-ring-gaskets.png',
 
   // Semi-Metallic Gaskets
   'about-semi-metallic-gaskets': '/images/TXCO PHOTOS FOR WEBSITE/SEMI METALLIC/SEMIMETALLIC COVER PAGE.jpeg',
@@ -282,16 +282,26 @@ const NEW_PRODUCT_IMAGES = {
 
   // Valve Components
   'about-valve-components': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
+  'o-rings-and-gland-packing': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
   'precision-o-rings': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
   'valve-packing': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
   'valve-seats-inserts': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
+  'sleeves': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/Sleeves.jpg',
 
   // Commercial Products
-  'commercial-products-item': '/images/product-detials-images/Expanding-Gates-and-Through-Conduit-Gates.avif',
+  'commercial-products-item': '/images/commercial-products-coming-soon.jpg',
+  'commercial-products': '/images/commercial-products-coming-soon.jpg',
+  'commercial-supply': '/images/commercial-products-coming-soon.jpg',
 };
 
 // Multi-Image Product Gallery Mappings from client provided photos
 const PRODUCT_GALLERY_IMAGES = {
+  'commercial-products-item': [
+    {
+      src: '/images/commercial-products-coming-soon.jpg',
+      label: 'Commercial Products Coming Soon',
+    },
+  ],
   // 1. Semi-Metallic Gaskets - Flange Isolation Kits (5 authentic images)
   'flange-isolation-kits': [
     {
@@ -473,6 +483,20 @@ const PRODUCT_GALLERY_IMAGES = {
   ],
 
   // 7. Valve Components - Precision O-Rings (2 authentic images)
+    'o-rings-and-gland-packing': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+      label: 'Precision O-Rings',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+      label: 'Low-Emission Gland Packing',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
+      label: 'High-Performance Elastomer O-Rings',
+    },
+  ],
   'precision-o-rings': [
     {
       src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',

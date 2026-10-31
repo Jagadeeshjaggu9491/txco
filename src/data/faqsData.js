@@ -89,6 +89,6 @@ export const faqItemsList = [
     category: 'Orders & Quality Certs',
     question: 'How do I request a formal technical quote (RFQ)?',
     answer:
-      'You can submit your dimensional specifications, CAD drawings (.DWG, .DXF, .STEP), or bill of materials directly through our online RFQ form on the Contact page, or email our engineering estimating team at info@txco.co. Technical sales engineers respond within 2–4 business hours.',
+      'You can submit your dimensional specifications, CAD drawings (.DWG, .DXF, .STEP), or bill of materials directly through our online RFQ form on the Contact page, or email our engineering estimating team at info@txcosealing.com. Technical sales engineers respond within 2–4 business hours.',
   },
 ];

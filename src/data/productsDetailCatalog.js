@@ -27,7 +27,7 @@ export const subcategoryDetailCatalog = {
       { id: 'spectacle-blind-gaskets', title: 'SPECTACLE BLIND GASKETS', downloadTitle: 'Spectacle Blinds' },
       { id: 'transition-rtj', title: 'TRANSITION RTJ', downloadTitle: 'Transition RTJ' },
       { id: 'soft-material-seated-rtj', title: 'SOFT-MATERIAL-SEATED RTJ', downloadTitle: 'Soft-Seated RTJ' },
-      { id: 'weld-lip-seals', title: 'WELD-LIP SEALS', downloadTitle: 'Weld Ring Gaskets' },
+      { id: 'weld-lip-seals', title: 'TXCO WELD RING GASKETS', downloadTitle: 'TXCO Weld Ring Gaskets Catalog' },
     ],
     productDetails: {
       'about-metallic-gaskets': {
@@ -628,8 +628,11 @@ export const subcategoryDetailCatalog = {
 
       'weld-lip-seals': {
         title: 'TXCO WELD RING GASKETS',
-        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
-        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/DELTA GASKET.jpeg',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/weld-ring-gaskets.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/weld-ring-gaskets.png',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/METALLIC GASKETS/weld-ring-gaskets.png',
         downloadTitle: 'Weld Ring Gaskets',
         sections: [
           {
@@ -1239,6 +1242,7 @@ export const subcategoryDetailCatalog = {
       { id: 'txco-style-54', title: 'TXCO STYLE 54 SUPER', downloadTitle: 'TXCO Style 54 Data Sheet' },
       { id: 'txco-style-55', title: 'TXCO STYLE 55 UNIVERSAL', downloadTitle: 'TXCO Style 55 Data Sheet' },
       { id: 'txco-style-59', title: 'TXCO STYLE 59 OIL', downloadTitle: 'TXCO Style 59 Oil Data Sheet' },
+      { id: 'o-rings-and-gland-packing', title: 'O-RINGS AND GLAND PACKING', downloadTitle: 'O-Rings & Gland Packing Catalog' },
       { id: 'txco-style-60', title: 'TXCO STYLE 60 ACID', downloadTitle: 'TXCO Style 60 Acid Data Sheet' },
     ],
     productDetails: {
@@ -2217,6 +2221,55 @@ export const subcategoryDetailCatalog = {
         ],
       },
     },
+      'o-rings-and-gland-packing': {
+        title: 'O-RINGS AND GLAND PACKING',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+        downloadTitle: 'O-Rings & Gland Packing Catalog',
+        sections: [
+          {
+            heading: 'PRECISION O-RINGS & ANTI-EXTRUSION BACKUP RINGS',
+            paragraphs: [
+              'Molded from high-performance elastomers (FKM, HNBR, EPDM) and chemically inert Perfluoroelastomers (FFKM), TXCO O-rings provide primary static and dynamic sealing for valve stems, body joints, and internal cartridges. Certified for Rapid Gas Decompression (RGD / AED) under NORSOK M-710, they resist micro-blistering during rapid depressurization up to 10,000 PSI. Paired with PEEK or PTFE backup rings, they eliminate seal extrusion under severe differential pressures.',
+            ],
+            table: {
+              headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
+              rows: [
+                {
+                  code: 'Precision O-Rings',
+                  description: 'FFKM, FKM, HNBR, EPDM',
+                  thickness: '-50°C to +315°C',
+                  reweld: 'Up to 10,000 PSI',
+                  radial: 'NORSOK M-710, ISO 23936-2',
+                },
+              ],
+            },
+          },
+          {
+            heading: 'API 622 / ISO 15848-1 LOW-EMISSION GLAND PACKING',
+            paragraphs: [
+              'Functioning as the dynamic stem seal for rotating and reciprocating valves, TXCO gland packings are precision-braided from expanded flexible graphite, Inconel-wire reinforcement, carbon yarn, and modified ePTFE. Their self-lubricating, high-density construction maintains continuous radial contact against stuffing box walls, minimizing actuator breakout torque while exceeding strict fugitive emissions standards (API 622, TA-Luft, ISO 15848-1 Class A).',
+            ],
+            table: {
+              headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
+              rows: [
+                {
+                  code: 'Gland Packing',
+                  description: 'ePTFE, Graphite, Inconel Wire',
+                  thickness: '-200°C to +650°C',
+                  reweld: 'Class 150 – 2500',
+                  radial: 'API 622, ISO 15848-1, TA-Luft',
+                },
+              ],
+            },
+          },
+        ],
+      },
   },
 
   // ==========================================
@@ -2796,9 +2849,9 @@ export const subcategoryDetailCatalog = {
     subcategoryTitle: 'Valve Components',
     productsList: [
       { id: 'about-valve-components', title: 'ABOUT VALVE COMPONENTS', downloadTitle: 'Valve Components Catalog' },
-      { id: 'precision-o-rings', title: 'PRECISION O-RINGS & BACKUP RINGS', downloadTitle: 'Precision O-Rings Catalog' },
-      { id: 'valve-packing', title: 'LOW-EMISSION GLAND PACKING', downloadTitle: 'Low-Emission Packing Catalog' },
+      
       { id: 'valve-seats-inserts', title: 'VALVE SEATS & INSERTS', downloadTitle: 'Valve Seats & Inserts Catalog' },
+      { id: 'sleeves', title: 'SLEEVES', downloadTitle: 'Sleeves Catalog' },
     ],
     productDetails: {
       'about-valve-components': {
@@ -2928,6 +2981,24 @@ export const subcategoryDetailCatalog = {
           },
         ],
       },
+      'sleeves': {
+        title: 'Sleeves',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/Sleeves.jpg',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/Sleeves.jpg',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/Sleeves.jpg',
+        downloadTitle: 'Sleeves Catalog',
+        sections: [
+          {
+            heading: 'Sleeves',
+            paragraphs: [
+              'TXCO manufactures precision-engineered sleeves using advanced centrifugal casting, forging and machining processes. Designed for demanding industrial applications, our sleeves provide reliable protection for critical rotating equipment and components operating under severe service conditions.',
+              'Our pump shaft protection sleeves are manufactured to protect API 610/682 pump shafts against packing erosion, dynamic seal fretting and slurry abrasion. Precision machining ensures tight TIR runout tolerances of ≤ 0.015 mm, supporting reliable operation and extended service life.',
+            ],
+          },
+        ],
+      },
     },
   },
 
@@ -2944,7 +3015,8 @@ export const subcategoryDetailCatalog = {
     productDetails: {
       'commercial-products-item': {
         title: 'COMMERCIAL PRODUCTS',
-        image: '/images/product-detials-images/Expanding-Gates-and-Through-Conduit-Gates.avif',
+        image: '/images/commercial-products-coming-soon.jpg',
+        images: ['/images/commercial-products-coming-soon.jpg'],
         bannerImage: '/images/product-detials-images/product-details-page-banner.avif',
         downloadTitle: 'Commercial Products Catalog',
         sections: [

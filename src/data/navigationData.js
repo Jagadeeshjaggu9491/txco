@@ -64,7 +64,7 @@ export const mainNavigationMenu = {
           { name: 'Spectacle Blind Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=spectacle-blind-gaskets' },
           { name: 'Transition RTJ Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=transition-rtj' },
           { name: 'Soft-Material-Serrated RTJ Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=soft-material-seated-rtj' },
-          { name: 'Weld-Lip Seals', href: '/products/gaskets/metallic-gaskets/details?product=weld-lip-seals' },
+          { name: 'TXCO Weld Ring Gaskets', href: '/products/gaskets/metallic-gaskets/details?product=weld-lip-seals' },
         ],
       },
       {
@@ -86,6 +86,7 @@ export const mainNavigationMenu = {
           { name: 'ePTFE Gaskets', href: '/products/gaskets/non-metallic-gaskets/details?product=eptfe-gaskets' },
           { name: 'Asbestos Free Gaskets', href: '/products/gaskets/non-metallic-gaskets/details?product=asbestos-free-gaskets' },
           { name: 'Compressed Non-Asbestos', href: '/products/gaskets/non-metallic-gaskets/details?product=non-asbestos-gaskets' },
+          { name: 'O-Rings and Gland Packing', href: '/products/gaskets/non-metallic-gaskets/details?product=o-rings-and-gland-packing' },
         ],
       },
       {
@@ -128,9 +129,8 @@ export const mainNavigationMenu = {
         name: 'VALVE COMPONENTS',
         href: '/products/valve-components',
         children: [
-          { name: 'Precision O-Rings & Backup Rings', href: '/products/valve-components/details?product=precision-o-rings' },
-          { name: 'API 622 / ISO 15848-1 Gland Packing', href: '/products/valve-components/details?product=valve-packing' },
           { name: 'Valve Seats & Soft / Metallic Inserts', href: '/products/valve-components/details?product=valve-seats-inserts' },
+          { name: 'Sleeves', href: '/products/valve-components/details?product=sleeves' },
         ],
       },
       {

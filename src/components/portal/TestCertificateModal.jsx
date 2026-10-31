@@ -56,7 +56,7 @@ export default function TestCertificateModal({ isOpen, onClose, tcData }) {
                 </div>
                 <div className="tc-address-line">
                   No. A-3(2), SIPCOT Industrial Park, Pillaipakkam, Sriperumbudur, Tamil Nadu - 602105, India<br />
-                  Phone: +91 9553125566 &bull; info@txco.com &bull; www.txco.com
+                  Phone: +91 9553125566 &bull; info@txcosealing.com &bull; www.txco.com
                 </div>
               </div>
 

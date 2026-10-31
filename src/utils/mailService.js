@@ -141,7 +141,7 @@ export async function sendEnquiryNotificationAndThankYou({
                         Best regards,<br>
                         <strong>TXCO Engineering & Sales Support Desk</strong><br>
                         TXCO Sealing Products Private Limited<br>
-                        Hyderabad, India • <a href="https://txco.co" style="color: #018F5D; text-decoration: none;">www.txco.co</a>
+                        Hyderabad, India • <a href="https://txco.co" style="color: #018F5D; text-decoration: none;">www.txcosealing.com</a>
                       </p>
                     </td>
                   </tr>

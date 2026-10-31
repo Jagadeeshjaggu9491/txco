@@ -11,6 +11,7 @@ export async function generateStaticParams() {
     'precision-o-rings',
     'valve-packing',
     'valve-seats-inserts',
+    'sleeves',
   ].map((slug) => ({ subcategory: slug }));
 
   return [...subs, ...items];

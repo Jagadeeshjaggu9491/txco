@@ -38,7 +38,7 @@ export const mainProductCategories = [
   {
     id: 'non-metallic-gaskets',
     title: 'NON-METALLIC GASKETS',
-    types: 'Rubber, PTFE, ePTFE, Asbestos Free Gaskets, Compressed Non Asbestos',
+    types: 'Rubber, PTFE, ePTFE, Asbestos Free Gaskets, Compressed Non Asbestos, O-Rings and Gland Packing',
     description:
       'Elastomeric, fluoropolymer, and CNAF compressed sheets designed for universal chemical resistance and utility service.',
     image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',
@@ -88,11 +88,11 @@ export const mainProductCategories = [
   {
     id: 'valve-components',
     title: 'VALVE COMPONENTS',
-    types: 'Precision O-Rings, Low-Emission Gland Packing, Valve Seats & Inserts',
+    types: 'Valve Seats & Inserts, Sleeves, Metallic Trims & Flow Control Components',
     description:
-      'Engineered valve trims, compression packings, bonnet gaskets, and high-integrity sealing components for flow control.',
-    image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+      'Engineered valve trims, bonnet gaskets, seat rings, and high-integrity sealing components for flow control.',
+    image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
+    fallbackImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
     href: '/products/valve-components',
   },
   {
@@ -101,8 +101,8 @@ export const mainProductCategories = [
     types: 'Industrial Bolting, Heavy Hex Studs, Nuts & Pipeline Hardware',
     description:
       'Complete commercial supply range including ASTM heavy hex stud bolts, nuts, flange protectors, and pipeline consumables.',
-    image: '/images/product-detials-images/Expanding-Gates-and-Through-Conduit-Gates.avif',
-    fallbackImage: '/images/home-products.png',
+    image: '/images/commercial-products-coming-soon.jpg',
+    fallbackImage: '/images/commercial-products-coming-soon.jpg',
     href: '/products/commercial-products',
   },
 ];
@@ -201,7 +201,7 @@ export const engineeredSolutionsData = {
     text:
       'TXCO combines precision manufacturing, material expertise, standards-based production and sealing knowledge to provide flange and sealing solutions for demanding industrial applications.',
     phone: '+91 9553125566',
-    email: 'info@txco.co',
+    email: 'info@txcosealing.com',
     image: '/images/contact-img.png',
   },
 };
