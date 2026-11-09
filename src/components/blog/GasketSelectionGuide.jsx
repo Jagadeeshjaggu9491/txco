@@ -526,58 +526,6 @@ export default function GasketSelectionGuide() {
             </div>
           </div>
         </div>
-
-        {/* ===================================================================
-            MATERIAL GRADES & CONTROLLED HARDNESS REFERENCE TABLE
-           =================================================================== */}
-        <div className="rtj-hardness-table-section">
-          <div className="rtj-hardness-table-header">
-            <h3 className="rtj-hardness-table-title">
-              MATERIAL GRADES &amp; CONTROLLED HARDNESS REFERENCE TABLE
-            </h3>
-            <p className="rtj-hardness-table-subtitle">
-              Strict controlled hardness limits per ASME B16.20 and API Spec 6A / 17D. Gasket metallurgy must always maintain lower surface hardness than mating flange grooves to force plastic deformation and bubble-tight containment without marking flange facings.
-            </p>
-          </div>
-
-          <div className="rtj-hardness-table-wrapper">
-            <table className="rtj-hardness-table">
-              <thead>
-                <tr>
-                  <th>MATERIAL</th>
-                  <th>UNS NO.</th>
-                  <th>MAX. BRINELL HARDNESS</th>
-                  <th>MAX. ROCKWELL HARDNESS</th>
-                  <th style={{ textAlign: 'center' }}>CALCULATOR STATUS</th>
-                </tr>
-              </thead>
-              <tbody>
-                {metallurgyOptions.map((metal) => {
-                  const isSelected = calcMetallurgy === metal.id;
-                  return (
-                    <tr key={metal.id} className={isSelected ? 'rtj-row-active' : ''}>
-                      <td className="rtj-metal-name">
-                        <strong>{metal.name}</strong>
-                      </td>
-                      <td className="rtj-metal-uns">{metal.uns}</td>
-                      <td className="rtj-metal-hardness">{metal.maxBrinell}</td>
-                      <td className="rtj-metal-hardness">{metal.maxRockwell}</td>
-                      <td className="rtj-metal-action" style={{ textAlign: 'center' }}>
-                        <button
-                          type="button"
-                          onClick={() => setCalcMetallurgy(metal.id)}
-                          className={`rtj-select-grade-btn ${isSelected ? 'active' : ''}`}
-                        >
-                          {isSelected ? '✓ Active in Calc' : 'Select Grade'}
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
       </div>
     </section>
   );

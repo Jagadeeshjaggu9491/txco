@@ -280,8 +280,10 @@ const NEW_PRODUCT_IMAGES = {
   // Monolithic Insulation Joints
   'monolithic-insulation-joints': '/images/TXCO PHOTOS FOR WEBSITE/Insulation-Joints.avif',
 
-  // Valve Components
+  // Valve Components & Non-Metallic
   'about-valve-components': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/SEAT RING.jpeg',
+  'o-rings': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+  'gland-packing': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
   'o-rings-and-gland-packing': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
   'precision-o-rings': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
   'valve-packing': '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
@@ -482,7 +484,23 @@ const PRODUCT_GALLERY_IMAGES = {
     },
   ],
 
-  // 7. Valve Components - Precision O-Rings (2 authentic images)
+  // 7. Non-Metallic / Valve Components - O-Rings & Gland Packing
+  'o-rings': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+      label: 'Precision O-Rings',
+    },
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
+      label: 'High-Performance Elastomer O-Rings',
+    },
+  ],
+  'gland-packing': [
+    {
+      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+      label: 'Low-Emission Gland Packing',
+    },
+  ],
   'o-rings-and-gland-packing': [
     {
       src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',

@@ -104,19 +104,19 @@ export const globalHubsData = [
     badge: null,
     title: 'Germany & Europe',
     description: 'Dedicated sales desk & logistics coordination for DIN EN standard compliant projects.',
-    contact: 'europe@txco.co',
+    contact: 'info@txcosealing.com',
   },
   {
     badge: null,
     title: 'Middle East (GCC)',
     description: 'Upstream & downstream oilfield sealing support for Saudi Arabia, UAE, Oman & Qatar.',
-    contact: 'gulf.sales@txco.co',
+    contact: 'info@txcosealing.com',
   },
   {
     badge: null,
     title: 'Americas & APAC',
     description: 'Direct maritime & express air freight channels to major ports in the USA, Canada & Singapore.',
-    contact: 'export@txco.co',
+    contact: 'info@txcosealing.com',
   },
 ];
 

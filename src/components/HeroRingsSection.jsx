@@ -150,14 +150,14 @@ export default function HeroRingsSection() {
 
             <h1 className="hero-rings-headline" ref={headlineRef}>
               <span className="hero-rings-text-line">
-                <span className="hero-color-navy">CUSTOM </span>
-                <span className="hero-color-green">GASKET,</span>
+                <span className="hero-color-navy">ENGINEERED </span>
+                <span className="hero-color-green">GASKET &amp;</span>
               </span>
               <span className="hero-rings-text-line hero-color-navy">
-                BOLT &amp; SEAL
+                SEALING SOLUTIONS FOR
               </span>
               <span className="hero-rings-text-line hero-color-navy">
-                MANUFACTURER
+                CRITICAL INDUSTRIES
               </span>
             </h1>
           </div>

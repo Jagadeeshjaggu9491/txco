@@ -173,7 +173,6 @@ export const subcategoryDetailCatalog = {
           '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ- R OCTOGONAL.png',
           '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ- RX.png',
           '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ -BX.png',
-          '/images/products/srx-sbx-gaskets.png',
           '/images/TXCO PHOTOS FOR WEBSITE/RTJ/PROTECTIVE COATING.png',
           '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ COVER.jpeg',
         ],
@@ -197,83 +196,99 @@ export const subcategoryDetailCatalog = {
             ],
             table: {
               headers: [
-                'PROFILE / TYPE',
-                'CROSS-SECTION & GEOMETRY',
-                'SEALING MECHANISM',
-                'COMPATIBLE GROOVES & FLANGES',
-                'PRESSURE RATING',
-                'STANDARDS & APPLICATIONS',
+                'MATERIAL',
+                'UNS No.',
+                'Max. Brinell Hardness',
+                'Max. Rockwell Hardness',
               ],
               rows: [
                 {
-                  code: 'R Oval',
-                  cells: [
-                    'R Oval (Type R – Oval)',
-                    'Oval-shaped cross-section designed for line-contact sealing.',
-                    'Line-contact seal; initial plastic yield deforms into mating groove radius.',
-                    'Compatible with both round-bottom (oval) and flat-bottom (octagonal) RTJ grooves (ASME B16.5, ASME B16.47, API 6A).',
-                    'ASME Class 150 – 2500 (up to 5,000 PSI)',
-                    'ASME B16.20 & API 6A; legacy equipment, refining, and conventional low-to-medium pressure piping.',
-                  ],
+                  code: 'Soft Iron',
+                  cells: ['Soft Iron', '—', '90', '56'],
                 },
                 {
-                  code: 'R Octagonal',
-                  cells: [
-                    'R Octagonal (Type R – Octagonal)',
-                    'Octagonal cross-section with 23° beveled sealing facets for point-contact.',
-                    'Concentrated high-stress point contact providing higher sealing efficiency than oval profile.',
-                    'Designed specifically for standard octagonal flat-bottom RTJ grooves (ASME B16.5, ASME B16.47, API 6A Type 6B).',
-                    'ASME Class 150 – 2500 (API 2,000 to 5,000 PSI)',
-                    'ASME B16.20 & API 6A; widely used across oil & gas, petrochemical, refining, and demanding industrial piping.',
-                  ],
+                  code: 'Low Carbon Steel',
+                  cells: ['Low Carbon Steel', '—', '120', '68'],
                 },
                 {
-                  code: 'RX',
-                  cells: [
-                    'RX (Type RX)',
-                    'Modified octagonal cross-section with asymmetric profile and pressure-energized lips.',
-                    'Self-energizing; internal process pressure forces the gasket outer lip tighter against groove walls.',
-                    'Interchangeable with Type R grooves in ASME B16.20 & API 6A Type 6B flanges (creates higher standoff; not interchangeable with BX).',
-                    'Up to 5,000 PSI (ASME Class 720 – 5000 / API 2,000 – 5,000 PSI)',
-                    'API Spec 6A & ASME B16.20; high-pressure valves, wellheads, Christmas trees, and vibrating process piping.',
-                  ],
+                  code: '4-6% Chrome 1/2% Moly',
+                  cells: ['4-6% Chrome 1/2% Moly', 'K42544', '130', '75'],
                 },
                 {
-                  code: 'BX',
-                  cells: [
-                    'BX (Type BX)',
-                    'Heavy-duty octagonal profile incorporating an axial pressure-equalizing hole for uniform pressure distribution.',
-                    'Pressure-energized metal-to-metal seal; achieves complete face-to-face flange contact when torqued.',
-                    'Designed exclusively for compatible API Spec 6A Type 6BX grooved flanges (not interchangeable with Type R or RX).',
-                    'Extreme pressures up to 20,000 PSI (API 5,000 to 20,000 PSI)',
-                    'API Spec 6A & API 17D; critical wellheads, Christmas trees, subsea manifolds, BOP stacks, and extreme-pressure systems.',
-                  ],
+                  code: 'Type 304 Stainless Steel',
+                  cells: ['Type 304 Stainless Steel', 'S30400', '160', '83'],
                 },
                 {
-                  code: 'SBX',
-                  cells: [
-                    'SBX (Type SBX)',
-                    'Heavy-duty subsea octagonal profile with radial pressure-equalizing vent holes conforming to API Spec 17D.',
-                    'Pressure-balanced self-energizing seal; radial vent holes prevent seawater entrapment during underwater flange make-up.',
-                    'Exclusively for API Spec 17D / API 6A Type 6BX subsea grooved flanges.',
-                    'Extreme pressures up to 20,000 PSI (API 5,000 to 20,000 PSI)',
-                    'API Spec 17D & API 6A; subsea wellheads, deepwater tie-backs, and underwater Christmas trees.',
-                  ],
+                  code: 'Type 316 Stainless Steel',
+                  cells: ['Type 316 Stainless Steel', 'S31600', '160', '83'],
                 },
                 {
-                  code: 'SRX',
-                  cells: [
-                    'SRX (Type SRX)',
-                    'Modified octagonal subsea profile with radial pressure-equalizing vent holes conforming to API Spec 17D.',
-                    'Pressure-balanced self-energizing seal; prevents hydrostatic fluid lock when bolting subsea joints.',
-                    'API Spec 17D / API 6A Type 6B subsea grooved flanges.',
-                    'Up to 5,000 PSI (API 2,000 to 5,000 PSI)',
-                    'API Spec 17D & API 6A; offshore subsea wellheads, manifold connections, and riser piping.',
-                  ],
+                  code: 'Type 347 Stainless Steel',
+                  cells: ['Type 347 Stainless Steel', 'S34700', '160', '83'],
+                },
+                {
+                  code: 'Type 410 Stainless Steel',
+                  cells: ['Type 410 Stainless Steel', 'S41000', '170', '86'],
+                },
+                {
+                  code: 'Titanium Grade 2',
+                  cells: ['Titanium Grade 2', 'R50400', '215', '94'],
+                },
+                {
+                  code: 'Alloy 600',
+                  cells: ['Alloy 600', 'N06600', '200', '92'],
+                },
+                {
+                  code: 'Alloy 625',
+                  cells: ['Alloy 625', 'N06625', '200', '92'],
+                },
+                {
+                  code: 'Alloy 800',
+                  cells: ['Alloy 800', 'N08800', '200', '92'],
+                },
+                {
+                  code: 'Alloy 825',
+                  cells: ['Alloy 825', 'N08825', '200', '92'],
+                },
+                {
+                  code: 'Hastelloy',
+                  cells: ['Hastelloy', 'N10001', '200', '—'],
+                },
+                {
+                  code: 'Alloy C276',
+                  cells: ['Alloy C276', 'N10276', '200', '92'],
+                },
+                {
+                  code: 'SMO 254',
+                  cells: ['SMO 254', 'S32154', '180', '89'],
+                },
+                {
+                  code: 'Zeron 100',
+                  cells: ['Zeron 100', '—', '200', '—'],
+                },
+                {
+                  code: 'Super Duplex',
+                  cells: ['Super Duplex', 'S31803', '200', '92'],
+                },
+                {
+                  code: '321 Stainless Steel',
+                  cells: ['321 Stainless Steel', '—', '160', '83'],
+                },
+                {
+                  code: 'MONEL 400',
+                  cells: ['MONEL 400', '—', '130', '72'],
+                },
+                {
+                  code: '309 Stainless Steel',
+                  cells: ['309 Stainless Steel', '—', '160', '83'],
+                },
+                {
+                  code: 'Alloy 20',
+                  cells: ['Alloy 20', '—', '160', '83'],
                 },
               ],
               footnote:
-                'All TXCO RTJ gaskets are manufactured and inspected in accordance with ASME B16.20 and API Spec 6A / API 17D requirements. Strict hardness verification (Soft Iron ≤ 90 HB, Low Carbon Steel ≤ 120 HB, 304/316 SS ≤ 160 HB) ensures optimal plastic yield without damaging mating flange grooves.',
+                'Material grades and maximum hardness values conform strictly to ASME B16.20 and API Spec 6A standards. Gasket material must always be softer than the mating flange groove to prevent permanent flange deformation.',
             },
             showAssemblyDiagram: true,
             diagramType: 'rtj-assembly',
@@ -334,7 +349,7 @@ export const subcategoryDetailCatalog = {
           },
           {
             heading: 'TYPE SBX & SRX (SUBSEA)',
-            image: '/images/products/srx-sbx-gaskets.png',
+            image: '/images/TXCO PHOTOS FOR WEBSITE/RTJ/RTJ -BX.png',
             imageAlt: 'TXCO Type SBX and SRX Subsea Pressure-Balanced RTJ Gaskets',
             imageCaption: 'Type SBX / SRX Profiles (API 17D Pressure-Balanced Subsea)',
             bullets: [
@@ -1189,7 +1204,7 @@ export const subcategoryDetailCatalog = {
             bulletsIntro: 'Engineering Highlights',
             bullets: [
               'Revolutionary Dual-Sheet Facing: Fuses specialized ceramic and mineral matrices to deliver continuous thermal management up to 1000°C with zero carbon oxidation or material degradation.',
-              'API 6FB Certified Fire Safety: Formulated to preserve joint tightness and structural seal integrity under direct flame exposure and catastrophic thermal shock.',
+              'API 6FB – Fire Performance Design: Formulated to preserve joint tightness and structural seal integrity under direct flame exposure and catastrophic thermal shock.',
               'Permanent Dielectric Defense: High-density GRE encapsulation isolates stray electrical currents, halting galvanic corrosion across mating flanges for the lifetime of the connection.',
               'Low-Emission Dual Sealing: Synergized mica and PTFE sealing profiles deliver micro-fine fluid containment, excelling in sour gas (H2S), high-pH media, and volatile hydrocarbons.',
               'Complete System Integration: Fully compatible with Raised Face (RF), Full Face (FF), and Ring Type Joint (RTJ) flanges, supplied with matching high-dielectric sleeves and isolation washers.',
@@ -1256,7 +1271,8 @@ export const subcategoryDetailCatalog = {
       { id: 'txco-style-54', title: 'TXCO STYLE 54 SUPER', downloadTitle: 'TXCO Style 54 Data Sheet' },
       { id: 'txco-style-55', title: 'TXCO STYLE 55 UNIVERSAL', downloadTitle: 'TXCO Style 55 Data Sheet' },
       { id: 'txco-style-59', title: 'TXCO STYLE 59 OIL', downloadTitle: 'TXCO Style 59 Oil Data Sheet' },
-      { id: 'o-rings-and-gland-packing', title: 'O-RINGS AND GLAND PACKING', downloadTitle: 'O-Rings & Gland Packing Catalog' },
+      { id: 'o-rings', title: 'O-RINGS', downloadTitle: 'O-Rings Catalog' },
+      { id: 'gland-packing', title: 'GLAND PACKING', downloadTitle: 'Gland Packing Catalog' },
       { id: 'txco-style-60', title: 'TXCO STYLE 60 ACID', downloadTitle: 'TXCO Style 60 Acid Data Sheet' },
     ],
     productDetails: {
@@ -2234,6 +2250,65 @@ export const subcategoryDetailCatalog = {
           },
         ],
       },
+    },
+    'o-rings': {
+      title: 'O-RINGS',
+      image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+      images: [
+        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
+      ],
+      bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+      downloadTitle: 'O-Rings Catalog',
+      sections: [
+        {
+          heading: 'O-RINGS',
+          paragraphs: [
+            'Molded from high-performance elastomers (FKM, HNBR, EPDM) and chemically inert Perfluoroelastomers (FFKM), TXCO O-rings provide primary static and dynamic sealing for valve stems, body joints, and internal cartridges. Certified for Rapid Gas Decompression (RGD / AED) under NORSOK M-710, they resist micro-blistering during rapid depressurization up to 10,000 PSI. Paired with PEEK or PTFE backup rings, they eliminate seal extrusion under severe differential pressures.',
+          ],
+          table: {
+            headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
+            rows: [
+              {
+                code: 'Precision O-Rings',
+                description: 'FFKM, FKM, HNBR, EPDM',
+                thickness: '-50°C to +315°C',
+                reweld: 'Up to 10,000 PSI',
+                radial: 'NORSOK M-710, ISO 23936-2',
+              },
+            ],
+          },
+        },
+      ],
+    },
+    'gland-packing': {
+      title: 'GLAND PACKING',
+      image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+      images: [
+        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+      ],
+      bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+      downloadTitle: 'Gland Packing Catalog',
+      sections: [
+        {
+          heading: 'GLAND PACKING',
+          paragraphs: [
+            'Functioning as the dynamic stem seal for rotating and reciprocating valves, TXCO gland packings are precision-braided from expanded flexible graphite, Inconel-wire reinforcement, carbon yarn, and modified ePTFE. Their self-lubricating, high-density construction maintains continuous radial contact against stuffing box walls, minimizing actuator breakout torque while exceeding strict fugitive emissions standards (API 622, TA-Luft, ISO 15848-1 Class A).',
+          ],
+          table: {
+            headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
+            rows: [
+              {
+                code: 'Gland Packing',
+                description: 'ePTFE, Graphite, Inconel Wire',
+                thickness: '-200°C to +650°C',
+                reweld: 'Class 150 – 2500',
+                radial: 'API 622, ISO 15848-1, TA-Luft',
+              },
+            ],
+          },
+        },
+      ],
     },
     'o-rings-and-gland-packing': {
       title: 'O-RINGS AND GLAND PACKING',

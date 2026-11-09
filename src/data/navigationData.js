@@ -86,7 +86,8 @@ export const mainNavigationMenu = {
           { name: 'ePTFE Gaskets', href: '/products/gaskets/non-metallic-gaskets/details?product=eptfe-gaskets' },
           { name: 'Asbestos Free Gaskets', href: '/products/gaskets/non-metallic-gaskets/details?product=asbestos-free-gaskets' },
           { name: 'Compressed Non-Asbestos', href: '/products/gaskets/non-metallic-gaskets/details?product=non-asbestos-gaskets' },
-          { name: 'O-Rings and Gland Packing', href: '/products/gaskets/non-metallic-gaskets/details?product=o-rings-and-gland-packing' },
+          { name: 'O-Rings', href: '/products/gaskets/non-metallic-gaskets/details?product=o-rings' },
+          { name: 'Gland Packing', href: '/products/gaskets/non-metallic-gaskets/details?product=gland-packing' },
         ],
       },
       {

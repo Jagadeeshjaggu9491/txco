@@ -38,7 +38,7 @@ export const mainProductCategories = [
   {
     id: 'non-metallic-gaskets',
     title: 'NON-METALLIC GASKETS',
-    types: 'Rubber, PTFE, ePTFE, Asbestos Free Gaskets, Compressed Non Asbestos, O-Rings and Gland Packing',
+    types: 'Rubber, PTFE, ePTFE, Asbestos Free Gaskets, Compressed Non Asbestos, O-Rings, Gland Packing',
     description:
       'Elastomeric, fluoropolymer, and CNAF compressed sheets designed for universal chemical resistance and utility service.',
     image: '/images/TXCO PHOTOS FOR WEBSITE/NON METALLIC GASKETS/PTFE GASKETS.jpeg',

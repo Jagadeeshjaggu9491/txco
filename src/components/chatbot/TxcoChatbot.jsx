@@ -107,15 +107,36 @@ export default function TxcoChatbot() {
   const fileInputRef = useRef(null);
   const chatBodyRef = useRef(null);
 
-  // Teaser bubble timeout
+  // Teaser bubble timeout with auto-dismiss
   useEffect(() => {
+    let dismissTimer;
     const timer = setTimeout(() => {
       if (!isOpen && !hasInteracted) {
         setShowTeaser(true);
+        // Auto-dismiss after 8 seconds so it does not persistently obstruct page content
+        dismissTimer = setTimeout(() => {
+          setShowTeaser(false);
+        }, 8000);
       }
-    }, 1800);
-    return () => clearTimeout(timer);
+    }, 2400);
+
+    return () => {
+      clearTimeout(timer);
+      if (dismissTimer) clearTimeout(dismissTimer);
+    };
   }, [isOpen, hasInteracted]);
+
+  // Coordinate body class when chat is open (e.g. hides floating WhatsApp to prevent overlap)
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('txco-chat-open');
+    } else {
+      document.body.classList.remove('txco-chat-open');
+    }
+    return () => {
+      document.body.classList.remove('txco-chat-open');
+    };
+  }, [isOpen]);
 
   // Auto scroll chat body
   useEffect(() => {
@@ -545,11 +566,14 @@ export default function TxcoChatbot() {
         aria-label="Toggle TXCO Assistant"
         title="Chat with TXCO Sealing Products Assistant"
       >
-        <div className="txco-chat-pulse-ring" />
-        <div className="txco-chat-pulse-ring txco-chat-pulse-ring-delayed" />
-        {isOpen ? <X size={26} /> : <MessageSquare size={26} />}
+        <span className="txco-chat-launcher-tooltip" aria-hidden="true">
+          {isOpen ? 'Close Assistant' : 'Ask AI Assistant'}
+        </span>
+        {!isOpen && <div className="txco-chat-pulse-ring" />}
+        {!isOpen && <div className="txco-chat-pulse-ring txco-chat-pulse-ring-delayed" />}
+        {isOpen ? <X size={22} /> : <MessageSquare size={22} />}
         <span className="txco-chat-online-badge" />
-        {!isOpen && <span className="txco-chat-launcher-tag">ASK ME</span>}
+        {!isOpen && <span className="txco-chat-launcher-tag">AI</span>}
       </button>
 
       {/* ------------------------------------------------------------------

@@ -654,9 +654,27 @@ export default function ContactPage() {
                   <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)', lineHeight: '1.5', marginBottom: '1rem' }}>
                     {hub.description}
                   </p>
-                  <span style={{ fontSize: '0.82rem', fontWeight: '600', color: 'var(--primary-navy)', display: 'block' }}>
-                    {hub.contact}
-                  </span>
+                  {hub.contact.includes('@') ? (
+                    <a
+                      href={`mailto:${hub.contact}`}
+                      style={{
+                        fontSize: '0.85rem',
+                        fontWeight: '600',
+                        color: 'var(--primary-navy)',
+                        display: 'inline-block',
+                        textDecoration: 'none',
+                        transition: 'color 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--emerald-accent)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--primary-navy)')}
+                    >
+                      {hub.contact}
+                    </a>
+                  ) : (
+                    <span style={{ fontSize: '0.82rem', fontWeight: '600', color: 'var(--primary-navy)', display: 'block' }}>
+                      {hub.contact}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>

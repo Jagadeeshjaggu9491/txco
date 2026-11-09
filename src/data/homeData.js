@@ -5,7 +5,7 @@ export const heroSlidesData = [
 ];
 
 export const bannerSectionData = {
-  title: 'Custom Gasket, Bolt & Seal Manufacturer',
+  title: 'ENGINEERED GASKET & SEALING SOLUTIONS FOR CRITICAL INDUSTRIES',
 };
 
 export const engineeredSolutionsData = [

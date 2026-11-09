@@ -109,7 +109,7 @@
 }
 
 .hero-brand-content {
-  max-width: 650px;
+  max-width: 720px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -120,11 +120,11 @@
 ------------------------------------------------------------------------- */
 .hero-brand-headline {
   font-family: var(--font-family-base, 'Inter', sans-serif);
-  font-size: clamp(2.4rem, 4.4vw, 4.1rem);
+  font-size: clamp(1.9rem, 3.2vw, 3.2rem);
   font-weight: 900;
   font-style: italic;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
   text-transform: uppercase;
   margin: 0 0 clamp(1.8rem, 3.2vh, 2.5rem) 0;
   display: flex;
@@ -198,7 +198,7 @@
   }
 
   .hero-brand-headline {
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-size: clamp(1.75rem, 2.8vw, 2.65rem);
   }
 }
 
@@ -240,7 +240,7 @@
   }
 
   .hero-brand-headline {
-    font-size: clamp(1.9rem, 6.2vw, 2.6rem);
+    font-size: clamp(1.5rem, 5.2vw, 2.1rem);
     margin-bottom: 1.8rem;
   }
 

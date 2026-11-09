@@ -30,54 +30,69 @@
    -------------------------------------------------------------------------- */
 .txco-chat-fixed-container {
   position: fixed;
-  right: 24px;
+  right: 20px;
   left: auto;
-  bottom: 24px;
-  z-index: 99999;
+  bottom: 20px;
+  z-index: 99995;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  pointer-events: auto;
+  pointer-events: none; /* Let clicks through container whitespace */
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Floating Teaser Speech Bubble (Template styled with White Card & Green Accent) */
 .txco-chat-teaser-bubble {
-  margin-bottom: 12px;
+  position: absolute;
+  right: 64px;
+  bottom: 2px;
+  margin-bottom: 0;
   background: #ffffff;
   border: 1.5px solid rgba(1, 143, 93, 0.35);
-  padding: 10px 14px 10px 12px;
-  border-radius: 16px;
-  box-shadow: 0 14px 35px rgba(5, 44, 88, 0.15), 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 8px 12px 8px 10px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(5, 44, 88, 0.16), 0 2px 6px rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
-  gap: 10px;
-  max-width: 300px;
+  gap: 8px;
+  width: 250px;
+  max-width: 270px;
   cursor: pointer;
-  transform-origin: bottom right;
-  animation: txcoPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: auto;
+  transform-origin: right center;
+  animation: txcoPopInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
-  position: relative;
+  z-index: 99996;
 }
 
 .txco-chat-teaser-bubble:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px) scale(1.02);
   border-color: var(--txco-chat-green-accent);
-  box-shadow: 0 18px 40px rgba(1, 143, 93, 0.2);
+  box-shadow: 0 14px 34px rgba(1, 143, 93, 0.22);
 }
 
 .txco-chat-teaser-bubble::after {
   content: '';
   position: absolute;
-  bottom: -7px;
-  right: 24px;
-  left: auto;
-  width: 12px;
-  height: 12px;
+  top: 50%;
+  right: -6px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
   background: #ffffff;
+  border-top: 1.5px solid rgba(1, 143, 93, 0.35);
   border-right: 1.5px solid rgba(1, 143, 93, 0.35);
-  border-bottom: 1.5px solid rgba(1, 143, 93, 0.35);
-  transform: rotate(45deg);
+}
+
+@keyframes txcoPopInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(12px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
 
 .txco-teaser-avatar {
@@ -136,71 +151,110 @@
 /* Animated Floating Launcher Button (TXCO Brand Gradient & Pulse) */
 .txco-chat-launcher-btn {
   position: relative;
-  width: 62px;
-  height: 62px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: linear-gradient(135deg, #091a33 0%, #26335d 50%, #018F5D 100%);
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 10px 28px -4px rgba(13, 40, 77, 0.45), 0 0 18px rgba(1, 143, 93, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 22px -3px rgba(13, 40, 77, 0.4), 0 0 14px rgba(1, 143, 93, 0.28);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
   cursor: pointer;
   outline: none;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  pointer-events: auto; /* Active clicking */
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
   animation: txcoFloatBounce 4s ease-in-out infinite;
 }
 
 .txco-chat-launcher-btn:hover {
-  transform: scale(1.08) translateY(-3px);
-  box-shadow: 0 16px 36px -4px rgba(13, 40, 77, 0.55), 0 0 24px rgba(1, 143, 93, 0.45);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 28px -3px rgba(13, 40, 77, 0.5), 0 0 20px rgba(1, 143, 93, 0.4);
 }
 
 .txco-chat-launcher-btn:active {
   transform: scale(0.95);
 }
 
+/* Hover Tooltip on Desktop */
+.txco-chat-launcher-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: #0d284d;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(5, 44, 88, 0.25);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.txco-chat-launcher-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: #0d284d;
+}
+
+.txco-chat-launcher-btn:hover .txco-chat-launcher-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
 /* Continuous Radar Pulse Waves */
 .txco-chat-pulse-ring {
   position: absolute;
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
   border-radius: 50%;
-  border: 2px solid rgba(1, 143, 93, 0.55);
-  animation: txcoRadarPulse 2.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  border: 1.5px solid rgba(1, 143, 93, 0.5);
+  animation: txcoRadarPulse 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
   pointer-events: none;
 }
 
 .txco-chat-pulse-ring-delayed {
-  animation-delay: 1.3s;
+  animation-delay: 1.5s;
 }
 
 /* Online Status Green Indicator Dot */
 .txco-chat-online-badge {
   position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 15px;
-  height: 15px;
+  bottom: 1px;
+  right: 1px;
+  width: 13px;
+  height: 13px;
   background-color: var(--txco-chat-green-accent);
-  border: 2.5px solid #0d284d;
+  border: 2px solid #0d284d;
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(1, 143, 93, 0.8);
+  box-shadow: 0 0 6px rgba(1, 143, 93, 0.7);
 }
 
-/* Notification Pill Pill Tag */
+/* Notification Pill Tag */
 .txco-chat-launcher-tag {
   position: absolute;
-  top: -5px;
-  right: -8px;
+  top: -4px;
+  right: -6px;
   background: var(--txco-chat-green-accent);
   color: #ffffff;
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 700;
-  padding: 2px 8px;
+  padding: 1.5px 6px;
   border-radius: 999px;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -214,20 +268,21 @@
    -------------------------------------------------------------------------- */
 .txco-chat-window {
   position: fixed;
-  right: 24px;
+  right: 20px;
   left: auto;
-  bottom: 96px;
-  width: 420px;
-  max-width: calc(100vw - 48px);
-  height: 650px;
-  max-height: calc(100vh - 120px);
+  bottom: 80px;
+  width: 390px;
+  max-width: calc(100vw - 40px);
+  height: 590px;
+  max-height: calc(100vh - 100px);
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 18px;
   box-shadow: var(--txco-chat-shadow-window);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   z-index: 99999;
+  pointer-events: auto;
   border: 1px solid var(--txco-chat-border);
   transform-origin: bottom right;
   animation: txcoWindowSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -1141,25 +1196,42 @@
 /* --------------------------------------------------------------------------
    Responsive Mobile Adjustments
    -------------------------------------------------------------------------- */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .txco-chat-fixed-container {
-    right: 14px;
+    right: 16px;
     left: auto;
-    bottom: 14px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .txco-chat-launcher-btn {
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 6px 18px -3px rgba(13, 40, 77, 0.4), 0 0 10px rgba(1, 143, 93, 0.25);
+  }
+
+  .txco-chat-launcher-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .txco-chat-launcher-tag,
+  .txco-chat-launcher-tooltip,
+  .txco-chat-teaser-bubble {
+    display: none !important;
+  }
+
+  .txco-chat-pulse-ring-delayed {
+    display: none;
   }
 
   .txco-chat-window {
     left: 10px;
     right: 10px;
-    bottom: 84px;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
     width: calc(100vw - 20px);
     max-width: none;
-    height: calc(100vh - 100px);
+    height: calc(100dvh - 20px);
     border-radius: 16px;
-  }
-
-  .txco-chat-teaser-bubble {
-    max-width: 260px;
   }
 
   .txco-form-row {

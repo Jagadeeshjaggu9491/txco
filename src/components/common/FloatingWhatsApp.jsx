@@ -12,7 +12,7 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_INTL_NUMBER}?text=${PREFILLED_MES
 
 export default function FloatingWhatsApp() {
   return (
-    <aside className="floating-whatsapp-container" aria-label="WhatsApp Contact Widget">
+    <aside className="floating-whatsapp-container no-print" aria-label="WhatsApp Contact Widget">
       {/* WhatsApp Action Button */}
       <a
         href={WHATSAPP_URL}
@@ -22,6 +22,9 @@ export default function FloatingWhatsApp() {
         aria-label={`Chat with TXCO on WhatsApp: ${WHATSAPP_NUMBER}`}
         title={`Chat on WhatsApp: ${WHATSAPP_NUMBER}`}
       >
+        <span className="floating-whatsapp-tooltip" aria-hidden="true">
+          Chat on WhatsApp
+        </span>
         <span className="floating-whatsapp-pulse" aria-hidden="true" />
         <span className="floating-whatsapp-pulse-2" aria-hidden="true" />
 

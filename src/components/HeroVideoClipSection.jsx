@@ -167,14 +167,14 @@ export default function HeroVideoClipSection({
           {/* 3-Line Slanted Headline matching UI */}
           <h1 className="hero-brand-headline" ref={headlineRef}>
             <span className="hero-brand-line">
-              <span className="hero-brand-navy">CUSTOM </span>
-              <span className="hero-brand-green">GASKET,</span>
+              <span className="hero-brand-navy">ENGINEERED </span>
+              <span className="hero-brand-green">GASKET &amp;</span>
             </span>
             <span className="hero-brand-line hero-brand-navy">
-              BOLT &amp; SEAL
+              SEALING SOLUTIONS FOR
             </span>
             <span className="hero-brand-line hero-brand-navy">
-              MANUFACTURER
+              CRITICAL INDUSTRIES
             </span>
           </h1>
 

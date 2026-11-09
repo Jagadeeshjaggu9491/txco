@@ -100,7 +100,7 @@ export default function LoginPage() {
         <PageHero
           title="CUSTOMER & ADMIN PORTAL"
           subtitle="Access industrial sealing documentation, real-time stock lists, certified CAD models, and manage inventory operations."
-          bgImage="/images/log-in-page-banner-img.avif"
+          bgImage="/images/title-section/log-in-page-banner-img.avif"
           bgPosition="center"
         />
 
