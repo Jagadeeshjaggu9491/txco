@@ -9,7 +9,8 @@ export default function CertificationsHero() {
     <PageHero
       title={certificationsHeroData.title}
       subtitle={certificationsHeroData.subtitle}
-      bgImage="/images/banner/txco-page-banner.avif"
+      bgImage="/images/title-section/certificates-page-banner.avif"
+      bgMobileImage="/images/title-section/certificates-page-banner-mobile.avif"
       bgPosition="center bottom"
     />
   );

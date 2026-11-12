@@ -5,8 +5,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
-import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 import { Eye, Download, Search, X, FileText, CheckCircle2, ChevronRight, BookOpen, Layers, ShieldCheck, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { catalogueCategories, cataloguesList } from '@/data/cataloguesData';
@@ -45,7 +43,8 @@ export default function CataloguesPage() {
         <PageHero
           title="PRODUCT CATALOGUES"
           subtitle="Download official engineering product brochures, technical dimension manuals, torque guidelines, and material specifications for TXCO industrial sealing solutions."
-          bgImage="/images/banner/txco-page-banner.avif"
+          bgImage="/images/title-section/downloads-page-banner.avif"
+          bgMobileImage="/images/title-section/downloads-page-banner-mobile.avif"
         />
 
         {/* Download Success Toast */}

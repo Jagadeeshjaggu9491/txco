@@ -2,7 +2,8 @@ export const aboutNewPageData = {
   hero: {
     title: 'ABOUT US',
     subtitle: 'TXCO Sealing Products Private Limited – Engineering Absolute Reliability',
-    bgImage: '/images/banner/txco-page-banner.avif',
+    bgImage: '/images/title-section/about-us-banner.avif',
+    bgMobileImage: '/images/title-section/about-us-banner-mobile.avif',
   },
   overview: {
 

@@ -73,11 +73,11 @@ export default function IndustrialSealingProducts({ data = defaultData, classNam
   }, []);
 
   return (
-    <section ref={sectionRef} className={`industrial-sealing-section pb-0 ${className}`.trim()}>
+    <section ref={sectionRef} className={`industrial-sealing-section ${className}`.trim()}>
       <div className='container'>
         {/* Header Title & Paragraph */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-          <h2 ref={headingRef} className="section-title section-title-center">
+          <h2 ref={headingRef} className="section-main-heading section-title-center">
             {data.heading}
           </h2>
 

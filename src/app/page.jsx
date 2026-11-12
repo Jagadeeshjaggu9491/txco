@@ -8,6 +8,7 @@ import HeroSlider from '@/components/HeroSlider';
 import BannerSection from '@/components/BannerSection';
 import EngineeredSolutions from '@/components/EngineeredSolutions';
 import IndustriesWeServe from '@/components/IndustriesWeServe';
+import IndustriesWeServeNew from '@/components/IndustriesWeServeNew';
 import ProductsCategorySlider from '@/components/ProductsCategorySlider';
 import IndustrySolutions from '@/components/IndustrySolutions';
 import OfferingsGlanceSection from '@/components/OfferingsGlanceSection';
@@ -28,7 +29,9 @@ export default function Home() {
         {/* <BannerSection /> */}
         <EngineeredSolutions />
         {/* <StickyServicesSection /> */}
-        <IndustriesWeServe />
+        {/* Active: New Design for Industries We Serve (Matching Reference UI with 5-Ring Emblem & Stacking Cards) */}
+        <IndustriesWeServeNew />
+        {/* Previous Version: <IndustriesWeServe /> */}
         <ProductsCategorySlider />
         <IndustrySolutions />
         {/* Redesigned Offerings at a Glance + Sealing Solutions CTA Section on top of Prefooter */}

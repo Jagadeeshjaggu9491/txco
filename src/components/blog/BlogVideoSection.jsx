@@ -85,7 +85,7 @@ export default function BlogVideoSection() {
         {/* Header Text Above Video */}
         <div className="blog-video-header">
 
-          <h2 className="blog-video-title">
+          <h2 className="section-main-heading blog-video-title">
             Engineering Precision & <span className="blog-video-title-highlight">Sealing Integrity</span>
           </h2>
 

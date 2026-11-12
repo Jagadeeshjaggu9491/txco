@@ -47,8 +47,8 @@ export default function ProductsCategorySlider({
       <div className="sealing-solutions-container">
         
         {/* Section Heading: Left-aligned bold italic */}
-        <h2 className="sealing-solutions-title">
-          Sealing Solutions for Every Industry
+        <h2 className="section-main-heading sealing-solutions-title">
+          Our Products
         </h2>
 
         {/* Slider Track with Left & Right Nav Arrows */}

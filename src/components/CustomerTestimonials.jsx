@@ -114,7 +114,7 @@ export default function CustomerTestimonials() {
             </svg>
           </div>
 
-          <h2 className="section-title section-title-center" style={{ color: '#3b4674', marginBottom: '2rem' }}>
+          <h2 className="section-main-heading section-title-center" style={{ color: '#3b4674', marginBottom: '2rem' }}>
             What Our Customers Are Saying
           </h2>
 

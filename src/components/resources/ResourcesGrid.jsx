@@ -110,7 +110,7 @@ export default function ResourcesGrid() {
     <section ref={sectionRef} className="resources-grid-section">
       <div className="resources-grid-container">
         {/* Main Section Heading */}
-        <h2 ref={headingRef} className="resources-section-heading">
+        <h2 ref={headingRef} className="section-main-heading resources-section-heading">
           Latest Resources
         </h2>
 

@@ -113,7 +113,7 @@ export default function DiscoverEngineeredSolutions({ data = defaultData, classN
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 2rem' }}>
         <h2
           ref={headingRef}
-          className="section-title section-title-center"
+          className="section-main-heading section-title-center"
           style={{ marginBottom: '3.5rem' }}
         >
           {data.heading}

@@ -222,7 +222,8 @@ export default function RegisterPage() {
         <PageHero
           title="CREATE ACCOUNT"
           subtitle="Register for instant access to TXCO engineering documents, certified 3D CAD models, material test certificates, and personalized pricing."
-          bgImage="/images/log-in-page-banner-img.avif"
+          bgImage="/images/title-section/log-in-page-banner-img.avif"
+          bgMobileImage="/images/title-section/log-in-page-banner-banner.avif"
           bgPosition="center"
         />
 

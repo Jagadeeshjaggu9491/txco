@@ -9,10 +9,13 @@
 .hero-video-clip-section {
   position: relative;
   width: 100%;
-  min-height: 640px;
   height: 100vh;
-  max-height: 960px;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: none;
   overflow: hidden;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -279,68 +282,167 @@
 }
 
 /* -------------------------------------------------------------------------
-   4. RESPONSIVE BREAKPOINTS
+   4. RESPONSIVE BREAKPOINTS (Guaranteed 100vh / 100dvh across ALL devices)
    ------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
+  .hero-video-clip-section {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: none;
+  }
+
   .hero-clip-video-stage {
     width: 50%;
     height: 98%;
     bottom: -10%;
+    right: 4%;
   }
 
+  .hero-brand-headline,
   .hero-clip-headline {
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-size: clamp(2rem, 3.4vw, 3rem);
   }
 }
 
 @media (max-width: 992px) {
   .hero-video-clip-section {
-    min-height: 720px;
-    height: auto;
-    padding-top: 130px;
-    padding-bottom: 60px;
-  }
-
-  .hero-clip-video-stage {
-    position: relative;
-    width: 100%;
-    max-width: 540px;
-    height: 360px;
-    margin: 2rem auto 0 auto;
-    right: auto;
-    bottom: auto;
-    top: auto;
-  }
-
-  .hero-clip-content {
-    max-width: 100%;
-    text-align: center;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: none;
+    padding-top: clamp(80px, 12vh, 110px);
+    padding-bottom: 24px;
     align-items: center;
   }
 
-  .hero-clip-subtitle {
-    margin-left: auto;
-    margin-right: auto;
+  .hero-brand-container {
+    padding: 0 clamp(1.5rem, 4vw, 3rem);
   }
-}
 
-@media (max-width: 640px) {
-  .hero-video-clip-section {
-    min-height: 640px;
-    padding-top: 110px;
-    padding-bottom: 40px;
+  .hero-brand-content,
+  .hero-clip-content {
+    max-width: 540px;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .hero-clip-video-stage {
-    height: 300px;
+    position: absolute;
+    right: -4%;
+    bottom: -6%;
+    top: auto;
+    left: auto;
+    width: 52%;
+    height: 86%;
+    z-index: 3;
+    margin: 0;
+    opacity: 0.9;
   }
 
+  .hero-brand-headline,
   .hero-clip-headline {
-    font-size: 2.1rem;
+    font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-video-clip-section {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: none;
+    padding-top: clamp(85px, 13vh, 115px);
+    padding-bottom: 24px;
   }
 
+  .hero-clip-left-wash {
+    background: linear-gradient(180deg,
+        rgba(240, 248, 253, 0.92) 0%,
+        rgba(240, 248, 253, 0.82) 45%,
+        rgba(240, 248, 253, 0.35) 100%);
+  }
+
+  .hero-brand-container {
+    padding: 0 clamp(1.25rem, 5vw, 2rem);
+  }
+
+  .hero-brand-content,
+  .hero-clip-content {
+    max-width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero-brand-headline,
+  .hero-clip-headline {
+    font-size: clamp(1.5rem, 5.4vw, 2.1rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-brand-line {
+    white-space: normal;
+    display: block;
+  }
+
+  .hero-brand-expert-btn,
   .hero-clip-expert-btn {
-    padding: 0.85rem 1.6rem;
-    font-size: 0.88rem;
+    padding: 0.8rem 1.75rem;
+    font-size: 0.86rem;
+  }
+
+  .hero-clip-video-stage {
+    position: absolute;
+    right: -8%;
+    bottom: -4%;
+    top: auto;
+    left: auto;
+    width: 80%;
+    max-width: 420px;
+    height: 52%;
+    z-index: 2;
+    margin: 0;
+    opacity: 0.78;
+    filter: drop-shadow(0 12px 30px rgba(5, 44, 88, 0.16));
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-video-clip-section {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: none;
+    padding-top: clamp(80px, 12vh, 105px);
+    padding-bottom: 20px;
+  }
+
+  .hero-brand-headline,
+  .hero-clip-headline {
+    font-size: clamp(1.35rem, 6.2vw, 1.8rem);
+    line-height: 1.15;
+    margin-bottom: 1.15rem;
+  }
+
+  .hero-brand-expert-btn,
+  .hero-clip-expert-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.82rem;
+  }
+
+  .hero-clip-video-stage {
+    width: 88%;
+    max-width: 360px;
+    height: 48%;
+    right: -12%;
+    bottom: -3%;
+    opacity: 0.75;
   }
 }

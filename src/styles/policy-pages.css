@@ -35,12 +35,13 @@
 }
 
 .policy-main-title {
-  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
-  font-size: clamp(2rem, 3.2vw, 2.6rem);
-  font-weight: 700;
-  color: #3f4770;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-family: var(--font-family-heading, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: clamp(2.2rem, 3.2vw, 2.85rem);
+  font-weight: 800 !important;
+  font-style: italic !important;
+  color: #1e2430;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   margin: 0 0 1.5rem 0;
 }
 
@@ -143,12 +144,7 @@
 }
 
 .policy-section-title {
-  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
-  font-size: clamp(1.9rem, 3vw, 2.4rem);
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0 0 0.8rem 0;
-  line-height: 1.25;
+  margin: 0 0 0.85rem 0;
 }
 
 .policy-section-subtitle {
@@ -262,10 +258,6 @@
 }
 
 .policy-commitment-title {
-  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #052c58;
   margin: 0 0 1rem 0;
 }
 

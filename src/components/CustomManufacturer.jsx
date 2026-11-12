@@ -70,7 +70,7 @@ export default function CustomManufacturer() {
   return (
     <section ref={sectionRef} className="custom-manufacturer-section">
       <div className="txco-container">
-        <h2 ref={titleRef} className="section-title section-title-center" style={{ marginBottom: '4rem' }}>
+        <h2 ref={titleRef} className="section-main-heading section-title-center" style={{ marginBottom: '4rem' }}>
           {customManufacturerData.title}
         </h2>
 

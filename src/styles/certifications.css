@@ -73,12 +73,7 @@
 
 
 .certifications-section-title {
-  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
-  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-  font-weight: 700;
-  color: #052C58;
-  margin-bottom: 0.8rem;
-  line-height: 1.25;
+  margin-bottom: 0.85rem;
 }
 
 .certifications-section-desc {

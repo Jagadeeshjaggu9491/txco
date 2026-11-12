@@ -80,7 +80,7 @@ export default function ServicesPage() {
             <div className="row align-items-center g-4 g-lg-5">
               {/* Left Column: Narrative & Stats */}
               <div ref={introLeftRef} className="col-lg-6">
-                <h1 className="services-main-title">
+                <h1 className="section-main-heading services-main-title">
                   {servicesOverview.company} – {servicesOverview.title}
                 </h1>
                 <p className="services-lead-text">

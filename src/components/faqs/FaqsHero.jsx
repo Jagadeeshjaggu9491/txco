@@ -9,7 +9,8 @@ export default function FaqsHero() {
     <PageHero
       title={faqsHeroData.title}
       subtitle={faqsHeroData.subtitle}
-      bgImage="/images/banner/txco-page-banner.avif"
+      bgImage="/images/title-section/faq-page-banner.avif"
+      bgMobileImage="/images/title-section/faq-page-banner-mobile.avif"
       bgPosition="center bottom"
     />
   );

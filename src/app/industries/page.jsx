@@ -2,9 +2,8 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
+import IndustriesWeServeNew from '@/components/IndustriesWeServeNew';
 import IndustriesWeServe from '@/components/IndustriesWeServe';
-import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
-import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 
 export const metadata = {
   title: 'Industries We Serve | TXCO Advanced Sealing Technologies',
@@ -19,14 +18,15 @@ export default function IndustriesPage() {
       <main style={{ backgroundColor: '#ffffff', minHeight: '85vh' }}>
         {/* Top Hero Banner */}
         <PageHero
-          title="Industries we serve "
+          title="SEALING SOLUTIONS BY INDUSTRY"
           subtitle="Engineering high-integrity sealing, metallic gasket, flange, and bolting solutions tailored to the world's most critical industrial operating environments."
           bgImage="/images/CHEMICAL-INDUSTRY-banner.avif"
           bgPosition="center"
         />
 
-        {/* Industries Grid Section */}
-        <IndustriesWeServe />
+        {/* Active: New Design for Industries We Serve (with 5-Ring Emblem, Smooth Scroll Rotation, & Stacking Cards) */}
+        <IndustriesWeServeNew />
+        {/* Previous Version: <IndustriesWeServe /> */}
 
 
 

@@ -68,6 +68,7 @@ function formatHeroTitle(title, highlightWord) {
 }
 
 const DEFAULT_BANNER = '/images/title-section/page-hero-banner-new.avif';
+const DEFAULT_MOBILE_BANNER = '/images/title-section/downloads-page-banner-mobile.avif';
 const DEFAULT_SUBTITLE =
   'TXCO Sealing Products Private Limited combines precision manufacturing, material expertise, standards-based production and sealing knowledge to provide dependable sealing and flange solutions for demanding industrial applications.';
 
@@ -84,6 +85,7 @@ export default function PageHero({
   description,
   badge,
   bgImage = DEFAULT_BANNER,
+  bgMobileImage = DEFAULT_MOBILE_BANNER,
   className = '',
   children,
 }) {
@@ -98,6 +100,8 @@ export default function PageHero({
     !bgImage || bgImage === '/images/banner/txco-page-banner.avif'
       ? DEFAULT_BANNER
       : bgImage;
+
+  const activeMobileBg = bgMobileImage || DEFAULT_MOBILE_BANNER;
 
   // Subtitle fallback matching the UI screen
   const subText =
@@ -150,18 +154,21 @@ export default function PageHero({
     }, containerRef);
 
     return () => ctx.revert();
-  }, [title, subtitle, description, activeBg]);
+  }, [title, subtitle, description, activeBg, activeMobileBg]);
 
   return (
     <section ref={containerRef} className={`page-hero-section ${className}`}>
-      {/* Full Banner Image Layer - Natural aspect ratio, 100% visible, no height clipping */}
+      {/* Full Banner Image Layer - Responsive Picture serving mobile banner on <= 768px */}
       <div className="page-hero-bg-wrap" aria-hidden="true">
-        <img
-          src={activeBg}
-          alt=""
-          className="page-hero-bg-img"
-          loading="eager"
-        />
+        <picture className="page-hero-picture">
+          <source media="(max-width: 768px)" srcSet={activeMobileBg} />
+          <img
+            src={activeBg}
+            alt=""
+            className="page-hero-bg-img"
+            loading="eager"
+          />
+        </picture>
       </div>
 
       {/* Content Layer overlaid on the banner */}

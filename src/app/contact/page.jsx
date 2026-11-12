@@ -170,7 +170,8 @@ export default function ContactPage() {
         <PageHero
           title={contactHeroData.title}
           subtitle={contactHeroData.subtitle}
-          bgImage="/images/banner/txco-page-banner.avif"
+          bgImage="/images/title-section/contact-page-banner.avif"
+          bgMobileImage="/images/title-section/contact-page-banner-mobile.avif"
           bgPosition="center bottom"
         />
 
@@ -180,10 +181,8 @@ export default function ContactPage() {
         <section ref={cardsRef} className="contact-direct-section">
           <div className="txco-container">
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <span className="section-badge" style={{ color: 'var(--slate-blue)' }}>
-                DIRECT CHANNELS
-              </span>
-              <h2 className="section-title section-title-center">
+
+              <h2 className="section-main-heading section-title-center">
                 How Would You Like to Connect?
               </h2>
             </div>
@@ -246,7 +245,7 @@ export default function ContactPage() {
                 <div style={{ marginBottom: '2rem' }}>
 
 
-                  <h2 className="section-title" style={{ fontSize: 'clamp(1.6rem, 2.4vw, 2.1rem)', marginBottom: '0.6rem' }}>
+                  <h2 className="section-main-heading" style={{ fontSize: 'clamp(1.6rem, 2.4vw, 2.1rem)', marginBottom: '0.6rem' }}>
                     Request a Technical Quote
                   </h2>
 
@@ -623,7 +622,7 @@ export default function ContactPage() {
               <span className="section-badge" style={{ color: 'var(--slate-blue)' }}>
                 INTERNATIONAL REACH
               </span>
-              <h2 className="section-title section-title-center">
+              <h2 className="section-main-heading section-title-center">
                 Global Supply & Support Network
               </h2>
               <p className="section-subtitle section-subtitle-center">
@@ -688,7 +687,7 @@ export default function ContactPage() {
           <div className="txco-container-narrow">
             <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
 
-              <h2 className="section-title section-title-center">
+              <h2 className="section-main-heading section-title-center">
                 Frequently Asked Inquiries
               </h2>
             </div>

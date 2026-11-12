@@ -490,10 +490,6 @@ const PRODUCT_GALLERY_IMAGES = {
       src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
       label: 'Precision O-Rings',
     },
-    {
-      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
-      label: 'High-Performance Elastomer O-Rings',
-    },
   ],
   'gland-packing': [
     {
@@ -510,19 +506,11 @@ const PRODUCT_GALLERY_IMAGES = {
       src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
       label: 'Low-Emission Gland Packing',
     },
-    {
-      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
-      label: 'High-Performance Elastomer O-Rings',
-    },
   ],
   'precision-o-rings': [
     {
       src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
       label: 'Precision O-Rings',
-    },
-    {
-      src: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
-      label: 'High-Performance Elastomer O-Rings',
     },
   ],
 
@@ -940,7 +928,7 @@ export default function ProductDetailsLayout({ subcategoryData }) {
                 </div>
 
                 {/* Main Product Title */}
-                <h1 className="product-details-main-heading">
+                <h1 className="section-main-heading product-details-main-heading">
                   {productData?.title || subcategoryData?.subcategoryTitle}
                 </h1>
 

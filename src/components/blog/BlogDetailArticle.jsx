@@ -298,7 +298,7 @@ export default function BlogDetailArticle({ post, relatedPosts }) {
               <span className="section-badge" style={{ color: 'var(--slate-blue)' }}>
                 FURTHER READING
               </span>
-              <h2 className="section-title section-title-center">
+              <h2 className="section-main-heading section-title-center">
                 Related Engineering Articles
               </h2>
             </div>

@@ -61,14 +61,50 @@
   margin-bottom: 1rem;
 }
 
-.section-title {
-  font-family: var(--font-family-heading);
-  font-size: clamp(1.7rem, 2.8vw, 2.2rem);
-  font-weight: 500;
-  color: var(--primary-navy);
-  letter-spacing: 0.02em;
-  line-height: 1.25;
-  margin-bottom: 1.2rem;
+/* =========================================================================
+   Universal Section Heading Pattern (Master Standard Aligned to Homepage & About Us)
+   Bold Italicized Typography: font-weight 800, italic, clamp(2.2rem, 3.2vw, 2.85rem)
+   Single unified class name: .section-main-heading (with aliases for backwards compatibility)
+========================================================================= */
+.section-main-heading,
+.section-main-title,
+.section-title,
+.txco-section-title {
+  font-family: var(--font-family-heading, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-style: italic !important;
+  font-weight: 800 !important;
+  font-size: clamp(2.2rem, 3.2vw, 2.85rem);
+  color: #1e2430;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .section-main-heading,
+  .section-main-title,
+  .section-title,
+  .txco-section-title {
+    font-size: clamp(1.85rem, 5vw, 2.15rem);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+}
+
+/* Modifiers for Section Heading */
+.section-main-heading.section-title-center,
+.section-main-heading.text-center,
+.section-title-center {
+  text-align: center;
+}
+
+.section-main-heading.heading-light,
+.section-main-heading-light {
+  color: #ffffff !important;
+}
+
+.section-main-heading.heading-navy {
+  color: #052c58;
 }
 
 /* =========================================================================

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
-import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 import { ChevronLeft } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -107,7 +106,7 @@ export default function SubcategoryListPage({ categoryData }) {
             </div>
 
             {/* Main Page Title */}
-            <h1 ref={titleRef} className="section-title" style={{ marginBottom: '3.5rem' }}>
+            <h1 ref={titleRef} className="section-main-heading" style={{ marginBottom: '3.5rem' }}>
               {categoryData.title}
             </h1>
 
@@ -228,7 +227,6 @@ export default function SubcategoryListPage({ categoryData }) {
 
         {/* Supporting Global Sections */}
         <IndustrialSealingProducts />
-        <DiscoverEngineeredSolutions />
       </main>
       <Footer />
     </>

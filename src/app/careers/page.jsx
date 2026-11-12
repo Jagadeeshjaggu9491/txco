@@ -202,7 +202,8 @@ export default function CareersPage() {
       <PageHero
         title={hero.title}
         subtitle={hero.subtitle}
-        bgImage="/images/banner/txco-page-banner.avif"
+        bgImage="/images/title-section/careers-page-banner.avif"
+        bgMobileImage="/images/title-section/careers-page-banner-mobile.avif"
         bgPosition="center bottom"
       />
 
@@ -215,7 +216,7 @@ export default function CareersPage() {
           <div className="careers-card-body">
             {/* Left Column: Heading + Team Circle Image */}
             <div className="careers-left-column">
-              <h2 ref={leftHeadingRef} className="careers-left-heading">
+              <h2 ref={leftHeadingRef} className="section-main-heading careers-left-heading">
                 {card.heading}
               </h2>
               <div ref={leftImageRef} className="careers-left-image-wrapper">
@@ -274,7 +275,7 @@ export default function CareersPage() {
 
       {/* 3. Why Work at TXCO Benefits */}
       <section ref={benefitsSectionRef} className="careers-benefits-section">
-        <h2 ref={benefitsHeadingRef} className="careers-benefits-heading">
+        <h2 ref={benefitsHeadingRef} className="section-main-heading section-title-center careers-benefits-heading">
           Why Build Your Career at TXCO?
         </h2>
         <div className="careers-benefits-grid">

@@ -9,7 +9,8 @@ export default function NewsHero() {
     <PageHero
       title={newsHeroData.title}
       subtitle={newsHeroData.subtitle}
-      bgImage="/images/banner/txco-page-banner.avif"
+      bgImage="/images/title-section/news-page-banner.avif"
+      bgMobileImage="/images/title-section/news-page-banner-mobile.avif"
       bgPosition="center bottom"
     />
   );

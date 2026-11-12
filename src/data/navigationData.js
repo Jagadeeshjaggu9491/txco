@@ -178,7 +178,6 @@ export const mainNavigationMenu = {
       { name: 'Quality & Certifications', href: '/certifications' },
       { name: 'Global Contacts', href: '/contact' },
       { name: 'Careers', href: '/careers' },
-      { name: 'Sustainability', href: '#' },
     ],
   },
 };

@@ -65,10 +65,6 @@
 }
 
 .resources-section-heading {
-  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 500;
-  color: var(--text-dark, #1e293b);
   margin-bottom: 2.5rem;
 }
 

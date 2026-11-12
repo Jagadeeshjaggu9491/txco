@@ -70,7 +70,7 @@ export default function CertificationsGrid() {
         {/* Section Heading & Filter Header */}
         <div className="certifications-section-header">
 
-          <h2 className="certifications-section-title">
+          <h2 className="section-main-heading section-title-center certifications-section-title">
             Official Quality & Compliance Certifications
           </h2>
           <p className="certifications-section-desc">

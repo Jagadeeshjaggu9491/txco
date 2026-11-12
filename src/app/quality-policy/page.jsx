@@ -85,7 +85,8 @@ export default function QualityPolicyPage() {
       <PageHero
         title="QUALITY POLICY"
         subtitle="Engineering absolute duty into every seal to deliver zero-defect pipeline integrity in extreme-pressure environments."
-        bgImage="/images/banner/txco-page-banner.avif"
+        bgImage="/images/title-section/policy-pages-banner.avif"
+        bgMobileImage="/images/title-section/policy-pages-banner-mobile.avif"
         bgPosition="center bottom"
       />
 
@@ -96,7 +97,7 @@ export default function QualityPolicyPage() {
             <div className="policy-split-grid">
               {/* Left Column: Quality Policy Narrative */}
               <div ref={statementLeftRef} className="policy-split-left">
-                <h1 className="policy-main-title">
+                <h1 className="section-main-heading policy-main-title">
                   TXCO Quality Policy – Engineering Absolute Duty
                 </h1>
 
@@ -132,7 +133,7 @@ export default function QualityPolicyPage() {
           <div className="policy-container">
             <div ref={commitmentRef} className="policy-commitment-box">
               <div className="policy-commitment-box-top-bar" />
-              <h2 className="policy-commitment-title">
+              <h2 className="section-main-heading policy-commitment-title">
                 Preserving Human Lives, Infrastructure & The Environment
               </h2>
               <p className="policy-commitment-text">

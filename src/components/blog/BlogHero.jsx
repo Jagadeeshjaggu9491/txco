@@ -12,7 +12,8 @@ export default function BlogHero() {
         blogHeroData?.subtitle ||
         'Expert engineering perspectives, technical whitepapers, and industry trends on high-performance industrial sealing, bolting integrity, and sustainable energy transitions.'
       }
-      bgImage="/images/title-section/page-hero-banner-new.avif"
+      bgImage="/images/title-section/blogs-page-banner.avif"
+      bgMobileImage="/images/title-section/blogs-page-banner-mobile.avif"
       bgPosition="center bottom"
     />
   );

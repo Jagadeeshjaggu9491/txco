@@ -167,7 +167,7 @@ export default function IndustriesWeServe({ items = defaultIndustriesList, showS
         <div className="industries-part">
           {/* Section Header (Left-aligned) */}
           <div ref={headerRef} className="industries-header">
-            <h2 className="industries-main-title">
+            <h2 className="section-main-heading industries-main-title">
               Industries We Serve
             </h2>
             <p className="industries-main-desc">

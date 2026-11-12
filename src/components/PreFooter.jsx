@@ -71,7 +71,7 @@ export default function PreFooter() {
       <div className="prefooter-container">
         {/* Left Column: Headline & Description */}
         <div ref={leftColRef} className="prefooter-left-col">
-          <h2 className="prefooter-title">We&apos;re here to help.</h2>
+          <h2 className="section-main-heading prefooter-title">We&apos;re here to help.</h2>
           <p className="prefooter-description">
             Whether you need a hard-to-find component to keep your operations running
             or ongoing training to fine-tune your team&apos;s skill set, services like

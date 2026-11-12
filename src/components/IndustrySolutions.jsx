@@ -79,8 +79,8 @@ export default function IndustrySolutions() {
 
   const sectionRef = useRef(null);
   const pinTrackRef = useRef(null);
-  const showcaseRef = useRef(null);
   const tabsBarRef = useRef(null);
+  const showcaseRef = useRef(null);
   const scrollTriggerRef = useRef(null);
 
   // Keep ref in sync
@@ -102,8 +102,8 @@ export default function IndustrySolutions() {
       }
     }
 
-    // Smoothly scroll window to target tab's section progress
-    if (scrollTriggerRef.current) {
+    // Sync window scroll position on desktop when sticky scroll runway is active
+    if (scrollTriggerRef.current && typeof window !== 'undefined' && window.innerWidth >= 992) {
       isClickingRef.current = true;
       const st = scrollTriggerRef.current;
       const progressFraction = (idx + 0.5) / industryTabs.length;
@@ -125,71 +125,29 @@ export default function IndustrySolutions() {
     if (showcaseRef.current) {
       gsap.fromTo(
         showcaseRef.current,
-        { opacity: 0.45, y: 8 },
+        { opacity: 0.35, y: 8 },
         { opacity: 1, y: 0, duration: 0.28, ease: 'power2.out', overwrite: 'auto' }
       );
     }
   }, [activeTab]);
 
-  // ScrollTrigger Setup with Scrubbed Timeline for Butter-Smooth Tab Changing
+  // ScrollTrigger Sticky Runway Setup
   useEffect(() => {
     if (!pinTrackRef.current) return;
 
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      // Desktop & Tablets (>= 768px): Smooth timeline-driven scrub
-      mm.add('(min-width: 768px)', () => {
-        const pinDistance = (industryTabs.length - 1) * 380;
+      // Desktop & 14" to 16" laptops (>= 992px): Sticky at ind-sol-tabs-wrapper + scroll-driven tab movement
+      mm.add('(min-width: 992px)', () => {
+        const pinDistance = (industryTabs.length - 1) * 350;
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: pinTrackRef.current,
             pin: true,
             pinSpacing: true,
-            start: 'top top+=75',
-            end: `+=${pinDistance}`,
-            scrub: 0.6,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            onUpdate: (self) => {
-              if (isClickingRef.current) return;
-
-              const progress = self.progress;
-              const newIndex = Math.min(
-                industryTabs.length - 1,
-                Math.floor(progress * industryTabs.length)
-              );
-
-              if (newIndex !== activeTabRef.current) {
-                activeTabRef.current = newIndex;
-                setActiveTab(newIndex);
-
-                if (tabsBarRef.current) {
-                  const activeBtn = tabsBarRef.current.querySelector(`[data-index="${newIndex}"]`);
-                  if (activeBtn) {
-                    activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                  }
-                }
-              }
-            },
-          },
-        });
-
-        tl.to({}, { duration: 1 });
-        scrollTriggerRef.current = tl.scrollTrigger;
-      });
-
-      // Small Mobile (< 768px): Responsive shorter runway
-      mm.add('(max-width: 767px)', () => {
-        const pinDistance = (industryTabs.length - 1) * 240;
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: pinTrackRef.current,
-            pin: true,
-            pinSpacing: true,
-            start: 'top top+=65',
+            start: 'top top',
             end: `+=${pinDistance}`,
             scrub: 0.5,
             anticipatePin: 1,
@@ -221,15 +179,24 @@ export default function IndustrySolutions() {
         tl.to({}, { duration: 1 });
         scrollTriggerRef.current = tl.scrollTrigger;
       });
+
+      // Tablets & Mobile (< 992px): Fluid natural scroll
+      mm.add('(max-width: 991px)', () => {
+        scrollTriggerRef.current = null;
+      });
     }, sectionRef);
 
-    // Refresh after DOM layout finishes rendering
-    const timer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 250);
+    // Timed refreshes to ensure calculations settle after image/font layout
+    const timer1 = setTimeout(() => ScrollTrigger.refresh(), 150);
+    const timer2 = setTimeout(() => ScrollTrigger.refresh(), 500);
+
+    const handleLoad = () => ScrollTrigger.refresh();
+    window.addEventListener('load', handleLoad);
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      window.removeEventListener('load', handleLoad);
       ctx.revert();
     };
   }, []);
@@ -258,71 +225,67 @@ export default function IndustrySolutions() {
       </div>
 
       <div className="ind-sol-container">
-        {/* Pinned Showcase Area */}
-        <div ref={pinTrackRef} className="ind-sol-pin-container">
-          <div className="ind-sol-sticky-panel">
-            {/* Section Header */}
-            <div className="ind-sol-header">
-              <h2 className="ind-sol-heading">
-                Sealing Solutions for Every Industry
-              </h2>
-              <p className="ind-sol-subtitle">
-                From high-pressure pipelines to demanding industrial processes, our precision-engineered gaskets deliver dependable sealing, reduced leakage, and long-term performance.
+        {/* Section Header (Positioned above sticky tabs wrapper, scrolls naturally) */}
+        <div className="ind-sol-header">
+          <h2 className="section-main-heading ind-sol-heading">
+            Sealing Solutions for Every Industry
+          </h2>
+          <p className="ind-sol-subtitle">
+            From high-pressure pipelines to demanding industrial processes, our precision-engineered gaskets deliver dependable sealing, reduced leakage, and long-term performance.
+          </p>
+        </div>
+
+        {/* Sticky Tabs & Showcase Wrapper (Stuck at ind-sol-tabs-wrapper while scrolling) */}
+        <div ref={pinTrackRef} className="ind-sol-tabs-wrapper">
+          {/* Interactive Tabs Bar (Navy Capsule) */}
+          <div ref={tabsBarRef} className="ind-sol-tabs-bar" role="tablist">
+            {industryTabs.map((tab, idx) => {
+              const isActive = activeTab === idx;
+              return (
+                <button
+                  key={tab.id}
+                  role="tab"
+                  data-index={idx}
+                  aria-selected={isActive}
+                  className={`ind-sol-tab-btn ${isActive ? 'active' : ''}`}
+                  onClick={() => handleTabClick(idx)}
+                >
+                  {tab.name}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Upper Showcase: Image + Info & Product Links */}
+          <div ref={showcaseRef} className="ind-sol-showcase">
+            {/* Left Column: Image */}
+            <div className="ind-sol-image-col">
+              <div className="ind-sol-image-frame">
+                <img
+                  src={currentTab.image}
+                  alt={currentTab.name}
+                  className="ind-sol-main-img"
+                />
+              </div>
+            </div>
+
+            {/* Right Column: Text & 2-Col Links */}
+            <div className="ind-sol-info-col">
+              <p className="ind-sol-description">
+                {currentTab.description}
               </p>
-            </div>
 
-            {/* Interactive Tabs Bar (Navy Capsule) */}
-            <div className="ind-sol-tabs-wrapper">
-              <div ref={tabsBarRef} className="ind-sol-tabs-bar" role="tablist">
-                {industryTabs.map((tab, idx) => {
-                  const isActive = activeTab === idx;
-                  return (
-                    <button
-                      key={tab.id}
-                      role="tab"
-                      data-index={idx}
-                      aria-selected={isActive}
-                      className={`ind-sol-tab-btn ${isActive ? 'active' : ''}`}
-                      onClick={() => handleTabClick(idx)}
-                    >
-                      {tab.name}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Upper Showcase: Image + Info & Product Links */}
-            <div ref={showcaseRef} className="ind-sol-showcase">
-              {/* Left Column: Image */}
-              <div className="ind-sol-image-col">
-                <div className="ind-sol-image-frame">
-                  <img
-                    src={currentTab.image}
-                    alt={currentTab.name}
-                    className="ind-sol-main-img"
-                  />
-                </div>
-              </div>
-
-              {/* Right Column: Text & 2-Col Links */}
-              <div className="ind-sol-info-col">
-                <p className="ind-sol-description">
-                  {currentTab.description}
-                </p>
-
-                <div className="ind-sol-links-grid">
-                  {currentTab.links.map((link, lIdx) => (
-                    <Link
-                      key={lIdx}
-                      href={link.href}
-                      className="ind-sol-link-item"
-                    >
-                      <span className="ind-sol-link-text">{link.title}</span>
-                      <span className="ind-sol-link-arrow">→</span>
-                    </Link>
-                  ))}
-                </div>
+              <div className="ind-sol-links-grid">
+                {currentTab.links.map((link, lIdx) => (
+                  <Link
+                    key={lIdx}
+                    href={link.href}
+                    className="ind-sol-link-item"
+                  >
+                    <span className="ind-sol-link-text">{link.title}</span>
+                    <span className="ind-sol-link-arrow">→</span>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

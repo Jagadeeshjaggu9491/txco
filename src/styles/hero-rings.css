@@ -5,10 +5,13 @@
 .hero-rings-section {
   position: relative;
   width: 100%;
-  min-height: 620px;
   height: 100vh;
-  max-height: 900px;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: none;
   overflow: hidden;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;

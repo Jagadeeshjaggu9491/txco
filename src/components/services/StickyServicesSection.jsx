@@ -31,18 +31,19 @@ export default function StickyServicesSection({
       cardsRef.current.forEach((card) => {
         if (!card) return;
 
-        // GSAP ScrollTrigger entrance animation as specified
+        // Smooth entrance animation clearing transform on completion to ensure native position: sticky
         gsap.fromTo(
           card,
-          { opacity: 0, y: 80 },
+          { opacity: 0, y: 35 },
           {
             opacity: 1,
             y: 0,
-            duration: 1.2,
-            ease: 'power3.out',
+            duration: 0.75,
+            ease: 'power2.out',
+            clearProps: 'transform',
             scrollTrigger: {
               trigger: card,
-              start: 'top 85%',
+              start: 'top 88%',
               toggleActions: 'play none none reverse',
             },
           }
@@ -58,7 +59,7 @@ export default function StickyServicesSection({
       <div className="sticky-services-container">
         {/* Section Header */}
         <div className="sticky-services-header">
-          <h2 className="sticky-services-title">{title}</h2>
+          <h2 className="section-main-heading sticky-services-title">{title}</h2>
           <p className="sticky-services-subtitle">{subtitle}</p>
         </div>
 
@@ -73,8 +74,7 @@ export default function StickyServicesSection({
                 ref={addToCardsRef}
                 className={`sticky-service-card ${isOdd ? 'reverse' : ''}`}
                 style={{
-                  position: 'sticky',
-                  top: `calc(100px + ${index * 25}px)`,
+                  '--card-index': index,
                 }}
               >
                 {/* Single Static Image Column */}

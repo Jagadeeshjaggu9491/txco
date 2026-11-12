@@ -99,12 +99,7 @@
 }
 
 .careers-left-heading {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  margin: 0 0 1.25rem 0;
 }
 
 .careers-left-image-wrapper {
@@ -246,10 +241,6 @@
 }
 
 .careers-benefits-heading {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #052c58;
-  text-align: center;
   margin: 0 0 2.5rem 0;
 }
 

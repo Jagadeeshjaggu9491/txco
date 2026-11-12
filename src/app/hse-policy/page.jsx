@@ -174,7 +174,8 @@ export default function HsePolicyPage() {
       <PageHero
         title="HSE POLICY"
         subtitle="Health, Safety, and Environmental Policy Statement – Operating under one non-negotiable philosophy: Zero Harm."
-        bgImage="/images/banner/txco-page-banner.avif"
+        bgImage="/images/title-section/policy-pages-banner.avif"
+        bgMobileImage="/images/title-section/policy-pages-banner-mobile.avif"
         bgPosition="center bottom"
       />
 
@@ -186,7 +187,7 @@ export default function HsePolicyPage() {
               {/* Left Column: HSE Statement */}
               <div ref={statementLeftRef} className="policy-split-left">
 
-                <h1 className="policy-main-title">
+                <h1 className="section-main-heading policy-main-title">
                   TXCO Sealing Products – Health, Safety, and Environmental (HSE) Policy Statement
                 </h1>
 
@@ -221,7 +222,7 @@ export default function HsePolicyPage() {
           <div className="policy-container">
             <div ref={pillarsHeaderRef} className="policy-section-header">
 
-              <h2 className="policy-section-title">Core HSE Pillars</h2>
+              <h2 className="section-main-heading section-title-center policy-section-title">Core HSE Pillars</h2>
               <p className="policy-section-subtitle">
                 The institutional principles that govern our operations, safety culture, and environmental leadership.
               </p>
@@ -254,7 +255,7 @@ export default function HsePolicyPage() {
           <div className="policy-container">
             <div ref={commitmentRef} className="policy-commitment-box">
               <div className="policy-commitment-box-top-bar" />
-              <h2 className="policy-commitment-title">
+              <h2 className="section-main-heading policy-commitment-title">
                 Our Commitment to Stakeholders
               </h2>
               <p className="policy-commitment-text">

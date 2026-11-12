@@ -9,7 +9,8 @@ export default function AboutHero() {
     <PageHero
       title={aboutHeroData.title}
       subtitle={aboutHeroData.subtitle}
-      bgImage="/images/banner/txco-page-banner.avif"
+      bgImage="/images/title-section/about-us-banner.avif"
+      bgMobileImage="/images/title-section/about-us-banner-mobile.avif"
       bgPosition="center bottom"
     />
   );

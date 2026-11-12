@@ -213,6 +213,7 @@ export default function AboutPage() {
         title={hero.title}
         subtitle={hero.subtitle}
         bgImage={hero.bgImage}
+        bgMobileImage={hero.bgMobileImage}
         bgPosition="center bottom"
       />
 
@@ -223,7 +224,7 @@ export default function AboutPage() {
             <div className="about-new-overview-grid">
               {/* Left Column: Mission Narrative */}
               <div ref={overviewLeftRef}>
-                <h1 className="about-new-main-title">{overview.title}</h1>
+                <h2 className="section-main-heading about-new-main-title">{overview.title}</h2>
                 {overview.paragraphs.map((p, idx) => (
                   <p
                     key={idx}
@@ -252,7 +253,7 @@ export default function AboutPage() {
         <section className="about-new-capabilities-section">
           <div className="about-new-container">
             <div ref={capsHeaderRef} className="about-new-section-header">
-              <h2 className="about-new-section-title">{capabilities.heading}</h2>
+              <h2 className="section-main-heading about-new-section-title">{capabilities.heading}</h2>
               <p className="about-new-section-subtitle">
                 {capabilities.subheading}
               </p>
@@ -323,7 +324,7 @@ export default function AboutPage() {
         <section className="about-new-values-section">
           <div className="about-new-container">
             <div ref={valuesHeaderRef} className="about-new-section-header">
-              <h2 className="about-new-section-title">{values.heading}</h2>
+              <h2 className="section-main-heading about-new-section-title">{values.heading}</h2>
               <p className="about-new-section-subtitle">{values.subheading}</p>
             </div>
 

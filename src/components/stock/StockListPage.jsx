@@ -169,7 +169,8 @@ export default function StockListPage({ initialCategory = 'All Categories' }) {
         <PageHero
           title="COMPARSSION AND STOCK LIST"
           subtitle="Browse our real-time stock list of precision-engineered industrial gaskets, RTJ rings, spiral wound gaskets, flanges, and valve sealing components ready for fast dispatch."
-          bgImage="/images/banner/txco-page-banner.avif"
+          bgImage="/images/title-section/stock-list-page-banner.avif"
+          bgMobileImage="/images/title-section/stock-list-page-banner-mobile.avif"
         />
 
         {/* Main Stock List & Filters Container */}

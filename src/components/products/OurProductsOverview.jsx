@@ -91,7 +91,7 @@ export default function OurProductsOverview() {
         {/* Heading Title */}
         <h2
           ref={headingRef}
-          className="section-title section-title-center"
+          className="section-main-heading section-title-center"
           style={{ maxWidth: '1080px', margin: '0 auto 3.5rem auto' }}
         >
           Don’t let demanding sealing requirements become an engineering challenge.

@@ -16,6 +16,7 @@
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
   box-sizing: border-box;
   position: relative;
   z-index: 2;
@@ -61,7 +62,7 @@
 }
 
 /* -------------------------------------------------------------------------
-   Section Header
+   Section Header (Scrolls naturally above sticky tabs wrapper)
 ------------------------------------------------------------------------- */
 .ind-sol-header {
   position: relative;
@@ -71,7 +72,7 @@
 }
 
 .ind-sol-heading {
-  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-family: var(--font-family-heading, 'Inter', sans-serif);
   font-size: clamp(2rem, 3.2vw, 2.75rem);
   font-weight: 800;
   font-style: italic;
@@ -103,33 +104,23 @@
 }
 
 /* -------------------------------------------------------------------------
-   Pinned Scroll Track Container
-------------------------------------------------------------------------- */
-.ind-sol-pin-container {
-  width: 100%;
-  max-width: 1400px !important;
-  margin: 0 auto !important;
-  box-sizing: border-box;
-  position: relative;
-}
-
-.ind-sol-sticky-panel {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-/* -------------------------------------------------------------------------
-   Tabs Bar (Navy Capsule)
+   Sticky Tabs & Showcase Wrapper (Stuck at ind-sol-tabs-wrapper while scrolling)
 ------------------------------------------------------------------------- */
 .ind-sol-tabs-wrapper {
   position: relative;
   z-index: 2;
   width: 100%;
-  margin-bottom: 3.25rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding-top: 1.25rem;
+  padding-bottom: 1.5rem;
 }
 
+/* -------------------------------------------------------------------------
+   Tabs Bar (Navy Capsule)
+------------------------------------------------------------------------- */
 .ind-sol-tabs-bar {
   display: flex;
   align-items: center;
@@ -144,6 +135,7 @@
   /* Firefox */
   -ms-overflow-style: none;
   /* IE and Edge */
+  margin-bottom: 2.75rem;
 }
 
 .ind-sol-tabs-bar::-webkit-scrollbar {
@@ -233,7 +225,7 @@
   line-height: 1.7;
   color: #1e2e42;
   font-weight: 400;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.25rem;
   max-width: 580px;
 }
 
@@ -405,10 +397,16 @@
     padding: 4rem 0 4.5rem 0;
   }
 
+  .ind-sol-tabs-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .ind-sol-tabs-bar {
     justify-content: flex-start;
     padding: 6px;
     gap: 4px;
+    margin-bottom: 2.25rem;
   }
 
   .ind-sol-tab-btn {
@@ -475,6 +473,12 @@
 
   .ind-sol-tabs-wrapper {
     margin-bottom: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .ind-sol-tabs-bar {
+    margin-bottom: 1.5rem;
   }
 
   .ind-sol-tab-btn {

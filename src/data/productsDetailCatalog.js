@@ -2250,114 +2250,67 @@ export const subcategoryDetailCatalog = {
           },
         ],
       },
-    },
-    'o-rings': {
-      title: 'O-RINGS',
-      image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-      images: [
-        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
-      ],
-      bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-      downloadTitle: 'O-Rings Catalog',
-      sections: [
-        {
-          heading: 'O-RINGS',
-          paragraphs: [
-            'Molded from high-performance elastomers (FKM, HNBR, EPDM) and chemically inert Perfluoroelastomers (FFKM), TXCO O-rings provide primary static and dynamic sealing for valve stems, body joints, and internal cartridges. Certified for Rapid Gas Decompression (RGD / AED) under NORSOK M-710, they resist micro-blistering during rapid depressurization up to 10,000 PSI. Paired with PEEK or PTFE backup rings, they eliminate seal extrusion under severe differential pressures.',
-          ],
-          table: {
-            headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
-            rows: [
-              {
-                code: 'Precision O-Rings',
-                description: 'FFKM, FKM, HNBR, EPDM',
-                thickness: '-50°C to +315°C',
-                reweld: 'Up to 10,000 PSI',
-                radial: 'NORSOK M-710, ISO 23936-2',
-              },
+
+      'o-rings': {
+        title: 'O-RINGS',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+        downloadTitle: 'O-Rings Catalog',
+        sections: [
+          {
+            heading: 'O-RINGS',
+            paragraphs: [
+              'Molded from high-performance elastomers (FKM, HNBR, EPDM) and chemically inert Perfluoroelastomers (FFKM), TXCO O-rings provide primary static and dynamic sealing for valve stems, body joints, and internal cartridges. Certified for Rapid Gas Decompression (RGD / AED) under NORSOK M-710, they resist micro-blistering during rapid depressurization up to 10,000 PSI. Paired with PEEK or PTFE backup rings, they eliminate seal extrusion under severe differential pressures.',
             ],
           },
-        },
-      ],
-    },
-    'gland-packing': {
-      title: 'GLAND PACKING',
-      image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
-      images: [
-        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
-      ],
-      bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
-      downloadTitle: 'Gland Packing Catalog',
-      sections: [
-        {
-          heading: 'GLAND PACKING',
-          paragraphs: [
-            'Functioning as the dynamic stem seal for rotating and reciprocating valves, TXCO gland packings are precision-braided from expanded flexible graphite, Inconel-wire reinforcement, carbon yarn, and modified ePTFE. Their self-lubricating, high-density construction maintains continuous radial contact against stuffing box walls, minimizing actuator breakout torque while exceeding strict fugitive emissions standards (API 622, TA-Luft, ISO 15848-1 Class A).',
-          ],
-          table: {
-            headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
-            rows: [
-              {
-                code: 'Gland Packing',
-                description: 'ePTFE, Graphite, Inconel Wire',
-                thickness: '-200°C to +650°C',
-                reweld: 'Class 150 – 2500',
-                radial: 'API 622, ISO 15848-1, TA-Luft',
-              },
+        ],
+      },
+
+      'gland-packing': {
+        title: 'GLAND PACKING',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+        downloadTitle: 'Gland Packing Catalog',
+        sections: [
+          {
+            heading: 'GLAND PACKING',
+            paragraphs: [
+              'Functioning as the dynamic stem seal for rotating and reciprocating valves, TXCO gland packings are precision-braided from expanded flexible graphite, Inconel-wire reinforcement, carbon yarn, and modified ePTFE. Their self-lubricating, high-density construction maintains continuous radial contact against stuffing box walls, minimizing actuator breakout torque while exceeding strict fugitive emissions standards (API 622, TA-Luft, ISO 15848-1 Class A).',
             ],
           },
-        },
-      ],
-    },
-    'o-rings-and-gland-packing': {
-      title: 'O-RINGS AND GLAND PACKING',
-      image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-      images: [
-        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
-        '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
-      ],
-      bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-      downloadTitle: 'O-Rings & Gland Packing Catalog',
-      sections: [
-        {
-          heading: 'PRECISION O-RINGS & ANTI-EXTRUSION BACKUP RINGS',
-          paragraphs: [
-            'Molded from high-performance elastomers (FKM, HNBR, EPDM) and chemically inert Perfluoroelastomers (FFKM), TXCO O-rings provide primary static and dynamic sealing for valve stems, body joints, and internal cartridges. Certified for Rapid Gas Decompression (RGD / AED) under NORSOK M-710, they resist micro-blistering during rapid depressurization up to 10,000 PSI. Paired with PEEK or PTFE backup rings, they eliminate seal extrusion under severe differential pressures.',
-          ],
-          table: {
-            headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
-            rows: [
-              {
-                code: 'Precision O-Rings',
-                description: 'FFKM, FKM, HNBR, EPDM',
-                thickness: '-50°C to +315°C',
-                reweld: 'Up to 10,000 PSI',
-                radial: 'NORSOK M-710, ISO 23936-2',
-              },
+        ],
+      },
+
+      'o-rings-and-gland-packing': {
+        title: 'O-RINGS AND GLAND PACKING',
+        image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+        images: [
+          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/GLAND PACKING.png',
+        ],
+        bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
+        downloadTitle: 'O-Rings & Gland Packing Catalog',
+        sections: [
+          {
+            heading: 'PRECISION O-RINGS',
+            paragraphs: [
+              'Molded from high-performance elastomers (FKM, HNBR, EPDM) and chemically inert Perfluoroelastomers (FFKM), TXCO O-rings provide primary static and dynamic sealing for valve stems, body joints, and internal cartridges. Certified for Rapid Gas Decompression (RGD / AED) under NORSOK M-710, they resist micro-blistering during rapid depressurization up to 10,000 PSI. Paired with PEEK or PTFE backup rings, they eliminate seal extrusion under severe differential pressures.',
             ],
           },
-        },
-        {
-          heading: 'API 622 / ISO 15848-1 LOW-EMISSION GLAND PACKING',
-          paragraphs: [
-            'Functioning as the dynamic stem seal for rotating and reciprocating valves, TXCO gland packings are precision-braided from expanded flexible graphite, Inconel-wire reinforcement, carbon yarn, and modified ePTFE. Their self-lubricating, high-density construction maintains continuous radial contact against stuffing box walls, minimizing actuator breakout torque while exceeding strict fugitive emissions standards (API 622, TA-Luft, ISO 15848-1 Class A).',
-          ],
-          table: {
-            headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
-            rows: [
-              {
-                code: 'Gland Packing',
-                description: 'ePTFE, Graphite, Inconel Wire',
-                thickness: '-200°C to +650°C',
-                reweld: 'Class 150 – 2500',
-                radial: 'API 622, ISO 15848-1, TA-Luft',
-              },
+          {
+            heading: 'GLAND PACKING',
+            paragraphs: [
+              'Functioning as the dynamic stem seal for rotating and reciprocating valves, TXCO gland packings are precision-braided from expanded flexible graphite, Inconel-wire reinforcement, carbon yarn, and modified ePTFE. Their self-lubricating, high-density construction maintains continuous radial contact against stuffing box walls, minimizing actuator breakout torque while exceeding strict fugitive emissions standards (API 622, TA-Luft, ISO 15848-1 Class A).',
             ],
           },
-        },
-      ],
+        ],
+      },
     },
   },
 
@@ -2993,7 +2946,6 @@ export const subcategoryDetailCatalog = {
         image: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
         images: [
           '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
-          '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS-1.png',
         ],
         bannerImage: '/images/TXCO PHOTOS FOR WEBSITE/VALVE COMPONENTS/O RINGS.png',
         downloadTitle: 'Precision O-Rings Catalog',
@@ -3003,18 +2955,6 @@ export const subcategoryDetailCatalog = {
             paragraphs: [
               'Molded from high-performance elastomers (FKM, HNBR, EPDM) and chemically inert Perfluoroelastomers (FFKM), TXCO O-rings provide primary static and dynamic sealing for valve stems, body joints, and internal cartridges. Certified for Rapid Gas Decompression (RGD / AED) under NORSOK M-710, they resist micro-blistering during rapid depressurization up to 10,000 PSI. Paired with PEEK or PTFE backup rings, they eliminate seal extrusion under severe differential pressures.',
             ],
-            table: {
-              headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
-              rows: [
-                {
-                  code: 'Precision O-Rings',
-                  description: 'FFKM, FKM, HNBR, EPDM',
-                  thickness: '-50°C to +315°C',
-                  reweld: 'Up to 10,000 PSI',
-                  radial: 'NORSOK M-710, ISO 23936-2',
-                },
-              ],
-            },
           },
         ],
       },
@@ -3029,18 +2969,6 @@ export const subcategoryDetailCatalog = {
             paragraphs: [
               'Functioning as the dynamic stem seal for rotating and reciprocating valves, TXCO gland packings are precision-braided from expanded flexible graphite, Inconel-wire reinforcement, carbon yarn, and modified ePTFE. Their self-lubricating, high-density construction maintains continuous radial contact against stuffing box walls, minimizing actuator breakout torque while exceeding strict fugitive emissions standards (API 622, TA-Luft, ISO 15848-1 Class A).',
             ],
-            table: {
-              headers: ['Component', 'Primary Materials', 'Temperature Range', 'Pressure Rating', 'Key Industry Standards'],
-              rows: [
-                {
-                  code: 'Gland Packing',
-                  description: 'ePTFE, Graphite, Inconel Wire',
-                  thickness: '-200°C to +650°C',
-                  reweld: 'Class 150 – 2500',
-                  radial: 'API 622, ISO 15848-1, TA-Luft',
-                },
-              ],
-            },
           },
         ],
       },

@@ -9,7 +9,8 @@ export default function ResourcesHero() {
     <PageHero
       title={resourcesHeroData.title}
       subtitle={resourcesHeroData.subtitle}
-      bgImage="/images/resources-pages-banner-img.avif"
+      bgImage="/images/title-section/resources-page-banner.avif"
+      bgMobileImage="/images/title-section/resources-page-banner-mobile.avif"
       bgPosition="center"
     />
   );

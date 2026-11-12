@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import IndustrialSealingProducts from '@/components/products/IndustrialSealingProducts';
-import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 import { ChevronLeft } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -113,7 +112,7 @@ export default function SubcategoryProductsGridPage({
 
             {/* Subcategory Page Heading & Description */}
             <div ref={headerBlockRef} style={{ maxWidth: '900px', marginBottom: '3.5rem' }}>
-              <h1 className="section-title" style={{ marginBottom: '0.8rem' }}>
+              <h1 className="section-main-heading" style={{ marginBottom: '0.8rem' }}>
                 {subcategoryData.name || subcategoryData.title}
               </h1>
               {subcategoryData.description && (
@@ -198,7 +197,6 @@ export default function SubcategoryProductsGridPage({
 
         {/* Supporting Global Sections */}
         <IndustrialSealingProducts />
-        <DiscoverEngineeredSolutions />
       </main>
       <Footer />
     </>

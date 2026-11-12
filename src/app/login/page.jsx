@@ -98,9 +98,10 @@ export default function LoginPage() {
       <main>
         {/* Top Hero Banner */}
         <PageHero
-          title="CUSTOMER & ADMIN PORTAL"
+          title="SIGN IN TO YOUR ACCOUNT"
           subtitle="Access industrial sealing documentation, real-time stock lists, certified CAD models, and manage inventory operations."
           bgImage="/images/title-section/log-in-page-banner-img.avif"
+          bgMobileImage="/images/title-section/log-in-page-banner-banner.avif"
           bgPosition="center"
         />
 

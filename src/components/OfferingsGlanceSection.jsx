@@ -77,9 +77,9 @@ export default function OfferingsGlanceSection() {
 
             {/* Navy Card Content */}
             <div className="offerings-navy-content">
-              <h2 className="offerings-navy-title">
-                Sealing Solutions<br />
-                for Every Industry
+              <h2 className="section-main-heading offerings-navy-title">
+                Let&apos;s Build Your<br />
+                Custom Sealing Solution
               </h2>
 
               <p className="offerings-navy-desc">

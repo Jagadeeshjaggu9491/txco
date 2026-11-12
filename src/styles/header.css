@@ -43,7 +43,7 @@
 .header-hero-left-col {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  /* gap: 1.1rem; */
 }
 
 /* Row 1: Top Utility Row */

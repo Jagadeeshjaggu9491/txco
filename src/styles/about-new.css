@@ -35,12 +35,13 @@
 }
 
 .about-new-main-title {
-  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 700;
-  color: #3f4770;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-family: var(--font-family-heading, 'Inter', sans-serif);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 3.2vw, 2.85rem);
+  color: #1e2430;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   margin: 0 0 1.5rem 0;
 }
 
@@ -96,12 +97,14 @@
 }
 
 .about-new-section-title {
-  font-family: var(--font-family-heading, 'Inter', -apple-system, sans-serif);
-  font-size: clamp(2rem, 3.2vw, 2.5rem);
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0 0 0.8rem 0;
-  line-height: 1.2;
+  font-family: var(--font-family-heading, 'Inter', sans-serif);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 3.2vw, 2.85rem);
+  color: #1e2430;
+  margin: 0 0 0.9rem 0;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .about-new-section-subtitle {

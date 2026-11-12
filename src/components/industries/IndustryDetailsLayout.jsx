@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import DiscoverEngineeredSolutions from '@/components/products/DiscoverEngineeredSolutions';
 import { ChevronLeft, ArrowRight, Play } from 'lucide-react';
 import gsap from 'gsap';
 import '@/styles/industry-details.css';
@@ -263,8 +262,7 @@ export default function IndustryDetailsLayout({ industryData }) {
           </div>
         </section>
 
-        {/* Supporting Global Solutions */}
-        <DiscoverEngineeredSolutions />
+
       </main>
       <Footer />
     </>

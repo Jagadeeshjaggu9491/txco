@@ -239,8 +239,8 @@ export default function GasketSelectionGuide() {
         {/* Section Header */}
         <div className="rtj-calc-header">
 
-          <h2 className="rtj-calc-title">
-            Interactive <span className="rtj-calc-title-highlight">RTJ Gasket Selection Guide</span> & Operating Sizing
+          <h2 className="section-main-heading rtj-calc-title">
+            Interactive <span className="page-hero-title-green">RTJ Gasket Selection Guide</span> & Operating Sizing
           </h2>
           <p className="rtj-calc-subtitle">
             Configure your flange operating parameters below to calculate the exact RTJ ring number, ASME/API precision dimensions, stud bolting geometry, and recommended preload torque.
