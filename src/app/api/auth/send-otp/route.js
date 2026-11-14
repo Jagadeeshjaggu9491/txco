@@ -14,6 +14,26 @@ export async function POST(request) {
       );
     }
 
+    // Restriction: Block personal webmail domains (e.g. Gmail)
+    const blockedDomains = [
+      'gmail.com', 'googlemail.com', 'yahoo.com', 'yahoo.co.in', 'yahoo.co.uk', 'ymail.com',
+      'rocketmail.com', 'outlook.com', 'hotmail.com', 'live.com', 'msn.com', 'icloud.com',
+      'me.com', 'mac.com', 'aol.com', 'proton.me', 'protonmail.com', 'zoho.com',
+      'mail.com', 'gmx.com', 'rediffmail.com'
+    ];
+    const emailParts = cleanEmail.split('@');
+    const domain = emailParts[emailParts.length - 1];
+    if (blockedDomains.some((b) => domain === b || domain.endsWith('.' + b))) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'personal_email_not_allowed',
+          message: 'Access is restricted to company-registered email addresses only. Personal email domains (such as Gmail) are not permitted.',
+        },
+        { status: 400 }
+      );
+    }
+
     if (!otp) {
       return NextResponse.json(
         { success: false, message: 'OTP code is missing.' },

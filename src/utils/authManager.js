@@ -9,6 +9,58 @@ const USERS_STORAGE_KEY = 'txco_registered_users';
 const OTP_STORAGE_KEY = 'txco_pending_otps';
 const MEMORY_PENDING_OTPS = {};
 
+// Common personal / public webmail domains (restricted from login and registration)
+export const BLOCKED_PERSONAL_EMAIL_DOMAINS = [
+  'gmail.com',
+  'googlemail.com',
+  'yahoo.com',
+  'yahoo.co.in',
+  'yahoo.co.uk',
+  'yahoo.fr',
+  'yahoo.de',
+  'ymail.com',
+  'rocketmail.com',
+  'outlook.com',
+  'hotmail.com',
+  'hotmail.co.uk',
+  'live.com',
+  'msn.com',
+  'icloud.com',
+  'me.com',
+  'mac.com',
+  'aol.com',
+  'aim.com',
+  'proton.me',
+  'protonmail.com',
+  'zoho.com',
+  'zohomail.com',
+  'mail.com',
+  'email.com',
+  'gmx.com',
+  'gmx.net',
+  'rediffmail.com',
+  'fastmail.com',
+  'yandex.com',
+  'yandex.ru',
+  'tutanota.com',
+  'tuta.io',
+];
+
+/**
+ * Checks whether an email address belongs to a personal/public webmail domain (e.g. Gmail, Yahoo, etc.)
+ * Returns true if personal (restricted), false if corporate/company domain.
+ */
+export function isPersonalEmail(email) {
+  if (!email || typeof email !== 'string') return false;
+  const clean = email.trim().toLowerCase();
+  const parts = clean.split('@');
+  if (parts.length !== 2) return false;
+  const domain = parts[1];
+  return BLOCKED_PERSONAL_EMAIL_DOMAINS.some(
+    (blocked) => domain === blocked || domain.endsWith('.' + blocked)
+  );
+}
+
 // Dynamically resolved API Base URL (works both locally and on live Hostinger deployment)
 export function getApiBaseUrl() {
   if (process.env.NEXT_PUBLIC_API_URL) return process.env.NEXT_PUBLIC_API_URL;
@@ -125,6 +177,15 @@ export function checkEmailExists(email) {
  */
 export async function sendRegistrationOTP(email, name = '') {
   const cleanEmail = (email || '').trim().toLowerCase();
+
+  // 1. Restriction: Company-registered email IDs only (No personal emails like Gmail)
+  if (isPersonalEmail(cleanEmail)) {
+    return {
+      success: false,
+      error: 'personal_email_not_allowed',
+      message: 'Registration is restricted to company-registered email IDs only. Personal email domains (such as Gmail) are not permitted.',
+    };
+  }
 
   // Check if email already registered
   if (checkEmailExists(cleanEmail)) {
@@ -284,6 +345,15 @@ export async function registerUser({ name, email, password, company = '', role =
   const cleanEmail = (email || '').trim().toLowerCase();
   const cleanName = (name || '').trim();
 
+  // Restriction: Company-registered email IDs only (No personal emails like Gmail)
+  if (isPersonalEmail(cleanEmail)) {
+    return {
+      success: false,
+      error: 'personal_email_not_allowed',
+      message: 'Registration is restricted to company-registered email IDs only. Personal email domains (such as Gmail) are not permitted.',
+    };
+  }
+
   // If remote Hostinger PHP API is configured, call it
   const apiBase = getApiBaseUrl();
   if (apiBase) {
@@ -355,6 +425,15 @@ export async function registerUser({ name, email, password, company = '', role =
  */
 export async function loginUser(email, password) {
   const cleanEmail = (email || '').trim().toLowerCase();
+
+  // Restriction: Company-registered email IDs only (No personal emails like Gmail)
+  if (isPersonalEmail(cleanEmail)) {
+    return {
+      success: false,
+      error: 'personal_email_not_allowed',
+      message: 'Login access is restricted to company-registered email IDs only. Personal email domains (such as Gmail) are not permitted.',
+    };
+  }
 
   // If remote Hostinger PHP API is configured, call it
   const apiBase = getApiBaseUrl();

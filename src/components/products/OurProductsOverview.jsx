@@ -84,7 +84,25 @@ export default function OurProductsOverview() {
 
   return (
     <section ref={sectionRef} className="products-overview-section">
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      {/* Background Brand Mark Watermarks: One Left-Top, Another Right-Bottom */}
+      <div className="products-watermarks-container" aria-hidden="true">
+        <div className="products-watermark-wrapper products-watermark-left-top">
+          <img
+            src="/images/logo/txco-mark-right.avif"
+            alt=""
+            className="products-watermark-img"
+          />
+        </div>
+        <div className="products-watermark-wrapper products-watermark-right-bottom">
+          <img
+            src="/images/logo/txco-mark-left.png"
+            alt=""
+            className="products-watermark-img"
+          />
+        </div>
+      </div>
+
+      <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
         {/* Top Badge */}
 
 

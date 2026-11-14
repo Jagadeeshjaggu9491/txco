@@ -36,6 +36,28 @@ if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
   ], 400);
 }
 
+// Restriction: Block personal webmail domains (e.g. Gmail, Yahoo, etc.)
+$blockedDomains = [
+  'gmail.com', 'googlemail.com', 'yahoo.com', 'yahoo.co.in', 'yahoo.co.uk', 'yahoo.fr', 'yahoo.de',
+  'ymail.com', 'rocketmail.com', 'outlook.com', 'hotmail.com', 'hotmail.co.uk', 'live.com', 'msn.com',
+  'icloud.com', 'me.com', 'mac.com', 'aol.com', 'aim.com', 'proton.me', 'protonmail.com', 'zoho.com',
+  'zohomail.com', 'mail.com', 'email.com', 'gmx.com', 'gmx.net', 'rediffmail.com', 'fastmail.com',
+  'yandex.com', 'yandex.ru', 'tutanota.com', 'tuta.io'
+];
+
+$emailParts = explode('@', $email);
+$emailDomain = end($emailParts);
+
+foreach ($blockedDomains as $blocked) {
+  if ($emailDomain === $blocked || (strlen($emailDomain) > strlen($blocked) && substr($emailDomain, -strlen('.' . $blocked)) === ('.' . $blocked))) {
+    sendResponse([
+      'success' => false,
+      'error' => 'personal_email_not_allowed',
+      'message' => 'Verification code cannot be dispatched to personal email addresses. Please use a company-registered email ID.'
+    ], 403);
+  }
+}
+
 // Generate OTP if not provided
 if (empty($otp)) {
   $otp = (string) random_int(100000, 999999);

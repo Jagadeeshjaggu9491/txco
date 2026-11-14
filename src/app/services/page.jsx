@@ -69,7 +69,8 @@ export default function ServicesPage() {
       <PageHero
         title="SPECIALIZED ENGINEERING & FIELD SERVICES"
         subtitle="We back our manufacturing with high-level metallurgical and mechanical engineering support to optimize joint integrity and eliminate premature failure."
-        bgImage="/images/banner/txco-page-banner.avif"
+        bgImage="/images/title-section/page-hero-banner-new.avif"
+        bgMobileImage="/images/title-section/services-page-banner-mobile.avif"
         bgPosition="center bottom"
       />
 

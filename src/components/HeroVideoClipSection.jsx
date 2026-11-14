@@ -6,13 +6,17 @@ import gsap from 'gsap';
 import '@/styles/hero-video-clip.css';
 
 const DEFAULT_BG = '/images/hero-video-bg-2.avif';
+const DEFAULT_BG_MOBILE = '/images/title-section/home-page-hero-mobile.avif';
 const DEFAULT_VIDEO = '/images/inside-clip-path-video.mp4';
 const CHEVRON_CLIP_PATH = 'polygon(17% 10%, 50% 10%, 86.5% 49%, 50.5% 90%, 18% 90%,  54.5% 49%)';
+const CHEVRON_CLIP_PATH_MOBILE = 'polygon(0% 0%, 46% 0%, 96% 49%, 46% 100%, 0% 100%, 38% 49%)';
 
 export default function HeroVideoClipSection({
   bgImage = DEFAULT_BG,
+  bgMobileImage = DEFAULT_BG_MOBILE,
   videoSrc = DEFAULT_VIDEO,
   clipPath = CHEVRON_CLIP_PATH,
+  clipPathMobile = CHEVRON_CLIP_PATH_MOBILE,
 }) {
   const [isPreloaderDone, setIsPreloaderDone] = useState(false);
   const sectionRef = useRef(null);
@@ -68,23 +72,34 @@ export default function HeroVideoClipSection({
         );
       }
 
-      // Video chevron entrance from right (anchored from bottom)
+      // Video chevron entrance from right (or from left on mobile)
       if (videoStageRef.current) {
+        const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
         tl.fromTo(
           videoStageRef.current,
-          { x: 50, opacity: 0, scale: 0.96, transformOrigin: 'bottom right' },
+          {
+            x: isMobile ? -40 : 50,
+            opacity: 0,
+            scale: 0.96,
+            transformOrigin: isMobile ? 'bottom left' : 'bottom right',
+          },
           { x: 0, opacity: 1, scale: 1, duration: 1.1, ease: 'power3.out' },
           0.05
         );
       }
 
-      // Headline lines reveal from left with stagger (exact match with HeroBrandSection)
+      // Headline lines reveal (rising on mobile for centered layout, from left on desktop)
       const lines = headlineRef.current?.querySelectorAll('.hero-brand-line');
       if (lines && lines.length > 0) {
+        const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
         tl.fromTo(
           lines,
-          { x: -50, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.85, stagger: 0.12 },
+          {
+            x: isMobile ? 0 : -50,
+            y: isMobile ? 24 : 0,
+            opacity: 0,
+          },
+          { x: 0, y: 0, opacity: 1, duration: 0.85, stagger: 0.12 },
           0.1
         );
       }
@@ -125,7 +140,10 @@ export default function HeroVideoClipSection({
         <div
           className="hero-clip-bg-img"
           ref={bgRef}
-          style={{ backgroundImage: `url('${bgImage}')` }}
+          style={{
+            '--hero-bg-desktop': `url('${bgImage}')`,
+            '--hero-bg-mobile': `url('${bgMobileImage}')`,
+          }}
         />
       </div>
 
@@ -141,8 +159,8 @@ export default function HeroVideoClipSection({
         <div
           className="hero-clip-video-shape"
           style={{
-            clipPath: clipPath,
-            WebkitClipPath: clipPath,
+            '--hero-clip-path-desktop': clipPath,
+            '--hero-clip-path-mobile': clipPathMobile,
           }}
         >
           <video

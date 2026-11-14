@@ -21,6 +21,9 @@ import {
   Building2,
   Clock,
   Filter,
+  Award,
+  FileText,
+  Download,
 } from 'lucide-react';
 import {
   mockPurchaseOrders,
@@ -173,7 +176,7 @@ export default function ClientPortalPage() {
               }}
             >
               <FileCheck2 size={18} />
-              <span>Test Certificate</span>
+              <span>Test Certificate (MTC)</span>
             </button>
           </nav>
         </div>
@@ -250,65 +253,242 @@ export default function ClientPortalPage() {
                         <th>PLATING<br />PROCESS</th>
                         <th>PACKING</th>
                         <th style={{ width: '85px' }}>PENDING<br />QTY</th>
-                        <th style={{ width: '160px' }}>INVOICE</th>
+                        <th style={{ width: '130px' }}>INVOICE</th>
+                        <th style={{ width: '150px' }}>MTC (TEST CERT)</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {selectedPo.items.map((item) => (
-                        <tr key={item.serialNo}>
-                          <td>{item.serialNo}</td>
-                          <td><strong>{item.item}</strong></td>
-                          <td>{item.orderQty}</td>
-                          <td>
-                            <span className="process-check-icon">
-                              <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
-                            </span>
-                          </td>
-                          <td>
-                            <span className="process-check-icon">
-                              <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
-                            </span>
-                          </td>
-                          <td>
-                            <span className="process-check-icon">
-                              <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
-                            </span>
-                          </td>
-                          <td>
-                            <span className="process-check-icon">
-                              <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
-                            </span>
-                          </td>
-                          <td>
-                            <span className="process-check-icon">
-                              <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
-                            </span>
-                          </td>
-                          <td>
-                            <span className="process-check-icon">
-                              <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
-                            </span>
-                          </td>
-                          <td>
-                            <span className="process-check-icon">
-                              <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
-                            </span>
-                          </td>
-                          <td>{item.pendingQty}</td>
-                          <td>
-                            <button
-                              type="button"
-                              className="invoice-link-btn"
-                              onClick={() => setActiveInvoice(item)}
-                              title="Click to view full export invoice PDF"
-                            >
-                              {item.invoiceLabel}
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
+                      {selectedPo.items.map((item) => {
+                        const matchedTc = testCertificates.find(
+                          (tc) =>
+                            (tc.tcName && item.tcName && tc.tcName.toLowerCase() === item.tcName.toLowerCase()) ||
+                            (tc.poNumber === selectedPo.poNumber && tc.ring?.toLowerCase().includes(item.item.split(' ')[0].toLowerCase()))
+                        ) || {
+                          id: `tc-${selectedPo.poNumber}-${item.serialNo}`,
+                          customerName: selectedPo.customerName,
+                          poNumber: selectedPo.poNumber,
+                          poDate: selectedPo.poDate,
+                          orderId: selectedPo.orderId,
+                          orderDate: selectedPo.orderDate,
+                          tcId: `TC-${selectedPo.poNumber}-${item.serialNo}`,
+                          tcName: item.tcName || `MTC-${item.serialNo}`,
+                          tcDate: selectedPo.poDate,
+                          ring: item.item,
+                          material: item.item.includes('625') ? 'Inconel Alloy 625 (UNS N06625)' : 'Stainless Steel 316L',
+                          heatCode: 'HT-9428',
+                          standard: 'EN 10204 Type 3.1 / API 6A',
+                        };
+
+                        return (
+                          <tr key={item.serialNo}>
+                            <td>{item.serialNo}</td>
+                            <td><strong>{item.item}</strong></td>
+                            <td>{item.orderQty}</td>
+                            <td>
+                              <span className="process-check-icon">
+                                <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
+                              </span>
+                            </td>
+                            <td>
+                              <span className="process-check-icon">
+                                <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
+                              </span>
+                            </td>
+                            <td>
+                              <span className="process-check-icon">
+                                <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
+                              </span>
+                            </td>
+                            <td>
+                              <span className="process-check-icon">
+                                <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
+                              </span>
+                            </td>
+                            <td>
+                              <span className="process-check-icon">
+                                <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
+                              </span>
+                            </td>
+                            <td>
+                              <span className="process-check-icon">
+                                <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
+                              </span>
+                            </td>
+                            <td>
+                              <span className="process-check-icon">
+                                <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" />
+                              </span>
+                            </td>
+                            <td>{item.pendingQty}</td>
+                            <td>
+                              <button
+                                type="button"
+                                className="invoice-link-btn"
+                                onClick={() => setActiveInvoice(item)}
+                                title="Click to view and download commercial export invoice PDF"
+                              >
+                                {item.invoiceLabel || `INV-${item.invoiceNo}`}
+                              </button>
+                            </td>
+                            <td>
+                              <button
+                                type="button"
+                                className="tc-link-btn"
+                                onClick={() => setActiveTc(matchedTc)}
+                                title="Click to view and download Material Test Certificate (MTC 3.1) PDF"
+                              >
+                                <Award size={13} style={{ marginRight: '4px', verticalAlign: 'middle', display: 'inline' }} />
+                                <span>{item.tcName ? `MTC ${item.tcName}` : `MTC #${item.serialNo}`}</span>
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
+                </div>
+
+                {/* Dual Download Sections: Commercial Invoice & MTC Download Cards */}
+                <div className="po-downloads-section">
+                  <div className="po-downloads-header">
+                    <h2 className="po-downloads-title">
+                      <ShieldCheck size={20} color="#052C58" />
+                      <span>Shipment Documents &amp; Quality Certifications</span>
+                    </h2>
+                    <p className="po-downloads-sub">
+                      Access and download official commercial export invoices alongside verified EN 10204-3.1 Material Test Certificates (MTCs) for PO #{selectedPo.poNumber}.
+                    </p>
+                  </div>
+
+                  <div className="po-downloads-grid">
+                    {/* CARD 1: INVOICE DOWNLOAD SECTION */}
+                    <div className="po-download-card invoice-download-card">
+                      <div>
+                        <div className="po-download-card-badge">Commercial Documentation</div>
+                        <div className="po-download-card-header">
+                          <div className="po-download-icon-box invoice-icon-box">
+                            <FileText size={24} />
+                          </div>
+                          <div>
+                            <h3 className="po-download-card-title">Commercial Export Invoice</h3>
+                            <p className="po-download-card-meta">
+                              Invoice No: <strong>{selectedPo.invoiceNumber || `INV-${selectedPo.items[0]?.invoiceNo || '19694'}`}</strong>
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="po-download-card-body">
+                          <div className="po-doc-detail-row">
+                            <span>PO Reference:</span>
+                            <strong>PO #{selectedPo.poNumber}</strong>
+                          </div>
+                          <div className="po-doc-detail-row">
+                            <span>Billing Currency:</span>
+                            <strong>{selectedPo.currency || 'USD'}</strong>
+                          </div>
+                          <div className="po-doc-detail-row">
+                            <span>Dispatch Carriage:</span>
+                            <span>{selectedPo.preCarriage || 'Air Freight (DHL Express)'}</span>
+                          </div>
+                          <div className="po-doc-detail-row">
+                            <span>Total Items Invoiced:</span>
+                            <span>{selectedPo.items.length} Line Items</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="po-download-card-footer">
+                        <button
+                          type="button"
+                          className="po-doc-action-btn invoice-btn"
+                          onClick={() => setActiveInvoice(selectedPo.items[0])}
+                          title="Open and download commercial export invoice PDF"
+                        >
+                          <Download size={16} />
+                          <span>Download Commercial Invoice (PDF)</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* CARD 2: MTC (MATERIAL TEST CERTIFICATE) DOWNLOAD SECTION */}
+                    <div className="po-download-card mtc-download-card">
+                      <div>
+                        <div className="po-download-card-badge mtc-badge">Quality Assurance &bull; EN 10204 3.1</div>
+                        <div className="po-download-card-header">
+                          <div className="po-download-icon-box mtc-icon-box">
+                            <Award size={24} />
+                          </div>
+                          <div>
+                            <h3 className="po-download-card-title">Material Test Certificates (MTC)</h3>
+                            <p className="po-download-card-meta">
+                              Inspection Type: <strong>EN 10204 Type 3.1 Certified</strong>
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="po-download-card-body">
+                          <p className="mtc-card-desc">
+                            Verified chemical composition, heat code numbers, and mechanical property test reports for every line item:
+                          </p>
+                          <div className="mtc-items-pills-list">
+                            {selectedPo.items.map((item) => {
+                              const matchedTc = testCertificates.find(
+                                (tc) =>
+                                  (tc.tcName && item.tcName && tc.tcName.toLowerCase() === item.tcName.toLowerCase()) ||
+                                  (tc.poNumber === selectedPo.poNumber && tc.ring?.toLowerCase().includes(item.item.split(' ')[0].toLowerCase()))
+                              ) || {
+                                id: `tc-${selectedPo.poNumber}-${item.serialNo}`,
+                                customerName: selectedPo.customerName,
+                                poNumber: selectedPo.poNumber,
+                                poDate: selectedPo.poDate,
+                                orderId: selectedPo.orderId,
+                                orderDate: selectedPo.orderDate,
+                                tcId: `TC-${selectedPo.poNumber}-${item.serialNo}`,
+                                tcName: item.tcName || `MTC-${item.serialNo}`,
+                                tcDate: selectedPo.poDate,
+                                ring: item.item,
+                                material: item.item.includes('625') ? 'Inconel Alloy 625 (UNS N06625)' : 'Stainless Steel 316L',
+                                heatCode: 'HT-9428',
+                                standard: 'EN 10204 Type 3.1 / API 6A',
+                              };
+
+                              return (
+                                <button
+                                  key={item.serialNo}
+                                  type="button"
+                                  className="mtc-pill-btn"
+                                  onClick={() => setActiveTc(matchedTc)}
+                                  title={`Download MTC for ${item.item} (${item.tcName || `Item #${item.serialNo}`})`}
+                                >
+                                  <FileCheck2 size={14} className="mtc-pill-icon" />
+                                  <span className="mtc-pill-text">{item.item} — {item.tcName || `MTC #${item.serialNo}`}</span>
+                                  <Download size={13} className="mtc-pill-dl" />
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="po-download-card-footer">
+                        <button
+                          type="button"
+                          className="po-doc-action-btn mtc-btn"
+                          onClick={() => {
+                            const firstItem = selectedPo.items[0];
+                            const matchedTc = testCertificates.find(
+                              (tc) => tc.tcName === firstItem?.tcName || tc.poNumber === selectedPo.poNumber
+                            ) || testCertificates[0];
+                            setActiveTc(matchedTc);
+                          }}
+                          title="View and download primary Material Test Certificate"
+                        >
+                          <Award size={16} />
+                          <span>View / Download Primary MTC (PDF)</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Bottom Navigation */}
@@ -392,11 +572,11 @@ export default function ClientPortalPage() {
         )}
 
         {/* ================================================================
-            TAB 2: TEST CERTIFICATE (Exact Match for Screenshot 4 & 5)
+            TAB 2: TEST CERTIFICATE (MTC)
             ================================================================ */}
         {activeTab === 'test-certificate' && (
           <div className="portal-card">
-            <h1 className="portal-view-title">Test Certificate</h1>
+            <h1 className="portal-view-title">Material Test Certificates (MTC / EN 10204-3.1)</h1>
 
             {/* 5 Search Filter Input Boxes */}
             <div className="tc-filter-grid">
@@ -466,7 +646,7 @@ export default function ClientPortalPage() {
                     <th>ORDER ID</th>
                     <th>ORDER DATE</th>
                     <th>TC ID</th>
-                    <th>TC NAME</th>
+                    <th>MTC / CERT NAME</th>
                     <th>TC DATE</th>
                     <th>RING</th>
                     <th>MATERIAL</th>
@@ -486,9 +666,10 @@ export default function ClientPortalPage() {
                           type="button"
                           className="tc-link-btn"
                           onClick={() => setActiveTc(tc)}
-                          title="Click to view EN 10204-3.1 inspection certificate PDF"
+                          title="Click to view and download EN 10204-3.1 Material Test Certificate (MTC) PDF"
                         >
-                          {tc.tcName}
+                          <Award size={13} style={{ marginRight: '4px', verticalAlign: 'middle', display: 'inline' }} />
+                          <span>{tc.tcName}</span>
                         </button>
                       </td>
                       <td>{tc.tcDate}</td>

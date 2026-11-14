@@ -20,7 +20,7 @@ import {
   PackageCheck,
 } from 'lucide-react';
 import gsap from 'gsap';
-import { loginUser, getCurrentUser, logoutUser } from '@/utils/authManager';
+import { loginUser, getCurrentUser, logoutUser, isPersonalEmail } from '@/utils/authManager';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -57,17 +57,35 @@ export default function LoginPage() {
     e.preventDefault();
     setErrorType(null);
     setErrorMessage('');
+
+    const cleanEmail = email.trim().toLowerCase();
+
+    // Restriction: Company-registered email IDs only (No personal emails like Gmail)
+    if (isPersonalEmail(cleanEmail)) {
+      setErrorType('personal_email_not_allowed');
+      setErrorMessage(
+        'Login access is restricted to company-registered email IDs only. Personal email domains (such as Gmail) are not permitted.'
+      );
+      if (emailInputRef.current) {
+        emailInputRef.current.focus();
+      }
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const res = await loginUser(email, password);
+      const res = await loginUser(cleanEmail, password);
 
       if (!res.success) {
         setErrorType(res.error);
         setErrorMessage(res.message);
 
         // Auto-focus relevant field based on error
-        if (res.error === 'email_not_found' && emailInputRef.current) {
+        if (
+          (res.error === 'email_not_found' || res.error === 'personal_email_not_allowed') &&
+          emailInputRef.current
+        ) {
           emailInputRef.current.focus();
         } else if (res.error === 'wrong_password' && passwordInputRef.current) {
           passwordInputRef.current.focus();
@@ -115,7 +133,7 @@ export default function LoginPage() {
               <p className="auth-card-subtitle">
                 {authenticatedUser
                   ? `Signed in as ${authenticatedUser.name} (${authenticatedUser.role === 'admin' ? 'Administrator' : 'Customer'})`
-                  : 'Sign in with your corporate credentials to manage your industrial sealing projects.'}
+                  : 'Sign in with your company-registered email credentials to access industrial sealing documentation and project records.'}
               </p>
             </div>
 
@@ -293,7 +311,34 @@ export default function LoginPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="auth-form">
-                {/* 1. Error Banner: Email Not in Database */}
+                {/* 1. Error Banner: Personal Email Domain Restricted */}
+                {errorType === 'personal_email_not_allowed' && (
+                  <div
+                    style={{
+                      padding: '1rem',
+                      backgroundColor: '#fef2f2',
+                      border: '1.5px solid #dc2626',
+                      borderRadius: '8px',
+                      color: '#991b1b',
+                      fontSize: '0.9rem',
+                      lineHeight: '1.45',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                      <AlertCircle size={20} style={{ color: '#dc2626', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <div style={{ fontWeight: '700', marginBottom: '0.2rem' }}>
+                          Company-Registered Email Required
+                        </div>
+                        <div style={{ color: '#7f1d1d' }}>
+                          {errorMessage || 'Login access is restricted to company-registered email IDs only. Personal email domains (such as Gmail, Yahoo, etc.) are not permitted.'}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* 2. Error Banner: Email Not in Database */}
                 {errorType === 'email_not_found' && (
                   <div
                     style={{
@@ -342,7 +387,7 @@ export default function LoginPage() {
                   </div>
                 )}
 
-                {/* 2. Error Banner: Wrong Password */}
+                {/* 3. Error Banner: Wrong Password */}
                 {errorType === 'wrong_password' && (
                   <div
                     style={{
@@ -386,13 +431,17 @@ export default function LoginPage() {
                 {/* Email Field */}
                 <div className="auth-form-group">
                   <label className="auth-label" htmlFor="login-email">
-                    Email Address
+                    Company Email Address
                   </label>
                   <div className="auth-input-wrapper">
                     <span className="auth-input-icon">
                       <Mail
                         size={18}
-                        color={errorType === 'email_not_found' ? '#dc2626' : undefined}
+                        color={
+                          errorType === 'email_not_found' || errorType === 'personal_email_not_allowed'
+                            ? '#dc2626'
+                            : undefined
+                        }
                       />
                     </span>
                     <input
@@ -411,12 +460,24 @@ export default function LoginPage() {
                       }}
                       className="auth-input"
                       style={
-                        errorType === 'email_not_found'
+                        errorType === 'email_not_found' || errorType === 'personal_email_not_allowed'
                           ? { borderColor: '#dc2626', backgroundColor: '#fef2f2' }
                           : {}
                       }
                     />
                   </div>
+                  <span
+                    style={{
+                      fontSize: '0.78rem',
+                      color: '#64748b',
+                      marginTop: '0.25rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                    }}
+                  >
+                    <span>🔒 Restricted to company-registered email IDs only (Gmail and personal webmails are not accepted).</span>
+                  </span>
                 </div>
 
                 {/* Password Field */}

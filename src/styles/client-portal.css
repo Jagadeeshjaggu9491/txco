@@ -1251,6 +1251,249 @@
   color: #555555;
 }
 
+/* ==========================================================================
+   Dual Download Sections: Commercial Invoice & MTC Download Cards
+   ========================================================================== */
+.po-downloads-section {
+  margin-top: 2.2rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.po-downloads-header {
+  margin-bottom: 1.4rem;
+}
+
+.po-downloads-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.po-downloads-sub {
+  font-size: 0.86rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.po-downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 1.5rem;
+}
+
+.po-download-card {
+  background-color: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.po-download-card:hover {
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.invoice-download-card {
+  border-top: 4px solid #052C58;
+}
+
+.mtc-download-card {
+  border-top: 4px solid #018F5D;
+}
+
+.po-download-card-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #052C58;
+  margin-bottom: 0.85rem;
+}
+
+.po-download-card-badge.mtc-badge {
+  color: #018F5D;
+}
+
+.po-download-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.po-download-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.invoice-icon-box {
+  background-color: #eff6ff;
+  color: #052C58;
+}
+
+.mtc-icon-box {
+  background-color: #ecfdf5;
+  color: #018F5D;
+}
+
+.po-download-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.25rem 0;
+}
+
+.po-download-card-meta {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.po-download-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.po-doc-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.84rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #f1f5f9;
+  color: #64748b;
+}
+
+.po-doc-detail-row strong {
+  color: #0f172a;
+}
+
+.mtc-card-desc {
+  font-size: 0.83rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 0.8rem 0;
+}
+
+.mtc-items-pills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.mtc-items-pills-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.mtc-items-pills-list::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+.mtc-pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.mtc-pill-btn:hover {
+  background-color: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #065f46;
+  transform: translateX(2px);
+}
+
+.mtc-pill-icon {
+  color: #018F5D;
+  flex-shrink: 0;
+}
+
+.mtc-pill-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mtc-pill-dl {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.po-doc-action-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.po-doc-action-btn.invoice-btn {
+  background-color: #052C58;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(5, 44, 88, 0.2);
+}
+
+.po-doc-action-btn.invoice-btn:hover {
+  background-color: #0d3d75;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(5, 44, 88, 0.3);
+}
+
+.po-doc-action-btn.mtc-btn {
+  background-color: #018F5D;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(1, 143, 93, 0.2);
+}
+
+.po-doc-action-btn.mtc-btn:hover {
+  background-color: #027a4f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(1, 143, 93, 0.3);
+}
+
 /* --------------------------------------------------------------------------
    Print Optimizations
    -------------------------------------------------------------------------- */

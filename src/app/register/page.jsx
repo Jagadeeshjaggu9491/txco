@@ -29,6 +29,7 @@ import {
   sendRegistrationOTP,
   verifyRegistrationOTP,
   checkEmailExists,
+  isPersonalEmail,
 } from '@/utils/authManager';
 
 export default function RegisterPage() {
@@ -90,6 +91,11 @@ export default function RegisterPage() {
     const cleanEmail = email.trim().toLowerCase();
     if (!cleanEmail || !cleanEmail.includes('@') || !cleanEmail.includes('.')) {
       setError('Please enter a valid corporate email address.');
+      return;
+    }
+
+    if (isPersonalEmail(cleanEmail)) {
+      setError('Registration is restricted to company-registered email IDs only. Personal email domains (such as Gmail) are not permitted.');
       return;
     }
 
@@ -329,7 +335,7 @@ export default function RegisterPage() {
                   {/* Email Field */}
                   <div className="auth-form-group">
                     <label className="auth-label" htmlFor="register-email">
-                      Email Address *
+                      Company Email Address *
                     </label>
                     <div className="auth-input-wrapper">
                       <span className="auth-input-icon">
@@ -346,6 +352,18 @@ export default function RegisterPage() {
                         autoFocus
                       />
                     </div>
+                    <span
+                      style={{
+                        fontSize: '0.78rem',
+                        color: '#64748b',
+                        marginTop: '0.25rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.35rem',
+                      }}
+                    >
+                      <span>🔒 Restricted to company domains (personal accounts like Gmail are not accepted).</span>
+                    </span>
                   </div>
 
                   {/* Full Name */}
