@@ -125,7 +125,25 @@ export default function FaqsAccordion() {
 
   return (
     <section ref={sectionRef} className="faqs-main-section">
-      <div className="faqs-container">
+      {/* Background Brand Mark Watermarks */}
+      <div className="faqs-watermarks" aria-hidden="true">
+        <div className="faqs-watermark-left">
+          <img
+            src="/images/logo/txco-mark-right.avif"
+            alt=""
+            className="faqs-watermark-img"
+          />
+        </div>
+        <div className="faqs-watermark-right">
+          <img
+            src="/images/logo/txco-mark-left.png"
+            alt=""
+            className="faqs-watermark-img"
+          />
+        </div>
+      </div>
+
+      <div className="faqs-container" style={{ position: 'relative', zIndex: 2 }}>
         {/* Search Input Bar */}
         <div ref={searchRef} className="faqs-search-wrapper">
           <Search size={20} color="#64748b" style={{ flexShrink: 0 }} />

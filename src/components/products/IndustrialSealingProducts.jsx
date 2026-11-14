@@ -74,7 +74,25 @@ export default function IndustrialSealingProducts({ data = defaultData, classNam
 
   return (
     <section ref={sectionRef} className={`industrial-sealing-section ${className}`.trim()}>
-      <div className='container'>
+      {/* Background Brand Mark Watermarks: One Left-Top, Another Right-Bottom */}
+      <div className="industrial-sealing-watermarks-container" aria-hidden="true">
+        <div className="industrial-sealing-watermark-wrapper industrial-sealing-watermark-left-top">
+          <img
+            src="/images/logo/txco-mark-right.avif"
+            alt=""
+            className="industrial-sealing-watermark-img"
+          />
+        </div>
+        <div className="industrial-sealing-watermark-wrapper industrial-sealing-watermark-right-bottom">
+          <img
+            src="/images/logo/txco-mark-left.png"
+            alt=""
+            className="industrial-sealing-watermark-img"
+          />
+        </div>
+      </div>
+
+      <div className='container' style={{ position: 'relative', zIndex: 2 }}>
         {/* Header Title & Paragraph */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <h2 ref={headingRef} className="section-main-heading section-title-center">

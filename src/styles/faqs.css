@@ -57,6 +57,83 @@
   width: 100%;
   background-color: var(--bg-light-surface, #f8fafc);
   padding: 4.5rem 2rem 6.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Brand Watermarks */
+.faqs-watermarks {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.faqs-watermark-left {
+  position: absolute;
+  left: -50px;
+  top: 50px;
+  width: clamp(260px, 28vw, 460px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.faqs-watermark-right {
+  position: absolute;
+  right: -50px;
+  bottom: 50px;
+  width: clamp(260px, 28vw, 460px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.faqs-watermark-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .faqs-watermark-left,
+  .faqs-watermark-right {
+    width: clamp(200px, 30vw, 340px);
+    opacity: 0.5;
+  }
+
+  .faqs-watermark-left {
+    left: -40px;
+    top: 25px;
+  }
+
+  .faqs-watermark-right {
+    right: -40px;
+    bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faqs-watermark-left,
+  .faqs-watermark-right {
+    width: 180px;
+    opacity: 0.35;
+  }
+
+  .faqs-watermark-left {
+    left: -30px;
+    top: 15px;
+  }
+
+  .faqs-watermark-right {
+    right: -30px;
+    bottom: 15px;
+  }
 }
 
 .faqs-container {

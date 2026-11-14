@@ -67,6 +67,52 @@
   width: 100%;
   background-color: var(--bg-cool-grey);
   padding: 4.5rem 2rem 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* =========================================================================
+   BACKGROUND BRAND WATERMARKS: One Left-Top, Another Right-Bottom
+   Contained strictly inside 100% width container to prevent horizontal scroll
+   ========================================================================= */
+.products-watermarks-container,
+.industrial-sealing-watermarks-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.products-watermark-wrapper,
+.industrial-sealing-watermark-wrapper {
+  position: absolute;
+  width: clamp(280px, 30vw, 480px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.products-watermark-left-top,
+.industrial-sealing-watermark-left-top {
+  left: -50px;
+  top: 50px;
+}
+
+.products-watermark-right-bottom,
+.industrial-sealing-watermark-right-bottom {
+  right: -50px;
+  bottom: 50px;
+}
+
+.products-watermark-img,
+.industrial-sealing-watermark-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* =========================================================================
@@ -427,6 +473,8 @@
   width: 100%;
   background-color: var(--bg-pure-white);
   padding: 5rem 2rem 5rem 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .info-card-box {
@@ -507,6 +555,24 @@
     flex: 0 0 calc(50% - 1rem) !important;
     max-width: calc(50% - 1rem) !important;
   }
+
+  .products-watermark-wrapper,
+  .industrial-sealing-watermark-wrapper {
+    width: clamp(220px, 32vw, 360px);
+    opacity: 0.55;
+  }
+
+  .products-watermark-left-top,
+  .industrial-sealing-watermark-left-top {
+    left: -40px;
+    top: 25px;
+  }
+
+  .products-watermark-right-bottom,
+  .industrial-sealing-watermark-right-bottom {
+    right: -40px;
+    bottom: 25px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -524,5 +590,25 @@
   .product-card-flex-item {
     flex: 0 0 100% !important;
     max-width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-watermark-wrapper,
+  .industrial-sealing-watermark-wrapper {
+    width: 200px;
+    opacity: 0.38;
+  }
+
+  .products-watermark-left-top,
+  .industrial-sealing-watermark-left-top {
+    left: -30px;
+    top: 15px;
+  }
+
+  .products-watermark-right-bottom,
+  .industrial-sealing-watermark-right-bottom {
+    right: -30px;
+    bottom: 15px;
   }
 }

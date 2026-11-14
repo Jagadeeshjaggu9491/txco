@@ -235,7 +235,25 @@ export default function GasketSelectionGuide() {
 
   return (
     <section className="rtj-calc-section" id="gasket-selection-guide">
-      <div className="rtj-calc-container">
+      {/* Background Brand Mark Watermarks */}
+      <div className="rtj-calc-watermarks" aria-hidden="true">
+        <div className="rtj-calc-watermark-left">
+          <img
+            src="/images/logo/txco-mark-right.avif"
+            alt=""
+            className="rtj-calc-watermark-img"
+          />
+        </div>
+        <div className="rtj-calc-watermark-right">
+          <img
+            src="/images/logo/txco-mark-left.png"
+            alt=""
+            className="rtj-calc-watermark-img"
+          />
+        </div>
+      </div>
+
+      <div className="rtj-calc-container" style={{ position: 'relative', zIndex: 2 }}>
         {/* Section Header */}
         <div className="rtj-calc-header">
 

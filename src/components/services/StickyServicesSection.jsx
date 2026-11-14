@@ -56,7 +56,25 @@ export default function StickyServicesSection({
 
   return (
     <section className="sticky-services-section">
-      <div className="sticky-services-container">
+      {/* Background Brand Mark Watermarks */}
+      <div className="sticky-services-watermarks" aria-hidden="true">
+        <div className="sticky-services-watermark-left">
+          <img
+            src="/images/logo/txco-mark-right.avif"
+            alt=""
+            className="sticky-services-watermark-img"
+          />
+        </div>
+        <div className="sticky-services-watermark-right">
+          <img
+            src="/images/logo/txco-mark-left.png"
+            alt=""
+            className="sticky-services-watermark-img"
+          />
+        </div>
+      </div>
+
+      <div className="sticky-services-container" style={{ position: 'relative', zIndex: 2 }}>
         {/* Section Header */}
         <div className="sticky-services-header">
           <h2 className="section-main-heading sticky-services-title">{title}</h2>

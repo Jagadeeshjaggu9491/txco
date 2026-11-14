@@ -11,6 +11,82 @@
   position: relative;
   color: #1e293b;
   border-bottom: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+/* Background Brand Watermarks */
+.rtj-calc-watermarks {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.rtj-calc-watermark-left {
+  position: absolute;
+  left: -50px;
+  top: 50px;
+  width: clamp(260px, 28vw, 460px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.rtj-calc-watermark-right {
+  position: absolute;
+  right: -50px;
+  bottom: 50px;
+  width: clamp(260px, 28vw, 460px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.rtj-calc-watermark-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .rtj-calc-watermark-left,
+  .rtj-calc-watermark-right {
+    width: clamp(200px, 30vw, 340px);
+    opacity: 0.5;
+  }
+
+  .rtj-calc-watermark-left {
+    left: -40px;
+    top: 25px;
+  }
+
+  .rtj-calc-watermark-right {
+    right: -40px;
+    bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rtj-calc-watermark-left,
+  .rtj-calc-watermark-right {
+    width: 180px;
+    opacity: 0.35;
+  }
+
+  .rtj-calc-watermark-left {
+    left: -30px;
+    top: 15px;
+  }
+
+  .rtj-calc-watermark-right {
+    right: -30px;
+    bottom: 15px;
+  }
 }
 
 .rtj-calc-container {

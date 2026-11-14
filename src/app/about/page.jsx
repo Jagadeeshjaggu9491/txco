@@ -220,7 +220,25 @@ export default function AboutPage() {
       <main>
         {/* 1. Executive Narrative & Overview */}
         <section ref={overviewRef} className="about-new-overview-section">
-          <div className="about-new-container">
+          {/* Background Brand Mark Watermarks */}
+          <div className="about-overview-watermarks" aria-hidden="true">
+            <div className="about-overview-watermark-left">
+              <img
+                src="/images/logo/txco-mark-right.avif"
+                alt=""
+                className="about-overview-watermark-img"
+              />
+            </div>
+            <div className="about-overview-watermark-right">
+              <img
+                src="/images/logo/txco-mark-left.png"
+                alt=""
+                className="about-overview-watermark-img"
+              />
+            </div>
+          </div>
+
+          <div className="about-new-container" style={{ position: 'relative', zIndex: 2 }}>
             <div className="about-new-overview-grid">
               {/* Left Column: Mission Narrative */}
               <div ref={overviewLeftRef}>

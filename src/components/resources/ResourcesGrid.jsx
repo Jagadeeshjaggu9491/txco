@@ -108,7 +108,25 @@ export default function ResourcesGrid() {
 
   return (
     <section ref={sectionRef} className="resources-grid-section">
-      <div className="resources-grid-container">
+      {/* Background Brand Mark Watermarks */}
+      <div className="resources-watermarks" aria-hidden="true">
+        <div className="resources-watermark-left">
+          <img
+            src="/images/logo/txco-mark-right.avif"
+            alt=""
+            className="resources-watermark-img"
+          />
+        </div>
+        <div className="resources-watermark-right">
+          <img
+            src="/images/logo/txco-mark-left.png"
+            alt=""
+            className="resources-watermark-img"
+          />
+        </div>
+      </div>
+
+      <div className="resources-grid-container" style={{ position: 'relative', zIndex: 2 }}>
         {/* Main Section Heading */}
         <h2 ref={headingRef} className="section-main-heading resources-section-heading">
           Latest Resources

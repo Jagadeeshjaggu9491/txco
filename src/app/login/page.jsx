@@ -125,6 +125,24 @@ export default function LoginPage() {
 
         {/* Login Card Section */}
         <section className="auth-page-section">
+          {/* Background Brand Mark Watermarks */}
+          <div className="auth-watermarks" aria-hidden="true">
+            <div className="auth-watermark-left">
+              <img
+                src="/images/logo/txco-mark-right.avif"
+                alt=""
+                className="auth-watermark-img"
+              />
+            </div>
+            <div className="auth-watermark-right">
+              <img
+                src="/images/logo/txco-mark-left.png"
+                alt=""
+                className="auth-watermark-img"
+              />
+            </div>
+          </div>
+
           <div className="auth-card-container" ref={cardRef}>
             <div className="auth-card-header">
               <h2 className="auth-card-title">

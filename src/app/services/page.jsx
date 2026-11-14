@@ -77,7 +77,25 @@ export default function ServicesPage() {
       <main>
         {/* 1. Services Executive Overview Section */}
         <section className="services-intro-section">
-          <div className="services-container">
+          {/* Background Brand Mark Watermarks */}
+          <div className="services-intro-watermarks" aria-hidden="true">
+            <div className="services-intro-watermark-left">
+              <img
+                src="/images/logo/txco-mark-right.avif"
+                alt=""
+                className="services-intro-watermark-img"
+              />
+            </div>
+            <div className="services-intro-watermark-right">
+              <img
+                src="/images/logo/txco-mark-left.png"
+                alt=""
+                className="services-intro-watermark-img"
+              />
+            </div>
+          </div>
+
+          <div className="services-container" style={{ position: 'relative', zIndex: 2 }}>
             <div className="row align-items-center g-4 g-lg-5">
               {/* Left Column: Narrative & Stats */}
               <div ref={introLeftRef} className="col-lg-6">

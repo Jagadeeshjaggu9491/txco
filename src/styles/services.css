@@ -26,6 +26,83 @@
   padding: 5rem 0 4.5rem 0;
   background-color: #ffffff;
   border-bottom: 1px solid var(--border-light, #e2e8f0);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Brand Watermarks */
+.services-intro-watermarks {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.services-intro-watermark-left {
+  position: absolute;
+  left: -50px;
+  top: 40px;
+  width: clamp(260px, 28vw, 460px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.services-intro-watermark-right {
+  position: absolute;
+  right: -50px;
+  bottom: 40px;
+  width: clamp(260px, 28vw, 460px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.services-intro-watermark-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .services-intro-watermark-left,
+  .services-intro-watermark-right {
+    width: clamp(200px, 30vw, 340px);
+    opacity: 0.5;
+  }
+
+  .services-intro-watermark-left {
+    left: -40px;
+    top: 20px;
+  }
+
+  .services-intro-watermark-right {
+    right: -40px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-intro-watermark-left,
+  .services-intro-watermark-right {
+    width: 180px;
+    opacity: 0.35;
+  }
+
+  .services-intro-watermark-left {
+    left: -30px;
+    top: 10px;
+  }
+
+  .services-intro-watermark-right {
+    right: -30px;
+    bottom: 10px;
+  }
 }
 
 
